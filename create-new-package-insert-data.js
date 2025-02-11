@@ -600,7 +600,6 @@ createAllPackageIncludingAndNotIncludingData = function () {
         'extra_car_for_carring_bags_checkbox',
         'outer_flight_tickets_checkbox',
         'placese_visiting_cost_checkbox',
-        'bali_taxes_not_covered_checkbox'
     ];
 
     // Play a sound effect
