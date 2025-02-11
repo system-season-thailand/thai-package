@@ -867,7 +867,7 @@ async function submitForm() {
 async function fetchData() {
     try {
         // Send a GET request to the Google Apps Script URL
-        let response = await fetch("https://script.google.com/macros/s/AKfycbyu59s9ohWcItqp_Cp_-oFSujcEydKwjBoel5TV0KhTkQvmA5xj7A0BOgbnMlCKf_O1qg/exec");
+        let response = await fetch("https://script.google.com/macros/s/AKfycbyImSO6bIac54eqIoUEEi6eE0rN_J_zmn6WdkIydtqsEggY2_i0XyCaJb1ZGEqZM43Mqw/exec");
         // Parse the response as JSON
         let data = await response.json();
         // Process the fetched data
