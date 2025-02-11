@@ -1374,7 +1374,6 @@ reActiveDragAndDropFunctionality = function (visiableDivIdName) {
             'inner_flight_tickets_checkbox',
             'outer_flight_tickets_checkbox',
             'placese_visiting_cost_checkbox',
-            'bali_taxes_not_covered_checkbox'
         ];
 
         // Uncheck all inputs and reset their color
