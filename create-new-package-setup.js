@@ -1,15 +1,15 @@
 /* Function to prevent the page refresh by mistake */
-/* window.addEventListener('beforeunload', function (event) {
+window.addEventListener('beforeunload', function (event) {
     event.preventDefault(); // Prevent the default action
     event.returnValue = ''; // Set the return value to trigger the default browser confirmation dialog
-}); */
+});
 
 
 
 
 
 // Correct password value - update this whenever you want to change the password
-let correctPassword = "00thailand00";
+let correctPassword = "00season00";
 
 // Array of messages for empty password input attempts
 let randomMessages_1 = [
