@@ -21,7 +21,8 @@
 /* Body */
 body {
     opacity: 0;
-    background: rgb(215, 232, 244);
+    /* background: rgb(215, 232, 244); */
+    background: white;
     color: black;
     margin-bottom: 200px;
     transition: all 0.5s ease-in-out;
