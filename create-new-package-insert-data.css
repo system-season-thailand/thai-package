@@ -116,9 +116,11 @@
 }
 
 .pdf_section_title_div_class h6 {
-    background: rgb(255, 170, 0);
+    /* رمادي */
+    /* background: rgb(76, 86, 96); */
+    background: rgba(31, 66, 98, 0.961);
     width: fit-content;
-    color: black;
+    color: white;
     font-size: 2.5vw;
     padding: 5px 15px;
     font-weight: 600;
@@ -260,7 +262,7 @@
 }
 
 #package_total_price_div h6 {
-    background: rgb(245, 196, 89);
+    background: rgba(255, 170, 0, 0.467);
     color: black;
     font-size: 5vw;
     padding: 5px 15px;
@@ -482,7 +484,7 @@
 
 /* inserted main row data coloring */
 .inserted_main_row_color_class {
-    background: rgb(245, 196, 89);
+    background: rgba(255, 170, 0, 0.467);
     color: black;
     border-top: 0.5px solid black;
 }
