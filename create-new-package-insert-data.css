@@ -159,6 +159,7 @@
 
 .hotel_row_class div * {
     text-align: center;
+    direction: ltr;
 }
 
 .hotel_row_class div:first-child {
