@@ -240,11 +240,6 @@ body {
     right: 15px;
 }
 
-.show-modal {
-    opacity: 1;
-    visibility: visible;
-}
-
 /* Exported pdf file element */
 .inserted_package_data_section_page_image_class {
     display: none;
@@ -1201,11 +1196,7 @@ body {
     }
 
     #hotel_important_info_box_close_icon {
-        cursor: pointer;
-        color: red;
         font-size: 8vw;
-        font-weight: bold;
-        position: absolute;
         top: -3vw;
         right: 15px;
     }
@@ -1262,6 +1253,17 @@ body {
 
     .google_sheet_dropdown_div_class ion-icon {
         font-size: 9vw;
+    }
+
+    /* Hotel info message box */
+    #hotel_important_info_box_div p {
+        font-size: 3.5vw;
+    }
+
+    #hotel_important_info_box_close_icon {
+        font-size: 12vw;
+        top: -5vw;
+        right: 7px;
     }
 
     /* Inserted images in exported pdf */
