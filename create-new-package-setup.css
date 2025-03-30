@@ -208,6 +208,43 @@ body {
     cursor: pointer;
 }
 
+/* Hotel info message box */
+#hotel_important_info_box_div {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    background: black;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+}
+
+#hotel_important_info_box_div p {
+    font-size: 1rem;
+}
+
+#hotel_important_info_box_close_icon {
+    cursor: pointer;
+    color: red;
+    font-size: 4rem;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: 15px;
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* Exported pdf file element */
 .inserted_package_data_section_page_image_class {
     display: none;
@@ -353,9 +390,12 @@ body {
 #filter_google_sheet_packages_names_div {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
-    grid-template-rows: repeat(2, 1fr); /* 2 equal rows */
-    gap: 0; /* No space between elements */
+    grid-template-columns: repeat(5, 1fr);
+    /* 5 equal columns */
+    grid-template-rows: repeat(2, 1fr);
+    /* 2 equal rows */
+    gap: 0;
+    /* No space between elements */
     text-align: center;
 }
 
@@ -368,9 +408,12 @@ body {
     align-items: center;
     justify-content: center;
     margin: 0;
-    border: 0.5px solid black; /* Add borders for better structure */
-    width: 100%; /* Ensures it takes full grid cell width */
-    box-sizing: border-box; /* Ensures border does not affect size */
+    border: 0.5px solid black;
+    /* Add borders for better structure */
+    width: 100%;
+    /* Ensures it takes full grid cell width */
+    box-sizing: border-box;
+    /* Ensures border does not affect size */
 }
 
 /* Create New hotel Package Section */
@@ -1145,6 +1188,26 @@ body {
 @media (max-width: 760px) {
     #package_details_input_id {
         font-size: 14px;
+    }
+
+    /* Hotel info message box */
+    #hotel_important_info_box_div {
+        width: 95%;
+        padding: 5px;
+    }
+
+    #hotel_important_info_box_div p {
+        font-size: 2.5vw;
+    }
+
+    #hotel_important_info_box_close_icon {
+        cursor: pointer;
+        color: red;
+        font-size: 8vw;
+        font-weight: bold;
+        position: absolute;
+        top: -3vw;
+        right: 15px;
     }
 }
 
