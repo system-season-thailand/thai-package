@@ -88,6 +88,93 @@ body {
     background-color: #0056b3;
 }
 
+/* Close Sell Messga Styling */
+.modal-box {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #003049;
+    padding: 20px 3px;
+    opacity: 0;
+    /* Start invisible */
+    transition: opacity 0.3s ease;
+    /* Smooth transition for fading */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeInBox 0.4s ease;
+    /* Optional content animation */
+    width: 100vw;
+    display: flex;
+    /* Use Flexbox for centering */
+    flex-direction: column;
+    /* Arrange items vertically */
+    justify-content: center;
+    /* Center items vertically */
+    align-items: center;
+    /* Center items horizontally */
+    text-align: center;
+    /* Center-align text */
+    color: white;
+}
+
+.modal-box.show {
+    display: flex;
+    /* Show the box */
+    opacity: 1;
+    /* Fully visible */
+}
+
+.modal-box.hide {
+    opacity: 0;
+    /* Fading out */
+}
+
+@keyframes fadeInBox {
+    from {
+        transform: translate(-50%, -55%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+.modal-box button {
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Shaking effect animation (faster) */
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(3px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.shake-border {
+    animation: shake 0.15s ease infinite;
+}
+
+input {
+    transition: border-color 0.15s ease;
+}
+
 /* Special Effects */
 .black_overlay {
     z-index: 999;
