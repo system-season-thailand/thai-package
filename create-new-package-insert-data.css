@@ -131,6 +131,7 @@
 
 .no_right_padding_for_vid_design_div_class {
     background: rgb(99, 37, 35) !important;
+    color: white !important;
 }
 
 /* Pdf section title */
@@ -146,7 +147,7 @@
 }
 
 .pdf_section_title_div_class h6 {
-    background: rgb(161, 45, 10);
+    background: rgba(31, 66, 98, 0.961);
     width: fit-content;
     color: white;
     font-size: 2.5vw;
@@ -187,6 +188,7 @@
 
 .hotel_row_class div * {
     text-align: center;
+    direction: ltr;
 }
 
 .hotel_row_class div:first-child {
@@ -290,8 +292,8 @@
 }
 
 #package_total_price_div h6 {
-    background: rgb(182, 54, 15);
-    color: white;
+    background: rgba(255, 170, 0, 0.467);
+    color: black;
     font-size: 5vw;
     padding: 5px 15px;
     border-radius: 3px;
@@ -494,8 +496,8 @@
 
 /* inserted main row data coloring */
 .inserted_main_row_color_class {
-    background: rgb(207, 83, 21);
-    color: white;
+    background: rgba(255, 170, 0, 0.467);
+    color: black;
     border-top: 0.5px solid black;
 }
 
