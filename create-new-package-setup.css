@@ -576,8 +576,7 @@ input {
 }
 
 .package_info_input_div input {
-    direction: ltr;
-    /* English */
+    direction: rtl;
     width: 85vw;
     font-size: 2.5vw;
     margin: 5px 0;
