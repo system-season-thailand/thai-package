@@ -263,10 +263,6 @@
     padding: 0;
 }
 
-.description_cell span {
-    direction: rtl;
-}
-
 /* Inserted package important note position */
 .inserted_package_important_note_position_div_class {
     background: white;
@@ -603,7 +599,7 @@
 /* 580px */
 @media (max-width: 580px) {
     .inserted_company_name_logo {
-        width: 30vw;
+        width: 40vw;
         margin-bottom: 5px;
     }
 
@@ -687,7 +683,7 @@
 /* 400px */
 @media (max-width: 400px) {
     .inserted_company_name_logo {
-        width: 35vw;
+        width: 45vw;
         margin-bottom: 0px;
     }
 
