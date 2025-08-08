@@ -43,4 +43,8 @@ const hotelMessageInfoArray = [
         hotelName: "Lancaster Bangkok",
         messageInfo_p1: "فندق لانكاستر الشخص الي عمره اكثر من 12 سنة يعتبر بالغ",
     },
+    {
+        hotelName: "Siam Kempinski Bangkok",
+        messageInfo_p1: "فندق سيام كمبينسكي الشخص الي عمره 13 سنة وفوق لازم تأخذ له اكسترا بيد",
+    },
 ];
