@@ -47,4 +47,12 @@ const hotelMessageInfoArray = [
         hotelName: "Siam Kempinski Bangkok",
         messageInfo_p1: "فندق سيام كمبينسكي الشخص الي عمره 13 سنة وفوق لازم تأخذ له اكسترا بيد",
     },
+    {
+        hotelName: "The Charm Resort Phuket",
+        messageInfo_p1: "فندق ذا تشارم الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
+    },
+    {
+        hotelName: "Amari Phuket",
+        messageInfo_p1: "فندق اماري بوكيت الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
+    },
 ];
