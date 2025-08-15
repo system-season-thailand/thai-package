@@ -55,4 +55,8 @@ const hotelMessageInfoArray = [
         hotelName: "Amari Phuket",
         messageInfo_p1: "فندق اماري بوكيت الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
     },
+    {
+        hotelName: "Sofitel Bangkok Sukhumvit",
+        messageInfo_p1: "فندق سوفيتيل بانكوك الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
+    },
 ];
