@@ -28,11 +28,12 @@ const hotelMessageInfoArray = [
     },
     {
         hotelName: "Bandara Pool Villas Phuket",
-        messageInfo_p1: "مميزات حجز ليلتين او اكثر",
-        messageInfo_p2: "تزيين على السرير",
-        messageInfo_p3: "افطار عائم لمره واحدة",
-        messageInfo_p4: "سلة حلويات خفيفة عند الاستقبال",
-        messageInfo_p5: "بار صغير مجاني بس شكله حرام",
+        messageInfo_p1: "بندارا فيلا الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
+        messageInfo_p2: "مميزات حجز ليلتين او اكثر",
+        messageInfo_p3: "تزيين على السرير",
+        messageInfo_p4: "افطار عائم لمره واحدة",
+        messageInfo_p5: "سلة حلويات خفيفة عند الاستقبال",
+        messageInfo_p6: "بار صغير مجاني بس شكله حرام",
     },
     {
         hotelName: "Andara Resort Villas Phuket",
@@ -41,22 +42,22 @@ const hotelMessageInfoArray = [
     },
     {
         hotelName: "Lancaster Bangkok",
-        messageInfo_p1: "فندق لانكاستر الشخص الي عمره اكثر من 12 سنة يعتبر بالغ",
+        messageInfo_p1: "لانكاستر الشخص الي عمره اكثر من 12 سنة يعتبر بالغ",
     },
     {
         hotelName: "Siam Kempinski Bangkok",
-        messageInfo_p1: "فندق سيام كمبينسكي الشخص الي عمره 13 سنة وفوق لازم تأخذ له اكسترا بيد",
+        messageInfo_p1: "سيام كمبينسكي الشخص الي عمره 13 سنة وفوق لازم تأخذ له اكسترا بيد",
     },
     {
         hotelName: "The Charm Resort Phuket",
-        messageInfo_p1: "فندق ذا تشارم الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
+        messageInfo_p1: "ذا تشارم الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
     },
     {
         hotelName: "Amari Phuket",
-        messageInfo_p1: "فندق اماري بوكيت الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
+        messageInfo_p1: "اماري بوكيت الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
     },
     {
         hotelName: "Sofitel Bangkok Sukhumvit",
-        messageInfo_p1: "فندق سوفيتيل بانكوك الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
+        messageInfo_p1: "سوفيتيل بانكوك الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
     },
 ];
