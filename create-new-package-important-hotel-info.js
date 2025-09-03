@@ -58,4 +58,12 @@ const hotelMessageInfoArray = [
         hotelName: "Dusit Thani Laguna Phuket",
         messageInfo_p1: "دوسيت ثاني الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
     },
+    {
+        hotelName: "Dusit Thani Laguna Phuket",
+        messageInfo_p1: "دوسيت ثاني الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
+    },
+    {
+        hotelName: "Saii Laguna Phuket",
+        messageInfo_p1: "ساي لاجونا الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
+    },
 ];
