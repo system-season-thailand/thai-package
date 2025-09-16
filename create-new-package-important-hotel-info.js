@@ -66,4 +66,8 @@ const hotelMessageInfoArray = [
         hotelName: "Saii Laguna Phuket",
         messageInfo_p1: "ساي لاجونا الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
     },
+    {
+        hotelName: "Namaka Resort Kamala",
+        messageInfo_p1: "ناماكا الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
+    },
 ];
