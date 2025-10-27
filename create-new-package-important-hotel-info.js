@@ -10,29 +10,17 @@ const hotelMessageInfoArray = [
         messageInfo_p4: "من ديلوكس لاجون فيو الى بريمير اوشن فرونت",
     },
     {
-        hotelName: "Holiday Inn Express Phuket",
-        messageInfo_p1: "حجز 3 ليالي او أكثر = خصم 100 بات من سعر الليلة",
-        messageInfo_p2: "(صالح للإستخدام الى 31 مايو)",
-    },
-    {
-        hotelName: "The Nature Phuket",
-        messageInfo_p1: "حجز 3 ليالي او 4 ليالي = خصم 100 بات من سعر الليلة",
-        messageInfo_p2: "حجز 5 ليالي او أكثر = خصم 200 بات من سعر الليلة",
-        messageInfo_p3: "(صالح للإستخدام الى 31 مايو)",
-    },
-    {
         hotelName: "Bandara Pool Villas Phuket",
         messageInfo_p1: "بندارا فيلا الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
         messageInfo_p2: "مميزات حجز ليلتين او اكثر",
         messageInfo_p3: "تزيين على السرير",
         messageInfo_p4: "افطار عائم لمره واحدة",
         messageInfo_p5: "سلة حلويات خفيفة عند الاستقبال",
-        messageInfo_p6: "بار صغير مجاني بس شكله حرام",
     },
     {
         hotelName: "Andara Resort Villas Phuket",
         messageInfo_p1: "حجز 3 ليالي او أكثر = عشاء عائلي مشجاني في مطعم سيلك",
-        messageInfo_p2: "صالح للإستخدام الى 31 اكتوبر 2025 فقط",
+        messageInfo_p2: "صالح للإستخدام الى 31 اكتوبر 2025",
     },
     {
         hotelName: "Lancaster Bangkok",
