@@ -1025,7 +1025,16 @@ showWebsiteUsernamePackageNames = function () {
 // Variable to store the most top empty cell row number
 let mostTopEmptyCellRowNumberValue;
 
-async function handleUserPackageUniqueNumber(action) {
+async function handleUserPackageUniqueNumber(userType, action) {
+    // Validate userType
+    const validUserTypes = [
+        'بكج مستر سامي', 'بكج عبد الله', 'بكج معتز', 'بكج وائل', 'بكج عبد الرحمن',
+        'بكج علي', 'بكج ناصر', 'بكج محمد', 'بكج صبري', 'بكج مستر ابو سما', 'بكج بندر للتجربة'
+    ];
+
+    if (!validUserTypes.includes(userType)) {
+        throw new Error(`Invalid userType. Must be one of: ${validUserTypes.join(', ')}`);
+    }
 
     try {
         // Fetch the first (and presumably only) row
@@ -1040,26 +1049,26 @@ async function handleUserPackageUniqueNumber(action) {
 
         if (action === 'fetch') {
             // Store the current value
-            mostTopEmptyCellRowNumberValue = data[document.getElementById('website_users_name_input_id').value];
-            console.log(mostTopEmptyCellRowNumberValue);
+            mostTopEmptyCellRowNumberValue = data[userType];
+
             // Enable the submit button
             let submitIcon = document.getElementById('clint_inputs_submit_icon');
             submitIcon.style.opacity = '1';
             submitIcon.style.pointerEvents = 'auto';
             submitIcon.disabled = false;
 
-            return data[document.getElementById('website_users_name_input_id').value];
+            return data[userType];
 
         } else if (action === 'insert') {
             // Calculate new value
-            const newValue = data[document.getElementById('website_users_name_input_id').value] + 1;
+            const newValue = data[userType] + 1;
 
             // Update only the specific column
             // Use the first valid column name in your filter instead of 'baby'
             const { error: updateError } = await supabase
                 .from('thai_package_unique_number')
-                .update({ [document.getElementById('website_users_name_input_id').value]: newValue })
-                .not(document.getElementById('website_users_name_input_id').value, 'is', null); // Use the same user name as filter
+                .update({ [userType]: newValue })
+                .not(userType, 'is', null); // Use the same userType as filter
 
             if (updateError) throw updateError;
 
