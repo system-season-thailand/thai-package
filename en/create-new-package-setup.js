@@ -7,67 +7,13 @@
 
 
 
-/* async function deletePastMonthRows() {
-    try {
-        const today = new Date(); // Current date for comparison
 
-        // Month order for comparison (January = 0, December = 11)
-        const monthOrder = {
-            "January": 0, "February": 1, "March": 2, "April": 3, "May": 4, "June": 5,
-            "July": 6, "August": 7, "September": 8, "October": 9, "November": 10, "December": 11
-        };
 
-        // Fetch all rows from Supabase
-        const { data: allRows, error: fetchError } = await supabase
-            .from('best_all_package_indo')
-            .select('*');
 
-        if (fetchError) throw fetchError;
 
-        // Filter rows that have a past month+year date
-        const rowsToDelete = allRows.filter(row => {
-            const rawDateStr = row.package_indo_last_month_date?.trim(); // e.g., "14 November 2025"
-
-            if (!rawDateStr) return false;
-
-            // Attempt to parse the date
-            const parsedDate = new Date(rawDateStr);
-
-            // Check if it's a valid date and before today
-            return !isNaN(parsedDate) && parsedDate < today;
-        });
-
-        // Delete each matching row
-        for (const row of rowsToDelete) {
-            const { error } = await supabase
-                .from('best_all_package_indo')
-                .delete()
-                .eq('package_indo_user_current_date', row.package_indo_user_current_date);
-
-            if (error) {
-                console.error('❌ Delete failed:', error);
-            } else {
-                console.log(`✅ Deleted row with date: ${row.package_indo_last_month_date}`);
-            }
-        }
-
-    } catch (error) {
-        console.error('❌ Error in deletePastMonthRows:', error);
-    }
-}
-
-// Check if today is the 6th, 7th, or 8th before running the function
-function shouldRunCleanup() {
-    const today = new Date();
-    const currentDay = today.getDate(); // Returns day of the month (1-31)
-    return [5, 6, 7, 8, 9, 10].includes(currentDay);
-}
-
-// Execute only if today is the 5th, 6th, 7th, 8th, 9th, or 10th
-if (shouldRunCleanup()) {
-    deletePastMonthRows();
-} */
-
+/* Bangkok, Phuket,   Krabi,   Pattaya,  Chiang Mai, Koh Samui;
+   Bali,    Jakarta,  Puncak,  Bandung,  Lombok
+*/
 
 
 
@@ -2694,54 +2640,30 @@ showClintMovemtsPlacesPage = function (clickedClintMovementsPlacesLocation) {
 
 
     /* Show the clint movements visting places based on the value of the 'clint_movements_current_city_input_id' */
-    if (clickedClintMovementsPlacesLocation.innerText === 'كوتا') {
-        kuta_clint_movements_places_div.style.display = 'block';
-        ubud_clint_movements_places_div.style.display = 'none';
-        jakarta_clint_movements_places_div.style.display = 'none';
-        puncak_clint_movements_places_div.style.display = 'none';
-        bandung_clint_movements_places_div.style.display = 'none';
-        lombok_clint_movements_places_div.style.display = 'none';
+    if (clickedClintMovementsPlacesLocation.innerText === 'بوكيت') {
+        phuket_clint_movements_places_div.style.display = 'block';
+        bangkok_clint_movements_places_div.style.display = 'none';
+        pattaya_clint_movements_places_div.style.display = 'none';
+        krabi_clint_movements_places_div.style.display = 'none';
 
 
-    } else if (clickedClintMovementsPlacesLocation.innerText === 'اوبود') {
-        kuta_clint_movements_places_div.style.display = 'none';
-        ubud_clint_movements_places_div.style.display = 'block';
-        jakarta_clint_movements_places_div.style.display = 'none';
-        puncak_clint_movements_places_div.style.display = 'none';
-        bandung_clint_movements_places_div.style.display = 'none';
-        lombok_clint_movements_places_div.style.display = 'none';
+    } else if (clickedClintMovementsPlacesLocation.innerText === 'بانكوك') {
+        phuket_clint_movements_places_div.style.display = 'none';
+        bangkok_clint_movements_places_div.style.display = 'block';
+        pattaya_clint_movements_places_div.style.display = 'none';
+        krabi_clint_movements_places_div.style.display = 'none';
 
-    } else if (clickedClintMovementsPlacesLocation.innerText === 'جاكرتا') {
-        kuta_clint_movements_places_div.style.display = 'none';
-        ubud_clint_movements_places_div.style.display = 'none';
-        jakarta_clint_movements_places_div.style.display = 'block';
-        puncak_clint_movements_places_div.style.display = 'none';
-        bandung_clint_movements_places_div.style.display = 'none';
-        lombok_clint_movements_places_div.style.display = 'none';
+    } else if (clickedClintMovementsPlacesLocation.innerText === 'بتايا') {
+        phuket_clint_movements_places_div.style.display = 'none';
+        bangkok_clint_movements_places_div.style.display = 'none';
+        pattaya_clint_movements_places_div.style.display = 'block';
+        krabi_clint_movements_places_div.style.display = 'none';
 
-    } else if (clickedClintMovementsPlacesLocation.innerText === 'بونشاك') {
-        kuta_clint_movements_places_div.style.display = 'none';
-        ubud_clint_movements_places_div.style.display = 'none';
-        jakarta_clint_movements_places_div.style.display = 'none';
-        puncak_clint_movements_places_div.style.display = 'block';
-        bandung_clint_movements_places_div.style.display = 'none';
-        lombok_clint_movements_places_div.style.display = 'none';
-
-    } else if (clickedClintMovementsPlacesLocation.innerText === 'باندونج') {
-        kuta_clint_movements_places_div.style.display = 'none';
-        ubud_clint_movements_places_div.style.display = 'none';
-        jakarta_clint_movements_places_div.style.display = 'none';
-        puncak_clint_movements_places_div.style.display = 'none';
-        bandung_clint_movements_places_div.style.display = 'block';
-        lombok_clint_movements_places_div.style.display = 'none';
-
-    } else if (clickedClintMovementsPlacesLocation.innerText === 'لومبوك') {
-        kuta_clint_movements_places_div.style.display = 'none';
-        ubud_clint_movements_places_div.style.display = 'none';
-        jakarta_clint_movements_places_div.style.display = 'none';
-        puncak_clint_movements_places_div.style.display = 'none';
-        bandung_clint_movements_places_div.style.display = 'none';
-        lombok_clint_movements_places_div.style.display = 'block';
+    } else if (clickedClintMovementsPlacesLocation.innerText === 'كرابي') {
+        phuket_clint_movements_places_div.style.display = 'none';
+        bangkok_clint_movements_places_div.style.display = 'none';
+        pattaya_clint_movements_places_div.style.display = 'none';
+        krabi_clint_movements_places_div.style.display = 'block';
 
     }
 
@@ -2770,14 +2692,11 @@ showClintMovemtsPlacesPage = function (clickedClintMovementsPlacesLocation) {
     // Function to hide the clint movements places page and remove the exit button
     exitClintMovementsPlacesPage.onclick = function () {
 
-
         /* Hide all clint movements places options */
-        kuta_clint_movements_places_div.style.display = 'none';
-        ubud_clint_movements_places_div.style.display = 'none';
-        jakarta_clint_movements_places_div.style.display = 'none';
-        puncak_clint_movements_places_div.style.display = 'none';
-        bandung_clint_movements_places_div.style.display = 'none';
-        lombok_clint_movements_places_div.style.display = 'none';
+        phuket_clint_movements_places_div.style.display = 'none';
+        bangkok_clint_movements_places_div.style.display = 'none';
+        pattaya_clint_movements_places_div.style.display = 'none';
+        krabi_clint_movements_places_div.style.display = 'none';
         clintMovementsPlacesPageDiv.style.display = 'none';
 
 
@@ -2820,12 +2739,10 @@ showClintMovemtsPlacesPage = function (clickedClintMovementsPlacesLocation) {
 
 
         /* Hide all clint movements places options */
-        kuta_clint_movements_places_div.style.display = 'none';
-        ubud_clint_movements_places_div.style.display = 'none';
-        jakarta_clint_movements_places_div.style.display = 'none';
-        puncak_clint_movements_places_div.style.display = 'none';
-        bandung_clint_movements_places_div.style.display = 'none';
-        lombok_clint_movements_places_div.style.display = 'none';
+        phuket_clint_movements_places_div.style.display = 'none';
+        bangkok_clint_movements_places_div.style.display = 'none';
+        pattaya_clint_movements_places_div.style.display = 'none';
+        krabi_clint_movements_places_div.style.display = 'none';
 
 
 
