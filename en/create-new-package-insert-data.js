@@ -2,6 +2,8 @@
    Bali,    Jakarta,  Puncak,  Bandung,  Lombok
 */
 
+/* Ensure To Use The "Re-Create the data" Codes */
+
 
 
 
@@ -698,7 +700,6 @@ createAllPackageIncludingAndNotIncludingData = function () {
         'sms_card_with_internet_checkbox',
         'inner_flight_tickets_checkbox',
         'extra_car_for_carring_bags_checkbox',
-        'watersport_activity_checkbox',
         'rafting_activity_checkbox',
         'outer_flight_tickets_checkbox',
         'placese_visiting_cost_checkbox',
@@ -795,53 +796,6 @@ createAllPackageIncludingAndNotIncludingData = function () {
             document.getElementById('store_google_sheet_package_specific_car_type_value').innerText = '';
         }
 
-        // Watersport/Rafting special logic
-        if (id === 'watersport_activity_checkbox' || id === 'rafting_activity_checkbox') {
-            if (color === 'rgb(0, 255, 0)') {
-                icon.setAttribute('name', 'checkmark-outline');
-                icon.style.color = '#007bff';
-                p.appendChild(icon);
-
-                if (id === 'watersport_activity_checkbox') {
-                    p.innerHTML += " 🌊" + translateToEnglish("استمتعوا ب 3 ألعاب بحرية ممتعة") + "<br>" + translateToEnglish("كلها مشمولة بدون أي رسوم إضافية") + "💙<br>";
-                    p.setAttribute('data-gift-order', '1');
-                    let container = document.createElement('div');
-                    container.className = 'activity_icon_container';
-                    ['../activities/donat.webp', '../activities/panana.webp', '../activities/parasut.webp'].forEach(src => {
-                        let img = document.createElement('img');
-                        img.src = src;
-                        img.className = 'activity_icon_img';
-                        container.appendChild(img);
-                    });
-                    p.appendChild(container);
-                } else if (id === 'rafting_activity_checkbox') {
-                    p.innerHTML += " 🚣‍♂️" + translateToEnglish("اكتشف متعة التجديف") + "<br>" + translateToEnglish("لحظات حماس وتجربة لاتُنسى هدية منا لكم") + "💙<br>";
-                    p.setAttribute('data-gift-order', '2');
-                    let container = document.createElement('div');
-                    container.className = 'activity_icon_container';
-                    let img = document.createElement('img');
-                    img.src = '../activities/rafting.webp';
-                    img.className = 'activity_icon_img';
-                    container.appendChild(img);
-                    p.appendChild(container);
-                }
-
-                p.className = 'inserted_package_including_data_text';
-                p.setAttribute('onclick', 'runDeleteThisPackageIncludingDataText(this)');
-                insertedPackageGiftDataDiv.appendChild(p);
-            } else if (color === 'rgb(255, 0, 0)') {
-                icon.setAttribute('name', 'close-outline');
-                p.appendChild(icon);
-                labelText.forEach((text, index) => {
-                    p.appendChild(document.createTextNode(` ${translateToEnglish(text)}`));
-                    if (index < labelText.length - 1) p.appendChild(document.createElement('br'));
-                });
-                p.className = 'inserted_package_not_including_data_text';
-                p.setAttribute('onclick', 'runDeleteThisPackageIncludingDataText(this)');
-                insertedPackageNotIncludingDataDiv.appendChild(p);
-            }
-            return;
-        }
 
         // Normal logic for other checkboxes
         if (color === 'rgb(0, 255, 0)') {
@@ -5561,7 +5515,7 @@ clintMovementsRowCityNameControllerFunction = function (event) {
 
 
 
-        /* Run  function to add "يوم مفتوح بدون سائق" text in the clicked div */
+        /* Run  function to add "Free Day without Driver" text in the clicked div */
         addFreeTransportationDayWithoutDriverFunction = function () {
 
             runAddFreeTransportationDayWithoutDriverFunction(currentClintMovementsDataDiv);
@@ -5569,7 +5523,7 @@ clintMovementsRowCityNameControllerFunction = function (event) {
         }
 
 
-        /* Run  function to add "يوم مفتوح بدون سائق" text in the clicked div */
+        /* Run  function to add "Going Around with Private Drive For 8 Hourse" text in the clicked div */
         addFreeTransportationDayWithDriverFunction = function () {
 
             runAddFreeTransportationDayWithDriverFunction(currentClintMovementsDataDiv);
@@ -5844,13 +5798,13 @@ runSplitAndPlaceClintMovementsRowTableDivFunction = function (currentClintMoveme
 
 
 
-/* Function to add "يوم مفتوح بدون سائق" text inside the clicked div */
+/* Function to add "Free Day without Driver" text inside the clicked div */
 runAddFreeTransportationDayWithoutDriverFunction = function (currentClintMovementsDataDiv) {
 
     /* Play a sound effect if the value of the 'lastCopiedClintMovementRowDiv' is not null*/
     playSoundEffect('success');
 
-    currentClintMovementsDataDiv.querySelector('h2').innerText = 'يوم مفتوح بدون سائق';
+    currentClintMovementsDataDiv.querySelector('h2').innerText = 'Free Day without Driver';
 
 
 
@@ -5905,13 +5859,13 @@ runAddFreeTransportationDayWithoutDriverFunction = function (currentClintMovemen
 
 
 
-/* Function to add "يوم مفتوح بدون سائق" text inside the clicked div */
+/* Function to add "Going Around with Private Drive For 8 Hourse" text inside the clicked div */
 runAddFreeTransportationDayWithDriverFunction = function (currentClintMovementsDataDiv) {
 
     /* Play a sound effect if the value of the 'lastCopiedClintMovementRowDiv' is not null*/
     playSoundEffect('success');
 
-    currentClintMovementsDataDiv.querySelector('h2').innerText = 'جولة مع سائق خاص لمدة 8 ساعات';
+    currentClintMovementsDataDiv.querySelector('h2').innerText = 'Going Around with Private Drive For 8 Hourse';
 
 
 
