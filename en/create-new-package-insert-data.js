@@ -700,7 +700,6 @@ createAllPackageIncludingAndNotIncludingData = function () {
         'sms_card_with_internet_checkbox',
         'inner_flight_tickets_checkbox',
         'extra_car_for_carring_bags_checkbox',
-        'rafting_activity_checkbox',
         'outer_flight_tickets_checkbox',
         'placese_visiting_cost_checkbox',
     ];
