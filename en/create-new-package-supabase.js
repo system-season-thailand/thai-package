@@ -2,12 +2,6 @@ let existingDataStatus = 'newData'; // Variable to identify if the data will be 
 let websiteUserUniqueNumber = 'newUniqueNumber'; // Variable to identify if the website user code number will be increased or no
 
 
-
-
-
-
-
-
 /* Function to store the package in the Supabase database */
 async function sendDataToSupabase() {
     return new Promise(async (resolve, reject) => {
@@ -25,29 +19,15 @@ async function sendDataToSupabase() {
             const downloaded_pdf_package_including_data_page = cleanHTML(document.getElementById("downloaded_pdf_package_including_data_page")?.innerHTML || "");
             const downloaded_pdf_total_price_data_page = cleanHTML(document.getElementById("downloaded_pdf_total_price_data_page")?.innerHTML || "");
 
-            // Fine the lastFoundMonthName value
-            const arabicToEnglish = {
-                "يناير": "January", "فبراير": "February", "مارس": "March", "أبريل": "April", "مايو": "May", "يونيو": "June",
-                "يوليو": "July", "أغسطس": "August", "سبتمبر": "September", "أكتوبر": "October", "نوفمبر": "November", "ديسمبر": "December"
-            };
-
-            // Find the lastFoundMonthName value
+            // Last month parsing
             const rawDate = document.getElementById("whole_package_end_date_input_id")?.value.trim();
+            const arabicToEnglish = {
+                "يناير": "Jan", "فبراير": "Feb", "مارس": "Mar", "أبريل": "Apr", "مايو": "May", "يونيو": "Jun",
+                "يوليو": "Jul", "أغسطس": "Aug", "سبتمبر": "Sep", "أكتوبر": "Oct", "نوفمبر": "Nov", "ديسمبر": "Dec"
+            };
             const parts = rawDate.split(" ").filter(Boolean);
-
-            // Get month short name from Arabic word
-            const foundArabicMonth = parts.find(word => arabicToEnglish[word]);
-            const fullMonthName = arabicToEnglish[foundArabicMonth] || "Invalid";
-
-            // Extract year or use current year if missing
-            let foundYear = parts.find(part => /^\d{4}$/.test(part));
-            if (!foundYear) {
-                foundYear = new Date().getFullYear();
-            }
-
-            const package_thai_last_month_date = `${fullMonthName} ${foundYear}`;
-
-
+            const month = arabicToEnglish[parts.find(word => arabicToEnglish[word])] || "Invalid";
+            const package_thai_last_month_date = `${month}`;
 
             // Current timestamp
             const package_thai_user_current_date = new Date().toISOString();
@@ -65,7 +45,7 @@ async function sendDataToSupabase() {
             };
 
             if (existingDataStatus === "newData") {
-                const { error } = await supabase
+                const { data, error } = await supabase
                     .from('en_all_package_thai')
                     .insert([rowData])
                     .select();
@@ -129,6 +109,7 @@ async function sendDataToSupabase() {
 
 
 
+
 // Function to clean HTML by removing unnecessary attributes and tags
 function cleanHTML(html) {
     // Remove HTML comments
@@ -158,7 +139,6 @@ function cleanHTML(html) {
 
 
 
-let allPackagesGoogleSheetURL = 'https://script.google.com/macros/s/AKfycbw-wlTzrQqXujyV_VlXezvx5HNkMgK05ZVXfXCV-2wmwl7frFHX4PYxYMg5NGqaC1Aj/exec';
 
 /* Create object to store all the google sheet data for later use (when importing) */
 let sheetData = [];
@@ -179,102 +159,59 @@ let googleSheet_yy_PackageNames = [];
 let googleSheet_bb_PackageNames = [];
 
 /* Fetch the data from google sheet in 5 times (300 rows in each time) */
-function updateDataBaseSavedDataNames() {
-    let allGoogleSheetStoredDataNamesForImportingDataDiv = document.getElementById('all_google_sheet_stored_data_names_for_importing_data_div');
-
+async function updateDataBaseSavedDataNames() {
+    const allGoogleSheetStoredDataNamesForImportingDataDiv = document.getElementById('all_google_sheet_stored_data_names_for_importing_data_div');
     allGoogleSheetStoredDataNamesForImportingDataDiv.innerHTML = '';
     clearPackageNameArrays();
 
-    // First fetch: Fetch the last 300 rows from the sheet
-    fetch(`${allPackagesGoogleSheetURL}?fetchType=1`)
-        .then(response => response.json())
-        .then(data => {
+    // Collect all data first
+    let allData = [];
+    const batchSize = 1000; // Increased batch size for faster fetching
+    const totalBatches = 5; // Reduced total batches
 
-            // Proceed to the second fetch
-            secondTimefetchSheetData();
+    for (let i = 0; i < totalBatches; i++) {
+        const from = i * batchSize;
+        const to = from + batchSize - 1;
 
-            // Append fetched rows to sheetData
-            sheetData.push(...data.values);
+        try {
+            const { data, error } = await supabase
+                .from('en_all_package_thai')
+                .select('name') // Only select the name column to reduce data transfer
+                .order('package_thai_user_current_date', { ascending: false }) // Order by timestamp descending (newest first)
+                .range(from, to);
 
-            filterAndStorePackageNames(sheetData, 'prepend');
-            hideAllH3Elements();
-            enablePointerEventsForFilters();
-            updateSearchFilterFunctionality();
-        })
-        .catch(error => console.error(error));
+            if (error) {
+                console.error(`Error fetching batch ${i + 1}:`, error);
+                break;
+            }
+
+            // If no data returned, we've reached the end
+            if (!data || data.length === 0) {
+                break;
+            }
+
+            // Collect all data
+            allData = allData.concat(data);
+
+            // Removed delay for faster fetching
+
+        } catch (error) {
+            console.error(`Exception in batch ${i + 1}:`, error);
+            break;
+        }
+    }
+
+    // Now process all data at once in the correct order (newest first)
+    filterAndStorePackageNames(allData, 'append');
+
+    // Call these functions only once after all data is processed
+    hideAllH3Elements();
+    enablePointerEventsForFilters();
+    updateSearchFilterFunctionality();
+
+    document.getElementById('import_packages_title_h6_id').innerText = 'تم تحميل جميع البكجات';
 }
 
-function secondTimefetchSheetData() {
-    fetch(`${allPackagesGoogleSheetURL}?fetchType=2`)
-        .then(response => response.json())
-        .then(data => {
-
-            thirdTimefetchSheetData();
-
-            // Append fetched rows to sheetData
-            sheetData.push(...data.values);
-
-            filterAndStorePackageNames(sheetData, 'append');
-            hideAllH3Elements();
-            enablePointerEventsForFilters();
-            updateSearchFilterFunctionality();
-        })
-        .catch(error => console.error(error));
-}
-
-function thirdTimefetchSheetData() {
-    fetch(`${allPackagesGoogleSheetURL}?fetchType=3`)
-        .then(response => response.json())
-        .then(data => {
-
-            fourthTimefetchSheetData();
-
-            // Append fetched rows to sheetData
-            sheetData.push(...data.values);
-
-            filterAndStorePackageNames(sheetData, 'append');
-            hideAllH3Elements();
-            enablePointerEventsForFilters();
-            updateSearchFilterFunctionality();
-        })
-        .catch(error => console.error(error));
-}
-
-function fourthTimefetchSheetData() {
-    fetch(`${allPackagesGoogleSheetURL}?fetchType=4`)
-        .then(response => response.json())
-        .then(data => {
-
-            fifthTimefetchSheetData();
-
-            // Append fetched rows to sheetData
-            sheetData.push(...data.values);
-
-            filterAndStorePackageNames(sheetData, 'append');
-            hideAllH3Elements();
-            enablePointerEventsForFilters();
-            updateSearchFilterFunctionality();
-        })
-        .catch(error => console.error(error));
-}
-
-function fifthTimefetchSheetData() {
-    fetch(`${allPackagesGoogleSheetURL}?fetchType=5`)
-        .then(response => response.json())
-        .then(data => {
-
-            // Append fetched rows to sheetData
-            sheetData.push(...data.values);
-
-            filterAndStorePackageNames(sheetData, 'append');
-            hideAllH3Elements();
-            enablePointerEventsForFilters();
-            updateSearchFilterFunctionality();
-
-            document.getElementById('import_packages_title_h6_id').innerText = 'تم تحميل جميع البكجات';
-        })
-        .catch(error => console.error(error));
-}
 
 function clearPackageNameArrays() {
     let arrays = [
@@ -289,20 +226,19 @@ function clearPackageNameArrays() {
 
 /* Show only the h3 elements that are matching the picked "user code" button */
 function filterAndStorePackageNames(data, prependStatus) {
-    let allGoogleSheetStoredDataNamesForImportingDataDiv = document.getElementById('all_google_sheet_stored_data_names_for_importing_data_div');
+    const allGoogleSheetStoredDataNamesForImportingDataDiv = document.getElementById('all_google_sheet_stored_data_names_for_importing_data_div');
 
-    // Loop through the data to create and add h3 elements
     data.forEach(row => {
-        let packageName = row[0];
+        const packageName = row.name;
 
-        // Check if an h3 element with the id of this package name already exists
+        if (!packageName) return; // Skip if name is missing
+
+        // Avoid duplicate elements
         if (!document.getElementById(packageName)) {
-            let h3Element = createH3Element(packageName);
-
-            // Assign the packageName as the id of the h3 element to make it unique
+            const h3Element = createH3Element(packageName);
             h3Element.id = packageName;
 
-            // Sort the package names into their respective arrays
+            // Sort package names into the correct arrays
             if (packageName.startsWith('ss')) {
                 googleSheet_ss_PackageNames.push(h3Element);
             } else if (packageName.startsWith('mm')) {
@@ -313,29 +249,26 @@ function filterAndStorePackageNames(data, prependStatus) {
                 googleSheet_tt_PackageNames.push(h3Element);
             } else if (packageName.startsWith('aa')) {
                 googleSheet_aa_PackageNames.push(h3Element);
+            } else if (packageName.startsWith('ww')) {
+                googleSheet_ww_PackageNames.push(h3Element);
             } else if (packageName.startsWith('zz')) {
                 googleSheet_zz_PackageNames.push(h3Element);
             } else if (packageName.startsWith('hh')) {
                 googleSheet_hh_PackageNames.push(h3Element);
             } else if (packageName.startsWith('kk')) {
                 googleSheet_kk_PackageNames.push(h3Element);
-            } else if (packageName.startsWith('ww')) {
-                googleSheet_ww_PackageNames.push(h3Element);
             } else if (packageName.startsWith('yy')) {
                 googleSheet_yy_PackageNames.push(h3Element);
             } else if (packageName.startsWith('bb')) {
                 googleSheet_bb_PackageNames.push(h3Element);
             }
 
-            // Prepend or append based on the provided status
-            if (prependStatus === 'prepend') {
-                allGoogleSheetStoredDataNamesForImportingDataDiv.prepend(h3Element); // Insert at the top
-            } else {
-                allGoogleSheetStoredDataNamesForImportingDataDiv.append(h3Element);  // Insert at the bottom
-            }
+            // Insert element into the DOM - always append to maintain newest-first order
+            allGoogleSheetStoredDataNamesForImportingDataDiv.append(h3Element);
         }
     });
 }
+
 
 
 // Function to hide all <h3> elements
@@ -354,11 +287,11 @@ let packageArrayMap = {
     'بكج وائل': googleSheet_ww_PackageNames,
     'بكج عبد الرحمن': googleSheet_oo_PackageNames,
     'بكج علي': googleSheet_aa_PackageNames,
+    'بكج مستر ابو سما': googleSheet_yy_PackageNames,
+    'بكج بندر للتجربة': googleSheet_bb_PackageNames,
     'بكج ناصر': googleSheet_zz_PackageNames,
     'بكج محمد': googleSheet_hh_PackageNames,
     'بكج صبري': googleSheet_kk_PackageNames,
-    'بكج مستر ابو سما': googleSheet_yy_PackageNames,
-    'بكج بندر للتجربة': googleSheet_bb_PackageNames
 };
 
 // Function to create h3 elements based on package names
@@ -597,6 +530,10 @@ function findSelectedNameAndImportContent() {
         // Run a function to import the data based on the name of the clicked h3
         importContentForSelectedName(selectedName);
 
+    } else {
+
+        // Play a sound effect
+        playSoundEffect('error');
     }
 }
 
@@ -604,12 +541,8 @@ function findSelectedNameAndImportContent() {
 
 
 // Function to import the content for the selected name
-function importContentForSelectedName(name) {
-
-    // Assuming the first column is the name and subsequent columns are the contents
-    let selectedRow = sheetData.find(row => row[0] === name);
-
-    /* Hide all pdf pages content for re-show them if they exist in the inported packages data */
+async function importContentForSelectedName(name) {
+    // Hide all PDF content sections initially
     document.getElementById('downloaded_pdf_clint_data_page').style.display = 'none';
     document.getElementById('downloaded_pdf_package_including_data_page').style.display = 'none';
     document.getElementById('downloaded_pdf_flight_data_page').style.display = 'none';
@@ -617,114 +550,234 @@ function importContentForSelectedName(name) {
     document.getElementById('downloaded_pdf_clint_movements_data_page').style.display = 'none';
     document.getElementById('downloaded_pdf_total_price_data_page').style.display = 'none';
 
+    // Show a global loading overlay while importing
+    showLoadingOverlay();
 
-    if (selectedRow) {
+    try {
+        // Fetch the full row for the selected name from Supabase (latest by timestamp)
+        const { data: selectedRow, error } = await supabase
+            .from('en_all_package_thai')
+            .select('*')
+            .eq('name', name)
+            .order('package_thai_user_current_date', { ascending: false })
+            .limit(1)
+            .single();
+
+        if (error) {
+            console.error('❌ Failed to fetch selected package:', error);
+            hideOverlay();
+            hideLoadingOverlay();
+            return;
+        }
+
+        if (!selectedRow) {
+            console.warn('No package found with name:', name);
+            hideOverlay();
+            hideLoadingOverlay();
+            return;
+        }
+
+        // Map the Supabase columns to your HTML elements
         let contentColumns = {
-            downloaded_pdf_clint_data_page: selectedRow[1],
-            downloaded_pdf_package_including_data_page: selectedRow[2],
-            downloaded_pdf_flight_data_page: selectedRow[3],
-            downloaded_pdf_hotel_data_page: selectedRow[4],
-            downloaded_pdf_clint_movements_data_page: selectedRow[5],
-            downloaded_pdf_total_price_data_page: selectedRow[6]
+            downloaded_pdf_clint_data_page: selectedRow.downloaded_pdf_clint_data_page,
+            downloaded_pdf_package_including_data_page: selectedRow.downloaded_pdf_package_including_data_page,
+            downloaded_pdf_flight_data_page: selectedRow.downloaded_pdf_flight_data_page,
+            downloaded_pdf_hotel_data_page: selectedRow.downloaded_pdf_hotel_data_page,
+            downloaded_pdf_clint_movements_data_page: selectedRow.downloaded_pdf_clint_movements_data_page,
+            downloaded_pdf_total_price_data_page: selectedRow.downloaded_pdf_total_price_data_page
         };
 
-        try {
-            let parser = new DOMParser();
+        let parser = new DOMParser();
 
-            for (let divId in contentColumns) {
-                let rawHtmlString = contentColumns[divId];
+        // Process each content section
+        for (let divId in contentColumns) {
+            let rawHtmlString = contentColumns[divId];
 
-                if (rawHtmlString) {
-                    // Process the raw HTML before placing it in the website
-                    let formattedHtmlString = formatHtmlForWebsite(rawHtmlString);
+            if (rawHtmlString) {
+                // Process the raw HTML before placing it in the website
+                let formattedHtmlString = formatHtmlForWebsite(rawHtmlString);
+                let doc = parser.parseFromString(formattedHtmlString, 'text/html');
+                let newContent = doc.body.innerHTML;
 
-                    let doc = parser.parseFromString(formattedHtmlString, 'text/html');
-                    let newContent = doc.body.innerHTML;
-
-                    let htmlSectionPdfPageDiv = document.getElementById(divId);
-                    if (htmlSectionPdfPageDiv) {
-                        htmlSectionPdfPageDiv.style.display = 'block';
-                        htmlSectionPdfPageDiv.innerHTML = '';  // Clear current content
-                        htmlSectionPdfPageDiv.innerHTML = newContent;  // Set new content
-                        reActiveDragAndDropFunctionality(htmlSectionPdfPageDiv.id);
-                    }
+                let htmlSectionPdfPageDiv = document.getElementById(divId);
+                if (htmlSectionPdfPageDiv) {
+                    htmlSectionPdfPageDiv.style.display = 'block';
+                    htmlSectionPdfPageDiv.innerHTML = '';
+                    htmlSectionPdfPageDiv.innerHTML = newContent;
+                    reActiveDragAndDropFunctionality(htmlSectionPdfPageDiv.id);
                 }
             }
-
-            /* Change the value of the 'existingDataStatus' for making sure you are in editing old data mood */
-            document.getElementById('website_users_name_input_id').disabled = true;
-
-            // Make sure to hide all elements with the class name before checking visibility
-            let images = document.querySelectorAll('.inserted_package_data_section_page_image_class');
-            images.forEach(img => {
-                img.style.display = 'none';
-            });
-
-            // Make sure to hide all elements with the class name before checking visibility
-            let images2 = document.querySelectorAll('.inserted_package_data_section_page_image_class_2');
-            images2.forEach(img => {
-                img.style.display = 'none';
-            });
-
-            /* Show the 'inserted_company_name_image_position_div' element */
-            document.getElementById('inserted_company_name_image_position_div').style.display = 'flex';
-
-
-        } catch (error) {
         }
+
+
+
+        
+        // Check if inserted_clint_movements_data_position_div is empty and hide its container if true
+        const movementsDiv = document.getElementById('inserted_clint_movements_data_position_div');
+        const movementsPdf = document.getElementById('downloaded_pdf_clint_movements_data_page');
+        if (movementsDiv && movementsPdf && movementsDiv.children.length === 0) {
+            movementsPdf.style.display = 'none';
+        }
+
+        // Check if inserted_flight_data_position_div is empty and hide its container if true
+        const flightDiv = document.getElementById('inserted_flight_data_position_div');
+        const flightPdf = document.getElementById('downloaded_pdf_flight_data_page');
+        if (flightDiv && flightPdf && flightDiv.children.length === 0) {
+            flightPdf.style.display = 'none';
+        }
+
+        // Check if inserted_flight_data_position_div is empty and hide its container if true
+        const totalPriceDiv = document.getElementById('package_total_price_p_id');
+        const totalPricePdf = document.getElementById('downloaded_pdf_total_price_data_page');
+        if (totalPriceDiv && totalPricePdf && totalPriceDiv.children.length === 0) {
+            totalPricePdf.style.display = 'none';
+        }
+
+
+
+
+        // Hide the overlay
+        hideOverlay();
+        hideLoadingOverlay();
+
+
+        // Disable name input since we're editing existing data
+        document.getElementById('website_users_name_input_id').disabled = true;
+
+        // Hide all image elements initially
+        document.querySelectorAll('.inserted_package_data_section_page_image_class, .inserted_package_data_section_page_image_class_2').forEach(img => {
+            img.style.display = 'none';
+        });
+
+        // Show the company name image position
+        document.getElementById('inserted_company_name_image_position_div').style.display = 'flex';
+
+
+
+
+
+
+
+
+
+        // Process the package user code for version tracking
+        let packageUserCode = document.getElementById('package_user_code_name_for_later_import_reference_p_id').innerText;
+        let basePackageUserCode = packageUserCode.split('_riv_')[0];
+
+        // Count existing versions of this package (base and all _riv_*)
+        try {
+            // Query names that start with base (server-side)
+            let likePattern = `${basePackageUserCode}%`;
+            const { data: rowsLikeBase, error: countError } = await supabase
+                .from('en_all_package_thai')
+                .select('name')
+                .like('name', likePattern);
+
+            if (countError) throw countError;
+
+            // De-duplicate names first (table may contain multiple versions over time)
+            let uniqueNames = Array.from(new Set((rowsLikeBase || []).map(r => r.name)));
+
+            // Precise-match: base OR base_riv_<number>
+            let escapedBaseForRegex = basePackageUserCode.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            let rivRegex = new RegExp(`^${escapedBaseForRegex}_riv_\\d+$`);
+            let preciseMatches = uniqueNames.filter(n => n === basePackageUserCode || rivRegex.test(n));
+            totalRivPackageNumberForUpdatingNewRivPackage = preciseMatches.length;
+        } catch (countErr) {
+            // Fallback to cached names if count query fails
+            let escapedBaseForRegex = basePackageUserCode.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            let rivRegex = new RegExp(`^${escapedBaseForRegex}_riv_\\d+$`);
+            let uniqueSheetNames = Array.from(new Set(sheetData.map(row => row.name)));
+            totalRivPackageNumberForUpdatingNewRivPackage = uniqueSheetNames.filter(n => {
+                return n === basePackageUserCode || rivRegex.test(n);
+            }).length;
+        }
+
+        // Update the package code with the correct next riv index
+        // If only base exists (count=1), next should be _riv_1; otherwise if base+_riv_2 exist (count=2), next is _riv_2, etc.
+        // nextRivIndex equals number of similar names found (base + all _riv_N)
+        let nextRivIndex = totalRivPackageNumberForUpdatingNewRivPackage <= 0 ? 1 : totalRivPackageNumberForUpdatingNewRivPackage;
+        document.getElementById('package_user_code_name_for_later_import_reference_p_id').innerText =
+            `${document.getElementById('store_google_sheet_package_raw_user_with_no_riv_for_later_reference_when_importing').innerText}_riv_${nextRivIndex}`;
+
+        // Set flags for new data creation
+        existingDataStatus = 'newData';
+        websiteUserUniqueNumber = 'existingUniqueNumber';
+
+
+
+
+
+
+
+
+
+        // Update allowed dates for the package
+        updateAllowedDates();
+
+    } catch (error) {
+        console.error('Error importing package content:', error);
+        hideLoadingOverlay();
     }
 
-    /* Hide the overlay page */
-    hideOverlay()
+}
 
+// Create and show a simple full-screen loading overlay
+function showLoadingOverlay() {
+    if (document.getElementById('global_loading_overlay')) return;
 
-    // New functionality to count matching name values
+    let overlay = document.createElement('div');
+    overlay.id = 'global_loading_overlay';
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100vw';
+    overlay.style.height = '100vh';
+    overlay.style.background = 'rgba(0, 0, 0, 0.35)';
+    overlay.style.backdropFilter = 'blur(2px)';
+    overlay.style.display = 'flex';
+    overlay.style.alignItems = 'center';
+    overlay.style.justifyContent = 'center';
+    overlay.style.zIndex = '9999';
+    overlay.style.opacity = '0';
+    overlay.style.transition = 'opacity 200ms ease';
 
-    // Step 1: Get the user code from the <p> element
-    let fullPackageCode = document.getElementById('package_user_code_name_for_later_import_reference_p_id').innerText;
+    // Spinner element
+    let spinner = document.createElement('div');
+    spinner.style.width = '36px';
+    spinner.style.height = '36px';
+    spinner.style.border = '6px solid rgba(255,255,255,0.35)';
+    spinner.style.borderTopColor = '#ffffff';
+    spinner.style.borderRadius = '50%';
+    spinner.style.animation = 'global_loading_spin 0.8s linear infinite';
 
-    // Step 2: Remove everything after '_riv_' to get the base code
-    let basePackageCode = fullPackageCode.split('_riv_')[0];
+    // Add keyframes once
+    if (!document.getElementById('global_loading_styles')) {
+        let style = document.createElement('style');
+        style.id = 'global_loading_styles';
+        style.textContent = '@keyframes global_loading_spin{to{transform:rotate(360deg)}}';
+        document.head.appendChild(style);
+    }
 
+    overlay.appendChild(spinner);
+    document.body.appendChild(overlay);
 
-    // Step 3: Create an array to store the found numbers after '_riv_'
-    let foundRivNumbers = [];
-
-    // Step 4: Loop through each row in the sheet data
-    sheetData.forEach(row => {
-        let fullCode = row[0]; // Get the value from the first column
-        if (fullCode.startsWith(basePackageCode + '_riv_')) {
-            // Use regex to extract the number after '_riv_'
-            let match = fullCode.match(/_riv_(\d+)/);
-            if (match) {
-                let rivNumber = parseInt(match[1], 10); // Convert to number
-                foundRivNumbers.push(rivNumber);
-            }
-        }
+    // Trigger fade-in
+    requestAnimationFrame(() => {
+        overlay.style.opacity = '1';
     });
+}
 
-    // Step 5: Find the highest number and add 1 to it
-    let totalRivPackageNumberForUpdatingNewRivPackage = 1; // Start with 1 if no match found
-    if (foundRivNumbers.length > 0) {
-        let highestNumber = Math.max(...foundRivNumbers);
-        totalRivPackageNumberForUpdatingNewRivPackage = highestNumber + 1;
-    }
-
-
-
-
-    document.getElementById('package_user_code_name_for_later_import_reference_p_id').innerText = `${document.getElementById('store_google_sheet_package_raw_user_with_no_riv_for_later_reference_when_importing').innerText}_riv_${totalRivPackageNumberForUpdatingNewRivPackage}`
-
-
-    /* When importing make sure to save the new _riv_ data as a new data in the google sheet */
-    existingDataStatus = 'newData';
-    websiteUserUniqueNumber = 'existingUniqueNumber';
-
-
-
-
-    /* Call a function to make sure the hotel available dates are properly set */
-    updateAllowedDates();
+// Hide and remove the loading overlay smoothly
+function hideLoadingOverlay() {
+    let overlay = document.getElementById('global_loading_overlay');
+    if (!overlay) return;
+    overlay.style.opacity = '0';
+    setTimeout(() => {
+        if (overlay && overlay.parentNode) {
+            overlay.parentNode.removeChild(overlay);
+        }
+    }, 220);
 }
 
 
@@ -827,9 +880,6 @@ fliterGoogleSheetPackagesNames = function (clickedElement, targetPackagesName) {
             break;
         case 'googleSheet_yy_PackageNames':
             targetArray = googleSheet_yy_PackageNames;
-            break;
-        case 'googleSheet_bb_PackageNames':
-            targetArray = googleSheet_bb_PackageNames;
             break;
         default:
             targetArray = []; // If none matches, set an empty array
@@ -1450,6 +1500,7 @@ reActiveDragAndDropFunctionality = function (visiableDivIdName) {
             'inner_flight_tickets_checkbox',
             'outer_flight_tickets_checkbox',
             'placese_visiting_cost_checkbox',
+            'bali_taxes_not_covered_checkbox'
         ];
 
         // Uncheck all inputs and reset their color
