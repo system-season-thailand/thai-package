@@ -547,12 +547,12 @@ createWholePackageAndClintDataFunction = function () {
 
 
                 /* Store the package user name code for displaying in the pdf file */
-                document.getElementById('package_user_code_name_for_later_import_reference_p_id').innerText = `${websiteUsersNameInput}_indo_${lastTwoNumbersOfTheCurrentYear}_${mostTopEmptyCellRowNumberValue}`;
+                document.getElementById('package_user_code_name_for_later_import_reference_p_id').innerText = `${websiteUsersNameInput}_thai_${lastTwoNumbersOfTheCurrentYear}_${mostTopEmptyCellRowNumberValue}`;
 
 
 
                 /* Store the package user name code with no year for later use when importing data */
-                document.getElementById('store_google_sheet_package_raw_user_with_no_riv_for_later_reference_when_importing').innerText = `${websiteUsersNameInput}_indo_${lastTwoNumbersOfTheCurrentYear}_${mostTopEmptyCellRowNumberValue}`;
+                document.getElementById('store_google_sheet_package_raw_user_with_no_riv_for_later_reference_when_importing').innerText = `${websiteUsersNameInput}_thai_${lastTwoNumbersOfTheCurrentYear}_${mostTopEmptyCellRowNumberValue}`;
 
 
                 /* Store the last clicked website user name for later refrence if it got changed */

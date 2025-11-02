@@ -5,6 +5,9 @@ let websiteUserUniqueNumber = 'newUniqueNumber'; // Variable to identify if the 
 
 
 
+
+
+
 /* Function to store the package in the Supabase database */
 async function sendDataToSupabase() {
     return new Promise(async (resolve, reject) => {
