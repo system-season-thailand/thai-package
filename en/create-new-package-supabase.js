@@ -1495,12 +1495,12 @@ reActiveDragAndDropFunctionality = function (visiableDivIdName) {
             'extra_car_for_carring_bags_checkbox',
             'hotel_booking_with_breakfast_for_2_people_checkbox',
             'welcome_goodbye_hotel_delivery_checkbox',
-            'inner_flight_tickets_checkbox',
             'customer_service_24_hour_checkbox',
             'sms_card_with_internet_checkbox',
-            'welcome_with_flowers_checkbox',
+            'inner_flight_tickets_checkbox',
             'outer_flight_tickets_checkbox',
-            'placese_visiting_cost_checkbox'
+            'placese_visiting_cost_checkbox',
+            'bali_taxes_not_covered_checkbox'
         ];
 
         // Uncheck all inputs and reset their color
