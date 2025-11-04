@@ -1504,39 +1504,70 @@ reActiveDragAndDropFunctionality = function (visiableDivIdName) {
         ];
 
         // Uncheck all inputs and reset their color
+        console.groupCollapsed('[Including] Reset all checkbox colors to white');
         checkboxIds.forEach(id => {
-            let checkbox = document.getElementById(id);
-            if (checkbox) {
-                checkbox.checked = false; // Uncheck the checkbox
-                let label = checkbox.nextElementSibling; // Get the label element
+            const checkbox = document.getElementById(id);
+            if (!checkbox) {
+                console.warn('Reset skip (checkbox missing):', id);
+                return;
+            }
+            const label = checkbox.nextElementSibling;
+            const before = label ? window.getComputedStyle(label, '::before').backgroundColor : '(no label)';
+            checkbox.checked = false; // Uncheck the checkbox
+            if (label) {
                 label.style.setProperty('--checkbox-color', 'rgb(255, 255, 255)'); // Reset to white
             }
+            const after = label ? window.getComputedStyle(label, '::before').backgroundColor : '(no label)';
+            console.log('Reset', { id, before, after });
         });
+        console.groupEnd();
 
         // Helper function to set checkbox color based on the div
         function setColorFromDiv(divId, color) {
+            console.groupCollapsed('[Including] Apply colors from div', { divId, color });
             const div = document.getElementById(divId);
-            if (!div) return;
+            if (!div) {
+                console.warn('Div not found:', divId);
+                console.groupEnd();
+                return;
+            }
 
-            const pElements = div.getElementsByTagName('p');
-            Array.from(pElements).forEach(p => {
-                const checkboxId = (p.textContent || p.innerText || '').trim();
-                if (!checkboxId) return;
+            const pElements = Array.from(div.getElementsByTagName('p'));
+            console.log('Found stored <p> count:', pElements.length);
+            pElements.forEach((p, index) => {
+                const raw = (p.textContent ?? p.innerText ?? '').toString();
+                const checkboxId = raw.trim();
+                if (!checkboxId) {
+                    console.warn('Empty ID in <p> at index', index, { raw });
+                    return;
+                }
 
                 const checkbox = document.getElementById(checkboxId);
-                if (!checkbox) return;
+                if (!checkbox) {
+                    console.warn('Checkbox not found for ID from storage:', checkboxId);
+                    return;
+                }
 
                 const label = checkbox.nextElementSibling;
-                if (!label) return;
+                if (!label) {
+                    console.warn('Label sibling not found for checkbox:', checkboxId);
+                    return;
+                }
 
+                const before = window.getComputedStyle(label, '::before').backgroundColor;
                 label.style.setProperty('--checkbox-color', color);
+                const after = window.getComputedStyle(label, '::before').backgroundColor;
+                console.log('Applied color', { index, checkboxId, before, after });
             });
+            console.groupEnd();
         }
 
         // Apply colors to checkboxes based on p elements in each div
+        console.groupCollapsed('[Including] Start reapply checkbox colors from storage');
         setColorFromDiv('store_google_sheet_green_checked_package_including_and_not_including_input_div', 'rgb(0, 255, 0)'); // Green
         setColorFromDiv('store_google_sheet_red_checked_package_including_and_not_including_input_div', 'rgb(255, 0, 0)'); // Red
         setColorFromDiv('store_google_sheet_white_package_including_and_not_including_input_div', 'rgb(255, 255, 255)'); // White
+        console.groupEnd();
 
 
     }
