@@ -941,14 +941,49 @@ createAllPackageIncludingAndNotIncludingData = function () {
     document.getElementById('store_google_sheet_red_checked_package_including_and_not_including_input_div').innerHTML = '';
     document.getElementById('store_google_sheet_white_package_including_and_not_including_input_div').innerHTML = '';
 
+    console.groupCollapsed('[Including] Store checkbox colors to hidden divs');
     checkboxIds.forEach(id => {
         let checkbox = document.getElementById(id);
-        if (!checkbox) return;
+        if (!checkbox) {
+            console.warn('Store skip (checkbox missing):', id);
+            return;
+        }
         let label = checkbox.nextElementSibling;
+        if (!label) {
+            console.warn('Store skip (label missing):', id);
+            return;
+        }
         let currentColor = window.getComputedStyle(label, '::before').backgroundColor;
+
+        // Normalize to one of the three buckets
+        let bucket = 'white';
+        if (currentColor === 'rgb(0, 255, 0)') {
+            bucket = 'green';
+        } else if (currentColor === 'rgb(255, 0, 0)') {
+            bucket = 'red';
+        } else if (currentColor === 'rgb(255, 255, 255)') {
+            bucket = 'white';
+        } else {
+            // Some browsers may return spaces or different formatting; fallback by substring check
+            if (currentColor.includes('0, 255, 0')) bucket = 'green';
+            else if (currentColor.includes('255, 0, 0')) bucket = 'red';
+            else bucket = 'white';
+        }
+
         let pElement = document.createElement('p');
         pElement.innerText = id;
+
+        if (bucket === 'green') {
+            document.getElementById('store_google_sheet_green_checked_package_including_and_not_including_input_div').appendChild(pElement);
+        } else if (bucket === 'red') {
+            document.getElementById('store_google_sheet_red_checked_package_including_and_not_including_input_div').appendChild(pElement);
+        } else {
+            document.getElementById('store_google_sheet_white_package_including_and_not_including_input_div').appendChild(pElement);
+        }
+
+        console.log('Stored', { id, currentColor, bucket });
     });
+    console.groupEnd();
 }
 
 
