@@ -611,7 +611,7 @@ async function importContentForSelectedName(name) {
 
 
 
-        
+
         // Check if inserted_clint_movements_data_position_div is empty and hide its container if true
         const movementsDiv = document.getElementById('inserted_clint_movements_data_position_div');
         const movementsPdf = document.getElementById('downloaded_pdf_clint_movements_data_page');
@@ -1495,12 +1495,12 @@ reActiveDragAndDropFunctionality = function (visiableDivIdName) {
             'extra_car_for_carring_bags_checkbox',
             'hotel_booking_with_breakfast_for_2_people_checkbox',
             'welcome_goodbye_hotel_delivery_checkbox',
+            'inner_flight_tickets_checkbox',
             'customer_service_24_hour_checkbox',
             'sms_card_with_internet_checkbox',
-            'inner_flight_tickets_checkbox',
+            'welcome_with_flowers_checkbox',
             'outer_flight_tickets_checkbox',
-            'placese_visiting_cost_checkbox',
-            'bali_taxes_not_covered_checkbox'
+            'placese_visiting_cost_checkbox'
         ];
 
         // Uncheck all inputs and reset their color
@@ -1515,18 +1515,22 @@ reActiveDragAndDropFunctionality = function (visiableDivIdName) {
 
         // Helper function to set checkbox color based on the div
         function setColorFromDiv(divId, color) {
-            let div = document.getElementById(divId);
-            if (div) {
-                let pElements = div.getElementsByTagName('p'); // Get all p elements inside the div
-                Array.from(pElements).forEach(p => {
-                    let checkboxId = p.innerText; // Get the checkbox ID from the p element
-                    let checkbox = document.getElementById(checkboxId); // Find the checkbox by its ID
-                    if (checkbox) {
-                        let label = checkbox.nextElementSibling; // Get the label element
-                        label.style.setProperty('--checkbox-color', color); // Set the new color
-                    }
-                });
-            }
+            const div = document.getElementById(divId);
+            if (!div) return;
+
+            const pElements = div.getElementsByTagName('p');
+            Array.from(pElements).forEach(p => {
+                const checkboxId = (p.textContent || p.innerText || '').trim();
+                if (!checkboxId) return;
+
+                const checkbox = document.getElementById(checkboxId);
+                if (!checkbox) return;
+
+                const label = checkbox.nextElementSibling;
+                if (!label) return;
+
+                label.style.setProperty('--checkbox-color', color);
+            });
         }
 
         // Apply colors to checkboxes based on p elements in each div
