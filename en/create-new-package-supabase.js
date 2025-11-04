@@ -1503,7 +1503,26 @@ reActiveDragAndDropFunctionality = function (visiableDivIdName) {
             'placese_visiting_cost_checkbox'
         ];
 
-        // Uncheck all inputs and reset their color
+        // Snapshot original colors BEFORE reset, then reset, then reapply from snapshot
+        const originalColors = {};
+        console.groupCollapsed('[Including] Snapshot original colors before reset');
+        checkboxIds.forEach(id => {
+            const checkbox = document.getElementById(id);
+            if (!checkbox) {
+                console.warn('Snapshot skip (checkbox missing):', id);
+                return;
+            }
+            const label = checkbox.nextElementSibling;
+            if (!label) {
+                console.warn('Snapshot skip (label missing):', id);
+                return;
+            }
+            const before = window.getComputedStyle(label, '::before').backgroundColor;
+            originalColors[id] = before;
+            console.log('Captured', { id, before });
+        });
+        console.groupEnd();
+
         console.groupCollapsed('[Including] Reset all checkbox colors to white');
         checkboxIds.forEach(id => {
             const checkbox = document.getElementById(id);
@@ -1563,7 +1582,33 @@ reActiveDragAndDropFunctionality = function (visiableDivIdName) {
         }
 
         // Apply colors to checkboxes based on p elements in each div
-        console.groupCollapsed('[Including] Start reapply checkbox colors from storage');
+        // Reapply from snapshot first (source of truth for imported DOM)
+        console.groupCollapsed('[Including] Reapply colors from snapshot');
+        checkboxIds.forEach(id => {
+            const checkbox = document.getElementById(id);
+            if (!checkbox) {
+                console.warn('Reapply skip (checkbox missing):', id);
+                return;
+            }
+            const label = checkbox.nextElementSibling;
+            if (!label) {
+                console.warn('Reapply skip (label missing):', id);
+                return;
+            }
+            const saved = originalColors[id];
+            if (!saved) {
+                console.log('No snapshot color, keep reset color', { id });
+                return;
+            }
+            const before = window.getComputedStyle(label, '::before').backgroundColor;
+            label.style.setProperty('--checkbox-color', saved);
+            const after = window.getComputedStyle(label, '::before').backgroundColor;
+            console.log('Reapplied', { id, saved, before, after });
+        });
+        console.groupEnd();
+
+        // Optionally, if Supabase-provided storage divs are present, they can override snapshot
+        console.groupCollapsed('[Including] Start reapply checkbox colors from storage (optional override)');
         setColorFromDiv('store_google_sheet_green_checked_package_including_and_not_including_input_div', 'rgb(0, 255, 0)'); // Green
         setColorFromDiv('store_google_sheet_red_checked_package_including_and_not_including_input_div', 'rgb(255, 0, 0)'); // Red
         setColorFromDiv('store_google_sheet_white_package_including_and_not_including_input_div', 'rgb(255, 255, 255)'); // White
