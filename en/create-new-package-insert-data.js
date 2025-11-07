@@ -1,3 +1,7 @@
+/* Bangkok, Phuket,   Krabi,   Pattaya,  Chiang Mai, Koh Samui;
+   Bali,    Jakarta,  Puncak,  Bandung,  Lombok
+*/
+
 /* Ensure To Use The "Re-Create the data" Codes */
 
 
@@ -7,6 +11,11 @@
 let insertedFlightDataDivUniqueId;
 let insertedHotelDataDivUniqueId;
 let insertedClintMovementsRowDivUniqueId = 1;
+
+
+
+
+
 
 
 
@@ -538,12 +547,12 @@ createWholePackageAndClintDataFunction = function () {
 
 
                 /* Store the package user name code for displaying in the pdf file */
-                document.getElementById('package_user_code_name_for_later_import_reference_p_id').innerText = `${websiteUsersNameInput}_indo_${lastTwoNumbersOfTheCurrentYear}_${mostTopEmptyCellRowNumberValue}`;
+                document.getElementById('package_user_code_name_for_later_import_reference_p_id').innerText = `${websiteUsersNameInput}_thai_${lastTwoNumbersOfTheCurrentYear}_${mostTopEmptyCellRowNumberValue}`;
 
 
 
                 /* Store the package user name code with no year for later use when importing data */
-                document.getElementById('store_google_sheet_package_raw_user_with_no_riv_for_later_reference_when_importing').innerText = `${websiteUsersNameInput}_indo_${lastTwoNumbersOfTheCurrentYear}_${mostTopEmptyCellRowNumberValue}`;
+                document.getElementById('store_google_sheet_package_raw_user_with_no_riv_for_later_reference_when_importing').innerText = `${websiteUsersNameInput}_thai_${lastTwoNumbersOfTheCurrentYear}_${mostTopEmptyCellRowNumberValue}`;
 
 
                 /* Store the last clicked website user name for later refrence if it got changed */
@@ -623,10 +632,10 @@ deleteClickedCompanyLogo = function () {
 // Translation mapping for package including content
 const packageIncludingTranslations = {
     // Private car with driver
-    'سيارة خاصة مريحة (تويوتا افانزا او مايماثلها) مع سائق خاص طوال الرحلة مع برنامج يومي منظم مناسب لكم': 'Comfortable private car (Toyota Avanza or similar) with private driver throughout the trip with organized daily visits suitable for you',
-    'سيارة خاصة مريحة (تويوتا افانزا': 'Comfortable private car (Toyota Avanza',
+    'سيارة خاصة مريحة (سيدان او مايماثلها) مع سائق خاص طوال الرحلة مع برنامج يومي منظم مناسب لكم': 'Comfortable private car (Toyota Avanza or similar) with private driver throughout the trip with organized daily visits suitable for you',
+    'سيارة خاصة مريحة (سيدان': 'Comfortable private car (Toyota Avanza',
     'او مايماثلها) مع سائق خاص طوال الرحلة مع برنامج يومي منظم مناسب لكم': 'or similar) with private driver throughout the trip with organized daily visits suitable for you',
-    'سيارة خاصة مريحة (تويوتا افانزا\n                            او مايماثلها) مع سائق خاص طوال الرحلة مع برنامج يومي منظم مناسب لكم': 'Comfortable private car (Toyota Avanza or similar) with private driver throughout the trip with organized daily visits suitable for you',
+    'سيارة خاصة مريحة (سيدان\n                            او مايماثلها) مع سائق خاص طوال الرحلة مع برنامج يومي منظم مناسب لكم': 'Comfortable private car (Toyota Avanza or similar) with private driver throughout the trip with organized daily visits suitable for you',
 
     // Additional car for luggage
     'سيارة إضافية للعفش': 'Additional car for luggage',
@@ -672,9 +681,6 @@ const packageIncludingTranslations = {
     'المنتزهات': 'parks',
     'تكاليف دخوليات + مواقف السيارت في الحدائق و\n                            المنتزهات': 'Entrance fees + car parking in gardens and parks',
 
-    // Bali tax
-    'ضريبة دخول بالي': 'Bali entrance tax',
-
     // Watersport special text
     'استمتعوا ب 3 ألعاب بحرية ممتعة': 'Enjoy 3 fun water activities',
     'كلها مشمولة بدون أي رسوم إضافية': 'All included without any additional fees',
@@ -692,14 +698,10 @@ createAllPackageIncludingAndNotIncludingData = function () {
         'welcome_goodbye_hotel_delivery_checkbox',
         'welcome_with_flowers_checkbox',
         'sms_card_with_internet_checkbox',
-        'special_oud_checkbox',
         'inner_flight_tickets_checkbox',
         'extra_car_for_carring_bags_checkbox',
-        'watersport_activity_checkbox',
-        'rafting_activity_checkbox',
         'outer_flight_tickets_checkbox',
         'placese_visiting_cost_checkbox',
-        'bali_taxes_not_covered_checkbox'
     ];
 
     playSoundEffect('success');
@@ -793,66 +795,10 @@ createAllPackageIncludingAndNotIncludingData = function () {
             document.getElementById('store_google_sheet_package_specific_car_type_value').innerText = '';
         }
 
-        // Watersport/Rafting special logic
-        if (id === 'watersport_activity_checkbox' || id === 'rafting_activity_checkbox') {
-            if (color === 'rgb(0, 255, 0)') {
-                icon.setAttribute('name', 'checkmark-outline');
-                icon.style.color = '#007bff';
-                p.appendChild(icon);
-
-                if (id === 'watersport_activity_checkbox') {
-                    p.innerHTML += " 🌊" + translateToEnglish("استمتعوا ب 3 ألعاب بحرية ممتعة") + "<br>" + translateToEnglish("كلها مشمولة بدون أي رسوم إضافية") + "💙<br>";
-                    p.setAttribute('data-gift-order', '1');
-                    let container = document.createElement('div');
-                    container.className = 'activity_icon_container';
-                    ['../activities/donat.webp', '../activities/panana.webp', '../activities/parasut.webp'].forEach(src => {
-                        let img = document.createElement('img');
-                        img.src = src;
-                        img.className = 'activity_icon_img';
-                        container.appendChild(img);
-                    });
-                    p.appendChild(container);
-                } else if (id === 'rafting_activity_checkbox') {
-                    p.innerHTML += " 🚣‍♂️" + translateToEnglish("اكتشف متعة التجديف") + "<br>" + translateToEnglish("لحظات حماس وتجربة لاتُنسى هدية منا لكم") + "💙<br>";
-                    p.setAttribute('data-gift-order', '2');
-                    let container = document.createElement('div');
-                    container.className = 'activity_icon_container';
-                    let img = document.createElement('img');
-                    img.src = '../activities/rafting.webp';
-                    img.className = 'activity_icon_img';
-                    container.appendChild(img);
-                    p.appendChild(container);
-                }
-
-                p.className = 'inserted_package_including_data_text';
-                p.setAttribute('onclick', 'runDeleteThisPackageIncludingDataText(this)');
-                insertedPackageGiftDataDiv.appendChild(p);
-            } else if (color === 'rgb(255, 0, 0)') {
-                icon.setAttribute('name', 'close-outline');
-                p.appendChild(icon);
-                labelText.forEach((text, index) => {
-                    p.appendChild(document.createTextNode(` ${translateToEnglish(text)}`));
-                    if (index < labelText.length - 1) p.appendChild(document.createElement('br'));
-                });
-                p.className = 'inserted_package_not_including_data_text';
-                p.setAttribute('onclick', 'runDeleteThisPackageIncludingDataText(this)');
-                insertedPackageNotIncludingDataDiv.appendChild(p);
-            }
-            return;
-        }
-
-        // Special logic for special_oud_checkbox if first hotel city is "Bali"
-        if (id === 'special_oud_checkbox' && (firstHotelCityText === 'Bali' || firstHotelCityText === 'Lombok')) {
-            // Treat as white (do not add to including/gift/not including)
-            let pElement = document.createElement('p');
-            pElement.innerText = id;
-            document.getElementById('store_google_sheet_white_package_including_and_not_including_input_div').appendChild(pElement);
-            return;
-        }
 
         // Normal logic for other checkboxes
         if (color === 'rgb(0, 255, 0)') {
-            if (id === 'sms_card_with_internet_checkbox' || id === 'welcome_with_flowers_checkbox' || id === 'special_oud_checkbox') {
+            if (id === 'sms_card_with_internet_checkbox' || id === 'welcome_with_flowers_checkbox') {
                 icon.setAttribute('name', 'checkmark-outline');
                 p.appendChild(icon);
 
@@ -881,19 +827,6 @@ createAllPackageIncludingAndNotIncludingData = function () {
                     container.className = 'activity_icon_container';
                     let img = document.createElement('img');
                     img.src = '../activities/flower.webp';
-                    img.className = 'activity_icon_img';
-                    container.appendChild(img);
-                    p.appendChild(container);
-                } else if (id === 'special_oud_checkbox') {
-                    labelText.forEach((text, index) => {
-                        p.appendChild(document.createTextNode(` ${translateToEnglish(text)}`));
-                        if (index < labelText.length - 1) p.appendChild(document.createElement('br'));
-                    });
-                    p.setAttribute('data-gift-order', '5');
-                    let container = document.createElement('div');
-                    container.className = 'activity_icon_container';
-                    let img = document.createElement('img');
-                    img.src = '../activities/special-oud.webp';
                     img.className = 'activity_icon_img';
                     container.appendChild(img);
                     p.appendChild(container);
@@ -1008,25 +941,49 @@ createAllPackageIncludingAndNotIncludingData = function () {
     document.getElementById('store_google_sheet_red_checked_package_including_and_not_including_input_div').innerHTML = '';
     document.getElementById('store_google_sheet_white_package_including_and_not_including_input_div').innerHTML = '';
 
+    console.groupCollapsed('[Including] Store checkbox colors to hidden divs');
     checkboxIds.forEach(id => {
         let checkbox = document.getElementById(id);
-        if (!checkbox) return;
+        if (!checkbox) {
+            console.warn('Store skip (checkbox missing):', id);
+            return;
+        }
         let label = checkbox.nextElementSibling;
+        if (!label) {
+            console.warn('Store skip (label missing):', id);
+            return;
+        }
         let currentColor = window.getComputedStyle(label, '::before').backgroundColor;
+
+        // Normalize to one of the three buckets
+        let bucket = 'white';
+        if (currentColor === 'rgb(0, 255, 0)') {
+            bucket = 'green';
+        } else if (currentColor === 'rgb(255, 0, 0)') {
+            bucket = 'red';
+        } else if (currentColor === 'rgb(255, 255, 255)') {
+            bucket = 'white';
+        } else {
+            // Some browsers may return spaces or different formatting; fallback by substring check
+            if (currentColor.includes('0, 255, 0')) bucket = 'green';
+            else if (currentColor.includes('255, 0, 0')) bucket = 'red';
+            else bucket = 'white';
+        }
+
         let pElement = document.createElement('p');
         pElement.innerText = id;
 
-        // Special logic for special_oud_checkbox if first hotel city is "Bali"
-        if (id === 'special_oud_checkbox' && firstHotelCityText === 'Bali') {
-            document.getElementById('store_google_sheet_white_package_including_and_not_including_input_div').appendChild(pElement);
-        } else if (currentColor === 'rgb(0, 255, 0)') {
+        if (bucket === 'green') {
             document.getElementById('store_google_sheet_green_checked_package_including_and_not_including_input_div').appendChild(pElement);
-        } else if (currentColor === 'rgb(255, 0, 0)') {
+        } else if (bucket === 'red') {
             document.getElementById('store_google_sheet_red_checked_package_including_and_not_including_input_div').appendChild(pElement);
         } else {
             document.getElementById('store_google_sheet_white_package_including_and_not_including_input_div').appendChild(pElement);
         }
+
+        console.log('Stored', { id, currentColor, bucket });
     });
+    console.groupEnd();
 }
 
 
@@ -1189,7 +1146,7 @@ createAllFlightDataFunction = function () {
 
         let lastCity = null;  // Variable to store the last valid city encountered
         let lastDate = null;  // Variable to store the date associated with the last valid city
-        let validCities = ["Bali", "Jakarta", "Bandung", "Puncak", "Lombok"];  // Array of valid cities to check against
+        let validCities = ["Bangkok", "Phuket", "Krabi", "Pattaya", "Chiang Mai", "Koh Samui"];  // Array of valid cities to check against
 
 
 
@@ -1219,51 +1176,36 @@ createAllFlightDataFunction = function () {
             let currentCity = hotelRow.querySelector('h5').innerText;  // Get the city name from the current hotel row's h5 element
             let currentDate = hotelRow.querySelector('h2').innerText;  // Get the date from the current hotel row's h2 element
 
-            // Check if transition between Jakarta and Bandung (in either order) and skip
-            if ((lastCity === "Jakarta" && currentCity === "Bandung") || (lastCity === "Bandung" && currentCity === "Jakarta")) {
-                lastCity = currentCity;
-                lastDate = currentDate;
-                return; // Skip this iteration without creating a flightRowTableDiv
-            }
-
-            // Check if transition between Jakarta and Puncak and skip
-            if (lastCity === "Jakarta" && currentCity === "Puncak") {
-                lastCity = currentCity;
-                lastDate = currentDate;
-                return; // Skip this iteration without creating a flightRowTableDiv
-            }
-
-            // Check if transition between Puncak and Jakarta and skip
-            if (lastCity === "Puncak" && currentCity === "Jakarta") {
-                lastCity = currentCity;
-                lastDate = currentDate;
-                return; // Skip this iteration without creating a flightRowTableDiv
-            }
 
             // Check if the current and last city are valid and different
             if ((validCities.includes(currentCity) && lastCity && lastCity !== currentCity && validCities.includes(lastCity)) ||
-                (lastCity === "Puncak" && currentCity === "Bali") || (lastCity === "Bali" && currentCity === "Puncak")) {
+                (lastCity === "Krabi" && currentCity === "Bangkok") || (lastCity === "Bangkok" && currentCity === "Krabi")) {
 
                 let fromCity = lastCity;
                 let toCity = currentCity;
 
 
-                /* check the 'lastCity' and the 'currentCity' value and based on the below conditions set the value of the 'fromCity' and the 'toCity' */
-                if ((lastCity === "Puncak" && currentCity === "Bali") || (lastCity === "Bandung" && currentCity === "Bali")) {
-                    fromCity = "Jakarta";
-                    toCity = "Bali";
-                } else if ((lastCity === "Bali" && currentCity === "Puncak") || (lastCity === "Bali" && currentCity === "Bandung")) {
-                    fromCity = "Bali";
-                    toCity = "Jakarta";
-                }
-
-
-
-                // Check if transition between Bandung and Puncak (in either order) and skip
-                if ((lastCity === "Bandung" && currentCity === "Puncak") || (lastCity === "Puncak" && currentCity === "Bandung")) {
+                // Check if transition between Krabi and Phuket (in either order) and skip
+                if ((lastCity === "Krabi" && currentCity === "Phuket") || (lastCity === "Phuket" && currentCity === "Krabi")) {
                     lastCity = currentCity;
                     lastDate = currentDate;
                     return; // Skip this iteration without creating a flightRowTableDiv
+                }
+
+                // Check if transition between Pattaya and Bangkok (in either order) and skip
+                if ((lastCity === "Pattaya" && currentCity === "Bangkok") || (lastCity === "Bangkok" && currentCity === "Pattaya")) {
+                    lastCity = currentCity;
+                    lastDate = currentDate;
+                    return; // Skip this iteration without creating a flightRowTableDiv
+                }
+
+                /* check the 'lastCity' and the 'currentCity' value and based on the below conditions set the value of the 'fromCity' and the 'toCity' */
+                if ((lastCity === "Pattaya" && currentCity === "Phuket")) {
+                    fromCity = "Bangkok";
+                    toCity = "Phuket";
+                } else if ((lastCity === "Phuket" && currentCity === "Pattaya")) {
+                    fromCity = "Phuket";
+                    toCity = "Bangkok";
                 }
 
 
@@ -1880,31 +1822,31 @@ manuallyCreateNewFlightRow = function () {
             h1Element.innerText = firstHotelRowH2Text;
         }
 
-        // Additional condition: If the h5 innerText is "Bali"
-        if (firstHotelRowH5Text === "Bali") {
+        // Additional condition: If the h5 innerText is "بانكوك"
+        if (firstHotelRowH5Text === "Bangkok") {
             let h2Element = flightRowTableDiv.querySelector('h2');
             let h3Element = flightRowTableDiv.querySelector('h3');
 
             if (h2Element) {
-                h2Element.innerText = "Jakarta";  // Set h2 to "Jakarta"
+                h2Element.innerText = "Phuket";  // Set h2 to "Phuket"
             }
 
             if (h3Element) {
-                h3Element.innerText = "Bali";  // Set h3 to "Bali"
+                h3Element.innerText = "Bangkok";  // Set h3 to "Bangkok"
             }
 
 
-            /* But if the first found hotel row does not located "Bali" then reveres the contries */
+            /* But if the first found hotel row does not located "Phuket" then reveres the contries */
         } else {
             let h2Element = flightRowTableDiv.querySelector('h2');
             let h3Element = flightRowTableDiv.querySelector('h3');
 
             if (h2Element) {
-                h2Element.innerText = "Bali";  // Set h2 to "Jakarta"
+                h2Element.innerText = "Bangkok";  // Set h2 to "Bangkok"
             }
 
             if (h3Element) {
-                h3Element.innerText = "Jakarta";  // Set h3 to "Bali"
+                h3Element.innerText = "Phuket";  // Set h3 to "Phuket"
             }
         }
     }
@@ -1969,7 +1911,6 @@ createHotelsDataFunction = function () {
     // Get references to all input elements for later use
     let hotelNameReadyText = document.getElementById('hotel_name_input_id').value;
     let hotelLocationInput = document.getElementById('hotel_location_input_id').value;
-    let hotelBaliAreaInput = document.getElementById('hotel_bali_area_input_id').value;
     let hotelStarsRateInput = document.getElementById('hotel_stars_rate_input_id').value;
     let hotelCheckInReadyText = document.getElementById('hotel_check_in_input_id').value;
     let hotelCheckOutReadyText = document.getElementById('hotel_check_out_input_id').value;
@@ -2059,24 +2000,6 @@ createHotelsDataFunction = function () {
 
             return;
         }
-
-
-        /* Stop the process if the hotel location is bali but the area is not selected */
-        if (document.getElementById('hotel_location_input_id').value === 'Bali' && document.getElementById('hotel_bali_area_input_id').value === '') {
-
-            // Play a sound effect
-            playSoundEffect('error');
-
-            // Change the submit icon background color
-            hotel_inputs_submit_icon.style.backgroundColor = 'red';
-
-            // Set the background color of the submit icon back to default color
-            setTimeout(() => {
-                hotel_inputs_submit_icon.style.backgroundColor = 'rgb(0, 87, 116)';
-            }, 500);
-
-            return;
-        }
     }
 
 
@@ -2143,7 +2066,6 @@ createHotelsDataFunction = function () {
             </div>
             <div>
                 <h5 id='hotel_location_${insertedHotelDataDivUniqueId}'>${hotelLocationInput}</h5>
-                ${hotelBaliAreaInput ? `<br><h6 id='hotel_area_${insertedHotelDataDivUniqueId}'>${hotelBaliAreaInput}</h6>` : ''}
                 <img src="../صور-الفنادق/${starsAmount}-stars-hotel-image.jpg" id='hotel_image_${insertedHotelDataDivUniqueId}' class="hotel_row_image_controller inserted_hotel_data_row" style="cursor: pointer">
             </div>
         `;
@@ -2323,8 +2245,6 @@ createHotelsDataFunction = function () {
         // Hide the hotel location input
         document.getElementById('hotel_location_input_id').style.display = 'none';
         document.getElementById('hotel_location_input_id').value = '';
-        document.getElementById('hotel_bali_area_input_id').style.display = 'none';
-        document.getElementById('hotel_bali_area_input_id').value = '';
         document.getElementById('hotel_stars_rate_input_id').style.display = 'none';
         document.getElementById('hotel_stars_rate_input_id').value = '';
 
@@ -2375,14 +2295,10 @@ createHotelsDataFunction = function () {
 
 
         let hotelLocationReadyText = '';
-        let hotelAreaReadyText = '';
 
         for (let hotelData of allHotelDataArray) {
             if (hotelData.hotelName === hotelNameReadyText) {
                 hotelLocationReadyText = hotelData.hotelLocation;
-                if (hotelData.hasOwnProperty('hotelArea')) {
-                    hotelAreaReadyText = hotelData.hotelArea;
-                }
                 break;
             }
         }
@@ -2401,7 +2317,6 @@ createHotelsDataFunction = function () {
             </div>
             <div>
                 <h5 id='hotel_location_${insertedHotelDataDivUniqueId}'>${hotelLocationReadyText}</h5>
-                ${hotelAreaReadyText ? `<br><h6 id='hotel_area_${insertedHotelDataDivUniqueId}'>${hotelAreaReadyText}</h6>` : ''}
                 <img src="../صور-الفنادق/${hotelImgSrcReadyText}.jpg" class="hotel_row_image_controller inserted_hotel_data_row" style="cursor: pointer">
             </div>
         `;
@@ -2667,7 +2582,7 @@ createHotelsDataFunction = function () {
 
         let lastCity = null;  // Variable to store the last valid city encountered
         let lastDate = null;  // Variable to store the date associated with the last valid city
-        let validCities = ["Bali", "Jakarta", "Bandung", "Puncak", "Lombok"];  // Array of valid cities to check against
+        let validCities = ["Bangkok", "Phuket", "Krabi", "Pattaya", "Chiang Mai", "Koh Samui"];  // Array of valid cities to check against
 
 
 
@@ -2697,51 +2612,35 @@ createHotelsDataFunction = function () {
             let currentCity = hotelRow.querySelector('h5').innerText;  // Get the city name from the current hotel row's h5 element
             let currentDate = hotelRow.querySelector('h2').innerText;  // Get the date from the current hotel row's h2 element
 
-            // Check if transition between Jakarta and Bandung (in either order) and skip
-            if ((lastCity === "Jakarta" && currentCity === "Bandung") || (lastCity === "Bandung" && currentCity === "Jakarta")) {
-                lastCity = currentCity;
-                lastDate = currentDate;
-                return; // Skip this iteration without creating a flightRowTableDiv
-            }
-
-            // Check if transition between Jakarta and Puncak and skip
-            if (lastCity === "Jakarta" && currentCity === "Puncak") {
-                lastCity = currentCity;
-                lastDate = currentDate;
-                return; // Skip this iteration without creating a flightRowTableDiv
-            }
-
-            // Check if transition between Puncak and Jakarta and skip
-            if (lastCity === "Puncak" && currentCity === "Jakarta") {
-                lastCity = currentCity;
-                lastDate = currentDate;
-                return; // Skip this iteration without creating a flightRowTableDiv
-            }
-
             // Check if the current and last city are valid and different
             if ((validCities.includes(currentCity) && lastCity && lastCity !== currentCity && validCities.includes(lastCity)) ||
-                (lastCity === "Puncak" && currentCity === "Bali") || (lastCity === "Bali" && currentCity === "Puncak")) {
+                (lastCity === "Krabi" && currentCity === "Bangkok") || (lastCity === "Bangkok" && currentCity === "Krabi")) {
 
                 let fromCity = lastCity;
                 let toCity = currentCity;
 
 
-                /* check the 'lastCity' and the 'currentCity' value and based on the below conditions set the value of the 'fromCity' and the 'toCity' */
-                if ((lastCity === "Puncak" && currentCity === "Bali") || (lastCity === "Bandung" && currentCity === "Bali")) {
-                    fromCity = "Jakarta";
-                    toCity = "Bali";
-                } else if ((lastCity === "Bali" && currentCity === "Puncak") || (lastCity === "Bali" && currentCity === "Bandung")) {
-                    fromCity = "Bali";
-                    toCity = "Jakarta";
-                }
-
-
-
-                // Check if transition between Bandung and Puncak (in either order) and skip
-                if ((lastCity === "Bandung" && currentCity === "Puncak") || (lastCity === "Puncak" && currentCity === "Bandung")) {
+                // Check if transition between Krabi and Phuket (in either order) and skip
+                if ((lastCity === "Krabi" && currentCity === "Phuket") || (lastCity === "Phuket" && currentCity === "Krabi")) {
                     lastCity = currentCity;
                     lastDate = currentDate;
                     return; // Skip this iteration without creating a flightRowTableDiv
+                }
+
+                // Check if transition between Pattaya and Bangkok (in either order) and skip
+                if ((lastCity === "Pattaya" && currentCity === "Bangkok") || (lastCity === "Bangkok" && currentCity === "Pattaya")) {
+                    lastCity = currentCity;
+                    lastDate = currentDate;
+                    return; // Skip this iteration without creating a flightRowTableDiv
+                }
+
+                /* check the 'lastCity' and the 'currentCity' value and based on the below conditions set the value of the 'fromCity' and the 'toCity' */
+                if ((lastCity === "Pattaya" && currentCity === "Phuket")) {
+                    fromCity = "Bangkok";
+                    toCity = "Phuket";
+                } else if ((lastCity === "Phuket" && currentCity === "Pattaya")) {
+                    fromCity = "Phuket";
+                    toCity = "Bangkok";
                 }
 
 
@@ -2752,10 +2651,10 @@ createHotelsDataFunction = function () {
 
                 // Create the HTML content for the new flight row div
                 let flightRowTableDivContent = `
-                <div class="flight_row_flight_arrival_time_controller inserted_flight_data_row" style="cursor: pointer;"><p id='flight_air_line_${insertedFlightDataDivUniqueId}'></p></div>
-                <div>
-                        <p id="flight_adult_person_amount_${insertedFlightDataDivUniqueId}">
-                            ${totalPeople === 1
+                    <div class="flight_row_flight_arrival_time_controller inserted_flight_data_row" style="cursor: pointer;"><p id='flight_air_line_${insertedFlightDataDivUniqueId}'></p></div>
+                    <div>
+                            <p id="flight_adult_person_amount_${insertedFlightDataDivUniqueId}">
+                                ${totalPeople === 1
                         ? `${totalPeople} Adult`
                         : totalPeople > 10
                             ? `${totalPeople} Adult`
@@ -2763,16 +2662,16 @@ createHotelsDataFunction = function () {
                                 ? `${totalPeople} Adults`
                                 : ''
                     }
-                        </p>
-                        ${infantAmount ? `<p id="flight_infant_person_amount_${insertedFlightDataDivUniqueId}">${infantAmount}</p>` : ''}
-                    </div>
-                <div><p>20Kg Per Pax</p></div>
-                <div><h2 id='flight_from_city_${insertedFlightDataDivUniqueId}'>${fromCity}</h2></div>
-                <div><h3 id='flight_to_city_${insertedFlightDataDivUniqueId}'>${toCity}</h3></div>
-                <div><h1 id='flight_date_${insertedFlightDataDivUniqueId}' class="flight_date_for_matching_whole_package_date">${currentDate}</h1></div>
-                <div><p id='flight_fly_away_time_${insertedFlightDataDivUniqueId}'></p></div>
-                <div><p id='flight_arrival_time_${insertedFlightDataDivUniqueId}'></p></div>
-            `;
+                            </p>
+                            ${infantAmount ? `<p id="flight_infant_person_amount_${insertedFlightDataDivUniqueId}">${infantAmount}</p>` : ''}
+                        </div>
+                    <div><p>20Kg Per Pax</p></div>
+                    <div><h2 id='flight_from_city_${insertedFlightDataDivUniqueId}'>${fromCity}</h2></div>
+                    <div><h3 id='flight_to_city_${insertedFlightDataDivUniqueId}'>${toCity}</h3></div>
+                    <div><h1 id='flight_date_${insertedFlightDataDivUniqueId}' class="flight_date_for_matching_whole_package_date">${currentDate}</h1></div>
+                    <div><p id='flight_fly_away_time_${insertedFlightDataDivUniqueId}'></p></div>
+                    <div><p id='flight_arrival_time_${insertedFlightDataDivUniqueId}'></p></div>
+                `;
 
 
                 flightRowTableDiv.innerHTML = flightRowTableDivContent;  // Insert the generated HTML content into the new div
@@ -2913,28 +2812,24 @@ createHotelsDataFunction = function () {
         let allHotelRows = document.querySelectorAll('.hotel_row_class_for_editing');
         let totalHotels = allHotelRows.length;
         let usedVisitingPlaces = {
-            baliUbudKeramas: {},
-            baliOthers: {},
-            jakarta: {},
-            puncak: {},
-            bandung: {},
-            lombok: {},
+            phuket: {},
+            bangkok: {},
+            krabi: {},
+            pattaya: {},
+            chiangMai: {},
         };
 
         let previousCityName = '';
         let previousHotelName = '';
         let isFirstHotelRowCreated = false; // Flag to check the first created row
-        let hasCenterTourTextBeenAdded = false; // Flag to track if "التجول في السنتر" text has been added
 
-        let isFirstJakartaHotelFound = false; // Flag to track the first Jakarta hotel found
 
-        let firstCreatedClintMovementsRowDivForLastHotel = null; // Variable to store the first created div for the last hotel
 
 
         let isFirstClintMovementsRowCreated = false; // Flag to track the first created clintMovementsRowTableDiv
 
 
-        /* Variable to store if the h5 inside the first found 'hotel_row_class_for_editing' is "Puncak" or "Bandung" */
+        /* Variable to store if the h5 inside the first found 'hotel_row_class_for_editing' is "Phuket" or "Bangkok" */
         let firstHotelCityName = allHotelRows[0].querySelector('h5').innerText;
 
 
@@ -2950,7 +2845,6 @@ createHotelsDataFunction = function () {
             let checkInDate = hotelRow.querySelector('h2').innerText;
             let nights = parseInt(hotelRow.querySelector('h4').innerText, 10);
             let cityName = hotelRow.querySelector('h5').innerText;
-            let areaName = cityName === "Bali" ? hotelRow.querySelector('h6').innerText : null;
             let packageType = document.getElementById('clint_package_type_h6').innerText.trim();
 
             let packageMapping = {
@@ -2966,26 +2860,21 @@ createHotelsDataFunction = function () {
             let targetObject;
             let usedDays; // Declare usedDays to be assigned later
 
-            if (cityName === "Bali" && areaName) {
-                if (areaName === "Ubud" || areaName === "Keramas") {
-                    targetObject = allClintVisitingPlacesArray[1][packageKey];
-                    usedDays = usedVisitingPlaces.baliUbudKeramas;
-                } else if (["Kuta", "Nusa Dua", "Seminyak", "Jimbaran", "Uluwatu", "Legian", "Sanur", "Tabanan", "Canggu", "Tampaksiring"].includes(areaName)) {
-                    targetObject = allClintVisitingPlacesArray[0][packageKey];
-                    usedDays = usedVisitingPlaces.baliOthers;
-                }
-            } else if (cityName === 'Jakarta') {
+            if (cityName === 'Phuket') {
+                targetObject = allClintVisitingPlacesArray[0][packageKey];
+                usedDays = usedVisitingPlaces.phuket;
+            } else if (cityName === 'Bangkok') {
+                targetObject = allClintVisitingPlacesArray[1][packageKey];
+                usedDays = usedVisitingPlaces.bangkok;
+            } else if (cityName === 'Krabi') {
                 targetObject = allClintVisitingPlacesArray[2][packageKey];
-                usedDays = usedVisitingPlaces.jakarta;
-            } else if (cityName === 'Puncak') {
+                usedDays = usedVisitingPlaces.krabi;
+            } else if (cityName === 'Pattaya') {
                 targetObject = allClintVisitingPlacesArray[3][packageKey];
-                usedDays = usedVisitingPlaces.puncak;
-            } else if (cityName === 'Bandung') {
+                usedDays = usedVisitingPlaces.pattaya;
+            } else if (cityName === 'Chiang Mai') {
                 targetObject = allClintVisitingPlacesArray[4][packageKey];
-                usedDays = usedVisitingPlaces.bandung;
-            } else if (cityName === 'Lombok') {
-                targetObject = allClintVisitingPlacesArray[5][packageKey];
-                usedDays = usedVisitingPlaces.lombok;
+                usedDays = usedVisitingPlaces.chiangMai;
             }
 
             if (!usedVisitingPlaces[cityName]) {
@@ -3032,9 +2921,9 @@ createHotelsDataFunction = function () {
                     }
 
                     let additionalText = "";
-                    if (isAirportWelcomeIncluded && (cityName === "Bali" || cityName === "Jakarta") && cityName !== previousCityName) {
-                        if (!(previousCityName === "Puncak" && cityName === "Jakarta") && !(previousCityName === "Bandung" && cityName === "Jakarta")) {
-                            additionalText = `Welcoming in ${cityName} Airport + `;
+                    if (isAirportWelcomeIncluded && (cityName === "Phuket" || cityName === "Bangkok") && cityName !== previousCityName) {
+                        if (!(previousCityName === "Phuket" && cityName === "Krabi") && !(previousCityName === "Krabi" && cityName === "Phuket") && !(previousCityName === "Bangkok" && cityName === "Pattaya") && !(previousCityName === "Pattaya" && cityName === "Bangkok")) {
+                            additionalText = `Welcome in ${cityName} Airport + `;
                         }
                     }
 
@@ -3051,19 +2940,20 @@ createHotelsDataFunction = function () {
                     }
                 }
 
-                if ((cityName === "Bali" || cityName === "Jakarta") && !hasCenterTourTextBeenAdded) {
-                    checkInOutText = checkInOutText.replace(`${hotelName} Check-in`, `${hotelName} Check-in + Going around the center`);
-                    hasCenterTourTextBeenAdded = true;
-                }
-
-                if (!isFirstHotelRowCreated && (cityName === "Bali" || cityName === "Jakarta") && isAirportWelcomeIncluded) {
-                    checkInOutText = `Welcoming in ${cityName} Airport + ${checkInOutText}`;
+                if (!isFirstHotelRowCreated && (cityName === "Phuket" || cityName === "Bangkok") && isAirportWelcomeIncluded) {
+                    checkInOutText = `Welcome in ${cityName} Airport + ${checkInOutText}`;
                     isFirstHotelRowCreated = true;
                 }
 
                 // Additional condition for the first hotel row
-                if (!isFirstHotelRowCreated && index === 0 && isAirportWelcomeIncluded && (firstHotelCityName === "Puncak" || firstHotelCityName === "Bandung")) {
-                    checkInOutText = `Welcoming in Jakarta + Going To ${cityName} + ${hotelName} Check-in`;
+                if (!isFirstHotelRowCreated && index === 0 && isAirportWelcomeIncluded && (firstHotelCityName === "Phuket")) {
+                    checkInOutText = `Welcome in Phuket Airport + Going to ${cityName} + ${hotelName} Check-in`;
+                    isFirstHotelRowCreated = true; // Set the flag to avoid reapplying this condition
+                }
+
+                // Additional condition for the first hotel row
+                if (!isFirstHotelRowCreated && index === 0 && isAirportWelcomeIncluded && (firstHotelCityName === "Bangkok")) {
+                    checkInOutText = `Welcome in Bangkok Airport + Going to ${cityName} + ${hotelName} Check-in`;
                     isFirstHotelRowCreated = true; // Set the flag to avoid reapplying this condition
                 }
 
@@ -3076,13 +2966,6 @@ createHotelsDataFunction = function () {
                     <div class="clint_movements_row_controller" style="cursor: pointer;"><h3>${i === 0 ? combinedCityName : cityName}</h3></div>
                 `;
 
-                // Apply the new condition to append text if needed, but skip the first hotel row
-                if (!isFirstJakartaHotelFound && cityName === "Jakarta" && i === 0 && index !== 0) {
-                    let currentH2 = clintMovementsRowTableDiv.querySelector('h2');
-                    currentH2.innerText += " + Going To Alsadda restaurant for dinner";
-                    currentH2.innerText = cleanUpText(currentH2.innerText); // Clean up text to ensure no duplicated '+'
-                    isFirstJakartaHotelFound = true;
-                }
 
                 if (targetObject && i === 0) {
                     let dayIndex = 1;
@@ -3369,7 +3252,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
     /* Get all the values from the clicked hotel row */
     let hotelNameText = clickedHotelDataDiv.querySelector(`h1[id^='hotel_name_${insertedHotelDataDivUniqueId}']`)?.innerText || '';
     let hotelLocationText = clickedHotelDataDiv.querySelector(`h5[id^='hotel_location_${insertedHotelDataDivUniqueId}']`)?.innerText || '';
-    let hotelBaliAreaInput = clickedHotelDataDiv.querySelector(`h6[id^='hotel_area_${insertedHotelDataDivUniqueId}']`)?.innerText || '';
     let hotelCheckInText = clickedHotelDataDiv.querySelector(`h2[id^='hotel_check_in_${insertedHotelDataDivUniqueId}']`)?.innerText || '';
     let hotelCheckOutText = clickedHotelDataDiv.querySelector(`h3[id^='hotel_check_out_${insertedHotelDataDivUniqueId}']`)?.innerText || '';
 
@@ -3466,24 +3348,11 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
     if (clickedHotelDataDiv.classList.contains('new_hotel_data_by_user_writing_class')) {
         // Enter the values of the clicked hotel row div to inputs
         document.getElementById('hotel_location_input_id').value = hotelLocationText;
-        document.getElementById('hotel_bali_area_input_id').value = hotelBaliAreaInput;
 
 
         // Show the hotel location & stars input
         document.getElementById('hotel_location_input_id').style.display = 'block';
         document.getElementById('hotel_stars_rate_input_id').style.display = 'block';
-
-
-        /* Show the 'hotel_bali_area_input_id' if the value of the 'hotel_location_input_id' is 'Bali' */
-        if (document.getElementById('hotel_location_input_id').value === 'Bali') {
-            // Show the hotel bali area input
-            document.getElementById('hotel_bali_area_input_id').style.display = 'block';
-
-
-        } else {
-            // Hide the hotel bali area input
-            document.getElementById('hotel_bali_area_input_id').style.display = 'none';
-        }
 
 
 
@@ -3640,8 +3509,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
         // Hide the hotel location input
         document.getElementById('hotel_location_input_id').style.display = 'none';
         document.getElementById('hotel_location_input_id').value = '';
-        document.getElementById('hotel_bali_area_input_id').style.display = 'none';
-        document.getElementById('hotel_bali_area_input_id').value = '';
         document.getElementById('hotel_stars_rate_input_id').style.display = 'none';
         document.getElementById('hotel_stars_rate_input_id').value = '';
 
@@ -3700,7 +3567,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
         // Extract the new data from the input fields
         let hotelNameReadyText = document.getElementById('hotel_name_input_id').value;
         let hotelLocationInput = document.getElementById('hotel_location_input_id').value;
-        let hotelBaliAreaInput = document.getElementById('hotel_bali_area_input_id').value;
         let hotelStarsRateInput = document.getElementById('hotel_stars_rate_input_id').value;
         let hotelCheckInReadyText = document.getElementById('hotel_check_in_input_id').value;
         let hotelCheckOutReadyText = document.getElementById('hotel_check_out_input_id').value;
@@ -3778,24 +3644,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                 return;
 
             }
-
-
-            /* Stop the process if the hotel location is bali but the area is not selected */
-            if (document.getElementById('hotel_location_input_id').value === 'Bali' && document.getElementById('hotel_bali_area_input_id').value === '') {
-
-                // Play a sound effect
-                playSoundEffect('error');
-
-                // Change the submit icon background color
-                confirm_new_hotel_data_row_icon.style.backgroundColor = 'red';
-
-                // Set the background color of the submit icon back to default color
-                setTimeout(() => {
-                    confirm_new_hotel_data_row_icon.style.backgroundColor = 'rgb(0, 87, 116)';
-                }, 500);
-
-                return;
-            }
         }
 
 
@@ -3846,7 +3694,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                 </div>
                 <div>
                     <h5 id='hotel_location_${insertedHotelDataDivUniqueId}'>${hotelLocationInput}</h5>
-                    ${hotelBaliAreaInput ? `<br><h6 id='hotel_area_${insertedHotelDataDivUniqueId}'>${hotelBaliAreaInput}</h6>` : ''}
                     <img src="../صور-الفنادق/${starsAmount}-stars-hotel-image.jpg" id='hotel_image_${insertedHotelDataDivUniqueId}' class="hotel_row_image_controller inserted_hotel_data_row" style="cursor: pointer">
                 </div>
             `;
@@ -4031,14 +3878,10 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
             let hotelImgSrcReadyText = hotelNameReadyText.toLowerCase().replace(/\s+/g, '-');
 
             let hotelLocationReadyText = '';
-            let hotelAreaReadyText = '';
 
             for (let hotelData of allHotelDataArray) {
                 if (hotelData.hotelName === hotelNameReadyText) {
                     hotelLocationReadyText = hotelData.hotelLocation;
-                    if (hotelData.hasOwnProperty('hotelArea')) {
-                        hotelAreaReadyText = hotelData.hotelArea;
-                    }
                     break;
                 }
             }
@@ -4057,7 +3900,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                 </div>
                 <div>
                     <h5 id='hotel_location_${insertedHotelDataDivUniqueId}'>${hotelLocationReadyText}</h5>
-                    ${hotelAreaReadyText ? `<br><h6 id='hotel_area_${insertedHotelDataDivUniqueId}'>${hotelAreaReadyText}</h6>` : ''}
                     <img src="../صور-الفنادق/${hotelImgSrcReadyText}.jpg" class="hotel_row_image_controller inserted_hotel_data_row" style="cursor: pointer">
                 </div>
             `;
@@ -4227,6 +4069,11 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
 
 
+
+
+
+
+
         /* Re-Create the data of the flights details when submit new changes in the hotels data */
         if (document.getElementById('downloaded_pdf_flight_data_page').style.display !== 'none') {
             // First delete all old flights row data'
@@ -4250,7 +4097,7 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
             let lastCity = null;  // Variable to store the last valid city encountered
             let lastDate = null;  // Variable to store the date associated with the last valid city
-            let validCities = ["Bali", "Jakarta", "Bandung", "Puncak", "Lombok"];  // Array of valid cities to check against
+            let validCities = ["Bangkok", "Phuket", "Krabi", "Pattaya", "Chiang Mai", "Koh Samui"];  // Array of valid cities to check against
 
 
 
@@ -4280,52 +4127,38 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                 let currentCity = hotelRow.querySelector('h5').innerText;  // Get the city name from the current hotel row's h5 element
                 let currentDate = hotelRow.querySelector('h2').innerText;  // Get the date from the current hotel row's h2 element
 
-                // Check if transition between Jakarta and Bandung (in either order) and skip
-                if ((lastCity === "Jakarta" && currentCity === "Bandung") || (lastCity === "Bandung" && currentCity === "Jakarta")) {
-                    lastCity = currentCity;
-                    lastDate = currentDate;
-                    return; // Skip this iteration without creating a flightRowTableDiv
-                }
-
-                // Check if transition between Jakarta and Puncak and skip
-                if (lastCity === "Jakarta" && currentCity === "Puncak") {
-                    lastCity = currentCity;
-                    lastDate = currentDate;
-                    return; // Skip this iteration without creating a flightRowTableDiv
-                }
-
-                // Check if transition between Puncak and Jakarta and skip
-                if (lastCity === "Puncak" && currentCity === "Jakarta") {
-                    lastCity = currentCity;
-                    lastDate = currentDate;
-                    return; // Skip this iteration without creating a flightRowTableDiv
-                }
 
                 // Check if the current and last city are valid and different
                 if ((validCities.includes(currentCity) && lastCity && lastCity !== currentCity && validCities.includes(lastCity)) ||
-                    (lastCity === "Puncak" && currentCity === "Bali") || (lastCity === "Bali" && currentCity === "Puncak")) {
+                    (lastCity === "Krabi" && currentCity === "Bangkok") || (lastCity === "Bangkok" && currentCity === "Krabi")) {
 
                     let fromCity = lastCity;
                     let toCity = currentCity;
 
 
-                    /* check the 'lastCity' and the 'currentCity' value and based on the below conditions set the value of the 'fromCity' and the 'toCity' */
-                    if ((lastCity === "Puncak" && currentCity === "Bali") || (lastCity === "Bandung" && currentCity === "Bali")) {
-                        fromCity = "Jakarta";
-                        toCity = "Bali";
-                    } else if ((lastCity === "Bali" && currentCity === "Puncak") || (lastCity === "Bali" && currentCity === "Bandung")) {
-                        fromCity = "Bali";
-                        toCity = "Jakarta";
-                    }
-
-
-
-                    // Check if transition between Bandung and Puncak (in either order) and skip
-                    if ((lastCity === "Bandung" && currentCity === "Puncak") || (lastCity === "Puncak" && currentCity === "Bandung")) {
+                    // Check if transition between Krabi and Phuket (in either order) and skip
+                    if ((lastCity === "Krabi" && currentCity === "Phuket") || (lastCity === "Phuket" && currentCity === "Krabi")) {
                         lastCity = currentCity;
                         lastDate = currentDate;
                         return; // Skip this iteration without creating a flightRowTableDiv
                     }
+
+                    // Check if transition between Pattaya and Bangkok (in either order) and skip
+                    if ((lastCity === "Pattaya" && currentCity === "Bangkok") || (lastCity === "Bangkok" && currentCity === "Pattaya")) {
+                        lastCity = currentCity;
+                        lastDate = currentDate;
+                        return; // Skip this iteration without creating a flightRowTableDiv
+                    }
+
+                    /* check the 'lastCity' and the 'currentCity' value and based on the below conditions set the value of the 'fromCity' and the 'toCity' */
+                    if ((lastCity === "Pattaya" && currentCity === "Phuket")) {
+                        fromCity = "Bangkok";
+                        toCity = "Phuket";
+                    } else if ((lastCity === "Phuket" && currentCity === "Pattaya")) {
+                        fromCity = "Phuket";
+                        toCity = "Bangkok";
+                    }
+
 
 
                     // Create a new div with flight details
@@ -4496,28 +4329,24 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
             let allHotelRows = document.querySelectorAll('.hotel_row_class_for_editing');
             let totalHotels = allHotelRows.length;
             let usedVisitingPlaces = {
-                baliUbudKeramas: {},
-                baliOthers: {},
-                jakarta: {},
-                puncak: {},
-                bandung: {},
-                lombok: {},
+                phuket: {},
+                bangkok: {},
+                krabi: {},
+                pattaya: {},
+                chiangMai: {},
             };
 
             let previousCityName = '';
             let previousHotelName = '';
             let isFirstHotelRowCreated = false; // Flag to check the first created row
-            let hasCenterTourTextBeenAdded = false; // Flag to track if "التجول في السنتر" text has been added
 
-            let isFirstJakartaHotelFound = false; // Flag to track the first Jakarta hotel found
 
-            let firstCreatedClintMovementsRowDivForLastHotel = null; // Variable to store the first created div for the last hotel
 
 
             let isFirstClintMovementsRowCreated = false; // Flag to track the first created clintMovementsRowTableDiv
 
 
-            /* Variable to store if the h5 inside the first found 'hotel_row_class_for_editing' is "Puncak" or "Bandung" */
+            /* Variable to store if the h5 inside the first found 'hotel_row_class_for_editing' is "Phuket" or "Bangkok" */
             let firstHotelCityName = allHotelRows[0].querySelector('h5').innerText;
 
 
@@ -4533,7 +4362,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                 let checkInDate = hotelRow.querySelector('h2').innerText;
                 let nights = parseInt(hotelRow.querySelector('h4').innerText, 10);
                 let cityName = hotelRow.querySelector('h5').innerText;
-                let areaName = cityName === "Bali" ? hotelRow.querySelector('h6').innerText : null;
                 let packageType = document.getElementById('clint_package_type_h6').innerText.trim();
 
                 let packageMapping = {
@@ -4549,26 +4377,21 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                 let targetObject;
                 let usedDays; // Declare usedDays to be assigned later
 
-                if (cityName === "Bali" && areaName) {
-                    if (areaName === "Ubud" || areaName === "Keramas") {
-                        targetObject = allClintVisitingPlacesArray[1][packageKey];
-                        usedDays = usedVisitingPlaces.baliUbudKeramas;
-                    } else if (["Kuta", "Nusa Dua", "Seminyak", "Jimbaran", "Uluwatu", "Legian", "Sanur", "Payangan", "Canggu", "Tampaksiring"].includes(areaName)) {
-                        targetObject = allClintVisitingPlacesArray[0][packageKey];
-                        usedDays = usedVisitingPlaces.baliOthers;
-                    }
-                } else if (cityName === 'Jakarta') {
+                if (cityName === 'Phuket') {
+                    targetObject = allClintVisitingPlacesArray[0][packageKey];
+                    usedDays = usedVisitingPlaces.phuket;
+                } else if (cityName === 'Bangkok') {
+                    targetObject = allClintVisitingPlacesArray[1][packageKey];
+                    usedDays = usedVisitingPlaces.bangkok;
+                } else if (cityName === 'Krabi') {
                     targetObject = allClintVisitingPlacesArray[2][packageKey];
-                    usedDays = usedVisitingPlaces.jakarta;
-                } else if (cityName === 'Puncak') {
+                    usedDays = usedVisitingPlaces.krabi;
+                } else if (cityName === 'Pattaya') {
                     targetObject = allClintVisitingPlacesArray[3][packageKey];
-                    usedDays = usedVisitingPlaces.puncak;
-                } else if (cityName === 'Bandung') {
+                    usedDays = usedVisitingPlaces.pattaya;
+                } else if (cityName === 'Chiang Mai') {
                     targetObject = allClintVisitingPlacesArray[4][packageKey];
-                    usedDays = usedVisitingPlaces.bandung;
-                } else if (cityName === 'Lombok') {
-                    targetObject = allClintVisitingPlacesArray[5][packageKey];
-                    usedDays = usedVisitingPlaces.lombok;
+                    usedDays = usedVisitingPlaces.chiangMai;
                 }
 
                 if (!usedVisitingPlaces[cityName]) {
@@ -4615,8 +4438,8 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                         }
 
                         let additionalText = "";
-                        if (isAirportWelcomeIncluded && (cityName === "Bali" || cityName === "Jakarta") && cityName !== previousCityName) {
-                            if (!(previousCityName === "Puncak" && cityName === "Jakarta") && !(previousCityName === "Bandung" && cityName === "Jakarta")) {
+                        if (isAirportWelcomeIncluded && (cityName === "Phuket" || cityName === "Bangkok") && cityName !== previousCityName) {
+                            if (!(previousCityName === "Phuket" && cityName === "Krabi") && !(previousCityName === "Krabi" && cityName === "Phuket") && !(previousCityName === "Bangkok" && cityName === "Pattaya") && !(previousCityName === "Pattaya" && cityName === "Bangkok")) {
                                 additionalText = `Welcoming in ${cityName} Airport + `;
                             }
                         }
@@ -4634,19 +4457,20 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                         }
                     }
 
-                    if ((cityName === "Bali" || cityName === "Jakarta") && !hasCenterTourTextBeenAdded) {
-                        checkInOutText = checkInOutText.replace(`${hotelName} Check-in`, `${hotelName} Check-in + Going around the center`);
-                        hasCenterTourTextBeenAdded = true;
-                    }
-
-                    if (!isFirstHotelRowCreated && (cityName === "Bali" || cityName === "Jakarta") && isAirportWelcomeIncluded) {
-                        checkInOutText = `Welcoming in ${cityName} Airport + ${checkInOutText}`;
+                    if (!isFirstHotelRowCreated && (cityName === "Phuket" || cityName === "Bangkok") && isAirportWelcomeIncluded) {
+                        checkInOutText = `Welcome in ${cityName} Airport + ${checkInOutText}`;
                         isFirstHotelRowCreated = true;
                     }
 
                     // Additional condition for the first hotel row
-                    if (!isFirstHotelRowCreated && index === 0 && isAirportWelcomeIncluded && (firstHotelCityName === "Puncak" || firstHotelCityName === "Bandung")) {
-                        checkInOutText = `Welcoming in Jakarta Airport + Going to ${cityName} + ${hotelName} Check-in`;
+                    if (!isFirstHotelRowCreated && index === 0 && isAirportWelcomeIncluded && (firstHotelCityName === "Phuket")) {
+                        checkInOutText = `Welcome in Phuket Airport + Going to ${cityName} + ${hotelName} Check-in`;
+                        isFirstHotelRowCreated = true; // Set the flag to avoid reapplying this condition
+                    }
+
+                    // Additional condition for the first hotel row
+                    if (!isFirstHotelRowCreated && index === 0 && isAirportWelcomeIncluded && (firstHotelCityName === "Bangkok")) {
+                        checkInOutText = `Welcome in Bangkok Airport + Going to ${cityName} + ${hotelName} Check-in`;
                         isFirstHotelRowCreated = true; // Set the flag to avoid reapplying this condition
                     }
 
@@ -4659,13 +4483,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                         <div class="clint_movements_row_controller" style="cursor: pointer;"><h3>${i === 0 ? combinedCityName : cityName}</h3></div>
                     `;
 
-                    // Apply the new condition to append text if needed, but skip the first hotel row
-                    if (!isFirstJakartaHotelFound && cityName === "Jakarta" && i === 0 && index !== 0) {
-                        let currentH2 = clintMovementsRowTableDiv.querySelector('h2');
-                        currentH2.innerText += " + Going To Alsadda restaurant for dinner";
-                        currentH2.innerText = cleanUpText(currentH2.innerText); // Clean up text to ensure no duplicated '+'
-                        isFirstJakartaHotelFound = true;
-                    }
 
                     if (targetObject && i === 0) {
                         let dayIndex = 1;
@@ -5179,28 +4996,24 @@ autoCreateALlClintMovementsData = function () {
         let allHotelRows = document.querySelectorAll('.hotel_row_class_for_editing');
         let totalHotels = allHotelRows.length;
         let usedVisitingPlaces = {
-            baliUbudKeramas: {},
-            baliOthers: {},
-            jakarta: {},
-            puncak: {},
-            bandung: {},
-            lombok: {},
+            phuket: {},
+            bangkok: {},
+            krabi: {},
+            pattaya: {},
+            chiangMai: {},
         };
 
         let previousCityName = '';
         let previousHotelName = '';
         let isFirstHotelRowCreated = false; // Flag to check the first created row
-        let hasCenterTourTextBeenAdded = false; // Flag to track if "التجول في السنتر" text has been added
 
-        let isFirstJakartaHotelFound = false; // Flag to track the first Jakarta hotel found
 
-        let firstCreatedClintMovementsRowDivForLastHotel = null; // Variable to store the first created div for the last hotel
 
 
         let isFirstClintMovementsRowCreated = false; // Flag to track the first created clintMovementsRowTableDiv
 
 
-        /* Variable to store if the h5 inside the first found 'hotel_row_class_for_editing' is "Puncak" or "Bandung" */
+        /* Variable to store if the h5 inside the first found 'hotel_row_class_for_editing' is "Phuket" or "Bangkok" */
         let firstHotelCityName = allHotelRows[0].querySelector('h5').innerText;
 
 
@@ -5216,7 +5029,6 @@ autoCreateALlClintMovementsData = function () {
             let checkInDate = hotelRow.querySelector('h2').innerText;
             let nights = parseInt(hotelRow.querySelector('h4').innerText, 10);
             let cityName = hotelRow.querySelector('h5').innerText;
-            let areaName = cityName === "Bali" ? hotelRow.querySelector('h6').innerText : null;
             let packageType = document.getElementById('clint_package_type_h6').innerText.trim();
 
             let packageMapping = {
@@ -5233,26 +5045,21 @@ autoCreateALlClintMovementsData = function () {
             let targetObject;
             let usedDays; // Declare usedDays to be assigned later
 
-            if (cityName === "Bali" && areaName) {
-                if (areaName === "Ubud" || areaName === "Keramas") {
-                    targetObject = allClintVisitingPlacesArray[1][packageKey];
-                    usedDays = usedVisitingPlaces.baliUbudKeramas;
-                } else if (["Kuta", "Nusa Dua", "Seminyak", "Jimbaran", "Uluwatu", "Legian", "Sanur", "Payangan", "Canggu", "Tampaksiring"].includes(areaName)) {
-                    targetObject = allClintVisitingPlacesArray[0][packageKey];
-                    usedDays = usedVisitingPlaces.baliOthers;
-                }
-            } else if (cityName === 'Jakarta') {
+            if (cityName === 'Phuket') {
+                targetObject = allClintVisitingPlacesArray[0][packageKey];
+                usedDays = usedVisitingPlaces.phuket;
+            } else if (cityName === 'Bangkok') {
+                targetObject = allClintVisitingPlacesArray[1][packageKey];
+                usedDays = usedVisitingPlaces.bangkok;
+            } else if (cityName === 'Krabi') {
                 targetObject = allClintVisitingPlacesArray[2][packageKey];
-                usedDays = usedVisitingPlaces.jakarta;
-            } else if (cityName === 'Puncak') {
+                usedDays = usedVisitingPlaces.krabi;
+            } else if (cityName === 'Pattaya') {
                 targetObject = allClintVisitingPlacesArray[3][packageKey];
-                usedDays = usedVisitingPlaces.puncak;
-            } else if (cityName === 'Bandung') {
+                usedDays = usedVisitingPlaces.pattaya;
+            } else if (cityName === 'Chiang Mai') {
                 targetObject = allClintVisitingPlacesArray[4][packageKey];
-                usedDays = usedVisitingPlaces.bandung;
-            } else if (cityName === 'Lombok') {
-                targetObject = allClintVisitingPlacesArray[5][packageKey];
-                usedDays = usedVisitingPlaces.lombok;
+                usedDays = usedVisitingPlaces.chiangMai;
             }
 
             if (!usedVisitingPlaces[cityName]) {
@@ -5299,8 +5106,8 @@ autoCreateALlClintMovementsData = function () {
                     }
 
                     let additionalText = "";
-                    if (isAirportWelcomeIncluded && (cityName === "Bali" || cityName === "Jakarta") && cityName !== previousCityName) {
-                        if (!(previousCityName === "Puncak" && cityName === "Jakarta") && !(previousCityName === "Bandung" && cityName === "Jakarta")) {
+                    if (isAirportWelcomeIncluded && (cityName === "Phuket" || cityName === "Bangkok") && cityName !== previousCityName) {
+                        if (!(previousCityName === "Phuket" && cityName === "Krabi") && !(previousCityName === "Krabi" && cityName === "Phuket") && !(previousCityName === "Bangkok" && cityName === "Pattaya") && !(previousCityName === "Pattaya" && cityName === "Bangkok")) {
                             additionalText = `Welcome in ${cityName} Airport + `;
                         }
                     }
@@ -5318,21 +5125,27 @@ autoCreateALlClintMovementsData = function () {
                     }
                 }
 
-                if ((cityName === "Bali" || cityName === "Jakarta") && !hasCenterTourTextBeenAdded) {
-                    checkInOutText = checkInOutText.replace(`${hotelName} Check-in`, `${hotelName} Check-in + Going around the center`);
-                    hasCenterTourTextBeenAdded = true;
-                }
 
-                if (!isFirstHotelRowCreated && (cityName === "Bali" || cityName === "Jakarta") && isAirportWelcomeIncluded) {
+                if (!isFirstHotelRowCreated && (cityName === "Phuket" || cityName === "Bangkok") && isAirportWelcomeIncluded) {
                     checkInOutText = `Welcome in ${cityName} Airport + ${checkInOutText}`;
                     isFirstHotelRowCreated = true;
                 }
 
                 // Additional condition for the first hotel row
-                if (!isFirstHotelRowCreated && index === 0 && isAirportWelcomeIncluded && (firstHotelCityName === "Puncak" || firstHotelCityName === "Bandung")) {
-                    checkInOutText = `Welcome in Jakarta Airport + Going to ${cityName} + ${hotelName} Check-in`;
+                if (!isFirstHotelRowCreated && index === 0 && isAirportWelcomeIncluded && (firstHotelCityName === "Phuket")) {
+                    checkInOutText = `Welcome in Phuket Airport + Going to ${cityName} + ${hotelName} Check-in`;
                     isFirstHotelRowCreated = true; // Set the flag to avoid reapplying this condition
                 }
+
+                // Additional condition for the first hotel row
+                if (!isFirstHotelRowCreated && index === 0 && isAirportWelcomeIncluded && (firstHotelCityName === "Bangkok")) {
+                    checkInOutText = `Welcome in Bangkok Airport + Going to ${cityName} + ${hotelName} Check-in`;
+                    isFirstHotelRowCreated = true; // Set the flag to avoid reapplying this condition
+                }
+
+
+
+
 
                 // Clean up text to ensure no duplicated '+'
                 checkInOutText = cleanUpText(checkInOutText);
@@ -5342,14 +5155,6 @@ autoCreateALlClintMovementsData = function () {
                     <div><h2>${checkInOutText}</h2></div>
                     <div class="clint_movements_row_controller" style="cursor: pointer;"><h3>${i === 0 ? combinedCityName : cityName}</h3></div>
                 `;
-
-                // Apply the new condition to append text if needed, but skip the first hotel row
-                if (!isFirstJakartaHotelFound && cityName === "Jakarta" && i === 0 && index !== 0) {
-                    let currentH2 = clintMovementsRowTableDiv.querySelector('h2');
-                    currentH2.innerText += " + Going To Alsadda restaurant for dinner";
-                    currentH2.innerText = cleanUpText(currentH2.innerText); // Clean up text to ensure no duplicated '+'
-                    isFirstJakartaHotelFound = true;
-                }
 
                 if (targetObject && i === 0) {
                     let dayIndex = 1;
@@ -5744,7 +5549,7 @@ clintMovementsRowCityNameControllerFunction = function (event) {
 
 
 
-        /* Run  function to add "يوم مفتوح بدون سائق" text in the clicked div */
+        /* Run  function to add "Free Day without Driver" text in the clicked div */
         addFreeTransportationDayWithoutDriverFunction = function () {
 
             runAddFreeTransportationDayWithoutDriverFunction(currentClintMovementsDataDiv);
@@ -5752,7 +5557,7 @@ clintMovementsRowCityNameControllerFunction = function (event) {
         }
 
 
-        /* Run  function to add "يوم مفتوح بدون سائق" text in the clicked div */
+        /* Run  function to add "Going Around with Private Drive For 8 Hourse" text in the clicked div */
         addFreeTransportationDayWithDriverFunction = function () {
 
             runAddFreeTransportationDayWithDriverFunction(currentClintMovementsDataDiv);
@@ -6027,13 +5832,13 @@ runSplitAndPlaceClintMovementsRowTableDivFunction = function (currentClintMoveme
 
 
 
-/* Function to add "يوم مفتوح بدون سائق" text inside the clicked div */
+/* Function to add "Free Day without Driver" text inside the clicked div */
 runAddFreeTransportationDayWithoutDriverFunction = function (currentClintMovementsDataDiv) {
 
     /* Play a sound effect if the value of the 'lastCopiedClintMovementRowDiv' is not null*/
     playSoundEffect('success');
 
-    currentClintMovementsDataDiv.querySelector('h2').innerText = 'يوم مفتوح بدون سائق';
+    currentClintMovementsDataDiv.querySelector('h2').innerText = 'Free Day without Driver';
 
 
 
@@ -6088,13 +5893,13 @@ runAddFreeTransportationDayWithoutDriverFunction = function (currentClintMovemen
 
 
 
-/* Function to add "يوم مفتوح بدون سائق" text inside the clicked div */
+/* Function to add "Going Around with Private Drive For 8 Hourse" text inside the clicked div */
 runAddFreeTransportationDayWithDriverFunction = function (currentClintMovementsDataDiv) {
 
     /* Play a sound effect if the value of the 'lastCopiedClintMovementRowDiv' is not null*/
     playSoundEffect('success');
 
-    currentClintMovementsDataDiv.querySelector('h2').innerText = 'جولة مع سائق خاص لمدة 8 ساعات';
+    currentClintMovementsDataDiv.querySelector('h2').innerText = 'Going Around with Private Drive For 8 Hourse';
 
 
 
@@ -6485,20 +6290,6 @@ function highlightWeekendClintMovements() {
                 let date = new Date();
                 date.setDate(dayNumber);
                 date.setMonth(monthNumber);
-
-                // Check if the day is Saturday or Sunday
-                let dayOfWeek = date.getDay(); // 0 = Sunday, 6 = Saturday
-                if ((dayOfWeek === 0 || dayOfWeek === 6) && h3Element.innerText.includes('Puncak')) {
-                    // Find the first div inside the target .clint_movements_row_class_for_editing div
-                    let firstChildDiv = div.querySelector("div:first-child");
-
-                    if (firstChildDiv) {
-                        // Change the background color of the first child div
-                        // Masure the color '' matches the reseting color functionaity inside the 'downloadPdfWithCurrentUserCodeName' function
-                        firstChildDiv.style.backgroundColor = "rgb(190, 0, 0)";
-                        firstChildDiv.style.color = "white";
-                    }
-                }
             }
         }
     });

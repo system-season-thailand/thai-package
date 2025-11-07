@@ -46,7 +46,7 @@ async function sendDataToSupabase() {
 
             if (existingDataStatus === "newData") {
                 const { data, error } = await supabase
-                    .from('en_all_package_indo')
+                    .from('en_all_package_thai')
                     .insert([rowData])
                     .select();
 
@@ -58,7 +58,7 @@ async function sendDataToSupabase() {
 
             } else if (existingDataStatus === "existingData") {
                 const { data, error } = await supabase
-                    .from('en_all_package_indo')
+                    .from('en_all_package_thai')
                     .update(rowData)
                     .eq('name', formattedName)
                     .select();
@@ -175,7 +175,7 @@ async function updateDataBaseSavedDataNames() {
     while (hasMoreData) {
         try {
             const { data, error } = await supabase
-                .from('en_all_package_indo')
+                .from('en_all_package_thai')
                 .select('name') // Only select the name column to reduce data transfer
                 .order('package_indo_user_current_date', { ascending: false }) // Order by timestamp descending (newest first)
                 .range(currentOffset, currentOffset + batchSize - 1);
@@ -565,7 +565,7 @@ async function importContentForSelectedName(name) {
     try {
         // Fetch the full row for the selected name from Supabase (latest by timestamp)
         const { data: selectedRow, error } = await supabase
-            .from('en_all_package_indo')
+            .from('en_all_package_thai')
             .select('*')
             .eq('name', name)
             .order('package_indo_user_current_date', { ascending: false })
@@ -681,7 +681,7 @@ async function importContentForSelectedName(name) {
             // Fetch all matching rows in batches to ensure we get everything
             while (hasMoreData) {
                 const { data: batchData, error: countError } = await supabase
-                    .from('en_all_package_indo')
+                    .from('en_all_package_thai')
                     .select('name')
                     .like('name', likePattern)
                     .range(currentOffset, currentOffset + batchSize - 1);
@@ -1523,44 +1523,124 @@ reActiveDragAndDropFunctionality = function (visiableDivIdName) {
             'extra_car_for_carring_bags_checkbox',
             'hotel_booking_with_breakfast_for_2_people_checkbox',
             'welcome_goodbye_hotel_delivery_checkbox',
+            'inner_flight_tickets_checkbox',
             'customer_service_24_hour_checkbox',
             'sms_card_with_internet_checkbox',
-            'inner_flight_tickets_checkbox',
+            'welcome_with_flowers_checkbox',
             'outer_flight_tickets_checkbox',
-            'placese_visiting_cost_checkbox',
-            'bali_taxes_not_covered_checkbox'
+            'placese_visiting_cost_checkbox'
         ];
 
-        // Uncheck all inputs and reset their color
+        // Snapshot original colors BEFORE reset, then reset, then reapply from snapshot
+        const originalColors = {};
+        console.groupCollapsed('[Including] Snapshot original colors before reset');
         checkboxIds.forEach(id => {
-            let checkbox = document.getElementById(id);
-            if (checkbox) {
-                checkbox.checked = false; // Uncheck the checkbox
-                let label = checkbox.nextElementSibling; // Get the label element
+            const checkbox = document.getElementById(id);
+            if (!checkbox) {
+                console.warn('Snapshot skip (checkbox missing):', id);
+                return;
+            }
+            const label = checkbox.nextElementSibling;
+            if (!label) {
+                console.warn('Snapshot skip (label missing):', id);
+                return;
+            }
+            const before = window.getComputedStyle(label, '::before').backgroundColor;
+            originalColors[id] = before;
+            console.log('Captured', { id, before });
+        });
+        console.groupEnd();
+
+        console.groupCollapsed('[Including] Reset all checkbox colors to white');
+        checkboxIds.forEach(id => {
+            const checkbox = document.getElementById(id);
+            if (!checkbox) {
+                console.warn('Reset skip (checkbox missing):', id);
+                return;
+            }
+            const label = checkbox.nextElementSibling;
+            const before = label ? window.getComputedStyle(label, '::before').backgroundColor : '(no label)';
+            checkbox.checked = false; // Uncheck the checkbox
+            if (label) {
                 label.style.setProperty('--checkbox-color', 'rgb(255, 255, 255)'); // Reset to white
             }
+            const after = label ? window.getComputedStyle(label, '::before').backgroundColor : '(no label)';
+            console.log('Reset', { id, before, after });
         });
+        console.groupEnd();
 
         // Helper function to set checkbox color based on the div
         function setColorFromDiv(divId, color) {
-            let div = document.getElementById(divId);
-            if (div) {
-                let pElements = div.getElementsByTagName('p'); // Get all p elements inside the div
-                Array.from(pElements).forEach(p => {
-                    let checkboxId = p.innerText; // Get the checkbox ID from the p element
-                    let checkbox = document.getElementById(checkboxId); // Find the checkbox by its ID
-                    if (checkbox) {
-                        let label = checkbox.nextElementSibling; // Get the label element
-                        label.style.setProperty('--checkbox-color', color); // Set the new color
-                    }
-                });
+            console.groupCollapsed('[Including] Apply colors from div', { divId, color });
+            const div = document.getElementById(divId);
+            if (!div) {
+                console.warn('Div not found:', divId);
+                console.groupEnd();
+                return;
             }
+
+            const pElements = Array.from(div.getElementsByTagName('p'));
+            console.log('Found stored <p> count:', pElements.length);
+            pElements.forEach((p, index) => {
+                const raw = (p.textContent ?? p.innerText ?? '').toString();
+                const checkboxId = raw.trim();
+                if (!checkboxId) {
+                    console.warn('Empty ID in <p> at index', index, { raw });
+                    return;
+                }
+
+                const checkbox = document.getElementById(checkboxId);
+                if (!checkbox) {
+                    console.warn('Checkbox not found for ID from storage:', checkboxId);
+                    return;
+                }
+
+                const label = checkbox.nextElementSibling;
+                if (!label) {
+                    console.warn('Label sibling not found for checkbox:', checkboxId);
+                    return;
+                }
+
+                const before = window.getComputedStyle(label, '::before').backgroundColor;
+                label.style.setProperty('--checkbox-color', color);
+                const after = window.getComputedStyle(label, '::before').backgroundColor;
+                console.log('Applied color', { index, checkboxId, before, after });
+            });
+            console.groupEnd();
         }
 
         // Apply colors to checkboxes based on p elements in each div
+        // Reapply from snapshot first (source of truth for imported DOM)
+        console.groupCollapsed('[Including] Reapply colors from snapshot');
+        checkboxIds.forEach(id => {
+            const checkbox = document.getElementById(id);
+            if (!checkbox) {
+                console.warn('Reapply skip (checkbox missing):', id);
+                return;
+            }
+            const label = checkbox.nextElementSibling;
+            if (!label) {
+                console.warn('Reapply skip (label missing):', id);
+                return;
+            }
+            const saved = originalColors[id];
+            if (!saved) {
+                console.log('No snapshot color, keep reset color', { id });
+                return;
+            }
+            const before = window.getComputedStyle(label, '::before').backgroundColor;
+            label.style.setProperty('--checkbox-color', saved);
+            const after = window.getComputedStyle(label, '::before').backgroundColor;
+            console.log('Reapplied', { id, saved, before, after });
+        });
+        console.groupEnd();
+
+        // Optionally, if Supabase-provided storage divs are present, they can override snapshot
+        console.groupCollapsed('[Including] Start reapply checkbox colors from storage (optional override)');
         setColorFromDiv('store_google_sheet_green_checked_package_including_and_not_including_input_div', 'rgb(0, 255, 0)'); // Green
         setColorFromDiv('store_google_sheet_red_checked_package_including_and_not_including_input_div', 'rgb(255, 0, 0)'); // Red
         setColorFromDiv('store_google_sheet_white_package_including_and_not_including_input_div', 'rgb(255, 255, 255)'); // White
+        console.groupEnd();
 
 
     }
