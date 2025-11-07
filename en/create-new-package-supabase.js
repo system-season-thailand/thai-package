@@ -27,10 +27,10 @@ async function sendDataToSupabase() {
             };
             const parts = rawDate.split(" ").filter(Boolean);
             const month = arabicToEnglish[parts.find(word => arabicToEnglish[word])] || "Invalid";
-            const package_thai_last_month_date = `${month}`;
+            const package_indo_last_month_date = `${month}`;
 
             // Current timestamp
-            const package_thai_user_current_date = new Date().toISOString();
+            const package_indo_user_current_date = new Date().toISOString();
 
             const rowData = {
                 name: formattedName,
@@ -40,13 +40,13 @@ async function sendDataToSupabase() {
                 downloaded_pdf_clint_movements_data_page,
                 downloaded_pdf_package_including_data_page,
                 downloaded_pdf_total_price_data_page,
-                package_thai_user_current_date,
-                package_thai_last_month_date
+                package_indo_user_current_date,
+                package_indo_last_month_date
             };
 
             if (existingDataStatus === "newData") {
                 const { data, error } = await supabase
-                    .from('en_all_package_thai')
+                    .from('en_all_package_indo')
                     .insert([rowData])
                     .select();
 
@@ -58,7 +58,7 @@ async function sendDataToSupabase() {
 
             } else if (existingDataStatus === "existingData") {
                 const { data, error } = await supabase
-                    .from('en_all_package_thai')
+                    .from('en_all_package_indo')
                     .update(rowData)
                     .eq('name', formattedName)
                     .select();
@@ -158,7 +158,7 @@ let googleSheet_kk_PackageNames = [];
 let googleSheet_yy_PackageNames = [];
 let googleSheet_bb_PackageNames = [];
 
-/* Fetch the data from google sheet in 5 times (300 rows in each time) */
+/* Fetch ALL data from Supabase table - continues until all rows are fetched */
 async function updateDataBaseSavedDataNames() {
     const allGoogleSheetStoredDataNamesForImportingDataDiv = document.getElementById('all_google_sheet_stored_data_names_for_importing_data_div');
     allGoogleSheetStoredDataNamesForImportingDataDiv.innerHTML = '';
@@ -166,50 +166,59 @@ async function updateDataBaseSavedDataNames() {
 
     // Collect all data first
     let allData = [];
-    const batchSize = 1000; // Increased batch size for faster fetching
-    const totalBatches = 5; // Reduced total batches
+    const batchSize = 1000; // Batch size for fetching (Supabase recommended max is 1000)
+    let currentOffset = 0;
+    let hasMoreData = true;
 
-    for (let i = 0; i < totalBatches; i++) {
-        const from = i * batchSize;
-        const to = from + batchSize - 1;
 
+    // Continue fetching until no more data is returned
+    while (hasMoreData) {
         try {
             const { data, error } = await supabase
-                .from('en_all_package_thai')
+                .from('en_all_package_indo')
                 .select('name') // Only select the name column to reduce data transfer
-                .order('package_thai_user_current_date', { ascending: false }) // Order by timestamp descending (newest first)
-                .range(from, to);
+                .order('package_indo_user_current_date', { ascending: false }) // Order by timestamp descending (newest first)
+                .range(currentOffset, currentOffset + batchSize - 1);
 
             if (error) {
-                console.error(`Error fetching batch ${i + 1}:`, error);
+                console.error(`❌ Error fetching batch at offset ${currentOffset}:`, error);
                 break;
             }
 
             // If no data returned, we've reached the end
             if (!data || data.length === 0) {
+                hasMoreData = false;
                 break;
             }
 
-            // Collect all data
+            // Collect all data from this batch
             allData = allData.concat(data);
 
-            // Removed delay for faster fetching
+
+            // If we got less than batchSize, we've reached the end
+            if (data.length < batchSize) {
+                hasMoreData = false;
+            } else {
+                // Move to the next batch
+                currentOffset += batchSize;
+            }
 
         } catch (error) {
-            console.error(`Exception in batch ${i + 1}:`, error);
+            console.error(`❌ Exception fetching batch at offset ${currentOffset}:`, error);
             break;
         }
     }
 
+
     // Now process all data at once in the correct order (newest first)
-    filterAndStorePackageNames(allData, 'append');
+    filterAndStorePackageNames(allData);
 
     // Call these functions only once after all data is processed
     hideAllH3Elements();
     enablePointerEventsForFilters();
     updateSearchFilterFunctionality();
 
-    document.getElementById('import_packages_title_h6_id').innerText = 'تم تحميل جميع البكجات';
+    document.getElementById('import_packages_title_h6_id').innerText = `تم تحميل جميع البكجات`;
 }
 
 
@@ -225,7 +234,7 @@ function clearPackageNameArrays() {
 }
 
 /* Show only the h3 elements that are matching the picked "user code" button */
-function filterAndStorePackageNames(data, prependStatus) {
+function filterAndStorePackageNames(data) {
     const allGoogleSheetStoredDataNamesForImportingDataDiv = document.getElementById('all_google_sheet_stored_data_names_for_importing_data_div');
 
     data.forEach(row => {
@@ -556,10 +565,10 @@ async function importContentForSelectedName(name) {
     try {
         // Fetch the full row for the selected name from Supabase (latest by timestamp)
         const { data: selectedRow, error } = await supabase
-            .from('en_all_package_thai')
+            .from('en_all_package_indo')
             .select('*')
             .eq('name', name)
-            .order('package_thai_user_current_date', { ascending: false })
+            .order('package_indo_user_current_date', { ascending: false })
             .limit(1)
             .single();
 
@@ -609,9 +618,6 @@ async function importContentForSelectedName(name) {
             }
         }
 
-
-
-
         // Check if inserted_clint_movements_data_position_div is empty and hide its container if true
         const movementsDiv = document.getElementById('inserted_clint_movements_data_position_div');
         const movementsPdf = document.getElementById('downloaded_pdf_clint_movements_data_page');
@@ -632,7 +638,6 @@ async function importContentForSelectedName(name) {
         if (totalPriceDiv && totalPricePdf && totalPriceDiv.children.length === 0) {
             totalPricePdf.style.display = 'none';
         }
-
 
 
 
@@ -666,17 +671,39 @@ async function importContentForSelectedName(name) {
 
         // Count existing versions of this package (base and all _riv_*)
         try {
-            // Query names that start with base (server-side)
+            // Query names that start with base (server-side) - fetch all matching rows
             let likePattern = `${basePackageUserCode}%`;
-            const { data: rowsLikeBase, error: countError } = await supabase
-                .from('en_all_package_thai')
-                .select('name')
-                .like('name', likePattern);
+            let allMatchingRows = [];
+            const batchSize = 1000;
+            let currentOffset = 0;
+            let hasMoreData = true;
 
-            if (countError) throw countError;
+            // Fetch all matching rows in batches to ensure we get everything
+            while (hasMoreData) {
+                const { data: batchData, error: countError } = await supabase
+                    .from('en_all_package_indo')
+                    .select('name')
+                    .like('name', likePattern)
+                    .range(currentOffset, currentOffset + batchSize - 1);
+
+                if (countError) throw countError;
+
+                if (!batchData || batchData.length === 0) {
+                    hasMoreData = false;
+                    break;
+                }
+
+                allMatchingRows = allMatchingRows.concat(batchData);
+
+                if (batchData.length < batchSize) {
+                    hasMoreData = false;
+                } else {
+                    currentOffset += batchSize;
+                }
+            }
 
             // De-duplicate names first (table may contain multiple versions over time)
-            let uniqueNames = Array.from(new Set((rowsLikeBase || []).map(r => r.name)));
+            let uniqueNames = Array.from(new Set((allMatchingRows || []).map(r => r.name)));
 
             // Precise-match: base OR base_riv_<number>
             let escapedBaseForRegex = basePackageUserCode.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -684,6 +711,7 @@ async function importContentForSelectedName(name) {
             let preciseMatches = uniqueNames.filter(n => n === basePackageUserCode || rivRegex.test(n));
             totalRivPackageNumberForUpdatingNewRivPackage = preciseMatches.length;
         } catch (countErr) {
+            console.error('Error counting package versions:', countErr);
             // Fallback to cached names if count query fails
             let escapedBaseForRegex = basePackageUserCode.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
             let rivRegex = new RegExp(`^${escapedBaseForRegex}_riv_\\d+$`);
@@ -1022,7 +1050,7 @@ async function handleUserPackageUniqueNumber(userType, action) {
     try {
         // Fetch the first (and presumably only) row
         const { data, error } = await supabase
-            .from('thai_package_unique_number')
+            .from('indo_package_unique_number')
             .select('*')
             .limit(1)
             .single();
@@ -1049,7 +1077,7 @@ async function handleUserPackageUniqueNumber(userType, action) {
             // Update only the specific column
             // Use the first valid column name in your filter instead of 'baby'
             const { error: updateError } = await supabase
-                .from('thai_package_unique_number')
+                .from('indo_package_unique_number')
                 .update({ [userType]: newValue })
                 .not(userType, 'is', null); // Use the same userType as filter
 
@@ -1495,124 +1523,44 @@ reActiveDragAndDropFunctionality = function (visiableDivIdName) {
             'extra_car_for_carring_bags_checkbox',
             'hotel_booking_with_breakfast_for_2_people_checkbox',
             'welcome_goodbye_hotel_delivery_checkbox',
-            'inner_flight_tickets_checkbox',
             'customer_service_24_hour_checkbox',
             'sms_card_with_internet_checkbox',
-            'welcome_with_flowers_checkbox',
+            'inner_flight_tickets_checkbox',
             'outer_flight_tickets_checkbox',
-            'placese_visiting_cost_checkbox'
+            'placese_visiting_cost_checkbox',
+            'bali_taxes_not_covered_checkbox'
         ];
 
-        // Snapshot original colors BEFORE reset, then reset, then reapply from snapshot
-        const originalColors = {};
-        console.groupCollapsed('[Including] Snapshot original colors before reset');
+        // Uncheck all inputs and reset their color
         checkboxIds.forEach(id => {
-            const checkbox = document.getElementById(id);
-            if (!checkbox) {
-                console.warn('Snapshot skip (checkbox missing):', id);
-                return;
-            }
-            const label = checkbox.nextElementSibling;
-            if (!label) {
-                console.warn('Snapshot skip (label missing):', id);
-                return;
-            }
-            const before = window.getComputedStyle(label, '::before').backgroundColor;
-            originalColors[id] = before;
-            console.log('Captured', { id, before });
-        });
-        console.groupEnd();
-
-        console.groupCollapsed('[Including] Reset all checkbox colors to white');
-        checkboxIds.forEach(id => {
-            const checkbox = document.getElementById(id);
-            if (!checkbox) {
-                console.warn('Reset skip (checkbox missing):', id);
-                return;
-            }
-            const label = checkbox.nextElementSibling;
-            const before = label ? window.getComputedStyle(label, '::before').backgroundColor : '(no label)';
-            checkbox.checked = false; // Uncheck the checkbox
-            if (label) {
+            let checkbox = document.getElementById(id);
+            if (checkbox) {
+                checkbox.checked = false; // Uncheck the checkbox
+                let label = checkbox.nextElementSibling; // Get the label element
                 label.style.setProperty('--checkbox-color', 'rgb(255, 255, 255)'); // Reset to white
             }
-            const after = label ? window.getComputedStyle(label, '::before').backgroundColor : '(no label)';
-            console.log('Reset', { id, before, after });
         });
-        console.groupEnd();
 
         // Helper function to set checkbox color based on the div
         function setColorFromDiv(divId, color) {
-            console.groupCollapsed('[Including] Apply colors from div', { divId, color });
-            const div = document.getElementById(divId);
-            if (!div) {
-                console.warn('Div not found:', divId);
-                console.groupEnd();
-                return;
+            let div = document.getElementById(divId);
+            if (div) {
+                let pElements = div.getElementsByTagName('p'); // Get all p elements inside the div
+                Array.from(pElements).forEach(p => {
+                    let checkboxId = p.innerText; // Get the checkbox ID from the p element
+                    let checkbox = document.getElementById(checkboxId); // Find the checkbox by its ID
+                    if (checkbox) {
+                        let label = checkbox.nextElementSibling; // Get the label element
+                        label.style.setProperty('--checkbox-color', color); // Set the new color
+                    }
+                });
             }
-
-            const pElements = Array.from(div.getElementsByTagName('p'));
-            console.log('Found stored <p> count:', pElements.length);
-            pElements.forEach((p, index) => {
-                const raw = (p.textContent ?? p.innerText ?? '').toString();
-                const checkboxId = raw.trim();
-                if (!checkboxId) {
-                    console.warn('Empty ID in <p> at index', index, { raw });
-                    return;
-                }
-
-                const checkbox = document.getElementById(checkboxId);
-                if (!checkbox) {
-                    console.warn('Checkbox not found for ID from storage:', checkboxId);
-                    return;
-                }
-
-                const label = checkbox.nextElementSibling;
-                if (!label) {
-                    console.warn('Label sibling not found for checkbox:', checkboxId);
-                    return;
-                }
-
-                const before = window.getComputedStyle(label, '::before').backgroundColor;
-                label.style.setProperty('--checkbox-color', color);
-                const after = window.getComputedStyle(label, '::before').backgroundColor;
-                console.log('Applied color', { index, checkboxId, before, after });
-            });
-            console.groupEnd();
         }
 
         // Apply colors to checkboxes based on p elements in each div
-        // Reapply from snapshot first (source of truth for imported DOM)
-        console.groupCollapsed('[Including] Reapply colors from snapshot');
-        checkboxIds.forEach(id => {
-            const checkbox = document.getElementById(id);
-            if (!checkbox) {
-                console.warn('Reapply skip (checkbox missing):', id);
-                return;
-            }
-            const label = checkbox.nextElementSibling;
-            if (!label) {
-                console.warn('Reapply skip (label missing):', id);
-                return;
-            }
-            const saved = originalColors[id];
-            if (!saved) {
-                console.log('No snapshot color, keep reset color', { id });
-                return;
-            }
-            const before = window.getComputedStyle(label, '::before').backgroundColor;
-            label.style.setProperty('--checkbox-color', saved);
-            const after = window.getComputedStyle(label, '::before').backgroundColor;
-            console.log('Reapplied', { id, saved, before, after });
-        });
-        console.groupEnd();
-
-        // Optionally, if Supabase-provided storage divs are present, they can override snapshot
-        console.groupCollapsed('[Including] Start reapply checkbox colors from storage (optional override)');
         setColorFromDiv('store_google_sheet_green_checked_package_including_and_not_including_input_div', 'rgb(0, 255, 0)'); // Green
         setColorFromDiv('store_google_sheet_red_checked_package_including_and_not_including_input_div', 'rgb(255, 0, 0)'); // Red
         setColorFromDiv('store_google_sheet_white_package_including_and_not_including_input_div', 'rgb(255, 255, 255)'); // White
-        console.groupEnd();
 
 
     }
