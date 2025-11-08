@@ -480,6 +480,11 @@ let allHotelDataArray = [
         hotelLocation: 'Bangkok',
         hotelRoomTypes: ['Premier Room', 'Premier Triple Room', 'Premier Family Room', 'Premier Family Bunk Bed', 'Luxury Room', 'Luxury Quadruple Suite'],
     },
+    {
+        hotelName: 'Thaya Hotel Bangkok',
+        hotelLocation: 'Bangkok',
+        hotelRoomTypes: ['Deluxe Room', 'Thaya Executive Suite'],
+    },
 
 
 
