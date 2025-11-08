@@ -1221,14 +1221,10 @@ createAllFlightDataFunction = function () {
                     </div>
                     <div>
                         <p id="flight_adult_person_amount_${insertedFlightDataDivUniqueId}">
-                            ${totalPeople === 1
-                        ? `${totalPeople} Adult`
-                        : totalPeople > 10
+                            ${totalPeople <= 1
                             ? `${totalPeople} Adult`
-                            : totalPeople !== 0
-                                ? `${totalPeople} Adults`
-                                : ''
-                    }
+                            : `${totalPeople} Adults`
+                            }
                         </p>
                         ${infantAmount ? `<p id="flight_infant_person_amount_${insertedFlightDataDivUniqueId}">${infantAmount}</p>` : ''}
                     </div>
@@ -1780,14 +1776,10 @@ manuallyCreateNewFlightRow = function () {
         <div class="flight_row_flight_arrival_time_controller inserted_flight_data_row" style="cursor: pointer;"><p id='flight_air_line_${insertedFlightDataDivUniqueId}'></p></div>
         <div>
             <p id="flight_adult_person_amount_${insertedFlightDataDivUniqueId}">
-                ${totalPeople === 1
-            ? `${totalPeople} Adult`
-            : totalPeople > 10
+                ${totalPeople <= 1
                 ? `${totalPeople} Adult`
-                : totalPeople !== 0
-                    ? `${totalPeople} Adults`
-                    : ''
-        }
+                : `${totalPeople} Adults`
+                }
             </p>
             ${infantAmount ? `<p id="flight_infant_person_amount_${insertedFlightDataDivUniqueId}">${infantAmount}</p>` : ''}
         </div>
@@ -2653,16 +2645,12 @@ createHotelsDataFunction = function () {
                 let flightRowTableDivContent = `
                     <div class="flight_row_flight_arrival_time_controller inserted_flight_data_row" style="cursor: pointer;"><p id='flight_air_line_${insertedFlightDataDivUniqueId}'></p></div>
                     <div>
-                            <p id="flight_adult_person_amount_${insertedFlightDataDivUniqueId}">
-                                ${totalPeople === 1
-                        ? `${totalPeople} Adult`
-                        : totalPeople > 10
+                        <p id="flight_adult_person_amount_${insertedFlightDataDivUniqueId}">
+                            ${totalPeople <= 1
                             ? `${totalPeople} Adult`
-                            : totalPeople !== 0
-                                ? `${totalPeople} Adults`
-                                : ''
-                    }
-                            </p>
+                            : `${totalPeople} Adults`
+                            }
+                        </p>
                             ${infantAmount ? `<p id="flight_infant_person_amount_${insertedFlightDataDivUniqueId}">${infantAmount}</p>` : ''}
                         </div>
                     <div><p>20Kg Per Pax</p></div>
@@ -4171,14 +4159,10 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                     <div class="flight_row_flight_arrival_time_controller inserted_flight_data_row" style="cursor: pointer;"><p id='flight_air_line_${insertedFlightDataDivUniqueId}'></p></div>
                     <div>
                         <p id="flight_adult_person_amount_${insertedFlightDataDivUniqueId}">
-                            ${totalPeople === 1
+                            ${totalPeople <= 1
                             ? `${totalPeople} Adult`
-                            : totalPeople > 10
-                                ? `${totalPeople} Adult`
-                                : totalPeople !== 0
-                                    ? `${totalPeople} Adults`
-                                    : ''
-                        }
+                            : `${totalPeople} Adults`
+                            }
                         </p>
                         ${infantAmount ? `<p id="flight_infant_person_amount_${insertedFlightDataDivUniqueId}">${infantAmount}</p>` : ''}
                     </div>
