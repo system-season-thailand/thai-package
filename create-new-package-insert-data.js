@@ -6824,14 +6824,13 @@ downloadPdfWithCustomName = async function (pdfName) {
 
         // Change to white text on blue background
         h6Elements.forEach(h6 => {
-            h6.style.backgroundColor = 'rgb(161, 45, 10)'; // Google blue background
-            h6.style.color = 'white';
+            h6.style.backgroundColor = 'rgba(31, 66, 98, 0.961)';
         });
 
         // Change to white text on blue background
         divElements.forEach(div => {
-            div.style.backgroundColor = 'rgb(207, 83, 21)'; // Google blue background
-            div.style.color = 'white';
+            div.style.color = 'black';
+            div.style.backgroundColor = 'rgba(255, 170, 0, 0.467)';
         });
 
 
@@ -6888,12 +6887,13 @@ downloadPdfWithCustomName = async function (pdfName) {
 
         // Change to white text on blue background
         h6Elements.forEach(h6 => {
-            h6.style.backgroundColor = 'rgb(161, 45, 10)';
+            h6.style.backgroundColor = 'rgba(31, 66, 98, 0.961)';
         });
 
         // Change to white text on blue background
         divElements.forEach(div => {
-            div.style.backgroundColor = 'rgb(207, 83, 21)';
+            div.style.color = 'black';
+            div.style.backgroundColor = 'rgba(255, 170, 0, 0.467)';
         });
 
 
