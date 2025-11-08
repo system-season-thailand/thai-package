@@ -95,7 +95,7 @@ createWholePackageAndClintDataFunction = function () {
             let insertedCompanyNameLogoImage = document.createElement('img');
             // Replace spaces with dashes in the company name
             let companyNameWithoutSpaces = clintCompanyNameInput.replace(/\s+/g, '-');
-            insertedCompanyNameLogoImage.src = `خلفية-الشركات/${companyNameWithoutSpaces}.jpg`;
+            insertedCompanyNameLogoImage.src = `../خلفية-الشركات/${companyNameWithoutSpaces}.jpg`;
             ; // Assuming this path is correct
             insertedCompanyNameLogoImage.className = 'inserted_company_name_logo';
             insertedCompanyNameLogoImage.id = 'inserted_company_name_logo_id';
@@ -145,7 +145,7 @@ createWholePackageAndClintDataFunction = function () {
 
 
             // Set the 'welcome_pdf_first_page_image_id' src to the clicked company logo name for pdf image
-            document.getElementById('welcome_pdf_first_page_image_id').src = `خلفية-الشركات/${companyNameWithoutSpaces}.jpg`;
+            document.getElementById('welcome_pdf_first_page_image_id').src = `../خلفية-الشركات/${companyNameWithoutSpaces}.jpg`;
 
 
             /* Show the company logo from the website */
@@ -177,24 +177,24 @@ createWholePackageAndClintDataFunction = function () {
         if (document.getElementById('store_google_sheet_clint_package_price_type_checkbox_value')) {
 
             if (document.getElementById('economy_package_checkbox').checked) {
-                clintPackagePriceTypeH6.innerHTML = `  (بكج إقتصادي)`;
-                document.getElementById('store_google_sheet_clint_package_price_type_checkbox_value').innerText = 'بكج إقتصادي';
+                clintPackagePriceTypeH6.innerHTML = `  (Economy Package)`;
+                document.getElementById('store_google_sheet_clint_package_price_type_checkbox_value').innerText = 'Economy Package';
 
                 /* Make sure to show the element */
                 document.getElementById('package_price_type_h6_id').style.display = 'block';
 
 
             } else if (document.getElementById('medium_package_checkbox').checked) {
-                clintPackagePriceTypeH6.innerHTML = `  (بكج متوسط)`;
-                document.getElementById('store_google_sheet_clint_package_price_type_checkbox_value').innerText = 'بكج متوسط';
+                clintPackagePriceTypeH6.innerHTML = `  (Medium Package)`;
+                document.getElementById('store_google_sheet_clint_package_price_type_checkbox_value').innerText = 'Medium Package';
 
                 /* Make sure to show the element */
                 document.getElementById('package_price_type_h6_id').style.display = 'block';
 
 
             } else if (document.getElementById('vip_package_checkbox').checked) {
-                clintPackagePriceTypeH6.innerHTML = `  (بكج VIP)`;
-                document.getElementById('store_google_sheet_clint_package_price_type_checkbox_value').innerText = 'بكج VIP';
+                clintPackagePriceTypeH6.innerHTML = `  (VIP Package)`;
+                document.getElementById('store_google_sheet_clint_package_price_type_checkbox_value').innerText = 'VIP Package';
 
                 /* Make sure to show the element */
                 document.getElementById('package_price_type_h6_id').style.display = 'block';
@@ -219,8 +219,8 @@ createWholePackageAndClintDataFunction = function () {
 
         /* Check which checkbox is checked then include the text in the content */
         if (document.getElementById('honeymoon_checkbox').checked) {
-            clintPackageTypeH6.innerHTML = 'بكج شهر عسل';
-            document.getElementById('store_google_sheet_clint_package_type_checkbox_value').innerText = 'بكج شهل عسل';
+            clintPackageTypeH6.innerHTML = 'Honeymooners Package';
+            document.getElementById('store_google_sheet_clint_package_type_checkbox_value').innerText = 'Honeymooners Package';
 
             if (document.getElementById('package_emoji_p_id')) {
                 document.getElementById('package_emoji_p_id').innerText = '👩🏻‍❤️‍👨🏻';
@@ -228,8 +228,8 @@ createWholePackageAndClintDataFunction = function () {
 
 
         } else if (document.getElementById('guys_checkbox').checked) {
-            clintPackageTypeH6.innerHTML = 'بكج شباب';
-            document.getElementById('store_google_sheet_clint_package_type_checkbox_value').innerText = 'بكج شباب';
+            clintPackageTypeH6.innerHTML = 'Guys Package';
+            document.getElementById('store_google_sheet_clint_package_type_checkbox_value').innerText = 'Guys Package';
 
 
             if (document.getElementById('package_emoji_p_id')) {
@@ -237,8 +237,8 @@ createWholePackageAndClintDataFunction = function () {
             }
 
         } else if (document.getElementById('family_checkbox').checked) {
-            clintPackageTypeH6.innerHTML = 'بكج عائلة';
-            document.getElementById('store_google_sheet_clint_package_type_checkbox_value').innerText = 'بكج عائلة';
+            clintPackageTypeH6.innerHTML = 'Family Package';
+            document.getElementById('store_google_sheet_clint_package_type_checkbox_value').innerText = 'Family Package';
 
 
             if (document.getElementById('package_emoji_p_id')) {
@@ -246,8 +246,8 @@ createWholePackageAndClintDataFunction = function () {
             }
 
         } else if (document.getElementById('two_people_checkbox').checked) {
-            clintPackageTypeH6.innerHTML = 'بكج شخصين';
-            document.getElementById('store_google_sheet_clint_package_type_checkbox_value').innerText = 'بكج شخصين';
+            clintPackageTypeH6.innerHTML = 'Two People Package';
+            document.getElementById('store_google_sheet_clint_package_type_checkbox_value').innerText = 'Two People Package';
 
 
             if (document.getElementById('package_emoji_p_id')) {
@@ -255,8 +255,8 @@ createWholePackageAndClintDataFunction = function () {
             }
 
         } else if (document.getElementById('group_of_people_checkbox').checked) {
-            clintPackageTypeH6.innerHTML = 'بكج قروب';
-            document.getElementById('store_google_sheet_clint_package_type_checkbox_value').innerText = 'بكج قروب';
+            clintPackageTypeH6.innerHTML = 'Group Package';
+            document.getElementById('store_google_sheet_clint_package_type_checkbox_value').innerText = 'Group Package';
 
 
             if (document.getElementById('package_emoji_p_id')) {
@@ -264,7 +264,7 @@ createWholePackageAndClintDataFunction = function () {
             }
 
         } else {
-            clintPackageTypeH6.innerHTML = 'بكج جديد';
+            clintPackageTypeH6.innerHTML = 'New Package';
 
             if (document.getElementById('package_emoji_p_id')) {
                 document.getElementById('package_emoji_p_id').innerText = '✨';
@@ -629,21 +629,102 @@ deleteClickedCompanyLogo = function () {
 
 /* Down All Funtions For Package Include And Not Include Down */
 
+// Translation mapping for package including content
+const packageIncludingTranslations = {
+    // Private car with driver
+    'سيارة خاصة مريحة (سيدان او مايماثلها) مع سائق خاص طوال الرحلة مع برنامج يومي منظم مناسب لكم': 'Comfortable private car (Toyota Avanza or similar) with private driver throughout the trip with organized daily visits suitable for you',
+    'سيارة خاصة مريحة (سيدان': 'Comfortable private car (Toyota Avanza',
+    'او مايماثلها) مع سائق خاص طوال الرحلة مع برنامج يومي منظم مناسب لكم': 'or similar) with private driver throughout the trip with organized daily visits suitable for you',
+    'سيارة خاصة مريحة (سيدان\n                            او مايماثلها) مع سائق خاص طوال الرحلة مع برنامج يومي منظم مناسب لكم': 'Comfortable private car (Toyota Avanza or similar) with private driver throughout the trip with organized daily visits suitable for you',
+
+    // Additional car for luggage
+    'سيارة إضافية للعفش': 'Additional car for luggage',
+
+    // Watersport and Rafting activities
+    'فعالية Watersport': 'Watersport Activity',
+    'فعالية Rafting': 'Rafting Activity',
+
+    // Hotel booking with breakfast
+    'إقامة مريحة في فنادق ومنتجعات مختارة تشمل إفطار يومي لشخصين، وإقامة مجانية لطفل تحت 5 سنوات إن وجد': 'Comfortable accommodation in selected hotels and resorts including daily breakfast for two people, and free accommodation for a child under 5 years old (if exist)',
+    'إقامة مريحة في فنادق ومنتجعات': 'Comfortable accommodation in selected hotels and resorts',
+    'مختارة تشمل إفطار يومي لشخصين، وإقامة مجانية لطفل تحت 5 سنوات إن وجد': 'including daily breakfast for two people, and free accommodation for a child under 5 years old (if exist)',
+    'إقامة مريحة في فنادق ومنتجعات\n                            مختارة تشمل إفطار يومي لشخصين، وإقامة مجانية لطفل تحت 5 سنوات إن وجد': 'Comfortable accommodation in selected hotels and resorts including daily breakfast for two people, and free accommodation for a child under 5 years old (if exist)',
+
+    // Welcome and transfer
+    'الإستقبال والتوديع والتوصيل للفنادق والجولات السياحية': 'Welcoming and transport to hotels and tourist tours',
+    'الإستقبال والتوديع والتوصيل للفنادق': 'Welcoming and transport to hotels and tourist tours',
+    'والجولات السياحية': 'and tourist tours',
+    'الإستقبال والتوديع والتوصيل للفنادق\n                            والجولات السياحية': 'Welcoming and transport to hotels and tourist tours',
+
+    // Flight tickets
+    'تذاكر الطيران الداخلي': 'Domestic flight tickets',
+    'تذاكر الطيران الدولي': 'International flight tickets',
+
+    // Customer service
+    'خدمة عملاء 24 ساعة باللغة العربية لراحتكم وطمأنينتكم': '24-hour customer service in Arabic for your comfort and peace of mind',
+    'خدمة عملاء 24 ساعة باللغة العربية لراحتكم': '24-hour customer service in Arabic for your comfort',
+    'وطمأنينتكم': 'and peace of mind',
+    'خدمة عملاء 24 ساعة باللغة العربية لراحتكم\n                            وطمأنينتكم': '24-hour customer service in Arabic for your comfort and peace of mind',
+
+    // Internet cards
+    'شرائح إنترنت': 'Internet cards',
+
+    // Flower welcome
+    'إستقبال ورد': 'Flower welcome',
+
+    // Special oud
+    'صندوق عود مميز': 'Special oud box',
+
+    // Entrance fees and parking
+    'تكاليف دخوليات + مواقف السيارت في الحدائق والمنتزهات': 'Entrance fees + car parking in gardens and parks',
+    'تكاليف دخوليات + مواقف السيارت في الحدائق و': 'Entrance fees + car parking in gardens and',
+    'المنتزهات': 'parks',
+    'تكاليف دخوليات + مواقف السيارت في الحدائق و\n                            المنتزهات': 'Entrance fees + car parking in gardens and parks',
+
+    // Watersport special text
+    'استمتعوا ب 3 ألعاب بحرية ممتعة': 'Enjoy 3 fun water activities',
+    'كلها مشمولة بدون أي رسوم إضافية': 'All included without any additional fees',
+
+    // Rafting special text
+    'اكتشف متعة التجديف': 'Discover the fun of rafting',
+    'لحظات حماس وتجربة لاتُنسى هدية منا لكم': 'Exciting moments and unforgettable experience, a gift from us to you'
+};
+
 createAllPackageIncludingAndNotIncludingData = function () {
     let checkboxIds = [
         'privet_car_with_driver_to_welcome_and_etc_checkbox',
-        'extra_car_for_carring_bags_checkbox',
         'hotel_booking_with_breakfast_for_2_people_checkbox',
-        'welcome_goodbye_hotel_delivery_checkbox',
-        'inner_flight_tickets_checkbox',
         'customer_service_24_hour_checkbox',
-        'sms_card_with_internet_checkbox',
+        'welcome_goodbye_hotel_delivery_checkbox',
         'welcome_with_flowers_checkbox',
+        'sms_card_with_internet_checkbox',
+        'inner_flight_tickets_checkbox',
+        'extra_car_for_carring_bags_checkbox',
         'outer_flight_tickets_checkbox',
         'placese_visiting_cost_checkbox',
     ];
 
     playSoundEffect('success');
+
+    // Function to translate Arabic text to English
+    function translateToEnglish(text) {
+        // First try exact match
+        if (packageIncludingTranslations[text]) {
+            return packageIncludingTranslations[text];
+        }
+
+        // Try to clean the text and match
+        let cleanText = text.trim();
+        if (packageIncludingTranslations[cleanText]) {
+            return packageIncludingTranslations[cleanText];
+        }
+
+        // Debug: log untranslated text
+        console.log('Untranslated text:', text);
+
+        // If no translation found, return original text
+        return text;
+    }
 
     let privetCarWithDriverToWelcomeAndEtc = document.getElementById('specific_car_type_input_id').value;
     let packageIncludingDataTextArea = document.getElementById('package_details_textarea_id').value;
@@ -715,25 +796,16 @@ createAllPackageIncludingAndNotIncludingData = function () {
         }
 
 
-        // Special logic for special_oud_checkbox if first hotel city is "بالي"
-        if (id === 'special_oud_checkbox' && (firstHotelCityText === 'بالي' || firstHotelCityText === 'لومبوك')) {
-            // Treat as white (do not add to including/gift/not including)
-            let pElement = document.createElement('p');
-            pElement.innerText = id;
-            document.getElementById('store_google_sheet_white_package_including_and_not_including_input_div').appendChild(pElement);
-            return;
-        }
-
         // Normal logic for other checkboxes
         if (color === 'rgb(0, 255, 0)') {
-            if (id === 'sms_card_with_internet_checkbox' || id === 'welcome_with_flowers_checkbox' || id === 'special_oud_checkbox') {
+            if (id === 'sms_card_with_internet_checkbox' || id === 'welcome_with_flowers_checkbox') {
                 icon.setAttribute('name', 'checkmark-outline');
                 p.appendChild(icon);
 
                 if (id === 'sms_card_with_internet_checkbox') {
                     let textContent = smsCardWithInternetAmountInputReayText !== ''
                         ? ` ${smsCardWithInternetAmountInputReayText}`
-                        : ' شرائح إنترنت';
+                        : ' ' + translateToEnglish('شرائح إنترنت');
                     p.appendChild(document.createTextNode(textContent));
                     p.style.padding = '0 5px';
                     document.getElementById('store_google_sheet_package_including_sms_value').innerText = smsCardWithInternetAmountInputReayText !== '' ? smsCardWithInternetAmountInputReayText : '';
@@ -741,33 +813,20 @@ createAllPackageIncludingAndNotIncludingData = function () {
                     let container = document.createElement('div');
                     container.className = 'activity_icon_container';
                     let img = document.createElement('img');
-                    img.src = 'activities/sms-cards.webp';
+                    img.src = '../activities/sms-cards.webp';
                     img.className = 'activity_icon_img';
                     container.appendChild(img);
                     p.appendChild(container);
                 } else if (id === 'welcome_with_flowers_checkbox') {
                     labelText.forEach((text, index) => {
-                        p.appendChild(document.createTextNode(` ${text}`));
+                        p.appendChild(document.createTextNode(` ${translateToEnglish(text)}`));
                         if (index < labelText.length - 1) p.appendChild(document.createElement('br'));
                     });
                     p.setAttribute('data-gift-order', '4');
                     let container = document.createElement('div');
                     container.className = 'activity_icon_container';
                     let img = document.createElement('img');
-                    img.src = 'activities/flower.webp';
-                    img.className = 'activity_icon_img';
-                    container.appendChild(img);
-                    p.appendChild(container);
-                } else if (id === 'special_oud_checkbox') {
-                    labelText.forEach((text, index) => {
-                        p.appendChild(document.createTextNode(` ${text}`));
-                        if (index < labelText.length - 1) p.appendChild(document.createElement('br'));
-                    });
-                    p.setAttribute('data-gift-order', '5');
-                    let container = document.createElement('div');
-                    container.className = 'activity_icon_container';
-                    let img = document.createElement('img');
-                    img.src = 'activities/special-oud.webp';
+                    img.src = '../activities/flower.webp';
                     img.className = 'activity_icon_img';
                     container.appendChild(img);
                     p.appendChild(container);
@@ -783,14 +842,14 @@ createAllPackageIncludingAndNotIncludingData = function () {
             if (id === 'sms_card_with_internet_checkbox') {
                 let textContent = smsCardWithInternetAmountInputReayText !== ''
                     ? ` ${smsCardWithInternetAmountInputReayText}`
-                    : ' شرائح إنترنت';
+                    : ' ' + translateToEnglish('شرائح إنترنت');
                 p.appendChild(document.createTextNode(textContent));
                 p.style.padding = '0 5px';
                 document.getElementById('store_google_sheet_package_including_sms_value').innerText = smsCardWithInternetAmountInputReayText !== '' ? smsCardWithInternetAmountInputReayText : '';
             } else if (id === 'inner_flight_tickets_checkbox') {
                 let textContent = innerFlightTicketsAmountInputReayText !== ''
                     ? ` ${innerFlightTicketsAmountInputReayText}`
-                    : ' تذاكر الطيران الداخلي';
+                    : ' ' + translateToEnglish('تذاكر الطيران الداخلي');
                 p.appendChild(document.createTextNode(textContent));
                 p.style.padding = '0 5px';
                 document.getElementById('store_google_sheet_package_including_inner_tickets_value').innerText = innerFlightTicketsAmountInputReayText !== '' ? innerFlightTicketsAmountInputReayText : '';
@@ -799,16 +858,7 @@ createAllPackageIncludingAndNotIncludingData = function () {
                 p.style.fontWeight = 'bold';
             } else {
                 labelText.forEach((text, index) => {
-                    // Check if this is the specific text that should be yellow in inserted_package_including_data_div
-                    if (id === 'welcome_goodbye_hotel_delivery_checkbox' &&
-                        text === '(الإستقبال والتوديع والتنقلات بين الفنادق توصيل فقط بدون جولات)') {
-                        let yellowSpan = document.createElement('span');
-                        yellowSpan.style.color = 'yellow';
-                        yellowSpan.textContent = ` ${text}`;
-                        p.appendChild(yellowSpan);
-                    } else {
-                        p.appendChild(document.createTextNode(` ${text}`));
-                    }
+                    p.appendChild(document.createTextNode(` ${translateToEnglish(text)}`));
                     if (index < labelText.length - 1) p.appendChild(document.createElement('br'));
                 });
             }
@@ -822,7 +872,7 @@ createAllPackageIncludingAndNotIncludingData = function () {
             icon.setAttribute('name', 'close-outline');
             p.appendChild(icon);
             labelText.forEach((text, index) => {
-                p.appendChild(document.createTextNode(` ${text}`));
+                p.appendChild(document.createTextNode(` ${translateToEnglish(text)}`));
                 if (index < labelText.length - 1) p.appendChild(document.createElement('br'));
             });
             p.className = 'inserted_package_not_including_data_text';
@@ -891,25 +941,49 @@ createAllPackageIncludingAndNotIncludingData = function () {
     document.getElementById('store_google_sheet_red_checked_package_including_and_not_including_input_div').innerHTML = '';
     document.getElementById('store_google_sheet_white_package_including_and_not_including_input_div').innerHTML = '';
 
+    console.groupCollapsed('[Including] Store checkbox colors to hidden divs');
     checkboxIds.forEach(id => {
         let checkbox = document.getElementById(id);
-        if (!checkbox) return;
+        if (!checkbox) {
+            console.warn('Store skip (checkbox missing):', id);
+            return;
+        }
         let label = checkbox.nextElementSibling;
+        if (!label) {
+            console.warn('Store skip (label missing):', id);
+            return;
+        }
         let currentColor = window.getComputedStyle(label, '::before').backgroundColor;
+
+        // Normalize to one of the three buckets
+        let bucket = 'white';
+        if (currentColor === 'rgb(0, 255, 0)') {
+            bucket = 'green';
+        } else if (currentColor === 'rgb(255, 0, 0)') {
+            bucket = 'red';
+        } else if (currentColor === 'rgb(255, 255, 255)') {
+            bucket = 'white';
+        } else {
+            // Some browsers may return spaces or different formatting; fallback by substring check
+            if (currentColor.includes('0, 255, 0')) bucket = 'green';
+            else if (currentColor.includes('255, 0, 0')) bucket = 'red';
+            else bucket = 'white';
+        }
+
         let pElement = document.createElement('p');
         pElement.innerText = id;
 
-        // Special logic for special_oud_checkbox if first hotel city is "بالي"
-        if (id === 'special_oud_checkbox' && firstHotelCityText === 'بالي') {
-            document.getElementById('store_google_sheet_white_package_including_and_not_including_input_div').appendChild(pElement);
-        } else if (currentColor === 'rgb(0, 255, 0)') {
+        if (bucket === 'green') {
             document.getElementById('store_google_sheet_green_checked_package_including_and_not_including_input_div').appendChild(pElement);
-        } else if (currentColor === 'rgb(255, 0, 0)') {
+        } else if (bucket === 'red') {
             document.getElementById('store_google_sheet_red_checked_package_including_and_not_including_input_div').appendChild(pElement);
         } else {
             document.getElementById('store_google_sheet_white_package_including_and_not_including_input_div').appendChild(pElement);
         }
+
+        console.log('Stored', { id, currentColor, bucket });
     });
+    console.groupEnd();
 }
 
 
@@ -996,6 +1070,8 @@ runDeleteThisPackageIncludingDataText = function (clickedPackageIncludingDataTex
         event.stopPropagation(); // Prevent immediate closure of overlay on click
     });
 }
+
+/* Up All Funtions For Package Include And Not Include Up */
 
 
 
@@ -1146,17 +1222,17 @@ createAllFlightDataFunction = function () {
                     <div>
                         <p id="flight_adult_person_amount_${insertedFlightDataDivUniqueId}">
                             ${totalPeople === 1
-                        ? `${totalPeople} بالغ`
+                        ? `${totalPeople} Adult`
                         : totalPeople > 10
-                            ? `${totalPeople} بالغ`
+                            ? `${totalPeople} Adult`
                             : totalPeople !== 0
-                                ? `${totalPeople} بالغين`
+                                ? `${totalPeople} Adults`
                                 : ''
                     }
                         </p>
                         ${infantAmount ? `<p id="flight_infant_person_amount_${insertedFlightDataDivUniqueId}">${infantAmount}</p>` : ''}
                     </div>
-                    <div><p>20Kg للشخص</p></div>
+                    <div><p>20Kg Per Pax</p></div>
                     <div><h2 id='flight_from_city_${insertedFlightDataDivUniqueId}'>${fromCity}</h2></div>
                     <div><h3 id='flight_to_city_${insertedFlightDataDivUniqueId}'>${toCity}</h3></div>
                     <div><h1 id='flight_date_${insertedFlightDataDivUniqueId}' class="flight_date_for_matching_whole_package_date">${currentDate}</h1></div>
@@ -1319,7 +1395,7 @@ editClickedFlightData = function (clickedFlightDataDivIdName) {
     document.getElementById('confirm_new_flight_data_row_icon').style.display = 'block';
     document.getElementById('cancel_new_flight_data_row_icon').style.display = 'block';
 
-    document.getElementById('flight_content_section_title_text_id').innerText = 'تعديل تفاصيل الطيران';
+    document.getElementById('flight_content_section_title_text_id').innerText = 'EDIT TICKET';
     document.getElementById('toggle_flight_data_title_div_id').style.background = 'rgb(85, 127, 137)';
 
     document.getElementById('flight_data_dropdown_content').scrollIntoView({
@@ -1387,7 +1463,7 @@ editClickedFlightData = function (clickedFlightDataDivIdName) {
         document.getElementById('cancel_new_flight_data_row_icon').style.display = 'none';
 
         /* Reset the innerText and styling to default */
-        document.getElementById('flight_content_section_title_text_id').innerText = 'تفاصيل الطيران';
+        document.getElementById('flight_content_section_title_text_id').innerText = 'TICKET DATA';
         document.getElementById('toggle_flight_data_title_div_id').style.background = 'rgb(131, 0, 148)';
 
         /* Hide all inputs for editing the flight data */
@@ -1431,7 +1507,7 @@ editClickedFlightData = function (clickedFlightDataDivIdName) {
                 ${flightInfantPersonAmountInput ? `<p id="flight_infant_person_amount_${insertedFlightDataDivUniqueId}">${flightInfantPersonAmountInput}</p>` : ''}
             </div>
             <div>
-                <p>20Kg للشخص</p>
+                <p>20Kg Per Pax</p>
                 ${flightExtraBagsInput ? `<p id="flight_extra_bags_${insertedFlightDataDivUniqueId}">${flightExtraBagsInput}</p>` : ''}
             </div>
             <div>
@@ -1703,19 +1779,19 @@ manuallyCreateNewFlightRow = function () {
     let flightRowTableDivContent = `
         <div class="flight_row_flight_arrival_time_controller inserted_flight_data_row" style="cursor: pointer;"><p id='flight_air_line_${insertedFlightDataDivUniqueId}'></p></div>
         <div>
-                        <p id="flight_adult_person_amount_${insertedFlightDataDivUniqueId}">
-                            ${totalPeople === 1
-            ? `${totalPeople} بالغ`
+            <p id="flight_adult_person_amount_${insertedFlightDataDivUniqueId}">
+                ${totalPeople === 1
+            ? `${totalPeople} Adult`
             : totalPeople > 10
-                ? `${totalPeople} بالغ`
+                ? `${totalPeople} Adult`
                 : totalPeople !== 0
-                    ? `${totalPeople} بالغين`
+                    ? `${totalPeople} Adults`
                     : ''
         }
             </p>
             ${infantAmount ? `<p id="flight_infant_person_amount_${insertedFlightDataDivUniqueId}">${infantAmount}</p>` : ''}
         </div>
-        <div><p>20Kg للشخص</p></div>
+        <div><p>20Kg Per Pax</p></div>
         <div><h2 id='flight_from_city_${insertedFlightDataDivUniqueId}'></h2></div>
         <div><h3 id='flight_to_city_${insertedFlightDataDivUniqueId}'></h3></div>
         <div><h1 id='flight_date_${insertedFlightDataDivUniqueId}' class="flight_date_for_matching_whole_package_date"></h1></div>
@@ -1839,7 +1915,6 @@ createHotelsDataFunction = function () {
     let hotelCheckInReadyText = document.getElementById('hotel_check_in_input_id').value;
     let hotelCheckOutReadyText = document.getElementById('hotel_check_out_input_id').value;
     let hotelRoomTypeDescriptionInput = document.getElementById('hotel_room_type_description_input_id').value;
-    let hotelArabicRoomTypeDescriptionInput = document.getElementById('hotel_arabic_room_type_description_input_id').value;
     let hotelRoomContainPoolInput = document.getElementById('hotel_room_contain_pool_input_id').value;
     let hotelRoomViewInput = document.getElementById('hotel_room_view_input_id').value;
     let hotelUnitAmountInput = document.getElementById('hotel_unit_amount_input_id').value;
@@ -1850,7 +1925,6 @@ createHotelsDataFunction = function () {
 
     /* Second hotel room data input values */
     let hotelRoomTypeDescriptionInput_2 = document.getElementById('hotel_room_type_description_input_id_2').value;
-    let hotelArabicRoomTypeDescriptionInput_2 = document.getElementById('hotel_arabic_room_type_description_input_id_2').value;
     let hotelRoomContainPoolInput_2 = document.getElementById('hotel_room_contain_pool_input_id_2').value;
     let hotelRoomViewInput_2 = document.getElementById('hotel_room_view_input_id_2').value;
     let hotelUnitAmountInput_2 = document.getElementById('hotel_unit_amount_input_id_2').value;
@@ -1985,14 +2059,14 @@ createHotelsDataFunction = function () {
             <div><h3 style="color: red" id='hotel_check_out_${insertedHotelDataDivUniqueId}' class="hotel_check_out_date_for_matching_whole_package_date">${hotelCheckOutReadyText}</h3></div>
             <div><h4 id='hotel_total_nights_${insertedHotelDataDivUniqueId}'>${storeHotelTotalNights}</h4></div>
             <div class="description_cell">
-                <span id='hotel_room_arabic_type_description_${insertedHotelDataDivUniqueId}'>${hotelArabicRoomTypeDescriptionInput}</span><span id='hotel_room_type_description_${insertedHotelDataDivUniqueId}'>${hotelRoomTypeDescriptionInput}</span></div>
+                <span id='hotel_room_type_description_${insertedHotelDataDivUniqueId}'>${hotelRoomTypeDescriptionInput}</span></div>
             <div>
                 <p id='hotel_total_unit_${insertedHotelDataDivUniqueId}'>${storeHotelTotalUnitNumber}</p>
                 ${hotelUnitAmountInput_2 && document.getElementById('hotel_second_room_data_input_div').style.display !== "none" ? `<p style="width: 100%; background: rgb(5, 17, 21); color: white">+ </p><p id="hotel_total_unit_2_${insertedHotelDataDivUniqueId}" style="width: 100%; background: rgb(5, 17, 21); color: white">${storeHotelTotalUnitNumber_2}</p>` : ''}
             </div>
             <div>
                 <h5 id='hotel_location_${insertedHotelDataDivUniqueId}'>${hotelLocationInput}</h5>
-                <img src="صور-الفنادق/${starsAmount}-stars-hotel-image.jpg" id='hotel_image_${insertedHotelDataDivUniqueId}' class="hotel_row_image_controller inserted_hotel_data_row" style="cursor: pointer">
+                <img src="../صور-الفنادق/${starsAmount}-stars-hotel-image.jpg" id='hotel_image_${insertedHotelDataDivUniqueId}' class="hotel_row_image_controller inserted_hotel_data_row" style="cursor: pointer">
             </div>
         `;
 
@@ -2067,23 +2141,6 @@ createHotelsDataFunction = function () {
 
         // Handle the second room data if the second room div is visible
         if (document.getElementById('hotel_second_room_data_input_div').style.display !== "none") {
-            if (hotelArabicRoomTypeDescriptionInput_2 !== '') {
-                let arabicRoomTypeDescriptionSpan_2 = document.createElement('span');
-                arabicRoomTypeDescriptionSpan_2.id = `hotel_room_arabic_type_description_2_${insertedHotelDataDivUniqueId}`;
-                arabicRoomTypeDescriptionSpan_2.innerText = hotelArabicRoomTypeDescriptionInput_2;
-                arabicRoomTypeDescriptionSpan_2.style.width = '100%';
-                arabicRoomTypeDescriptionSpan_2.style.background = 'rgb(5, 17, 21)';
-                arabicRoomTypeDescriptionSpan_2.style.color = 'white';
-
-
-                let plusSign = document.createElement('span');
-                plusSign.innerText = '+ ';
-                plusSign.style.width = '100%';
-                plusSign.style.background = 'rgb(5, 17, 21)';
-                plusSign.style.color = 'white';
-                hotelRowTableDiv.querySelector('.description_cell').appendChild(plusSign);
-                hotelRowTableDiv.querySelector('.description_cell').appendChild(arabicRoomTypeDescriptionSpan_2);
-            }
             if (hotelRoomTypeDescriptionInput_2 !== '') {
                 let roomTypeDescriptionSpan_2 = document.createElement('span');
                 roomTypeDescriptionSpan_2.id = `hotel_room_type_description_2_${insertedHotelDataDivUniqueId}`;
@@ -2253,14 +2310,14 @@ createHotelsDataFunction = function () {
             <div><h3 style="color: red" id='hotel_check_out_${insertedHotelDataDivUniqueId}' class="hotel_check_out_date_for_matching_whole_package_date">${hotelCheckOutReadyText}</h3></div>
             <div><h4 id='hotel_total_nights_${insertedHotelDataDivUniqueId}'>${storeHotelTotalNights}</h4></div>
             <div class="description_cell">
-                <span id='hotel_room_arabic_type_description_${insertedHotelDataDivUniqueId}'>${hotelArabicRoomTypeDescriptionInput}</span><span id='hotel_room_type_description_${insertedHotelDataDivUniqueId}'>${hotelRoomTypeDescriptionInput}</span></div>
+                <span id='hotel_room_type_description_${insertedHotelDataDivUniqueId}'>${hotelRoomTypeDescriptionInput}</span></div>
             <div>
                 <p id='hotel_total_unit_${insertedHotelDataDivUniqueId}'>${storeHotelTotalUnitNumber}</p>
                 ${hotelUnitAmountInput_2 && document.getElementById('hotel_second_room_data_input_div').style.display !== "none" ? `<p style="width: 100%; background: rgb(5, 17, 21); color: white">+ </p><p id="hotel_total_unit_2_${insertedHotelDataDivUniqueId}" style="width: 100%; background: rgb(5, 17, 21); color: white">${storeHotelTotalUnitNumber_2}</p>` : ''}
             </div>
             <div>
                 <h5 id='hotel_location_${insertedHotelDataDivUniqueId}'>${hotelLocationReadyText}</h5>
-                <img src="صور-الفنادق/${hotelImgSrcReadyText}.jpg" class="hotel_row_image_controller inserted_hotel_data_row" style="cursor: pointer">
+                <img src="../صور-الفنادق/${hotelImgSrcReadyText}.jpg" class="hotel_row_image_controller inserted_hotel_data_row" style="cursor: pointer">
             </div>
         `;
 
@@ -2332,23 +2389,6 @@ createHotelsDataFunction = function () {
 
         // Handle the second room data if the second room div is visible
         if (document.getElementById('hotel_second_room_data_input_div').style.display !== "none") {
-            if (hotelArabicRoomTypeDescriptionInput_2 !== '') {
-                let arabicRoomTypeDescriptionSpan_2 = document.createElement('span');
-                arabicRoomTypeDescriptionSpan_2.id = `hotel_room_arabic_type_description_2_${insertedHotelDataDivUniqueId}`;
-                arabicRoomTypeDescriptionSpan_2.innerText = hotelArabicRoomTypeDescriptionInput_2;
-                arabicRoomTypeDescriptionSpan_2.style.width = '100%';
-                arabicRoomTypeDescriptionSpan_2.style.background = 'rgb(5, 17, 21)';
-                arabicRoomTypeDescriptionSpan_2.style.color = 'white';
-
-
-                let plusSign = document.createElement('span');
-                plusSign.innerText = '+ ';
-                plusSign.style.width = '100%';
-                plusSign.style.background = 'rgb(5, 17, 21)';
-                plusSign.style.color = 'white';
-                hotelRowTableDiv.querySelector('.description_cell').appendChild(plusSign);
-                hotelRowTableDiv.querySelector('.description_cell').appendChild(arabicRoomTypeDescriptionSpan_2);
-            }
             if (hotelRoomTypeDescriptionInput_2 !== '') {
                 let roomTypeDescriptionSpan_2 = document.createElement('span');
                 roomTypeDescriptionSpan_2.id = `hotel_room_type_description_2_${insertedHotelDataDivUniqueId}`;
@@ -2493,7 +2533,6 @@ createHotelsDataFunction = function () {
     document.getElementById('hotel_check_out_input_id').value = '';
     document.getElementById('hotel_total_nights_input_id').value = '';
     document.getElementById('hotel_room_type_description_input_id').value = '';
-    document.getElementById('hotel_arabic_room_type_description_input_id').value = '';
     document.getElementById('hotel_room_contain_pool_input_id').value = '';
     document.getElementById('hotel_room_view_input_id').value = '';
     document.getElementById('hotel_special_room_request_input_id').value = '';
@@ -2501,7 +2540,6 @@ createHotelsDataFunction = function () {
 
 
     document.getElementById('hotel_room_type_description_input_id_2').value = '';
-    document.getElementById('hotel_arabic_room_type_description_input_id_2').value = '';
     document.getElementById('hotel_room_contain_pool_input_id_2').value = '';
     document.getElementById('hotel_room_view_input_id_2').value = '';
     document.getElementById('hotel_special_room_request_input_id_2').value = '';
@@ -2523,9 +2561,10 @@ createHotelsDataFunction = function () {
 
     /* Re-Create the data of the flights details when submit new changes in the hotels data */
     if (document.getElementById('downloaded_pdf_flight_data_page').style.display !== 'none') {
-
         // First delete all old flights row data'
         document.getElementById('inserted_flight_data_position_div').innerHTML = '';
+
+
 
 
 
@@ -2546,6 +2585,7 @@ createHotelsDataFunction = function () {
         let validCities = ["Bangkok", "Phuket", "Krabi", "Pattaya", "Chiang Mai", "Koh Samui"];  // Array of valid cities to check against
 
 
+
         // Get the values of the adult and kids inputs
         let adultAmount = document.getElementById('adult_package_person_amount_input_id').value;
         let kidsAmount = document.getElementById('kids_package_person_amount_input_id').value;
@@ -2563,6 +2603,8 @@ createHotelsDataFunction = function () {
 
         // Calculate total people (adults + kids)
         let totalPeople = adultNumber + kidsNumber;
+
+
 
 
         // Iterate through all found hotel rows
@@ -2681,6 +2723,7 @@ createHotelsDataFunction = function () {
             document.getElementById('manually_add_flight_row_icon').style.display = 'none';
 
 
+
             /* Call a function to make sure if all package dates should be hidden or no */
             ensureAllPackageDatesHiddenOrNo();
 
@@ -2703,10 +2746,6 @@ createHotelsDataFunction = function () {
 
             // If there is no found element, set the display style of the 'downloaded_pdf_flight_data_page' to 'none'
             document.getElementById('downloaded_pdf_flight_data_page').style.display = 'none';
-
-
-            /* Show the icon button if there is no any created flight row */
-            document.getElementById('manually_add_flight_row_icon').style.display = 'block';
         }
 
 
@@ -2742,22 +2781,19 @@ createHotelsDataFunction = function () {
         // Function to increment a date by a specified number of days
         function incrementDate(dateString, days) {
             let [day, month] = dateString.split(' '); // Split the date string into day and month
-            let arabicMonths = {
-                "يناير": 0, "فبراير": 1, "مارس": 2, "أبريل": 3,
-                "مايو": 4, "يونيو": 5, "يوليو": 6, "أغسطس": 7,
-                "سبتمبر": 8, "أكتوبر": 9, "نوفمبر": 10, "ديسمبر": 11
-            }; // Arabic month names mapped to their corresponding month index
-            let monthNames = Object.keys(arabicMonths); // Array of month names in Arabic
+            let monthsMap = {
+                "Jan": 0, "Feb": 1, "Mar": 2, "Apr": 3, "May": 4, "Jun": 5,
+                "Jul": 6, "Aug": 7, "Sep": 8, "Oct": 9, "Nov": 10, "Dec": 11
+            };
+            let monthNames = Object.keys(monthsMap); // Array of month names in English
 
-            let currentYear = new Date().getFullYear(); // Get the current year
-
-            // Set the full date including the correct month and year
-            let date = new Date(currentYear, arabicMonths[month], parseInt(day));
-
+            let date = new Date(); // Create a new date object
+            date.setDate(parseInt(day)); // Set the day of the date object
+            date.setMonth(monthsMap[month]); // Set the month of the date object
             date.setDate(date.getDate() + days); // Increment the date by the specified number of days
 
             let newDay = date.getDate(); // Get the new day after incrementing
-            let newMonth = monthNames[date.getMonth()]; // Get the new month name in Arabic
+            let newMonth = monthNames[date.getMonth()]; // Get the new month name in English
 
             return `${newDay} ${newMonth}`; // Return the new date in the same format (day month)
         }
@@ -2789,10 +2825,11 @@ createHotelsDataFunction = function () {
 
 
 
+
         let isFirstClintMovementsRowCreated = false; // Flag to track the first created clintMovementsRowTableDiv
 
 
-        /* Variable to store if the h5 inside the first found 'hotel_row_class_for_editing' is "بونشاك" or "باندونق" */
+        /* Variable to store if the h5 inside the first found 'hotel_row_class_for_editing' is "Phuket" or "Bangkok" */
         let firstHotelCityName = allHotelRows[0].querySelector('h5').innerText;
 
 
@@ -2811,12 +2848,12 @@ createHotelsDataFunction = function () {
             let packageType = document.getElementById('clint_package_type_h6').innerText.trim();
 
             let packageMapping = {
-                "بكج شهر عسل": "honeymoon",
-                "بكج شباب": "guys",
-                "بكج عائلة": "family",
-                "بكج شخصين": "twopeople",
-                "بكج قروب": "family",
-                "بكج جديد": "family"
+                "Honeymooners Package": "honeymoon",
+                "Guys Package": "guys",
+                "Family Package": "family",
+                "Two People Package": "twopeople",
+                "Group Package": "family",
+                "New Package": "family"
             };
             let packageKey = packageMapping[packageType] || "family";
 
@@ -2839,7 +2876,6 @@ createHotelsDataFunction = function () {
                 targetObject = allClintVisitingPlacesArray[4][packageKey];
                 usedDays = usedVisitingPlaces.chiangMai;
             }
-
 
             if (!usedVisitingPlaces[cityName]) {
                 usedVisitingPlaces[cityName] = {};
@@ -2871,7 +2907,7 @@ createHotelsDataFunction = function () {
                     }
                 }
 
-                let checkInOutText = i === 0 ? `تسجيل الدخول في ${hotelName}` : '';
+                let checkInOutText = i === 0 ? `${hotelName} Check-in` : '';
                 let combinedCityName = cityName;
 
                 // Logic for check-in/out text and combined city name based on previous city/hotel
@@ -2887,37 +2923,37 @@ createHotelsDataFunction = function () {
                     let additionalText = "";
                     if (isAirportWelcomeIncluded && (cityName === "Phuket" || cityName === "Bangkok") && cityName !== previousCityName) {
                         if (!(previousCityName === "Phuket" && cityName === "Krabi") && !(previousCityName === "Krabi" && cityName === "Phuket") && !(previousCityName === "Bangkok" && cityName === "Pattaya") && !(previousCityName === "Pattaya" && cityName === "Bangkok")) {
-                            additionalText = `الإستقبال في مطار ${cityName} + `;
+                            additionalText = `Welcome in ${cityName} Airport + `;
                         }
                     }
 
 
                     if (!isCheckOutTextAdded) {
-                        checkInOutText = `تسجيل الخروج من ${previousHotelName} `;
+                        checkInOutText = `${previousHotelName} Check-out `;
 
                         if (previousCityName !== cityName) {
-                            checkInOutText += `+ الذهاب الى ${cityName} `;
+                            checkInOutText += `+ Going To ${cityName} `;
                         }
 
-                        checkInOutText += `+ ${additionalText}${visitingPlacesText} + تسجيل الدخول في ${hotelName}`;
+                        checkInOutText += `+ ${additionalText}${visitingPlacesText} + ${hotelName} Check-in`;
                         isCheckOutTextAdded = true;
                     }
                 }
 
                 if (!isFirstHotelRowCreated && (cityName === "Phuket" || cityName === "Bangkok") && isAirportWelcomeIncluded) {
-                    checkInOutText = `الإستقبال في مطار ${cityName} + ${checkInOutText}`;
+                    checkInOutText = `Welcome in ${cityName} Airport + ${checkInOutText}`;
                     isFirstHotelRowCreated = true;
                 }
 
                 // Additional condition for the first hotel row
                 if (!isFirstHotelRowCreated && index === 0 && isAirportWelcomeIncluded && (firstHotelCityName === "Phuket")) {
-                    checkInOutText = `الإستقبال في مطار بوكيت + الذهاب الى ${cityName} + تسجيل الدخول في ${hotelName}`;
+                    checkInOutText = `Welcome in Phuket Airport + Going to ${cityName} + ${hotelName} Check-in`;
                     isFirstHotelRowCreated = true; // Set the flag to avoid reapplying this condition
                 }
 
                 // Additional condition for the first hotel row
                 if (!isFirstHotelRowCreated && index === 0 && isAirportWelcomeIncluded && (firstHotelCityName === "Bangkok")) {
-                    checkInOutText = `الإستقبال في مطار بانكوك + الذهاب الى ${cityName} + تسجيل الدخول في ${hotelName}`;
+                    checkInOutText = `Welcome in Bangkok Airport + Going to ${cityName} + ${hotelName} Check-in`;
                     isFirstHotelRowCreated = true; // Set the flag to avoid reapplying this condition
                 }
 
@@ -2925,10 +2961,11 @@ createHotelsDataFunction = function () {
                 checkInOutText = cleanUpText(checkInOutText);
 
                 clintMovementsRowTableDiv.innerHTML = `
-                <div><h1>${newDate}</h1></div>
-                <div><h2>${checkInOutText}</h2></div>
-                <div class="clint_movements_row_controller" style="cursor: pointer;"><h3>${i === 0 ? combinedCityName : cityName}</h3></div>
-            `;
+                    <div><h1>${newDate}</h1></div>
+                    <div><h2>${checkInOutText}</h2></div>
+                    <div class="clint_movements_row_controller" style="cursor: pointer;"><h3>${i === 0 ? combinedCityName : cityName}</h3></div>
+                `;
+
 
                 if (targetObject && i === 0) {
                     let dayIndex = 1;
@@ -2983,10 +3020,10 @@ createHotelsDataFunction = function () {
                 extraClintMovementsRowTableDiv.className = 'clint_movements_row_class clint_movements_row_class_for_editing';
 
                 extraClintMovementsRowTableDiv.innerHTML = `
-                <div><h1>${extraDate}</h1></div>
-                <div><h2>تسجيل الخروج من ${hotelName} والتحرك للمطار للمغادرة</h2></div>
-                <div class="clint_movements_row_controller" style="cursor: pointer;"><h3>${cityName}-مغادرة</h3></div>
-            `;
+            <div><h1>${extraDate}</h1></div>
+            <div><h2>${hotelName} Check-out and going to Airport for leaving</h2></div>
+            <div class="clint_movements_row_controller" style="cursor: pointer;"><h3>${cityName}-مغادرة</h3></div>
+        `;
 
                 document.getElementById('inserted_clint_movements_data_position_div').appendChild(extraClintMovementsRowTableDiv);
             }
@@ -3178,7 +3215,7 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
 
     /* Change the innerText and the background color of the 'hotel_content_section_title_text_id' */
-    document.getElementById('hotel_content_section_title_text_id').innerText = 'تعديل تفاصيل الفندق';
+    document.getElementById('hotel_content_section_title_text_id').innerText = 'EDIT HOTEL';
     document.getElementById('toggle_hotel_data_title_div_id').style.backgroundColor = 'rgb(85, 127, 137)';
 
 
@@ -3224,7 +3261,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
 
     let hotelRoomTypeDescriptionText = clickedHotelDataDiv.querySelector(`span[id^='hotel_room_type_description_${insertedHotelDataDivUniqueId}']`)?.innerText || '';
-    let hotelRoomArabicTypeDescriptionText = clickedHotelDataDiv.querySelector(`span[id^='hotel_room_arabic_type_description_${insertedHotelDataDivUniqueId}']`)?.innerText || '';
     let hotelRoomContainPoolText = clickedHotelDataDiv.querySelector(`span[id^='hotel_pool_span_id_${insertedHotelDataDivUniqueId}']`)?.innerText || '';
     let hotelRoomViewText = clickedHotelDataDiv.querySelector(`span[id^='hotel_view_span_id_${insertedHotelDataDivUniqueId}']`)?.innerText || '';
 
@@ -3261,7 +3297,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
 
         let hotelRoomTypeDescriptionText_2 = clickedHotelDataDiv.querySelector(`span[id^='hotel_room_type_description_2_${insertedHotelDataDivUniqueId}']`)?.innerText || '';
-        let hotelRoomArabicTypeDescriptionText_2 = clickedHotelDataDiv.querySelector(`span[id^='hotel_room_arabic_type_description_2_${insertedHotelDataDivUniqueId}']`)?.innerText || '';
         let hotelRoomContainPoolText_2 = clickedHotelDataDiv.querySelector(`span[id^='hotel_pool_span_id_2_${insertedHotelDataDivUniqueId}']`)?.innerText || '';
         let hotelRoomViewText_2 = clickedHotelDataDiv.querySelector(`span[id^='hotel_view_span_id_2_${insertedHotelDataDivUniqueId}']`)?.innerText || '';
 
@@ -3279,7 +3314,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
 
         document.getElementById('hotel_room_type_description_input_id_2').value = hotelRoomTypeDescriptionText_2;
-        document.getElementById('hotel_arabic_room_type_description_input_id_2').value = hotelRoomArabicTypeDescriptionText_2;
         document.getElementById('hotel_room_contain_pool_input_id_2').value = hotelRoomContainPoolText_2;
         document.getElementById('hotel_room_view_input_id_2').value = hotelRoomViewText_2;
         document.getElementById('hotel_unit_amount_input_id_2').value = `عدد الوحدات ${storeHotelTotalUnitNumber_2}`;
@@ -3353,7 +3387,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
     document.getElementById('hotel_check_out_input_id').value = hotelCheckOutText;
     document.getElementById('hotel_total_nights_input_id').value = `${storeHotelTotalNights} ليالي`;
     document.getElementById('hotel_room_type_description_input_id').value = hotelRoomTypeDescriptionText;
-    document.getElementById('hotel_arabic_room_type_description_input_id').value = hotelRoomArabicTypeDescriptionText;
     document.getElementById('hotel_room_contain_pool_input_id').value = hotelRoomContainPoolText;
     document.getElementById('hotel_room_view_input_id').value = hotelRoomViewText;
     document.getElementById('hotel_unit_amount_input_id').value = `عدد الوحدات ${storeHotelTotalUnitNumber}`;
@@ -3434,7 +3467,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
         document.getElementById('hotel_check_out_input_id').value = '';
         document.getElementById('hotel_total_nights_input_id').value = '';
         document.getElementById('hotel_room_type_description_input_id').value = '';
-        document.getElementById('hotel_arabic_room_type_description_input_id').value = '';
         document.getElementById('hotel_room_contain_pool_input_id').value = '';
         document.getElementById('hotel_room_view_input_id').value = '';
         document.getElementById('hotel_special_room_request_input_id').value = '';
@@ -3442,7 +3474,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
 
         document.getElementById('hotel_room_type_description_input_id_2').value = '';
-        document.getElementById('hotel_arabic_room_type_description_input_id_2').value = '';
         document.getElementById('hotel_room_contain_pool_input_id_2').value = '';
         document.getElementById('hotel_room_view_input_id_2').value = '';
         document.getElementById('hotel_special_room_request_input_id_2').value = '';
@@ -3462,7 +3493,7 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
 
         /* Reset the innerText and styling to defualt */
-        document.getElementById('hotel_content_section_title_text_id').innerText = 'تفاصيل الفندق';
+        document.getElementById('hotel_content_section_title_text_id').innerText = 'HOTEL DATA';
         document.getElementById('toggle_hotel_data_title_div_id').style.background = 'rgb(131, 0, 148)';
 
 
@@ -3540,7 +3571,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
         let hotelCheckInReadyText = document.getElementById('hotel_check_in_input_id').value;
         let hotelCheckOutReadyText = document.getElementById('hotel_check_out_input_id').value;
         let hotelRoomTypeDescriptionInput = document.getElementById('hotel_room_type_description_input_id').value;
-        let hotelArabicRoomTypeDescriptionInput = document.getElementById('hotel_arabic_room_type_description_input_id').value;
         let hotelRoomContainPoolInput = document.getElementById('hotel_room_contain_pool_input_id').value;
         let hotelRoomViewInput = document.getElementById('hotel_room_view_input_id').value;
         let hotelBreakfastPeopleAmountInput = document.getElementById('hotel_breakfast_people_amount_input_id').value;
@@ -3551,7 +3581,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
         /* Second hotel room data input values */
         let hotelRoomTypeDescriptionInput_2 = document.getElementById('hotel_room_type_description_input_id_2').value;
-        let hotelArabicRoomTypeDescriptionInput_2 = document.getElementById('hotel_arabic_room_type_description_input_id_2').value;
         let hotelRoomContainPoolInput_2 = document.getElementById('hotel_room_contain_pool_input_id_2').value;
         let hotelRoomViewInput_2 = document.getElementById('hotel_room_view_input_id_2').value;
         let hotelUnitAmountInput_2 = document.getElementById('hotel_unit_amount_input_id_2').value;
@@ -3658,14 +3687,14 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                 <div><h3 style="color: red" id='hotel_check_out_${insertedHotelDataDivUniqueId}' class="hotel_check_out_date_for_matching_whole_package_date">${hotelCheckOutReadyText}</h3></div>
                 <div><h4 id='hotel_total_nights_${insertedHotelDataDivUniqueId}'>${storeHotelTotalNights}</h4></div>
                 <div class="description_cell">
-                    <span id='hotel_room_arabic_type_description_${insertedHotelDataDivUniqueId}'>${hotelArabicRoomTypeDescriptionInput}</span><span id='hotel_room_type_description_${insertedHotelDataDivUniqueId}'>${hotelRoomTypeDescriptionInput}</span></div>
+                    <span id='hotel_room_type_description_${insertedHotelDataDivUniqueId}'>${hotelRoomTypeDescriptionInput}</span></div>
                 <div>
                     <p id='hotel_total_unit_${insertedHotelDataDivUniqueId}'>${storeHotelTotalUnitNumber}</p>
                     ${hotelUnitAmountInput_2 && document.getElementById('hotel_second_room_data_input_div').style.display !== "none" ? `<p style="width: 100%; background: rgb(5, 17, 21); color: white">+ </p><p id="hotel_total_unit_2_${insertedHotelDataDivUniqueId}" style="width: 100%; background: rgb(5, 17, 21); color: white">${storeHotelTotalUnitNumber_2}</p>` : ''}
                 </div>
                 <div>
                     <h5 id='hotel_location_${insertedHotelDataDivUniqueId}'>${hotelLocationInput}</h5>
-                    <img src="صور-الفنادق/${starsAmount}-stars-hotel-image.jpg" id='hotel_image_${insertedHotelDataDivUniqueId}' class="hotel_row_image_controller inserted_hotel_data_row" style="cursor: pointer">
+                    <img src="../صور-الفنادق/${starsAmount}-stars-hotel-image.jpg" id='hotel_image_${insertedHotelDataDivUniqueId}' class="hotel_row_image_controller inserted_hotel_data_row" style="cursor: pointer">
                 </div>
             `;
 
@@ -3736,23 +3765,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
             // Handle the second room data if the second room div is visible
             if (document.getElementById('hotel_second_room_data_input_div').style.display !== "none") {
-                if (hotelArabicRoomTypeDescriptionInput_2 !== '') {
-                    let arabicRoomTypeDescriptionSpan_2 = document.createElement('span');
-                    arabicRoomTypeDescriptionSpan_2.id = `hotel_room_arabic_type_description_2_${insertedHotelDataDivUniqueId}`;
-                    arabicRoomTypeDescriptionSpan_2.innerText = hotelArabicRoomTypeDescriptionInput_2;
-                    arabicRoomTypeDescriptionSpan_2.style.width = '100%';
-                    arabicRoomTypeDescriptionSpan_2.style.background = 'rgb(5, 17, 21)';
-                    arabicRoomTypeDescriptionSpan_2.style.color = 'white';
-
-
-                    let plusSign = document.createElement('span');
-                    plusSign.innerText = '+ ';
-                    plusSign.style.width = '100%';
-                    plusSign.style.background = 'rgb(5, 17, 21)';
-                    plusSign.style.color = 'white';
-                    clickedHotelDataDiv.querySelector('.description_cell').appendChild(plusSign);
-                    clickedHotelDataDiv.querySelector('.description_cell').appendChild(arabicRoomTypeDescriptionSpan_2);
-                }
                 if (hotelRoomTypeDescriptionInput_2 !== '') {
                     let roomTypeDescriptionSpan_2 = document.createElement('span');
                     roomTypeDescriptionSpan_2.id = `hotel_room_type_description_2_${insertedHotelDataDivUniqueId}`;
@@ -3881,14 +3893,14 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                 <div><h3 style="color: red" id='hotel_check_out_${insertedHotelDataDivUniqueId}' class="hotel_check_out_date_for_matching_whole_package_date">${hotelCheckOutReadyText}</h3></div>
                 <div><h4 id='hotel_total_nights_${insertedHotelDataDivUniqueId}'>${storeHotelTotalNights}</h4></div>
                 <div class="description_cell">
-                    <span id='hotel_room_arabic_type_description_${insertedHotelDataDivUniqueId}'>${hotelArabicRoomTypeDescriptionInput}</span><span id='hotel_room_type_description_${insertedHotelDataDivUniqueId}'>${hotelRoomTypeDescriptionInput}</span></div>
+                    <span id='hotel_room_type_description_${insertedHotelDataDivUniqueId}'>${hotelRoomTypeDescriptionInput}</span></div>
                 <div>
                     <p id='hotel_total_unit_${insertedHotelDataDivUniqueId}'>${storeHotelTotalUnitNumber}</p>
                     ${hotelUnitAmountInput_2 && document.getElementById('hotel_second_room_data_input_div').style.display !== "none" ? `<p style="width: 100%; background: rgb(5, 17, 21); color: white">+ </p><p id="hotel_total_unit_2_${insertedHotelDataDivUniqueId}" style="width: 100%; background: rgb(5, 17, 21); color: white">${storeHotelTotalUnitNumber_2}</p>` : ''}
                 </div>
                 <div>
                     <h5 id='hotel_location_${insertedHotelDataDivUniqueId}'>${hotelLocationReadyText}</h5>
-                    <img src="صور-الفنادق/${hotelImgSrcReadyText}.jpg" class="hotel_row_image_controller inserted_hotel_data_row" style="cursor: pointer">
+                    <img src="../صور-الفنادق/${hotelImgSrcReadyText}.jpg" class="hotel_row_image_controller inserted_hotel_data_row" style="cursor: pointer">
                 </div>
             `;
 
@@ -3957,23 +3969,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
             // Handle the second room data if the second room div is visible
             if (document.getElementById('hotel_second_room_data_input_div').style.display !== "none") {
-                if (hotelArabicRoomTypeDescriptionInput_2 !== '') {
-                    let arabicRoomTypeDescriptionSpan_2 = document.createElement('span');
-                    arabicRoomTypeDescriptionSpan_2.id = `hotel_room_arabic_type_description_2_${insertedHotelDataDivUniqueId}`;
-                    arabicRoomTypeDescriptionSpan_2.innerText = hotelArabicRoomTypeDescriptionInput_2;
-                    arabicRoomTypeDescriptionSpan_2.style.width = '100%';
-                    arabicRoomTypeDescriptionSpan_2.style.background = 'rgb(5, 17, 21)';
-                    arabicRoomTypeDescriptionSpan_2.style.color = 'white';
-
-
-                    let plusSign = document.createElement('span');
-                    plusSign.innerText = '+ ';
-                    plusSign.style.width = '100%';
-                    plusSign.style.background = 'rgb(5, 17, 21)';
-                    plusSign.style.color = 'white';
-                    clickedHotelDataDiv.querySelector('.description_cell').appendChild(plusSign);
-                    clickedHotelDataDiv.querySelector('.description_cell').appendChild(arabicRoomTypeDescriptionSpan_2);
-                }
                 if (hotelRoomTypeDescriptionInput_2 !== '') {
                     let roomTypeDescriptionSpan_2 = document.createElement('span');
                     roomTypeDescriptionSpan_2.id = `hotel_room_type_description_2_${insertedHotelDataDivUniqueId}`;
@@ -4081,9 +4076,10 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
         /* Re-Create the data of the flights details when submit new changes in the hotels data */
         if (document.getElementById('downloaded_pdf_flight_data_page').style.display !== 'none') {
-
             // First delete all old flights row data'
             document.getElementById('inserted_flight_data_position_div').innerHTML = '';
+
+
 
 
 
@@ -4102,6 +4098,7 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
             let lastCity = null;  // Variable to store the last valid city encountered
             let lastDate = null;  // Variable to store the date associated with the last valid city
             let validCities = ["Bangkok", "Phuket", "Krabi", "Pattaya", "Chiang Mai", "Koh Samui"];  // Array of valid cities to check against
+
 
 
             // Get the values of the adult and kids inputs
@@ -4123,10 +4120,13 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
             let totalPeople = adultNumber + kidsNumber;
 
 
+
+
             // Iterate through all found hotel rows
             allHotelRows.forEach((hotelRow, index) => {
                 let currentCity = hotelRow.querySelector('h5').innerText;  // Get the city name from the current hotel row's h5 element
                 let currentDate = hotelRow.querySelector('h2').innerText;  // Get the date from the current hotel row's h2 element
+
 
                 // Check if the current and last city are valid and different
                 if ((validCities.includes(currentCity) && lastCity && lastCity !== currentCity && validCities.includes(lastCity)) ||
@@ -4160,6 +4160,7 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                     }
 
 
+
                     // Create a new div with flight details
                     let flightRowTableDiv = document.createElement('div');
                     flightRowTableDiv.id = `flight_row_id_${insertedFlightDataDivUniqueId}`;  // Set a unique ID for the new div
@@ -4169,8 +4170,8 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                     let flightRowTableDivContent = `
                     <div class="flight_row_flight_arrival_time_controller inserted_flight_data_row" style="cursor: pointer;"><p id='flight_air_line_${insertedFlightDataDivUniqueId}'></p></div>
                     <div>
-                            <p id="flight_adult_person_amount_${insertedFlightDataDivUniqueId}">
-                                ${totalPeople === 1
+                        <p id="flight_adult_person_amount_${insertedFlightDataDivUniqueId}">
+                            ${totalPeople === 1
                             ? `${totalPeople} Adult`
                             : totalPeople > 10
                                 ? `${totalPeople} Adult`
@@ -4178,9 +4179,9 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                                     ? `${totalPeople} Adults`
                                     : ''
                         }
-                            </p>
-                            ${infantAmount ? `<p id="flight_infant_person_amount_${insertedFlightDataDivUniqueId}">${infantAmount}</p>` : ''}
-                        </div>
+                        </p>
+                        ${infantAmount ? `<p id="flight_infant_person_amount_${insertedFlightDataDivUniqueId}">${infantAmount}</p>` : ''}
+                    </div>
                     <div><p>20Kg Per Pax</p></div>
                     <div><h2 id='flight_from_city_${insertedFlightDataDivUniqueId}'>${fromCity}</h2></div>
                     <div><h3 id='flight_to_city_${insertedFlightDataDivUniqueId}'>${toCity}</h3></div>
@@ -4239,6 +4240,7 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                 document.getElementById('manually_add_flight_row_icon').style.display = 'none';
 
 
+
                 /* Call a function to make sure if all package dates should be hidden or no */
                 ensureAllPackageDatesHiddenOrNo();
 
@@ -4261,10 +4263,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
                 // If there is no found element, set the display style of the 'downloaded_pdf_flight_data_page' to 'none'
                 document.getElementById('downloaded_pdf_flight_data_page').style.display = 'none';
-
-
-                /* Show the icon button if there is no any created flight row */
-                document.getElementById('manually_add_flight_row_icon').style.display = 'block';
             }
 
 
@@ -4300,22 +4298,19 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
             // Function to increment a date by a specified number of days
             function incrementDate(dateString, days) {
                 let [day, month] = dateString.split(' '); // Split the date string into day and month
-                let arabicMonths = {
-                    "يناير": 0, "فبراير": 1, "مارس": 2, "أبريل": 3,
-                    "مايو": 4, "يونيو": 5, "يوليو": 6, "أغسطس": 7,
-                    "سبتمبر": 8, "أكتوبر": 9, "نوفمبر": 10, "ديسمبر": 11
-                }; // Arabic month names mapped to their corresponding month index
-                let monthNames = Object.keys(arabicMonths); // Array of month names in Arabic
+                let monthsMap = {
+                    "Jan": 0, "Feb": 1, "Mar": 2, "Apr": 3, "May": 4, "Jun": 5,
+                    "Jul": 6, "Aug": 7, "Sep": 8, "Oct": 9, "Nov": 10, "Dec": 11
+                };
+                let monthNames = Object.keys(monthsMap); // Array of month names in English
 
-                let currentYear = new Date().getFullYear(); // Get the current year
-
-                // Set the full date including the correct month and year
-                let date = new Date(currentYear, arabicMonths[month], parseInt(day));
-
+                let date = new Date(); // Create a new date object
+                date.setDate(parseInt(day)); // Set the day of the date object
+                date.setMonth(monthsMap[month]); // Set the month of the date object
                 date.setDate(date.getDate() + days); // Increment the date by the specified number of days
 
                 let newDay = date.getDate(); // Get the new day after incrementing
-                let newMonth = monthNames[date.getMonth()]; // Get the new month name in Arabic
+                let newMonth = monthNames[date.getMonth()]; // Get the new month name in English
 
                 return `${newDay} ${newMonth}`; // Return the new date in the same format (day month)
             }
@@ -4347,10 +4342,11 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
 
 
+
             let isFirstClintMovementsRowCreated = false; // Flag to track the first created clintMovementsRowTableDiv
 
 
-            /* Variable to store if the h5 inside the first found 'hotel_row_class_for_editing' is "بونشاك" or "باندونق" */
+            /* Variable to store if the h5 inside the first found 'hotel_row_class_for_editing' is "Phuket" or "Bangkok" */
             let firstHotelCityName = allHotelRows[0].querySelector('h5').innerText;
 
 
@@ -4369,12 +4365,12 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                 let packageType = document.getElementById('clint_package_type_h6').innerText.trim();
 
                 let packageMapping = {
-                    "بكج شهر عسل": "honeymoon",
-                    "بكج شباب": "guys",
-                    "بكج عائلة": "family",
-                    "بكج شخصين": "twopeople",
-                    "بكج قروب": "family",
-                    "بكج جديد": "family"
+                    "Honeymooners Package": "honeymoon",
+                    "Guys Package": "guys",
+                    "Family Package": "family",
+                    "Two People Package": "twopeople",
+                    "Group Package": "family",
+                    "New Package": "family"
                 };
                 let packageKey = packageMapping[packageType] || "family";
 
@@ -4397,7 +4393,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                     targetObject = allClintVisitingPlacesArray[4][packageKey];
                     usedDays = usedVisitingPlaces.chiangMai;
                 }
-
 
                 if (!usedVisitingPlaces[cityName]) {
                     usedVisitingPlaces[cityName] = {};
@@ -4429,7 +4424,7 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                         }
                     }
 
-                    let checkInOutText = i === 0 ? `تسجيل الدخول في ${hotelName}` : '';
+                    let checkInOutText = i === 0 ? `${hotelName} Check-in` : '';
                     let combinedCityName = cityName;
 
                     // Logic for check-in/out text and combined city name based on previous city/hotel
@@ -4445,37 +4440,37 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                         let additionalText = "";
                         if (isAirportWelcomeIncluded && (cityName === "Phuket" || cityName === "Bangkok") && cityName !== previousCityName) {
                             if (!(previousCityName === "Phuket" && cityName === "Krabi") && !(previousCityName === "Krabi" && cityName === "Phuket") && !(previousCityName === "Bangkok" && cityName === "Pattaya") && !(previousCityName === "Pattaya" && cityName === "Bangkok")) {
-                                additionalText = `الإستقبال في مطار ${cityName} + `;
+                                additionalText = `Welcoming in ${cityName} Airport + `;
                             }
                         }
 
 
                         if (!isCheckOutTextAdded) {
-                            checkInOutText = `تسجيل الخروج من ${previousHotelName} `;
+                            checkInOutText = `${previousHotelName} Check-out `;
 
                             if (previousCityName !== cityName) {
-                                checkInOutText += `+ الذهاب الى ${cityName} `;
+                                checkInOutText += `+ Going To ${cityName} `;
                             }
 
-                            checkInOutText += `+ ${additionalText}${visitingPlacesText} + تسجيل الدخول في ${hotelName}`;
+                            checkInOutText += `+ ${additionalText}${visitingPlacesText} + ${hotelName} Check-in`;
                             isCheckOutTextAdded = true;
                         }
                     }
 
                     if (!isFirstHotelRowCreated && (cityName === "Phuket" || cityName === "Bangkok") && isAirportWelcomeIncluded) {
-                        checkInOutText = `الإستقبال في مطار ${cityName} + ${checkInOutText}`;
+                        checkInOutText = `Welcome in ${cityName} Airport + ${checkInOutText}`;
                         isFirstHotelRowCreated = true;
                     }
 
                     // Additional condition for the first hotel row
                     if (!isFirstHotelRowCreated && index === 0 && isAirportWelcomeIncluded && (firstHotelCityName === "Phuket")) {
-                        checkInOutText = `الإستقبال في مطار بوكيت + الذهاب الى ${cityName} + تسجيل الدخول في ${hotelName}`;
+                        checkInOutText = `Welcome in Phuket Airport + Going to ${cityName} + ${hotelName} Check-in`;
                         isFirstHotelRowCreated = true; // Set the flag to avoid reapplying this condition
                     }
 
                     // Additional condition for the first hotel row
                     if (!isFirstHotelRowCreated && index === 0 && isAirportWelcomeIncluded && (firstHotelCityName === "Bangkok")) {
-                        checkInOutText = `الإستقبال في مطار بانكوك + الذهاب الى ${cityName} + تسجيل الدخول في ${hotelName}`;
+                        checkInOutText = `Welcome in Bangkok Airport + Going to ${cityName} + ${hotelName} Check-in`;
                         isFirstHotelRowCreated = true; // Set the flag to avoid reapplying this condition
                     }
 
@@ -4483,10 +4478,11 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                     checkInOutText = cleanUpText(checkInOutText);
 
                     clintMovementsRowTableDiv.innerHTML = `
-                    <div><h1>${newDate}</h1></div>
-                    <div><h2>${checkInOutText}</h2></div>
-                    <div class="clint_movements_row_controller" style="cursor: pointer;"><h3>${i === 0 ? combinedCityName : cityName}</h3></div>
-                `;
+                        <div><h1>${newDate}</h1></div>
+                        <div><h2>${checkInOutText}</h2></div>
+                        <div class="clint_movements_row_controller" style="cursor: pointer;"><h3>${i === 0 ? combinedCityName : cityName}</h3></div>
+                    `;
+
 
                     if (targetObject && i === 0) {
                         let dayIndex = 1;
@@ -4541,10 +4537,10 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                     extraClintMovementsRowTableDiv.className = 'clint_movements_row_class clint_movements_row_class_for_editing';
 
                     extraClintMovementsRowTableDiv.innerHTML = `
-                    <div><h1>${extraDate}</h1></div>
-                    <div><h2>تسجيل الخروج من ${hotelName} والتحرك للمطار للمغادرة</h2></div>
-                    <div class="clint_movements_row_controller" style="cursor: pointer;"><h3>${cityName}-مغادرة</h3></div>
-                `;
+                <div><h1>${extraDate}</h1></div>
+                <div><h2>${hotelName} Check-out and going to Airport for leaving</h2></div>
+                <div class="clint_movements_row_controller" style="cursor: pointer;"><h3>${cityName}-مغادرة</h3></div>
+            `;
 
                     document.getElementById('inserted_clint_movements_data_position_div').appendChild(extraClintMovementsRowTableDiv);
                 }
@@ -4966,25 +4962,25 @@ autoCreateALlClintMovementsData = function () {
         // Function to increment a date by a specified number of days
         function incrementDate(dateString, days) {
             let [day, month] = dateString.split(' '); // Split the date string into day and month
-            let arabicMonths = {
-                "يناير": 0, "فبراير": 1, "مارس": 2, "أبريل": 3,
-                "مايو": 4, "يونيو": 5, "يوليو": 6, "أغسطس": 7,
-                "سبتمبر": 8, "أكتوبر": 9, "نوفمبر": 10, "ديسمبر": 11
-            }; // Arabic month names mapped to their corresponding month index
-            let monthNames = Object.keys(arabicMonths); // Array of month names in Arabic
+            let monthsMap = {
+                "Jan": 0, "Feb": 1, "Mar": 2, "Apr": 3, "May": 4, "Jun": 5,
+                "Jul": 6, "Aug": 7, "Sep": 8, "Oct": 9, "Nov": 10, "Dec": 11
+            };
+            let monthNames = Object.keys(monthsMap); // Array of month names in English
 
             let currentYear = new Date().getFullYear(); // Get the current year
 
             // Set the full date including the correct month and year
-            let date = new Date(currentYear, arabicMonths[month], parseInt(day));
+            let date = new Date(currentYear, monthsMap[month], parseInt(day));
 
             date.setDate(date.getDate() + days); // Increment the date by the specified number of days
 
             let newDay = date.getDate(); // Get the new day after incrementing
-            let newMonth = monthNames[date.getMonth()]; // Get the new month name in Arabic
+            let newMonth = monthNames[date.getMonth()]; // Get the new month name in English
 
             return `${newDay} ${newMonth}`; // Return the new date in the same format (day month)
         }
+
 
 
 
@@ -5013,10 +5009,11 @@ autoCreateALlClintMovementsData = function () {
 
 
 
+
         let isFirstClintMovementsRowCreated = false; // Flag to track the first created clintMovementsRowTableDiv
 
 
-        /* Variable to store if the h5 inside the first found 'hotel_row_class_for_editing' is "بونشاك" or "باندونق" */
+        /* Variable to store if the h5 inside the first found 'hotel_row_class_for_editing' is "Phuket" or "Bangkok" */
         let firstHotelCityName = allHotelRows[0].querySelector('h5').innerText;
 
 
@@ -5035,13 +5032,14 @@ autoCreateALlClintMovementsData = function () {
             let packageType = document.getElementById('clint_package_type_h6').innerText.trim();
 
             let packageMapping = {
-                "بكج شهر عسل": "honeymoon",
-                "بكج شباب": "guys",
-                "بكج عائلة": "family",
-                "بكج شخصين": "twopeople",
-                "بكج قروب": "family",
-                "بكج جديد": "family"
+                "Honeymooners Package": "honeymoon",
+                "Guys Package": "guys",
+                "Family Package": "family",
+                "Two People Package": "twopeople",
+                "Group Package": "family",
+                "New Package": "family"
             };
+
             let packageKey = packageMapping[packageType] || "family";
 
             let targetObject;
@@ -5063,7 +5061,6 @@ autoCreateALlClintMovementsData = function () {
                 targetObject = allClintVisitingPlacesArray[4][packageKey];
                 usedDays = usedVisitingPlaces.chiangMai;
             }
-
 
             if (!usedVisitingPlaces[cityName]) {
                 usedVisitingPlaces[cityName] = {};
@@ -5095,7 +5092,7 @@ autoCreateALlClintMovementsData = function () {
                     }
                 }
 
-                let checkInOutText = i === 0 ? `تسجيل الدخول في ${hotelName}` : '';
+                let checkInOutText = i === 0 ? `${hotelName} Check-in` : '';
                 let combinedCityName = cityName;
 
                 // Logic for check-in/out text and combined city name based on previous city/hotel
@@ -5111,39 +5108,44 @@ autoCreateALlClintMovementsData = function () {
                     let additionalText = "";
                     if (isAirportWelcomeIncluded && (cityName === "Phuket" || cityName === "Bangkok") && cityName !== previousCityName) {
                         if (!(previousCityName === "Phuket" && cityName === "Krabi") && !(previousCityName === "Krabi" && cityName === "Phuket") && !(previousCityName === "Bangkok" && cityName === "Pattaya") && !(previousCityName === "Pattaya" && cityName === "Bangkok")) {
-                            additionalText = `الإستقبال في مطار ${cityName} + `;
+                            additionalText = `Welcome in ${cityName} Airport + `;
                         }
                     }
 
 
                     if (!isCheckOutTextAdded) {
-                        checkInOutText = `تسجيل الخروج من ${previousHotelName} `;
+                        checkInOutText = `${previousHotelName} Check-out `;
 
                         if (previousCityName !== cityName) {
-                            checkInOutText += `+ الذهاب الى ${cityName} `;
+                            checkInOutText += `+ Going To ${cityName} `;
                         }
 
-                        checkInOutText += `+ ${additionalText}${visitingPlacesText} + تسجيل الدخول في ${hotelName}`;
+                        checkInOutText += `+ ${additionalText}${visitingPlacesText} + ${hotelName} Check-in`;
                         isCheckOutTextAdded = true;
                     }
                 }
 
+
                 if (!isFirstHotelRowCreated && (cityName === "Phuket" || cityName === "Bangkok") && isAirportWelcomeIncluded) {
-                    checkInOutText = `الإستقبال في مطار ${cityName} + ${checkInOutText}`;
+                    checkInOutText = `Welcome in ${cityName} Airport + ${checkInOutText}`;
                     isFirstHotelRowCreated = true;
                 }
 
                 // Additional condition for the first hotel row
                 if (!isFirstHotelRowCreated && index === 0 && isAirportWelcomeIncluded && (firstHotelCityName === "Phuket")) {
-                    checkInOutText = `الإستقبال في مطار بوكيت + الذهاب الى ${cityName} + تسجيل الدخول في ${hotelName}`;
+                    checkInOutText = `Welcome in Phuket Airport + Going to ${cityName} + ${hotelName} Check-in`;
                     isFirstHotelRowCreated = true; // Set the flag to avoid reapplying this condition
                 }
 
                 // Additional condition for the first hotel row
                 if (!isFirstHotelRowCreated && index === 0 && isAirportWelcomeIncluded && (firstHotelCityName === "Bangkok")) {
-                    checkInOutText = `الإستقبال في مطار بانكوك + الذهاب الى ${cityName} + تسجيل الدخول في ${hotelName}`;
+                    checkInOutText = `Welcome in Bangkok Airport + Going to ${cityName} + ${hotelName} Check-in`;
                     isFirstHotelRowCreated = true; // Set the flag to avoid reapplying this condition
                 }
+
+
+
+
 
                 // Clean up text to ensure no duplicated '+'
                 checkInOutText = cleanUpText(checkInOutText);
@@ -5208,8 +5210,8 @@ autoCreateALlClintMovementsData = function () {
 
                 extraClintMovementsRowTableDiv.innerHTML = `
                     <div><h1>${extraDate}</h1></div>
-                    <div><h2>تسجيل الخروج من ${hotelName} والتحرك للمطار للمغادرة</h2></div>
-                    <div class="clint_movements_row_controller" style="cursor: pointer;"><h3>${cityName}-مغادرة</h3></div>
+                    <div><h2>${hotelName} Check-out and going to Airport for leaving</h2></div>
+                    <div class="clint_movements_row_controller" style="cursor: pointer;"><h3>${cityName}-Leave</h3></div>
                 `;
 
                 document.getElementById('inserted_clint_movements_data_position_div').appendChild(extraClintMovementsRowTableDiv);
@@ -5307,7 +5309,7 @@ deleteClickedClintMovementsData = function (currentClintMovementsDataDiv) {
         document.getElementById('cancel_new_clint_movements_data_row_icon').style.display = 'none';
 
         /* Reset the innerText and styling to default */
-        document.getElementById('clint_movements_content_section_title_text_id').innerText = 'برنامج تحركات مقترح';
+        document.getElementById('clint_movements_content_section_title_text_id').innerText = 'TRANSPORTATION';
         document.getElementById('toggle_clint_movements_details_title_div_id').style.background = 'rgb(131, 0, 148)';
 
         /* Update the available clint visiting places based on the current existing visiting places */
@@ -5324,6 +5326,14 @@ deleteClickedClintMovementsData = function (currentClintMovementsDataDiv) {
 
         /* Call a function to highlight the Saturday and Sunday days */
         highlightWeekendClintMovements();
+
+
+        // Check if there are any remaining inserted clint movements data div (Searching by the unique class name)
+        let remainingFlightDataDivs = document.querySelectorAll('.clint_movements_row_class_for_editing');
+        if (remainingFlightDataDivs.length === 0) {
+            // Hide section with id 'downloaded_pdf_clint_movements_data_page'
+            document.getElementById('downloaded_pdf_clint_movements_data_page').style.display = 'none';
+        }
     }
 };
 
@@ -5343,7 +5353,7 @@ editClickedClintMovementsData = function (currentClintMovementsDataDiv) {
     document.getElementById('cancel_new_clint_movements_data_row_icon').style.display = 'block';
 
     // Change the innerText and styling to default
-    document.getElementById('clint_movements_content_section_title_text_id').innerText = `تعديل خط سير يوم ${currentClintMovementsDataDiv.querySelector('h1').innerText}`;
+    document.getElementById('clint_movements_content_section_title_text_id').innerText = `EDIT DAY ${currentClintMovementsDataDiv.querySelector('h1').innerText}`;
     document.getElementById('toggle_clint_movements_details_title_div_id').style.background = 'rgb(85, 127, 137)';
 
     // Scroll up to the middle of the 'toggle_clint_movements_details_title_div_id'
@@ -5401,7 +5411,7 @@ editClickedClintMovementsData = function (currentClintMovementsDataDiv) {
 
 
         /* Reset the innerText and styling to defualt */
-        document.getElementById('clint_movements_content_section_title_text_id').innerText = 'برنامج تحركات مقترح';
+        document.getElementById('clint_movements_content_section_title_text_id').innerText = 'TRANSPORTATION';
         document.getElementById('toggle_clint_movements_details_title_div_id').style.background = 'rgb(131, 0, 148)';
 
 
@@ -5518,6 +5528,7 @@ clintMovementsRowCityNameControllerFunction = function (event) {
 
 
 
+
         /* Run a function to split and place the clint visiting places */
         splitAndPlaceClintMovementsRowTableDivFunction = function (clickedMethod) {
 
@@ -5535,7 +5546,10 @@ clintMovementsRowCityNameControllerFunction = function (event) {
 
 
 
-        /* Run  function to add "يوم مفتوح بدون سائق" text in the clicked div */
+
+
+
+        /* Run  function to add "Free Day without Driver" text in the clicked div */
         addFreeTransportationDayWithoutDriverFunction = function () {
 
             runAddFreeTransportationDayWithoutDriverFunction(currentClintMovementsDataDiv);
@@ -5543,8 +5557,7 @@ clintMovementsRowCityNameControllerFunction = function (event) {
         }
 
 
-
-        /* Run  function to add "يوم مفتوح بدون سائق" text in the clicked div */
+        /* Run  function to add "Going Around with Private Drive For 8 Hourse" text in the clicked div */
         addFreeTransportationDayWithDriverFunction = function () {
 
             runAddFreeTransportationDayWithDriverFunction(currentClintMovementsDataDiv);
@@ -5819,13 +5832,13 @@ runSplitAndPlaceClintMovementsRowTableDivFunction = function (currentClintMoveme
 
 
 
-/* Function to add "يوم مفتوح بدون سائق" text inside the clicked div */
+/* Function to add "Free Day without Driver" text inside the clicked div */
 runAddFreeTransportationDayWithoutDriverFunction = function (currentClintMovementsDataDiv) {
 
     /* Play a sound effect if the value of the 'lastCopiedClintMovementRowDiv' is not null*/
     playSoundEffect('success');
 
-    currentClintMovementsDataDiv.querySelector('h2').innerText = 'يوم مفتوح بدون سائق';
+    currentClintMovementsDataDiv.querySelector('h2').innerText = 'Free Day without Driver';
 
 
 
@@ -5880,14 +5893,14 @@ runAddFreeTransportationDayWithoutDriverFunction = function (currentClintMovemen
 
 
 
-
-/* Function to add "يوم مفتوح بدون سائق" text inside the clicked div */
+/* Function to add "Going Around with Private Drive For 8 Hourse" text inside the clicked div */
 runAddFreeTransportationDayWithDriverFunction = function (currentClintMovementsDataDiv) {
 
     /* Play a sound effect if the value of the 'lastCopiedClintMovementRowDiv' is not null*/
     playSoundEffect('success');
 
-    currentClintMovementsDataDiv.querySelector('h2').innerText = 'جولة مع سائق خاص لمدة 8 ساعات';
+    currentClintMovementsDataDiv.querySelector('h2').innerText = 'Going Around with Private Drive For 8 Hourse';
+
 
 
 
@@ -5918,6 +5931,7 @@ runAddFreeTransportationDayWithDriverFunction = function (currentClintMovementsD
 
 
 
+
     // Get the following element to hide them
     let deleteclintMovementsRowDiv = document.getElementById('ensure_delete_or_edit_clint_movemnt_data_div');
     let overlayLayer = document.querySelector('.black_overlay');
@@ -5937,7 +5951,6 @@ runAddFreeTransportationDayWithDriverFunction = function (currentClintMovementsD
         highlightWeekendClintMovements();
     }, 1000);
 }
-
 
 
 
@@ -6243,18 +6256,18 @@ function filterUsedClintVisitingPlacesNames() {
 /* Function to highlight the first div inside the clint movements row that are in Saturday or Sunday */
 function highlightWeekendClintMovements() {
     let monthNames = {
-        "يناير": 0,
-        "فبراير": 1,
-        "مارس": 2,
-        "أبريل": 3,
-        "مايو": 4,
-        "يونيو": 5,
-        "يوليو": 6,
-        "أغسطس": 7,
-        "سبتمبر": 8,
-        "أكتوبر": 9,
-        "نوفمبر": 10,
-        "ديسمبر": 11
+        "Jan": 0,
+        "Feb": 1,
+        "Mar": 2,
+        "Apr": 3,
+        "May": 4,
+        "Jun": 5,
+        "Jul": 6,
+        "Aug": 7,
+        "Sep": 8,
+        "Oct": 9,
+        "Nov": 10,
+        "Dec": 11
     };
 
     // Target all divs with the class "clint_movements_row_class_for_editing"
@@ -6266,8 +6279,8 @@ function highlightWeekendClintMovements() {
         let h3Element = div.querySelector("h3");
 
         if (h1Element && h3Element) {
-            // Extract date in Arabic format
-            let dateText = h1Element.innerText.trim(); // Example: "2 مايو" or "10 يوليو"
+            // Extract date in English short month format, e.g., "2 May" -> now "2 May" but we standardize to short names elsewhere
+            let dateText = h1Element.innerText.trim();
             let [day, monthName] = dateText.split(" ");
             let dayNumber = parseInt(day, 10);
             let monthNumber = monthNames[monthName];
@@ -6281,6 +6294,10 @@ function highlightWeekendClintMovements() {
         }
     });
 }
+
+
+
+
 
 /* Up All Functions For Clint Movements Data Up */
 
@@ -6611,7 +6628,7 @@ downloadPdfWithCustomName = async function (pdfName) {
 
         // Change to white text on blue background
         imgElements.forEach(img => {
-            img.src = 'moghader-middle-pdf-image.jpg'; // Google blue background
+            img.src = '../moghader-middle-pdf-image.jpg'; // Google blue background
         });
 
 
@@ -6665,7 +6682,7 @@ downloadPdfWithCustomName = async function (pdfName) {
 
         // Change to white text on blue background
         imgElements.forEach(img => {
-            img.src = 'vid-middle-pdf-image.jpg'; // Google blue background
+            img.src = '../vid-middle-pdf-image.jpg'; // Google blue background
         });
 
 
@@ -6733,11 +6750,11 @@ downloadPdfWithCustomName = async function (pdfName) {
 
         // Change to white text on blue background
         imgElements.forEach(img => {
-            img.src = 'sky-global-middle-pdf-image.jpg'; // Google blue background
+            img.src = '../sky-global-middle-pdf-image.jpg'; // Google blue background
         });
 
 
-        document.getElementById('welcome_pdf_first_page_image_id').src = 'خلفية-الشركات/سكاي-جلوبال.jpg';
+        document.getElementById('welcome_pdf_first_page_image_id').src = '../خلفية-الشركات/سكاي-جلوبال.jpg';
         /* document.getElementById('inserted_package_important_notes_data_section_page_image_id').src = 'ajwaa-sky-last-pdf-image.jpg'; */
 
 
@@ -6804,11 +6821,11 @@ downloadPdfWithCustomName = async function (pdfName) {
 
         // Change to white text on blue background
         imgElements.forEach(img => {
-            img.src = 'travel-gate-middle-pdf-image.jpg'; // Google blue background
+            img.src = '../travel-gate-middle-pdf-image.jpg'; // Google blue background
         });
 
 
-        document.getElementById('welcome_pdf_first_page_image_id').src = 'خلفية-الشركات/ترافل-جت.jpg';
+        document.getElementById('welcome_pdf_first_page_image_id').src = '../خلفية-الشركات/ترافل-جت.jpg';
         /* document.getElementById('inserted_package_important_notes_data_section_page_image_id').src = 'travel-gate-last-pdf-image.jpg'; */
 
 
@@ -6871,7 +6888,7 @@ downloadPdfWithCustomName = async function (pdfName) {
 
         // Change to white text on blue background
         imgElements.forEach(img => {
-            img.src = 'middle-pdf-image.jpg'; // Google blue background
+            img.src = '../middle-pdf-image.jpg'; // Google blue background
         });
 
 
@@ -6935,10 +6952,10 @@ downloadPdfWithCustomName = async function (pdfName) {
 
         // Change to white text on blue background
         imgElements.forEach(img => {
-            img.src = 'middle-pdf-image.jpg';
+            img.src = '../middle-pdf-image.jpg';
         });
 
-        document.getElementById('welcome_pdf_first_page_image_id').src = `خلفية-الشركات/${document.getElementById('clint_company_name_input_id').value.replace(/\s+/g, '-')}.jpg`;
+        document.getElementById('welcome_pdf_first_page_image_id').src = `../خلفية-الشركات/${document.getElementById('clint_company_name_input_id').value.replace(/\s+/g, '-')}.jpg`;
         /* document.getElementById('inserted_package_important_notes_data_section_page_image_id').src = 'last-pdf-image.jpg'; */
 
         document.getElementById('package_clint_code_number_p_id').style.display = 'none';
@@ -7220,7 +7237,7 @@ runDownloadOnlyClintMovementsDataFunction = async function () {
         let companyNameWithoutSpaces = document.getElementById('clint_company_name_input_id').value.replace(/\s+/g, '-');
 
         // in case there is campany name then set the company name as the first pdf image inside the 'downloaded_pdf_clint_movements_data_page'
-        document.getElementById('downloaded_pdf_clint_movements_data_page').querySelector('img').src = `خلفية-الشركات/${companyNameWithoutSpaces}.jpg`;
+        document.getElementById('downloaded_pdf_clint_movements_data_page').querySelector('img').src = `../خلفية-الشركات/${companyNameWithoutSpaces}.jpg`;
 
 
         /* Name the clint movements data pdf file */
