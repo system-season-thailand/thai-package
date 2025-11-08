@@ -1106,7 +1106,6 @@ let initialColors = {
     'inner_flight_tickets_checkbox': 'rgb(0, 255, 0)', // Green
     'customer_service_24_hour_checkbox': 'rgb(0, 255, 0)', // Green
     'sms_card_with_internet_checkbox': 'rgb(0, 255, 0)', // Green
-    'welcome_with_flowers_checkbox': 'rgb(0, 255, 0)', // Green
     'outer_flight_tickets_checkbox': 'rgb(255, 0, 0)', // Red
     'placese_visiting_cost_checkbox': 'rgb(255, 0, 0)', // Red
 };
@@ -3568,5 +3567,4 @@ function toggleFullscreen(textAreaId) {
 
     // Append exit button to body
     document.body.appendChild(exitTextAreaFullScreenButton);
-
 }
