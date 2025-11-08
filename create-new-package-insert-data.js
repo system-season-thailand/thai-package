@@ -5518,7 +5518,6 @@ clintMovementsRowCityNameControllerFunction = function (event) {
 
 
 
-
         /* Run a function to split and place the clint visiting places */
         splitAndPlaceClintMovementsRowTableDivFunction = function (clickedMethod) {
 
@@ -5537,9 +5536,9 @@ clintMovementsRowCityNameControllerFunction = function (event) {
 
 
         /* Run  function to add "يوم مفتوح بدون سائق" text in the clicked div */
-        addFreeTransportationDayWithouDriverFunction = function () {
+        addFreeTransportationDayWithoutDriverFunction = function () {
 
-            runAddFreeTransportationDayWithouDriverFunction(currentClintMovementsDataDiv);
+            runAddFreeTransportationDayWithoutDriverFunction(currentClintMovementsDataDiv);
 
         }
 
@@ -5821,7 +5820,7 @@ runSplitAndPlaceClintMovementsRowTableDivFunction = function (currentClintMoveme
 
 
 /* Function to add "يوم مفتوح بدون سائق" text inside the clicked div */
-runAddFreeTransportationDayWithouDriverFunction = function (currentClintMovementsDataDiv) {
+runAddFreeTransportationDayWithoutDriverFunction = function (currentClintMovementsDataDiv) {
 
     /* Play a sound effect if the value of the 'lastCopiedClintMovementRowDiv' is not null*/
     playSoundEffect('success');
