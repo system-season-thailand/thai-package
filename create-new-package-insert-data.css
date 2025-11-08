@@ -12,6 +12,14 @@
     border-radius: 3px;
 }
 
+
+
+
+
+
+
+
+
 #package_user_code_name_for_later_import_reference_p_id,
 #package_clint_code_number_p_id {
     font-size: 2vw;
@@ -32,12 +40,31 @@
     padding-right: 3px;
 }
 
+
+
+
+
+
 #clint_full_name_p {
     width: 100%;
     font-size: 2vw;
     padding: 3px 0;
     text-align: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Inserted clint data position */
 .clint_data_row_class {
@@ -54,7 +81,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-left: 0.5px solid black;
+    border-right: 0.5px solid black;
 }
 
 .clint_data_row_class div * {
@@ -78,30 +105,65 @@
 /* Reduce the width of "مجموع الليالي" cells */
 .clint_data_row_class div:nth-child(4) {
     flex-grow: 0.4;
-    border-left: none;
 }
 
-/* Inserted package including data position */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Container */
 .inserted_package_including_and_not_icluding_data_div_class {
     background: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
 }
 
+/* Each line */
 .inserted_package_including_and_not_icluding_data_div_class p {
     width: 100%;
     font-size: 2vw;
-    margin: 0 0 0.5vmax 0;
-    padding: 0 0.5vmax 0 0;
+    margin: 0 0 0.7vmax 0;
+    padding: 0.3vmax 1vmax;
     text-align: start;
+    /* Make it look more natural */
     cursor: pointer;
+    line-height: 1.4;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 .special_package_including_data_background_color_text {
     background: rgb(85, 127, 137);
     color: white;
 }
+
+
+
+
 
 /* Styling For Vide Styling */
 .no_right_padding_for_vid_design_h6_class {
@@ -131,8 +193,11 @@
 
 .no_right_padding_for_vid_design_div_class {
     background: rgb(99, 37, 35) !important;
-    color: white !important;
 }
+
+
+
+
 
 /* Pdf section title */
 .pdf_section_title_div_class {
@@ -147,7 +212,7 @@
 }
 
 .pdf_section_title_div_class h6 {
-    background: rgba(31, 66, 98, 0.961);
+    background: rgb(161, 45, 10);
     width: fit-content;
     color: white;
     font-size: 2.5vw;
@@ -161,10 +226,37 @@
     font-size: 4.5vw;
 }
 
-/* Usuful notes section title element */
-#pdf_section_title_div_usuful_notes_id {
-    margin-top: 15px;
+.pdf_section_title_div_class p {
+    font-size: 4.5vw;
+    margin-right: 5px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Inserted hotel data position */
 .hotel_row_class,
@@ -183,12 +275,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-left: 0.5px solid black;
+    border-right: 0.5px solid black;
 }
 
 .hotel_row_class div * {
-    text-align: center;
-    direction: ltr;
+    text-align: center !important;
 }
 
 .hotel_row_class div:first-child {
@@ -219,6 +310,7 @@
 .hotel_row_class span {
     font-size: 1.5vw;
     font-weight: 600;
+    direction: ltr;
 }
 
 /* Reduce the width of "تاريخ الدخول وتاريخ الخروج" and cells */
@@ -263,34 +355,67 @@
     padding: 0;
 }
 
-/* Inserted package important note position */
-.inserted_package_important_note_position_div_class {
-    background: white;
-    padding-right: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+#hotel_arabic_room_type_description_input_id {
+    direction: rtl !important;
 }
 
-.inserted_package_important_note_position_div_class p,
+[id^="hotel_room_arabic_type_description_"] {
+    direction: rtl !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Inserted package important note position */
 #company_by_value_p_id {
     width: fit-content;
     font-size: 2vw;
     margin: 5px 0;
-    text-align: start;
+    justify-self: right;
+    text-align: center;
+    padding: 1px 3px !important;
+    margin-right: 5px !important;
+    border-radius: 3px;
 }
 
 .inserted_package_including_data_text {
     margin: 2px 0;
 }
 
-#company_by_value_p_id {
-    justify-self: left;
-    text-align: center;
-    padding: 1px 3px !important;
-    margin-left: 5px !important;
+/* Inline icons beside activity text */
+.activity_icon_img {
+    height: 14vw;
+    width: auto;
+    margin: 0 1px;
+    vertical-align: middle;
     border-radius: 3px;
 }
+
+.activity_icon_container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    margin-top: 2px;
+}
+
+
+
+
+
 
 /* Inserted package total price section */
 #package_total_price_div {
@@ -301,8 +426,8 @@
 }
 
 #package_total_price_div h6 {
-    background: rgba(255, 170, 0, 0.467);
-    color: black;
+    background: rgb(182, 54, 15);
+    color: white;
     font-size: 5vw;
     padding: 5px 15px;
     border-radius: 3px;
@@ -316,10 +441,22 @@
     text-align: center;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
 /* Inserted flight data position */
 .flight_row_class {
-    background: white;
     display: flex;
+    background: white;
     justify-content: space-between;
     align-items: stretch;
     border-bottom: 0.5px solid black;
@@ -331,11 +468,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-left: 0.5px solid black;
+    border-right: 0.5px solid black;
 }
 
 .flight_row_class div * {
-    text-align: center;
+    text-align: center !important;
 }
 
 .flight_row_class div:first-child {
@@ -377,6 +514,20 @@
     border-left: none;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Inserted transportation_plan data position */
 .clint_movements_row_class {
     background: white;
@@ -393,12 +544,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-left: 0.5px solid black;
+    border-right: 0.5px solid black;
     transition: all 0.1s ease-in-out;
 }
 
 .clint_movements_row_class div * {
-    text-align: center;
+    text-align: center !important;
 }
 
 .clint_movements_row_class h1,
@@ -421,6 +572,7 @@
     border-left: none;
 }
 
+
 .clint_movements_all_p_elements_div_class {
     display: flex;
     flex-direction: column;
@@ -430,6 +582,55 @@
     margin: 0;
     padding: 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+.Important_notes_for_each_pdf_section_div_class {
+    padding: 5px 5px 0 5px;
+    display: none;
+}
+
+.Important_notes_for_each_pdf_section_div_class h5,
+.Important_notes_for_each_pdf_section_div_class h6 {
+    font-size: 1.5vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Delete box message */
 .ensure_your_delete_action {
@@ -464,6 +665,39 @@
 .ensure_your_delete_action button:hover {
     box-shadow: 0 0.5px 3px black;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Name pdf file box */
 #name_pdf_file_div {
@@ -503,10 +737,37 @@
     cursor: pointer;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* inserted main row data coloring */
 .inserted_main_row_color_class {
-    background: rgba(255, 170, 0, 0.467);
-    color: black;
+    background: rgb(207, 83, 21);
+    color: white;
     border-top: 0.5px solid black;
 }
 
@@ -520,16 +781,22 @@
     color: white;
 }
 
-/* Media Queries */
-/* 1250px */
-@media (max-width: 1250px) {
-}
 
+
+
+/* Media Queries */
 /* 950px */
-@media (max-width: 950px) {
+@media(max-width:950px) {
     .inserted_company_name_logo {
         width: 25vw;
     }
+
+
+
+
+
+
+
 
     #package_user_code_name_for_later_import_reference_p_id {
         font-size: 2.5vw;
@@ -539,9 +806,21 @@
         font-size: 2.5vw;
     }
 
+
+
+
     #clint_full_name_p {
         font-size: 2.5vw;
     }
+
+
+
+
+
+
+
+
+
 
     .pdf_section_title_div_class {
         padding: 6px;
@@ -556,15 +835,64 @@
         font-size: 5.5vw;
     }
 
+    .pdf_section_title_div_class p {
+        font-size: 5.5vw;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     .inserted_package_including_and_not_icluding_data_div_class p {
         font-size: 2.5vw;
     }
 
-    .inserted_package_important_note_position_div_class p,
-    #company_by_value_p_id {
-        font-size: 2.5vw;
-        padding: 3px 0;
+    .activity_icon_img {
+        height: 16vw;
     }
+
+    .activity_icon_container {
+        gap: 3px;
+        margin-top: 2px;
+    }
+
+
+
+
+
+
+
+
+
+    .Important_notes_for_each_pdf_section_div_class h5,
+    .Important_notes_for_each_pdf_section_div_class h6 {
+        font-size: 2vw;
+    }
+
+
+
+
+
+
+
+
+
+
 
     .ensure_your_delete_action button {
         font-size: 4vw;
@@ -577,7 +905,8 @@
 }
 
 /* 650px */
-@media (max-width: 650px) {
+@media(max-width:650px) {
+
     #package_user_code_name_for_later_import_reference_p_id {
         font-size: 3vw;
     }
@@ -596,20 +925,41 @@
     }
 }
 
+
 /* 580px */
-@media (max-width: 580px) {
+@media(max-width:580px) {
     .inserted_company_name_logo {
-        width: 40vw;
+        width: 30vw;
         margin-bottom: 5px;
     }
+
+
+
+
+
+
+
+
 
     #clint_full_name_p {
         font-size: 3.5vw;
     }
 
+
+
+
+
+
+
     .clint_data_row_class p {
         font-size: 3.5vw;
     }
+
+
+
+
+
+
 
     .pdf_section_title_div_class {
         padding: 4px;
@@ -623,6 +973,21 @@
     .pdf_section_title_div_class ion-icon {
         font-size: 6.5vw;
     }
+
+    .pdf_section_title_div_class p {
+        font-size: 6.5vw;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     .hotel_row_class h1,
     .hotel_row_class h2,
@@ -646,6 +1011,18 @@
         font-size: 2.4vw;
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
     .flight_row_class h1,
     .flight_row_class h2,
     .flight_row_class h3,
@@ -657,6 +1034,16 @@
         font-size: 2.4vw;
     }
 
+
+
+
+
+
+
+
+
+
+
     .clint_movements_row_class h1,
     .clint_movements_row_class h2,
     .clint_movements_row_class h3,
@@ -665,27 +1052,63 @@
         font-size: 2.5vw;
     }
 
-    .inserted_package_important_note_position_div_class p {
-        font-size: 3vw;
-        padding: 2px 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .Important_notes_for_each_pdf_section_div_class h5,
+    .Important_notes_for_each_pdf_section_div_class h6 {
+        font-size: 2.4vw;
     }
+
+
+
 
     #company_by_value_p_id {
         font-size: 2.5vw;
         padding: 2px 0;
     }
 
+
+
+
+
+
+
+
+
+
     #vid_clint_deposit_note_p_id {
         font-size: 2.1vw;
     }
+
+
+
+
 }
 
 /* 400px */
-@media (max-width: 400px) {
+@media(max-width:400px) {
     .inserted_company_name_logo {
-        width: 45vw;
+        width: 35vw;
         margin-bottom: 0px;
     }
+
+
+
+
+
 
     #package_user_code_name_for_later_import_reference_p_id {
         font-size: 3.5vw;
@@ -695,14 +1118,37 @@
         font-size: 3.5vw;
     }
 
+
+
     #clint_full_name_p {
         font-size: 4.5vw;
     }
+
+
+
+
+
+
+
 
     .inserted_package_including_and_not_icluding_data_div_class p {
         font-size: 3.2vw;
         padding: 3px 3px 3px 0;
     }
+
+    .activity_icon_img {
+        height: 17vw;
+    }
+
+    .activity_icon_container {
+        gap: 2px;
+        margin-top: 2px;
+    }
+
+
+
+
+
 
     .hotel_row_class span {
         font-size: 2.4vw;
@@ -712,17 +1158,47 @@
         font-size: 1.7vw !important;
     }
 
-    #pdf_section_title_div_usuful_notes_id {
-        margin-top: 10px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .Important_notes_for_each_pdf_section_div_class h5,
+    .Important_notes_for_each_pdf_section_div_class h6 {
+        font-size: 2.6vw;
     }
 
-    .inserted_package_important_note_position_div_class p {
-        font-size: 3.2vw;
-    }
+
+
 
     #company_by_value_p_id {
         font-size: 2.7vw;
     }
+
+
+
+
+
+
+
+
+
+
 
     #package_total_price_div h6 {
         font-size: 7vw;
@@ -734,6 +1210,17 @@
         padding: 3px 10px;
     }
 
+
+
+
+
+
+
+
+
+
+
+
     .ensure_your_delete_action {
         padding: 5px;
     }
@@ -742,6 +1229,10 @@
         font-size: 7vw;
         padding: 2px;
     }
+
+
+
+
 
     /* Name pdf file box */
     #name_pdf_file_div {
@@ -752,6 +1243,10 @@
     #name_pdf_file_div p {
         font-size: 4.5vw;
     }
+
+
+
+
 
     #vid_clint_deposit_note_p_id {
         font-size: 2.2vw;

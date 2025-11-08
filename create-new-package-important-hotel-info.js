@@ -8,7 +8,6 @@ const hotelMessageInfoArray = [
         messageInfo_p2: "من ديلوكس لاجون فيو الى ديلوكس سي فيو",
         messageInfo_p3: "أو",
         messageInfo_p4: "من ديلوكس لاجون فيو الى بريمير اوشن فرونت",
-        messageInfo_p5: "صالح للإستخدام الى 31 اكتوبر 2025",
     },
     {
         hotelName: "Bandara Pool Villas Phuket",
@@ -60,4 +59,3 @@ const hotelMessageInfoArray = [
         messageInfo_p1: "ناماكا الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
     },
 ];
-

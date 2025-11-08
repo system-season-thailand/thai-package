@@ -1,1 +1,272 @@
-let allClintVisitingPlacesArray=[{honeymoon:{visitingPlaceNamesDay1:["زيارة الالعاب المائية ANDAMANDA + مشاهدة الكائنات البحرية في AQUARIA PHUKET"],visitingPlaceNamesDay2:["زيارة مملكة النمور TIGER KINGDOM + زيارة محمية الفيلة + زيارة حديقة الديناصورات"],visitingPlaceNamesDay3:["زيارة فعالية كرنفال ماجيك + زيارة حديقة الدولفين DOLPHINS BAY PHUKET + زيارة حديقة الطيور PHUKET BIRD PARK"],visitingPlaceNamesDay4:["زيارة تمثال THE BIG BUDDHA + زيارة محمية القرود + زيارة عالم هانومان"],visitingPlaceNamesDay5:["زيارة جزيرة جيمس بوند"],visitingPlaceNamesDay6:["زيارة الجزيرة الساحرة بي بي ايلاند"],visitingPlaceNamesDay7:["زيارة المدينة القديمة + زيارة بوكيت فانتازيا + زيارة جزر سميلان"],visitingPlaceNamesDay8:["زيارة فعالية Horse Club Layan Beach + تجربة سيارات كارت الممتعة + زيارة فعالية الطائر هانومايا"],visitingPlaceNamesDay9:["زيارة اجمل مولات بوكيت (KATA NIGHT MARKET + ROBINSON LIFESTYLE + سنترال بوكيت)"],visitingPlaceNamesDay10:["يوم مفتوج للراحة والإستجمام"],visitingPlaceNamesDay11:["زيارة المنتزه الثقافي PHUKET FANTASEA"],visitingPlaceNamesDay12:["يوم مفتوج للراحة والتسوق"]},guys:{visitingPlaceNamesDay1:["زيارة الالعاب المائية ANDAMANDA + مشاهدة الكائنات البحرية في AQUARIA PHUKET"],visitingPlaceNamesDay2:["زيارة مملكة النمور TIGER KINGDOM + زيارة محمية الفيلة + زيارة حديقة الديناصورات"],visitingPlaceNamesDay3:["زيارة فعالية كرنفال ماجيك + زيارة حديقة الدولفين DOLPHINS BAY PHUKET + زيارة حديقة الطيور PHUKET BIRD PARK"],visitingPlaceNamesDay4:["زيارة تمثال THE BIG BUDDHA + زيارة محمية القرود + زيارة عالم هانومان"],visitingPlaceNamesDay5:["زيارة جزيرة جيمس بوند"],visitingPlaceNamesDay6:["زيارة الجزيرة الساحرة بي بي ايلاند"],visitingPlaceNamesDay7:["زيارة المدينة القديمة + زيارة بوكيت فانتازيا + زيارة جزر سميلان"],visitingPlaceNamesDay8:["زيارة فعالية Horse Club Layan Beach + تجربة سيارات كارت الممتعة + زيارة فعالية الطائر هانومايا"],visitingPlaceNamesDay9:["زيارة اجمل مولات بوكيت (KATA NIGHT MARKET + ROBINSON LIFESTYLE + سنترال بوكيت)"],visitingPlaceNamesDay10:["يوم مفتوج للراحة والإستجمام"],visitingPlaceNamesDay11:["زيارة المنتزه الثقافي PHUKET FANTASEA"],visitingPlaceNamesDay12:["يوم مفتوج للراحة والتسوق"]},family:{visitingPlaceNamesDay1:["زيارة الالعاب المائية ANDAMANDA + مشاهدة الكائنات البحرية في AQUARIA PHUKET"],visitingPlaceNamesDay2:["زيارة مملكة النمور TIGER KINGDOM + زيارة محمية الفيلة + زيارة حديقة الديناصورات"],visitingPlaceNamesDay3:["زيارة فعالية كرنفال ماجيك + زيارة حديقة الدولفين DOLPHINS BAY PHUKET + زيارة حديقة الطيور PHUKET BIRD PARK"],visitingPlaceNamesDay4:["زيارة تمثال THE BIG BUDDHA + زيارة محمية القرود + زيارة عالم هانومان"],visitingPlaceNamesDay5:["زيارة جزيرة جيمس بوند"],visitingPlaceNamesDay6:["زيارة الجزيرة الساحرة بي بي ايلاند"],visitingPlaceNamesDay7:["زيارة المدينة القديمة + زيارة بوكيت فانتازيا + زيارة جزر سميلان"],visitingPlaceNamesDay8:["زيارة فعالية Horse Club Layan Beach + تجربة سيارات كارت الممتعة + زيارة فعالية الطائر هانومايا"],visitingPlaceNamesDay9:["زيارة اجمل مولات بوكيت (KATA NIGHT MARKET + ROBINSON LIFESTYLE + سنترال بوكيت)"],visitingPlaceNamesDay10:["يوم مفتوج للراحة والإستجمام"],visitingPlaceNamesDay11:["زيارة المنتزه الثقافي PHUKET FANTASEA"],visitingPlaceNamesDay12:["يوم مفتوج للراحة والتسوق"]},twopeople:{visitingPlaceNamesDay1:["زيارة الالعاب المائية ANDAMANDA + مشاهدة الكائنات البحرية في AQUARIA PHUKET"],visitingPlaceNamesDay2:["زيارة مملكة النمور TIGER KINGDOM + زيارة محمية الفيلة + زيارة حديقة الديناصورات"],visitingPlaceNamesDay3:["زيارة فعالية كرنفال ماجيك + زيارة حديقة الدولفين DOLPHINS BAY PHUKET + زيارة حديقة الطيور PHUKET BIRD PARK"],visitingPlaceNamesDay4:["زيارة تمثال THE BIG BUDDHA + زيارة محمية القرود + زيارة عالم هانومان"],visitingPlaceNamesDay5:["زيارة جزيرة جيمس بوند"],visitingPlaceNamesDay6:["زيارة الجزيرة الساحرة بي بي ايلاند"],visitingPlaceNamesDay7:["زيارة المدينة القديمة + زيارة بوكيت فانتازيا + زيارة جزر سميلان"],visitingPlaceNamesDay8:["زيارة فعالية Horse Club Layan Beach + تجربة سيارات كارت الممتعة + زيارة فعالية الطائر هانومايا"],visitingPlaceNamesDay9:["زيارة اجمل مولات بوكيت (KATA NIGHT MARKET + ROBINSON LIFESTYLE + سنترال بوكيت)"],visitingPlaceNamesDay10:["يوم مفتوج للراحة والإستجمام"],visitingPlaceNamesDay11:["زيارة المنتزه الثقافي PHUKET FANTASEA"],visitingPlaceNamesDay12:["يوم مفتوج للراحة والتسوق"]}},{honeymoon:{visitingPlaceNamesDay1:["زيارة السوق الصيني + زيارة معبد وات أرون"],visitingPlaceNamesDay2:["زيارة القصر الكبير + زيارة حديقة عالم سفاري"],visitingPlaceNamesDay3:["زيارة دريم وورلد بانكوك + زيارة سيام بارك سيتي"],visitingPlaceNamesDay4:["يوم مفتوج للراحة والإستجمام"],visitingPlaceNamesDay5:["زيارة شارع العرب (طريق نانا) + زيارة مدرسة التدليك التايلاندية الشهيرة"],visitingPlaceNamesDay6:["يوم مفتوج للراحة والتسوق"]},guys:{visitingPlaceNamesDay1:["زيارة السوق الصيني + زيارة معبد وات أرون"],visitingPlaceNamesDay2:["زيارة القصر الكبير + زيارة حديقة عالم سفاري"],visitingPlaceNamesDay3:["زيارة دريم وورلد بانكوك + زيارة سيام بارك سيتي"],visitingPlaceNamesDay4:["يوم مفتوج للراحة والإستجمام"],visitingPlaceNamesDay5:["زيارة شارع العرب (طريق نانا) + زيارة مدرسة التدليك التايلاندية الشهيرة"],visitingPlaceNamesDay6:["يوم مفتوج للراحة والتسوق"]},family:{visitingPlaceNamesDay1:["زيارة السوق الصيني + زيارة معبد وات أرون"],visitingPlaceNamesDay2:["زيارة القصر الكبير + زيارة حديقة عالم سفاري"],visitingPlaceNamesDay3:["زيارة دريم وورلد بانكوك + زيارة سيام بارك سيتي"],visitingPlaceNamesDay4:["يوم مفتوج للراحة والإستجمام"],visitingPlaceNamesDay5:["زيارة شارع العرب (طريق نانا) + زيارة مدرسة التدليك التايلاندية الشهيرة"],visitingPlaceNamesDay6:["يوم مفتوج للراحة والتسوق"]},twopeople:{visitingPlaceNamesDay1:["زيارة السوق الصيني + زيارة معبد وات أرون"],visitingPlaceNamesDay2:["زيارة القصر الكبير + زيارة حديقة عالم سفاري"],visitingPlaceNamesDay3:["زيارة دريم وورلد بانكوك + زيارة سيام بارك سيتي"],visitingPlaceNamesDay4:["يوم مفتوج للراحة والإستجمام"],visitingPlaceNamesDay5:["زيارة شارع العرب (طريق نانا) + زيارة مدرسة التدليك التايلاندية الشهيرة"],visitingPlaceNamesDay6:["يوم مفتوج للراحة والتسوق"]}},{honeymoon:{visitingPlaceNamesDay1:["زيارة بحيرة وحديقة إميرالد + زيارة خليج مايا كرابي"],visitingPlaceNamesDay2:["زيارة كو بودا + زيارة كهف الفايكنج كرابي"],visitingPlaceNamesDay3:["زيارة الحديقة الوطنية مو كولانتا + زيارة الحديقة الوطنية مو كولانتا"],visitingPlaceNamesDay4:["زيارة السوق الليلي كرابي + زيارة نامتوك رون كرابي (شلال الينابيع الساخنة)"],visitingPlaceNamesDay5:["يوم مفتوج للراحة والإستجمام"],visitingPlaceNamesDay6:["زيارة معبد كهف النمر كرابي + زيارة جزيرة كو هونج كرابي"],visitingPlaceNamesDay7:["يوم مفتوج للراحة والتسوق"]},guys:{visitingPlaceNamesDay1:["زيارة السوق الليلي كرابي + زيارة نامتوك رون كرابي (شلال الينابيع الساخنة)"],visitingPlaceNamesDay2:["زيارة معبد كهف النمر كرابي + زيارة جزيرة كو هونج كرابي"],visitingPlaceNamesDay3:["زيارة بحيرة وحديقة إميرالد + زيارة خليج مايا كرابي"],visitingPlaceNamesDay4:["زيارة كو بودا + زيارة كهف الفايكنج كرابي"],visitingPlaceNamesDay5:["يوم مفتوج للراحة والإستجمام"],visitingPlaceNamesDay6:["زيارة الحديقة الوطنية مو كولانتا + زيارة شاطئ رايلي كرابي"],visitingPlaceNamesDay7:["يوم مفتوج للراحة والتسوق"]},family:{visitingPlaceNamesDay1:["زيارة بحيرة وحديقة إميرالد + زيارة خليج مايا كرابي"],visitingPlaceNamesDay2:["زيارة كو بودا + زيارة كهف الفايكنج كرابي"],visitingPlaceNamesDay3:["زيارة الحديقة الوطنية مو كولانتا + زيارة شاطئ رايلي كرابي"],visitingPlaceNamesDay4:["زيارة السوق الليلي كرابي + زيارة نامتوك رون كرابي (شلال الينابيع الساخنة)"],visitingPlaceNamesDay5:["يوم مفتوج للراحة والإستجمام"],visitingPlaceNamesDay6:["زيارة معبد كهف النمر كرابي + زيارة جزيرة كو هونج كرابي"],visitingPlaceNamesDay7:["يوم مفتوج للراحة والتسوق"]},twopeople:{visitingPlaceNamesDay1:["زيارة بحيرة وحديقة إميرالد + زيارة خليج مايا كرابي"],visitingPlaceNamesDay2:["زيارة كو بودا + زيارة كهف الفايكنج كرابي"],visitingPlaceNamesDay3:["زيارة الحديقة الوطنية مو كولانتا + زيارة شاطئ رايلي كرابي"],visitingPlaceNamesDay4:["زيارة السوق الليلي كرابي + زيارة نامتوك رون كرابي (شلال الينابيع الساخنة)"],visitingPlaceNamesDay5:["يوم مفتوج للراحة والإستجمام"],visitingPlaceNamesDay6:["زيارة معبد كهف النمر كرابي + زيارة جزيرة كو هونج كرابي"],visitingPlaceNamesDay7:["يوم مفتوج للراحة والتسوق"]}},{honeymoon:{visitingPlaceNamesDay1:["زيارة حديقة صخرة المليون سنة بتايا + زيارة حديقة الألعاب المائية بتايا"],visitingPlaceNamesDay2:["زيارة بتايا العائم + زيارة متحف ريبلي بتايا"],visitingPlaceNamesDay3:["زيارة كوه سميت بتايا + زيارة قرية الفيل بتايا"],visitingPlaceNamesDay4:["زيارة سوق شارع سوخومفيت بتايا + زيارة مزرعة التمساح بتايا"],visitingPlaceNamesDay5:["يوم مفتوج للراحة والإستجمام"],visitingPlaceNamesDay6:["زيارة حديقة النمر بتايا"],visitingPlaceNamesDay7:["يوم مفتوج للراحة والتسوق"]},guys:{visitingPlaceNamesDay1:["زيارة سوق شارع سوخومفيت بتايا + زيارة مزرعة التمساح بتايا"],visitingPlaceNamesDay2:["زيارة قرية الفيل بتايا + زيارة حديقة النمر بتايا"],visitingPlaceNamesDay3:["زيارة حديقة صخرة المليون سنة بتايا + زيارة حديقة الألعاب المائية بتايا"],visitingPlaceNamesDay4:["زيارة بتايا العائم + زيارة متحف ريبلي بتايا"],visitingPlaceNamesDay5:["يوم مفتوج للراحة والإستجمام"],visitingPlaceNamesDay6:["زيارة كوه سميت بتايا"],visitingPlaceNamesDay7:["يوم مفتوج للراحة والتسوق"]},family:{visitingPlaceNamesDay1:["زيارة حديقة صخرة المليون سنة بتايا + زيارة حديقة الألعاب المائية بتايا"],visitingPlaceNamesDay2:["زيارة بتايا العائم + زيارة متحف ريبلي بتايا"],visitingPlaceNamesDay3:["زيارة كوه سميت بتايا + زيارة قرية الفيل بتايا"],visitingPlaceNamesDay4:["زيارة سوق شارع سوخومفيت بتايا + زيارة مزرعة التمساح بتايا"],visitingPlaceNamesDay5:["يوم مفتوج للراحة والإستجمام"],visitingPlaceNamesDay6:["زيارة حديقة النمر بتايا"],visitingPlaceNamesDay7:["يوم مفتوج للراحة والتسوق"]},twopeople:{visitingPlaceNamesDay1:["زيارة حديقة صخرة المليون سنة بتايا + زيارة حديقة الألعاب المائية بتايا"],visitingPlaceNamesDay2:["زيارة بتايا العائم + زيارة متحف ريبلي بتايا"],visitingPlaceNamesDay3:["زيارة كوه سميت بتايا + زيارة قرية الفيل بتايا"],visitingPlaceNamesDay4:["زيارة سوق شارع سوخومفيت بتايا + زيارة مزرعة التمساح بتايا"],visitingPlaceNamesDay5:["يوم مفتوج للراحة والإستجمام"],visitingPlaceNamesDay6:["زيارة حديقة النمر بتايا"],visitingPlaceNamesDay7:["يوم مفتوج للراحة والتسوق"]}},{honeymoon:{visitingPlaceNamesDay1:["حديقة دوي انتانون الوطنية + جبل دوي سوثيب"],visitingPlaceNamesDay2:["محمية غابة الفيلة + حديقة نايت سفاري شنغماي"],visitingPlaceNamesDay3:["حديقة حيوانات شنغماي"],visitingPlaceNamesDay4:["يوم مفتوج للراحة والإستجمام"],visitingPlaceNamesDay5:["يوم مفتوج للراحة والتسوق"]},guys:{visitingPlaceNamesDay1:["حديقة دوي انتانون الوطنية + جبل دوي سوثيب"],visitingPlaceNamesDay2:["محمية غابة الفيلة + حديقة نايت سفاري شنغماي"],visitingPlaceNamesDay3:["حديقة حيوانات شنغماي"],visitingPlaceNamesDay4:["يوم مفتوج للراحة والإستجمام"],visitingPlaceNamesDay5:["يوم مفتوج للراحة والتسوق"]},family:{visitingPlaceNamesDay1:["حديقة دوي انتانون الوطنية + جبل دوي سوثيب"],visitingPlaceNamesDay2:["محمية غابة الفيلة + حديقة نايت سفاري شنغماي"],visitingPlaceNamesDay3:["حديقة حيوانات شنغماي"],visitingPlaceNamesDay4:["يوم مفتوج للراحة والإستجمام"],visitingPlaceNamesDay5:["يوم مفتوج للراحة والتسوق"]},twopeople:{visitingPlaceNamesDay1:["حديقة دوي انتانون الوطنية + جبل دوي سوثيب"],visitingPlaceNamesDay2:["محمية غابة الفيلة + حديقة نايت سفاري شنغماي"],visitingPlaceNamesDay3:["حديقة حيوانات شنغماي"],visitingPlaceNamesDay4:["يوم مفتوج للراحة والإستجمام"],visitingPlaceNamesDay5:["يوم مفتوج للراحة والتسوق"]}}];
+
+
+
+
+let allClintVisitingPlacesArray = [
+
+    /* التجديف كانت مع زيارة الميدنة القديمة */
+    /* Phuket object[0] */
+    {
+        honeymoon: {
+            visitingPlaceNamesDay1: ['زيارة الالعاب المائية ANDAMANDA + مشاهدة الكائنات البحرية في AQUARIA PHUKET'],
+            visitingPlaceNamesDay2: ['زيارة مملكة النمور TIGER KINGDOM + زيارة محمية الفيلة + زيارة حديقة الديناصورات'],
+            visitingPlaceNamesDay3: ['زيارة فعالية كرنفال ماجيك + زيارة حديقة الدولفين DOLPHINS BAY PHUKET + زيارة حديقة الطيور PHUKET BIRD PARK'],
+            visitingPlaceNamesDay4: ['زيارة تمثال THE BIG BUDDHA + زيارة محمية القرود + زيارة عالم هانومان'],
+            visitingPlaceNamesDay5: ['زيارة جزيرة جيمس بوند'],
+            visitingPlaceNamesDay6: ['زيارة الجزيرة الساحرة بي بي ايلاند'],
+            visitingPlaceNamesDay7: ['زيارة المدينة القديمة + زيارة بوكيت فانتازيا + زيارة جزر سميلان'],
+            visitingPlaceNamesDay8: ['زيارة فعالية Horse Club Layan Beach + تجربة سيارات كارت الممتعة + زيارة فعالية الطائر هانومايا'],
+            visitingPlaceNamesDay9: ['زيارة اجمل مولات بوكيت (KATA NIGHT MARKET + ROBINSON LIFESTYLE + سنترال بوكيت)'],
+            visitingPlaceNamesDay10: ['يوم مفتوج للراحة والإستجمام'],
+            visitingPlaceNamesDay11: ['زيارة المنتزه الثقافي PHUKET FANTASEA'],
+            visitingPlaceNamesDay12: ['يوم مفتوج للراحة والتسوق'],
+        },
+
+
+        guys: {
+            visitingPlaceNamesDay1: ['زيارة الالعاب المائية ANDAMANDA + مشاهدة الكائنات البحرية في AQUARIA PHUKET'],
+            visitingPlaceNamesDay2: ['زيارة مملكة النمور TIGER KINGDOM + زيارة محمية الفيلة + زيارة حديقة الديناصورات'],
+            visitingPlaceNamesDay3: ['زيارة فعالية كرنفال ماجيك + زيارة حديقة الدولفين DOLPHINS BAY PHUKET + زيارة حديقة الطيور PHUKET BIRD PARK'],
+            visitingPlaceNamesDay4: ['زيارة تمثال THE BIG BUDDHA + زيارة محمية القرود + زيارة عالم هانومان'],
+            visitingPlaceNamesDay5: ['زيارة جزيرة جيمس بوند'],
+            visitingPlaceNamesDay6: ['زيارة الجزيرة الساحرة بي بي ايلاند'],
+            visitingPlaceNamesDay7: ['زيارة المدينة القديمة + زيارة بوكيت فانتازيا + زيارة جزر سميلان'],
+            visitingPlaceNamesDay8: ['زيارة فعالية Horse Club Layan Beach + تجربة سيارات كارت الممتعة + زيارة فعالية الطائر هانومايا'],
+            visitingPlaceNamesDay9: ['زيارة اجمل مولات بوكيت (KATA NIGHT MARKET + ROBINSON LIFESTYLE + سنترال بوكيت)'],
+            visitingPlaceNamesDay10: ['يوم مفتوج للراحة والإستجمام'],
+            visitingPlaceNamesDay11: ['زيارة المنتزه الثقافي PHUKET FANTASEA'],
+            visitingPlaceNamesDay12: ['يوم مفتوج للراحة والتسوق'],
+        },
+
+
+        family: {
+            visitingPlaceNamesDay1: ['زيارة الالعاب المائية ANDAMANDA + مشاهدة الكائنات البحرية في AQUARIA PHUKET'],
+            visitingPlaceNamesDay2: ['زيارة مملكة النمور TIGER KINGDOM + زيارة محمية الفيلة + زيارة حديقة الديناصورات'],
+            visitingPlaceNamesDay3: ['زيارة فعالية كرنفال ماجيك + زيارة حديقة الدولفين DOLPHINS BAY PHUKET + زيارة حديقة الطيور PHUKET BIRD PARK'],
+            visitingPlaceNamesDay4: ['زيارة تمثال THE BIG BUDDHA + زيارة محمية القرود + زيارة عالم هانومان'],
+            visitingPlaceNamesDay5: ['زيارة جزيرة جيمس بوند'],
+            visitingPlaceNamesDay6: ['زيارة الجزيرة الساحرة بي بي ايلاند'],
+            visitingPlaceNamesDay7: ['زيارة المدينة القديمة + زيارة بوكيت فانتازيا + زيارة جزر سميلان'],
+            visitingPlaceNamesDay8: ['زيارة فعالية Horse Club Layan Beach + تجربة سيارات كارت الممتعة + زيارة فعالية الطائر هانومايا'],
+            visitingPlaceNamesDay9: ['زيارة اجمل مولات بوكيت (KATA NIGHT MARKET + ROBINSON LIFESTYLE + سنترال بوكيت)'],
+            visitingPlaceNamesDay10: ['يوم مفتوج للراحة والإستجمام'],
+            visitingPlaceNamesDay11: ['زيارة المنتزه الثقافي PHUKET FANTASEA'],
+            visitingPlaceNamesDay12: ['يوم مفتوج للراحة والتسوق'],
+        },
+
+
+        twopeople: {
+            visitingPlaceNamesDay1: ['زيارة الالعاب المائية ANDAMANDA + مشاهدة الكائنات البحرية في AQUARIA PHUKET'],
+            visitingPlaceNamesDay2: ['زيارة مملكة النمور TIGER KINGDOM + زيارة محمية الفيلة + زيارة حديقة الديناصورات'],
+            visitingPlaceNamesDay3: ['زيارة فعالية كرنفال ماجيك + زيارة حديقة الدولفين DOLPHINS BAY PHUKET + زيارة حديقة الطيور PHUKET BIRD PARK'],
+            visitingPlaceNamesDay4: ['زيارة تمثال THE BIG BUDDHA + زيارة محمية القرود + زيارة عالم هانومان'],
+            visitingPlaceNamesDay5: ['زيارة جزيرة جيمس بوند'],
+            visitingPlaceNamesDay6: ['زيارة الجزيرة الساحرة بي بي ايلاند'],
+            visitingPlaceNamesDay7: ['زيارة المدينة القديمة + زيارة بوكيت فانتازيا + زيارة جزر سميلان'],
+            visitingPlaceNamesDay8: ['زيارة فعالية Horse Club Layan Beach + تجربة سيارات كارت الممتعة + زيارة فعالية الطائر هانومايا'],
+            visitingPlaceNamesDay9: ['زيارة اجمل مولات بوكيت (KATA NIGHT MARKET + ROBINSON LIFESTYLE + سنترال بوكيت)'],
+            visitingPlaceNamesDay10: ['يوم مفتوج للراحة والإستجمام'],
+            visitingPlaceNamesDay11: ['زيارة المنتزه الثقافي PHUKET FANTASEA'],
+            visitingPlaceNamesDay12: ['يوم مفتوج للراحة والتسوق'],
+        },
+
+    },
+
+
+
+
+
+    /* Bankok object[1] */
+    {
+
+        honeymoon: {
+            visitingPlaceNamesDay1: ['زيارة السوق الصيني + زيارة معبد وات أرون'],
+            visitingPlaceNamesDay2: ['زيارة القصر الكبير + زيارة حديقة عالم سفاري'],
+            visitingPlaceNamesDay3: ['زيارة دريم وورلد بانكوك + زيارة سيام بارك سيتي'],
+            visitingPlaceNamesDay4: ['يوم مفتوج للراحة والإستجمام'],
+            visitingPlaceNamesDay5: ['زيارة شارع العرب (طريق نانا) + زيارة مدرسة التدليك التايلاندية الشهيرة'],
+            visitingPlaceNamesDay6: ['يوم مفتوج للراحة والتسوق'],
+        },
+
+
+        guys: {
+            visitingPlaceNamesDay1: ['زيارة السوق الصيني + زيارة معبد وات أرون'],
+            visitingPlaceNamesDay2: ['زيارة القصر الكبير + زيارة حديقة عالم سفاري'],
+            visitingPlaceNamesDay3: ['زيارة دريم وورلد بانكوك + زيارة سيام بارك سيتي'],
+            visitingPlaceNamesDay4: ['يوم مفتوج للراحة والإستجمام'],
+            visitingPlaceNamesDay5: ['زيارة شارع العرب (طريق نانا) + زيارة مدرسة التدليك التايلاندية الشهيرة'],
+            visitingPlaceNamesDay6: ['يوم مفتوج للراحة والتسوق'],
+        },
+
+
+        family: {
+            visitingPlaceNamesDay1: ['زيارة السوق الصيني + زيارة معبد وات أرون'],
+            visitingPlaceNamesDay2: ['زيارة القصر الكبير + زيارة حديقة عالم سفاري'],
+            visitingPlaceNamesDay3: ['زيارة دريم وورلد بانكوك + زيارة سيام بارك سيتي'],
+            visitingPlaceNamesDay4: ['يوم مفتوج للراحة والإستجمام'],
+            visitingPlaceNamesDay5: ['زيارة شارع العرب (طريق نانا) + زيارة مدرسة التدليك التايلاندية الشهيرة'],
+            visitingPlaceNamesDay6: ['يوم مفتوج للراحة والتسوق'],
+        },
+
+
+        twopeople: {
+            visitingPlaceNamesDay1: ['زيارة السوق الصيني + زيارة معبد وات أرون'],
+            visitingPlaceNamesDay2: ['زيارة القصر الكبير + زيارة حديقة عالم سفاري'],
+            visitingPlaceNamesDay3: ['زيارة دريم وورلد بانكوك + زيارة سيام بارك سيتي'],
+            visitingPlaceNamesDay4: ['يوم مفتوج للراحة والإستجمام'],
+            visitingPlaceNamesDay5: ['زيارة شارع العرب (طريق نانا) + زيارة مدرسة التدليك التايلاندية الشهيرة'],
+            visitingPlaceNamesDay6: ['يوم مفتوج للراحة والتسوق'],
+        },
+
+    },
+
+
+
+
+
+    /* Krabi object[2] */
+    {
+
+        honeymoon: {
+            visitingPlaceNamesDay1: ['زيارة بحيرة وحديقة إميرالد + زيارة خليج مايا كرابي'],
+            visitingPlaceNamesDay2: ['زيارة كو بودا + زيارة كهف الفايكنج كرابي'],
+            visitingPlaceNamesDay3: ['زيارة الحديقة الوطنية مو كولانتا + زيارة الحديقة الوطنية مو كولانتا'],
+            visitingPlaceNamesDay4: ['زيارة السوق الليلي كرابي + زيارة نامتوك رون كرابي (شلال الينابيع الساخنة)'],
+            visitingPlaceNamesDay5: ['يوم مفتوج للراحة والإستجمام'],
+            visitingPlaceNamesDay6: ['زيارة معبد كهف النمر كرابي + زيارة جزيرة كو هونج كرابي'],
+            visitingPlaceNamesDay7: ['يوم مفتوج للراحة والتسوق'],
+        },
+
+
+        guys: {
+            visitingPlaceNamesDay1: ['زيارة السوق الليلي كرابي + زيارة نامتوك رون كرابي (شلال الينابيع الساخنة)'],
+            visitingPlaceNamesDay2: ['زيارة معبد كهف النمر كرابي + زيارة جزيرة كو هونج كرابي'],
+            visitingPlaceNamesDay3: ['زيارة بحيرة وحديقة إميرالد + زيارة خليج مايا كرابي'],
+            visitingPlaceNamesDay4: ['زيارة كو بودا + زيارة كهف الفايكنج كرابي'],
+            visitingPlaceNamesDay5: ['يوم مفتوج للراحة والإستجمام'],
+            visitingPlaceNamesDay6: ['زيارة الحديقة الوطنية مو كولانتا + زيارة شاطئ رايلي كرابي'],
+            visitingPlaceNamesDay7: ['يوم مفتوج للراحة والتسوق'],
+        },
+
+
+        family: {
+            visitingPlaceNamesDay1: ['زيارة بحيرة وحديقة إميرالد + زيارة خليج مايا كرابي'],
+            visitingPlaceNamesDay2: ['زيارة كو بودا + زيارة كهف الفايكنج كرابي'],
+            visitingPlaceNamesDay3: ['زيارة الحديقة الوطنية مو كولانتا + زيارة شاطئ رايلي كرابي'],
+            visitingPlaceNamesDay4: ['زيارة السوق الليلي كرابي + زيارة نامتوك رون كرابي (شلال الينابيع الساخنة)'],
+            visitingPlaceNamesDay5: ['يوم مفتوج للراحة والإستجمام'],
+            visitingPlaceNamesDay6: ['زيارة معبد كهف النمر كرابي + زيارة جزيرة كو هونج كرابي'],
+            visitingPlaceNamesDay7: ['يوم مفتوج للراحة والتسوق'],
+        },
+
+
+        twopeople: {
+            visitingPlaceNamesDay1: ['زيارة بحيرة وحديقة إميرالد + زيارة خليج مايا كرابي'],
+            visitingPlaceNamesDay2: ['زيارة كو بودا + زيارة كهف الفايكنج كرابي'],
+            visitingPlaceNamesDay3: ['زيارة الحديقة الوطنية مو كولانتا + زيارة شاطئ رايلي كرابي'],
+            visitingPlaceNamesDay4: ['زيارة السوق الليلي كرابي + زيارة نامتوك رون كرابي (شلال الينابيع الساخنة)'],
+            visitingPlaceNamesDay5: ['يوم مفتوج للراحة والإستجمام'],
+            visitingPlaceNamesDay6: ['زيارة معبد كهف النمر كرابي + زيارة جزيرة كو هونج كرابي'],
+            visitingPlaceNamesDay7: ['يوم مفتوج للراحة والتسوق'],
+        },
+
+    },
+
+
+
+
+
+    /* Pattaya object[3] */
+    {
+
+        honeymoon: {
+            visitingPlaceNamesDay1: ['زيارة حديقة صخرة المليون سنة بتايا + زيارة حديقة الألعاب المائية بتايا'],
+            visitingPlaceNamesDay2: ['زيارة بتايا العائم + زيارة متحف ريبلي بتايا'],
+            visitingPlaceNamesDay3: ['زيارة كوه سميت بتايا + زيارة قرية الفيل بتايا'],
+            visitingPlaceNamesDay4: ['زيارة سوق شارع سوخومفيت بتايا + زيارة مزرعة التمساح بتايا'],
+            visitingPlaceNamesDay5: ['يوم مفتوج للراحة والإستجمام'],
+            visitingPlaceNamesDay6: ['زيارة حديقة النمر بتايا'],
+            visitingPlaceNamesDay7: ['يوم مفتوج للراحة والتسوق'],
+        },
+
+
+        guys: {
+            visitingPlaceNamesDay1: ['زيارة سوق شارع سوخومفيت بتايا + زيارة مزرعة التمساح بتايا'],
+            visitingPlaceNamesDay2: ['زيارة قرية الفيل بتايا + زيارة حديقة النمر بتايا'],
+            visitingPlaceNamesDay3: ['زيارة حديقة صخرة المليون سنة بتايا + زيارة حديقة الألعاب المائية بتايا'],
+            visitingPlaceNamesDay4: ['زيارة بتايا العائم + زيارة متحف ريبلي بتايا'],
+            visitingPlaceNamesDay5: ['يوم مفتوج للراحة والإستجمام'],
+            visitingPlaceNamesDay6: ['زيارة كوه سميت بتايا'],
+            visitingPlaceNamesDay7: ['يوم مفتوج للراحة والتسوق'],
+        },
+
+
+        family: {
+            visitingPlaceNamesDay1: ['زيارة حديقة صخرة المليون سنة بتايا + زيارة حديقة الألعاب المائية بتايا'],
+            visitingPlaceNamesDay2: ['زيارة بتايا العائم + زيارة متحف ريبلي بتايا'],
+            visitingPlaceNamesDay3: ['زيارة كوه سميت بتايا + زيارة قرية الفيل بتايا'],
+            visitingPlaceNamesDay4: ['زيارة سوق شارع سوخومفيت بتايا + زيارة مزرعة التمساح بتايا'],
+            visitingPlaceNamesDay5: ['يوم مفتوج للراحة والإستجمام'],
+            visitingPlaceNamesDay6: ['زيارة حديقة النمر بتايا'],
+            visitingPlaceNamesDay7: ['يوم مفتوج للراحة والتسوق'],
+        },
+
+
+        twopeople: {
+            visitingPlaceNamesDay1: ['زيارة حديقة صخرة المليون سنة بتايا + زيارة حديقة الألعاب المائية بتايا'],
+            visitingPlaceNamesDay2: ['زيارة بتايا العائم + زيارة متحف ريبلي بتايا'],
+            visitingPlaceNamesDay3: ['زيارة كوه سميت بتايا + زيارة قرية الفيل بتايا'],
+            visitingPlaceNamesDay4: ['زيارة سوق شارع سوخومفيت بتايا + زيارة مزرعة التمساح بتايا'],
+            visitingPlaceNamesDay5: ['يوم مفتوج للراحة والإستجمام'],
+            visitingPlaceNamesDay6: ['زيارة حديقة النمر بتايا'],
+            visitingPlaceNamesDay7: ['يوم مفتوج للراحة والتسوق'],
+        },
+
+    },
+
+
+
+
+
+    /* Chiang Mai object[4] */
+    {
+
+        honeymoon: {
+            visitingPlaceNamesDay1: ['حديقة دوي انتانون الوطنية + جبل دوي سوثيب'],
+            visitingPlaceNamesDay2: ['محمية غابة الفيلة + حديقة نايت سفاري شنغماي'],
+            visitingPlaceNamesDay3: ['حديقة حيوانات شنغماي'],
+            visitingPlaceNamesDay4: ['يوم مفتوج للراحة والإستجمام'],
+            visitingPlaceNamesDay5: ['يوم مفتوج للراحة والتسوق'],
+        },
+
+
+        guys: {
+            visitingPlaceNamesDay1: ['حديقة دوي انتانون الوطنية + جبل دوي سوثيب'],
+            visitingPlaceNamesDay2: ['محمية غابة الفيلة + حديقة نايت سفاري شنغماي'],
+            visitingPlaceNamesDay3: ['حديقة حيوانات شنغماي'],
+            visitingPlaceNamesDay4: ['يوم مفتوج للراحة والإستجمام'],
+            visitingPlaceNamesDay5: ['يوم مفتوج للراحة والتسوق'],
+        },
+
+
+        family: {
+            visitingPlaceNamesDay1: ['حديقة دوي انتانون الوطنية + جبل دوي سوثيب'],
+            visitingPlaceNamesDay2: ['محمية غابة الفيلة + حديقة نايت سفاري شنغماي'],
+            visitingPlaceNamesDay3: ['حديقة حيوانات شنغماي'],
+            visitingPlaceNamesDay4: ['يوم مفتوج للراحة والإستجمام'],
+            visitingPlaceNamesDay5: ['يوم مفتوج للراحة والتسوق'],
+        },
+
+
+        twopeople: {
+            visitingPlaceNamesDay1: ['حديقة دوي انتانون الوطنية + جبل دوي سوثيب'],
+            visitingPlaceNamesDay2: ['محمية غابة الفيلة + حديقة نايت سفاري شنغماي'],
+            visitingPlaceNamesDay3: ['حديقة حيوانات شنغماي'],
+            visitingPlaceNamesDay4: ['يوم مفتوج للراحة والإستجمام'],
+            visitingPlaceNamesDay5: ['يوم مفتوج للراحة والتسوق'],
+        },
+
+    },
+];
+
+
