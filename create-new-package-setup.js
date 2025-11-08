@@ -250,13 +250,13 @@ function checkPassword() {
 
 
 /* Code to reload the sounds to make sure there is no latency */
-let clickSoundEffect = new Audio('../click.ogg');
+let clickSoundEffect = new Audio('click.ogg');
 clickSoundEffect.preload = 'auto';
 
-let successSoundEffect = new Audio('../success.ogg');
+let successSoundEffect = new Audio('success.ogg');
 successSoundEffect.preload = 'auto';
 
-let errorSoundEffect = new Audio('../error.ogg');
+let errorSoundEffect = new Audio('error.ogg');
 errorSoundEffect.preload = 'auto';
 
 let isSoundEffectCooldown = false; // Flag to manage cooldown

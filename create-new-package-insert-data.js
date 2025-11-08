@@ -95,7 +95,7 @@ createWholePackageAndClintDataFunction = function () {
             let insertedCompanyNameLogoImage = document.createElement('img');
             // Replace spaces with dashes in the company name
             let companyNameWithoutSpaces = clintCompanyNameInput.replace(/\s+/g, '-');
-            insertedCompanyNameLogoImage.src = `../خلفية-الشركات/${companyNameWithoutSpaces}.jpg`;
+            insertedCompanyNameLogoImage.src = `خلفية-الشركات/${companyNameWithoutSpaces}.jpg`;
             ; // Assuming this path is correct
             insertedCompanyNameLogoImage.className = 'inserted_company_name_logo';
             insertedCompanyNameLogoImage.id = 'inserted_company_name_logo_id';
@@ -145,7 +145,7 @@ createWholePackageAndClintDataFunction = function () {
 
 
             // Set the 'welcome_pdf_first_page_image_id' src to the clicked company logo name for pdf image
-            document.getElementById('welcome_pdf_first_page_image_id').src = `../خلفية-الشركات/${companyNameWithoutSpaces}.jpg`;
+            document.getElementById('welcome_pdf_first_page_image_id').src = `خلفية-الشركات/${companyNameWithoutSpaces}.jpg`;
 
 
             /* Show the company logo from the website */
@@ -1992,7 +1992,7 @@ createHotelsDataFunction = function () {
             </div>
             <div>
                 <h5 id='hotel_location_${insertedHotelDataDivUniqueId}'>${hotelLocationInput}</h5>
-                <img src="../صور-الفنادق/${starsAmount}-stars-hotel-image.jpg" id='hotel_image_${insertedHotelDataDivUniqueId}' class="hotel_row_image_controller inserted_hotel_data_row" style="cursor: pointer">
+                <img src="صور-الفنادق/${starsAmount}-stars-hotel-image.jpg" id='hotel_image_${insertedHotelDataDivUniqueId}' class="hotel_row_image_controller inserted_hotel_data_row" style="cursor: pointer">
             </div>
         `;
 
@@ -2260,7 +2260,7 @@ createHotelsDataFunction = function () {
             </div>
             <div>
                 <h5 id='hotel_location_${insertedHotelDataDivUniqueId}'>${hotelLocationReadyText}</h5>
-                <img src="../صور-الفنادق/${hotelImgSrcReadyText}.jpg" class="hotel_row_image_controller inserted_hotel_data_row" style="cursor: pointer">
+                <img src="صور-الفنادق/${hotelImgSrcReadyText}.jpg" class="hotel_row_image_controller inserted_hotel_data_row" style="cursor: pointer">
             </div>
         `;
 
@@ -3665,7 +3665,7 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                 </div>
                 <div>
                     <h5 id='hotel_location_${insertedHotelDataDivUniqueId}'>${hotelLocationInput}</h5>
-                    <img src="../صور-الفنادق/${starsAmount}-stars-hotel-image.jpg" id='hotel_image_${insertedHotelDataDivUniqueId}' class="hotel_row_image_controller inserted_hotel_data_row" style="cursor: pointer">
+                    <img src="صور-الفنادق/${starsAmount}-stars-hotel-image.jpg" id='hotel_image_${insertedHotelDataDivUniqueId}' class="hotel_row_image_controller inserted_hotel_data_row" style="cursor: pointer">
                 </div>
             `;
 
@@ -3888,7 +3888,7 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                 </div>
                 <div>
                     <h5 id='hotel_location_${insertedHotelDataDivUniqueId}'>${hotelLocationReadyText}</h5>
-                    <img src="../صور-الفنادق/${hotelImgSrcReadyText}.jpg" class="hotel_row_image_controller inserted_hotel_data_row" style="cursor: pointer">
+                    <img src="صور-الفنادق/${hotelImgSrcReadyText}.jpg" class="hotel_row_image_controller inserted_hotel_data_row" style="cursor: pointer">
                 </div>
             `;
 
@@ -6612,7 +6612,7 @@ downloadPdfWithCustomName = async function (pdfName) {
 
         // Change to white text on blue background
         imgElements.forEach(img => {
-            img.src = '../moghader-middle-pdf-image.jpg'; // Google blue background
+            img.src = 'moghader-middle-pdf-image.jpg'; // Google blue background
         });
 
 
@@ -6666,7 +6666,7 @@ downloadPdfWithCustomName = async function (pdfName) {
 
         // Change to white text on blue background
         imgElements.forEach(img => {
-            img.src = '../vid-middle-pdf-image.jpg'; // Google blue background
+            img.src = 'vid-middle-pdf-image.jpg'; // Google blue background
         });
 
 
@@ -6734,11 +6734,11 @@ downloadPdfWithCustomName = async function (pdfName) {
 
         // Change to white text on blue background
         imgElements.forEach(img => {
-            img.src = '../sky-global-middle-pdf-image.jpg'; // Google blue background
+            img.src = 'sky-global-middle-pdf-image.jpg'; // Google blue background
         });
 
 
-        document.getElementById('welcome_pdf_first_page_image_id').src = '../خلفية-الشركات/سكاي-جلوبال.jpg';
+        document.getElementById('welcome_pdf_first_page_image_id').src = 'خلفية-الشركات/سكاي-جلوبال.jpg';
         /* document.getElementById('inserted_package_important_notes_data_section_page_image_id').src = 'ajwaa-sky-last-pdf-image.jpg'; */
 
 
@@ -6805,11 +6805,11 @@ downloadPdfWithCustomName = async function (pdfName) {
 
         // Change to white text on blue background
         imgElements.forEach(img => {
-            img.src = '../travel-gate-middle-pdf-image.jpg'; // Google blue background
+            img.src = 'travel-gate-middle-pdf-image.jpg'; // Google blue background
         });
 
 
-        document.getElementById('welcome_pdf_first_page_image_id').src = '../خلفية-الشركات/ترافل-جت.jpg';
+        document.getElementById('welcome_pdf_first_page_image_id').src = 'خلفية-الشركات/ترافل-جت.jpg';
         /* document.getElementById('inserted_package_important_notes_data_section_page_image_id').src = 'travel-gate-last-pdf-image.jpg'; */
 
 
@@ -6873,7 +6873,7 @@ downloadPdfWithCustomName = async function (pdfName) {
 
         // Change to white text on blue background
         imgElements.forEach(img => {
-            img.src = '../middle-pdf-image.jpg'; // Google blue background
+            img.src = 'middle-pdf-image.jpg'; // Google blue background
         });
 
 
@@ -6936,10 +6936,10 @@ downloadPdfWithCustomName = async function (pdfName) {
 
         // Change to white text on blue background
         imgElements.forEach(img => {
-            img.src = '../middle-pdf-image.jpg';
+            img.src = 'middle-pdf-image.jpg';
         });
 
-        document.getElementById('welcome_pdf_first_page_image_id').src = `../خلفية-الشركات/${document.getElementById('clint_company_name_input_id').value.replace(/\s+/g, '-')}.jpg`;
+        document.getElementById('welcome_pdf_first_page_image_id').src = `خلفية-الشركات/${document.getElementById('clint_company_name_input_id').value.replace(/\s+/g, '-')}.jpg`;
         /* document.getElementById('inserted_package_important_notes_data_section_page_image_id').src = 'last-pdf-image.jpg'; */
 
         document.getElementById('package_clint_code_number_p_id').style.display = 'none';
@@ -7221,7 +7221,7 @@ runDownloadOnlyClintMovementsDataFunction = async function () {
         let companyNameWithoutSpaces = document.getElementById('clint_company_name_input_id').value.replace(/\s+/g, '-');
 
         // in case there is campany name then set the company name as the first pdf image inside the 'downloaded_pdf_clint_movements_data_page'
-        document.getElementById('downloaded_pdf_clint_movements_data_page').querySelector('img').src = `../خلفية-الشركات/${companyNameWithoutSpaces}.jpg`;
+        document.getElementById('downloaded_pdf_clint_movements_data_page').querySelector('img').src = `خلفية-الشركات/${companyNameWithoutSpaces}.jpg`;
 
 
         /* Name the clint movements data pdf file */
