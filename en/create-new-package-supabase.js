@@ -27,10 +27,10 @@ async function sendDataToSupabase() {
             };
             const parts = rawDate.split(" ").filter(Boolean);
             const month = arabicToEnglish[parts.find(word => arabicToEnglish[word])] || "Invalid";
-            const package_indo_last_month_date = `${month}`;
+            const package_thai_last_month_date = `${month}`;
 
             // Current timestamp
-            const package_indo_user_current_date = new Date().toISOString();
+            const package_thai_user_current_date = new Date().toISOString();
 
             const rowData = {
                 name: formattedName,
@@ -40,8 +40,8 @@ async function sendDataToSupabase() {
                 downloaded_pdf_clint_movements_data_page,
                 downloaded_pdf_package_including_data_page,
                 downloaded_pdf_total_price_data_page,
-                package_indo_user_current_date,
-                package_indo_last_month_date
+                package_thai_user_current_date,
+                package_thai_last_month_date
             };
 
             if (existingDataStatus === "newData") {
@@ -177,7 +177,7 @@ async function updateDataBaseSavedDataNames() {
             const { data, error } = await supabase
                 .from('en_all_package_thai')
                 .select('name') // Only select the name column to reduce data transfer
-                .order('package_indo_user_current_date', { ascending: false }) // Order by timestamp descending (newest first)
+                .order('package_thai_user_current_date', { ascending: false }) // Order by timestamp descending (newest first)
                 .range(currentOffset, currentOffset + batchSize - 1);
 
             if (error) {
@@ -568,7 +568,7 @@ async function importContentForSelectedName(name) {
             .from('en_all_package_thai')
             .select('*')
             .eq('name', name)
-            .order('package_indo_user_current_date', { ascending: false })
+            .order('package_thai_user_current_date', { ascending: false })
             .limit(1)
             .single();
 
@@ -1050,7 +1050,7 @@ async function handleUserPackageUniqueNumber(userType, action) {
     try {
         // Fetch the first (and presumably only) row
         const { data, error } = await supabase
-            .from('indo_package_unique_number')
+            .from('thai_package_unique_number')
             .select('*')
             .limit(1)
             .single();
@@ -1077,7 +1077,7 @@ async function handleUserPackageUniqueNumber(userType, action) {
             // Update only the specific column
             // Use the first valid column name in your filter instead of 'baby'
             const { error: updateError } = await supabase
-                .from('indo_package_unique_number')
+                .from('thai_package_unique_number')
                 .update({ [userType]: newValue })
                 .not(userType, 'is', null); // Use the same userType as filter
 
