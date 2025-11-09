@@ -263,6 +263,30 @@ const companyNames = [
     { name: "ibs", company_by_value: null }
 ];
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // All hotel names from all_hotel_names_dropdown
 const hotelNames = [
     "lyf Sukhumvit 8 Bangkok",
@@ -369,6 +393,18 @@ const hotelNames = [
     "My Beach Resort Phuket",
     "Thaya Hotel Bangkok"
 ];
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Export the arrays (if using modules)
 if (typeof module !== 'undefined' && module.exports) {
