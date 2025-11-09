@@ -391,6 +391,10 @@ const hotelNames = [
     "The Westin Siray Bay Resort",
     "Baba Beach Club Natai",
     "My Beach Resort Phuket",
+    "Pamookkoo Resort",
+
+
+    
     "Thaya Hotel Bangkok"
 ];
 
@@ -413,3 +417,4 @@ if (typeof module !== 'undefined' && module.exports) {
         hotelNames
     };
 }
+
