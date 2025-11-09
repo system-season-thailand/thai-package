@@ -345,12 +345,17 @@ let allHotelDataArray = [
     {
         hotelName: 'Baba Beach Club Natai',
         hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Baba Suite', 'Baba Suite Ocean View', 'Baba Pool Suite', 'One BR Luxury Pool Villa', 'Gabana Villa','Two BR Luxury Pool Villa','Five BR Beatchfront Pool Villa'],
+        hotelRoomTypes: ['Baba Suite', 'Baba Suite Ocean View', 'Baba Pool Suite', 'One BR Luxury Pool Villa', 'Gabana Villa', 'Two BR Luxury Pool Villa', 'Five BR Beatchfront Pool Villa'],
     },
     {
         hotelName: 'My Beach Resort Phuket',
         hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Pool View', 'Premier Pool Access', 'Premier Seaview', 'Family Seaview', 'Premier Seaview Studio','Premier Beachfront','Private Pool Beachfront'],
+        hotelRoomTypes: ['Deluxe Pool View', 'Premier Pool Access', 'Premier Seaview', 'Family Seaview', 'Premier Seaview Studio', 'Premier Beachfront', 'Private Pool Beachfront'],
+    },
+    {
+        hotelName: 'Pamookkoo Resort',
+        hotelLocation: 'Phuket',
+        hotelRoomTypes: ['Deluxe Room', 'Deluxe Pool', 'Deluxe Premier', 'Deluxe Premier Pool', 'Family Room 4 Pax'],
     },
 
 
