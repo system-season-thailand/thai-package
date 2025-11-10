@@ -2376,7 +2376,7 @@ smsCardWithInternetAmountInputOptions.forEach(option => {
 
                     } else {
                         // Set the value of the sms card input field with the selected option
-                        lastClickedClintMovementsCityInput.value = `شرائح إنترنت ل ${option.textContent}`;
+                        lastClickedClintMovementsCityInput.value = `شرائح إنترنت ل${option.textContent}`;
 
                     }
 
