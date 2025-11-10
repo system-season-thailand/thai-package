@@ -392,9 +392,13 @@ const hotelNames = [
     "Baba Beach Club Natai",
     "My Beach Resort Phuket",
     "Pamookkoo Resort",
+    "Phuket Orchid Resort",
+    "Avani Pattaya Resort",
+    "Hotel Clover Phuket",
 
 
-    
+
+
     "Thaya Hotel Bangkok"
 ];
 
@@ -417,4 +421,3 @@ if (typeof module !== 'undefined' && module.exports) {
         hotelNames
     };
 }
-
