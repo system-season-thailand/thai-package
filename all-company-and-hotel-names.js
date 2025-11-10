@@ -395,6 +395,8 @@ const hotelNames = [
     "Phuket Orchid Resort",
     "Avani Pattaya Resort",
     "Hotel Clover Phuket",
+    "Arun Khiri Chiang Mai",
+    "Ban Sainai Resort Krabi",
 
 
 
