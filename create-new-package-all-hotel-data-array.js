@@ -357,6 +357,16 @@ let allHotelDataArray = [
         hotelLocation: 'Phuket',
         hotelRoomTypes: ['Deluxe Room', 'Deluxe Pool', 'Deluxe Premier', 'Deluxe Premier Pool', 'Family Room 4 Pax'],
     },
+    {
+        hotelName: 'Phuket Orchid Resort',
+        hotelLocation: 'Phuket',
+        hotelRoomTypes: ['Deluxe Room', 'Deluxe Pool View', 'Family Triple', 'Pool Access', 'Family Bunkbed', 'Family Double King'],
+    },
+    {
+        hotelName: 'Hotel Clover Phuket',
+        hotelLocation: 'Phuket',
+        hotelRoomTypes: ['Superior Balcony', 'Premier Balcony', 'Deluxe Studio', 'Deluxe Family', 'Deluxe Jacuzzi'],
+    },
 
 
 
@@ -543,6 +553,11 @@ let allHotelDataArray = [
         hotelName: 'Renaissance Pattaya',
         hotelLocation: 'Pattaya',
         hotelRoomTypes: ['Guest Room', ' Guest Room Balcony', 'Guest Room Balcony Sea View'],
+    },
+    {
+        hotelName: 'Avani Pattaya Resort',
+        hotelLocation: 'Pattaya',
+        hotelRoomTypes: ['Deluxe Garden View', ' Deluxe Garden Plus', 'Deluxe Sea View', 'Deluxe Sea View Plus'],
     },
 
 
