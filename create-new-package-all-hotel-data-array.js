@@ -538,6 +538,11 @@ let allHotelDataArray = [
         hotelLocation: 'Krabi',
         hotelRoomTypes: ['Deluxe Room', 'Deluxe Cliff View'],
     },
+    {
+        hotelName: 'Ban Sainai Resort Krabi',
+        hotelLocation: 'Krabi',
+        hotelRoomTypes: ['Sainai Cottages', 'Coconut Cottages','Pano Cliff View Cottage','Triplet Premier Cottages','Sainai Forest','Grand Pond View Cottages','Family Cottage','Tropical Family Cottages','Sainai Pool Villa'],
+    },
 
 
 
@@ -571,6 +576,11 @@ let allHotelDataArray = [
         hotelName: 'Melia Chiang Mai',
         hotelLocation: 'Chiang Mai',
         hotelRoomTypes: ['Melia Room', 'Premium Room', 'The Level Premium Room'],
+    },
+    {
+        hotelName: 'Arun Khiri Chiang Mai',
+        hotelLocation: 'Chiang Mai',
+        hotelRoomTypes: ['Superior Room', 'Deluxe with Pool View', 'Grand Deluxe'],
     },
 
 
