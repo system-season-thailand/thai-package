@@ -1,599 +1,427 @@
-/* Array to store the hotel room types description for later use */
-
-
-
-let allHotelDataArray = [
-
-    /* Phuket */
-    {
-        hotelName: 'Avista Grande Phuket Karon',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Mountain View', 'Deluxe Pool View', 'Deluxe Family Sea View', 'Premier Sea view', 'Premier Family Sea View', 'Deluxe Suite with Whirlpool Bath Mountain View', 'Deluxe Suite with Whirlpool Bath Seaview', 'Deluxe Suite Pool Access Garden View', 'Deluxe Suite Pool Access Sea View'],
-    },
-    {
-        hotelName: 'Avista Hideaway Phuket Patong',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Garden View', 'Deluxe Pool View', 'Deluxe Family Room', 'Executive Room', 'San Deluxe Suite with Whirlpool Bath', 'San Deluxe Plunge Pool Suite with Whirlpool Bath', 'Sawan Private Plunge Pool Suite'],
-    },
-    {
-        hotelName: 'Diamond Cliff Resort',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Super Deluxe Sea View', 'Grand Jacuzzi Suite', 'Ocean Jacuzzi Suite'],
-    },
-    {
-        hotelName: 'Holiday Inn Express Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Standard Garden View', 'Standard Room', 'Standard Pool View'],
-    },
-    {
-        hotelName: 'Homm Bliss Southbeach Patong',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Superior Sea View', 'Deluxe Sea View', 'One BR Superior Suite Sea View', 'One BR Deluxe Suite Sea View', 'One BR Plunge Pool Suite Sea View'],
-    },
-    {
-        hotelName: 'Indigo Phuket Patong',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Standard City View', 'Standard Garden View', 'Standard Pool View', 'One King Bed Junior Suite'],
-    },
-    {
-        hotelName: 'Kalima Resort Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Room (None View)', 'Deluxe Sea View', 'Honeymoon Sea View', 'Grand Deluxe Sea View', 'Romance Room Ocean View', 'Family Sea View', 'Junior Suite Ocean View', 'Double Pool Access', 'Duplex Pool Villa', 'PP Villa One BR'],
-    },
-    {
-        hotelName: 'Keemala Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Clay Pool Cottage', 'Tent Pool Villa', 'Tree Pool House', 'Birds Nest Pool Villa'],
-    },
-    {
-        hotelName: 'Movenpick Myth Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Pool View', 'Deluxe Pool Access'],
-    },
-    {
-        hotelName: 'Movenpick Bangtao Beach Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Residence One BR', 'Seaview Pool Suite One BR', 'Residence Two BR', 'Seaview Pool Suite Two BR', 'Residence Three BR', 'Seaview Jacuzzi Penthouse Three BR', 'Royal Jacuzzi Penthouse Three BR'],
-    },
-    {
-        hotelName: 'Noku Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Studio Loft', 'Private Loft with Whirlpool', 'Tree Villa PP', 'Hill Villa PP'],
-    },
-    {
-        hotelName: 'Novotel Phuket Kata Avista',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Superior Garden View Balcony', 'Superior Pool View Balcony', 'Deluxe Pool View 1 King & 1 Sofa Bed', 'Deluxe Sea View Balcony 1 King & 1 Sofa Bed', 'Family Garden View Balcony 1 King & 1 Queen Bed'],
-    },
-    {
-        hotelName: 'Oceanfront Beach Resort Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Premier Comfy', 'Ocean Room Partial Seaview', 'Grand Ocean Room', 'Ocean Comfy', 'Pool Access Comfy', 'Grand Ocean Suite'],
-    },
-    {
-        hotelName: 'Saii Laguna Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Lagoon View', 'Ocean View Balcony', 'Ocean View Terrace', 'Ocean Front Balcony', 'Club Lagoon View', 'Club Ocean View', 'Club Ocean Front', 'Lagoon View One BR Suite', 'Ocean View One BR Suite', 'Ocean Front One BR Suite'],
-    },
-    {
-        hotelName: 'Sinae Phuket Luxury Hotel',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Studio Pool Villa', 'Studio Ocean View', 'Sinae Sea Sai', 'Sinae Premier Pool Suite', 'Sky Pool Villa', 'Duplex Pool Villa B', 'Sinae Family Two BR Pool Villa'],
-    },
-    {
-        hotelName: 'Sinae Phuket Pool Villa',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Studio Pool Villa', 'Studio Ocean View', 'Sinae Sea Sai', 'Sinae Premier Pool Suite', 'Sky Pool Villa', 'Duplex Pool Villa B', 'Sinae Family Two BR Pool Villa'],
-    },
-    {
-        hotelName: 'Sri Panwa Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['YAYA Pool Suite Ocean View', 'Ocean View Pool Suite West', 'Ocean View Pool Suite East', 'Ocean View Penthouse', 'One BR Family Suite Garden View', 'One BR Pool Villa Garden View', 'One BR Family Suite Partial Ocean View', 'One BR Luxury Residential Pool Villa Ocean View', 'One BR Luxury Pool Villa Ocean View', 'Two BR Family Suite Garden View', 'Two BR Family Suite Ocean View', 'Two BR Pool Villa Ocean View', 'Two BR Luxury Pool Villa Ocean View', 'Three BR Residence Pool Villa Partial Ocean View', 'Three BR Residence Pool Villa Ocean View', 'Four BR Residence Pool Villa Ocean View', 'Four BR Luxury Residence Pool Villa Ocean View', 'Five BR Residence Pool Villa Ocean View'],
-    },
-    {
-        hotelName: 'The Kee Resort',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Room', 'Deluxe Pool View', 'Deluxe Jacuzzi', 'Deluxe Pool Access'],
-    },
-    {
-        hotelName: 'The Nai Harn Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Ocean View Room', 'Grand Ocean View Room', 'Ocean View Suite', 'Royal Ocean View Suite'],
-    },
-    {
-        hotelName: 'The Naka Island Luxury Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Naka Guest Room', 'One BR Pool Villa Garden View', 'One BR Pool Villa Sea View'],
-    },
-    {
-        hotelName: 'The Naka Hotels Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['One BR Pool Villa Partial Sea View', 'One BR Deluxe Pool Villa Ocean View', 'One BR Villa High Bay', 'One BR Beachfront Villa', 'One BR Villa High Bay Signature'],
-    },
-    {
-        hotelName: 'The Nature Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Room', 'Deluxe Pool View', 'Deluxe Partial Sea View', 'Deluxe Pool Access', 'Deluxe Private Jacuzzi', 'Junior Suite', 'Grand Suite 2 BR'],
-    },
-    {
-        hotelName: 'The SIS Kata Resort',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['SIS On The Hill No View', 'SIS Over The Stella Pool', 'SIS Over The Garden', 'SIS Jacuzzi Pool', 'SIS Over The Sea Partial Seaview', 'SIS Studio', 'The SIS Suite'],
-    },
-    {
-        hotelName: 'Glow Mira Karon Beach',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Superior Room City View', 'Deluxe Room Pool View', 'Family Suite'],
-    },
-    {
-        hotelName: 'Dinso Resort Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Premium City View', 'Premium Garden View', 'Premium Pool View', 'One BR Suite Pool View', 'Dino Suite', 'Penthouse Terrace', 'Two BR Family Suite', 'Two BR Suite Garden View', 'Duplex Pool Villa', 'Duplex Pool Villa Sea View'],
-    },
-    {
-        hotelName: 'Grand Mercure Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Superior Room', 'Deluxe Pool Access Room', 'Superior Suite Room', 'One BR Pool Villa Room', 'Two BR Pool Villa'],
-    },
-    {
-        hotelName: 'Msocial Hotel Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Social Room', 'Social Cozy Room'],
-    },
-    {
-        hotelName: 'Ayara Kamala Resort',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Ocean View', 'Grand Thai Natural Ocean View', 'Deluxe Pool Access Ocean View', 'Grand Thai with Spa Bath & PP', 'Family Pool Access Two BR Suite', 'Two BR Pool Forest View', 'Grand Pool Villa Ocean View', 'Three BR Villa'],
-    },
-    {
-        hotelName: 'Centara Karon Resort Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Superior City View', 'Superior Ocean View', 'Deluxe City View', 'Deluxe Pool View', 'Premium Deluxe Pool View', 'Deluxe Family Studio Pool View', 'One BR Garden Villa', 'One BR Pool Villa', 'Two BR Pool Villa', 'Three BR Pool Villa'],
-    },
-    {
-        hotelName: 'Crest Resort Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Room', 'Deluxe Partial Sea View', 'Deluxe Sea View', 'Deluxe Pool Access', 'Deluxe Pool Access Sea View', 'Deluxe Pool Villa', 'Premier Pool Villa', 'Family Pool Villa Two BR'],
-    },
-    {
-        hotelName: 'The Royal Paradise Hotel',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Paradise Wing (Low Floor)', 'Deluxe Paradise Wing (High Floor)', 'Premier Deluxe', 'Deluxe Royal Wing Pool View', 'Premier Deluxe Royal Wing Pool View'],
-    },
-    {
-        hotelName: 'Rawayana Central Park Villas',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Two BR Family Deluxe Pool Villa', 'Three BR Grand Deluxe Pool Villa'],
-    },
-    {
-        hotelName: 'Hyatt Regency Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Garden View Room', 'Ocean View Room', 'King Bed Plunge Pool', 'Two BR Family Room', 'Two BR Family Bunk Bed', 'Ocean View Club Access', 'King Bed Terrace Whirlpool', 'Two BR Regency Suite', 'King Bed Hilltop Ocean View Suite'],
-    },
-
-    {
-        hotelName: 'Namaka Resort Kamala',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Room', 'Deluxe Sea View', 'Premier Sea View', 'Villa Sea View'],
-    },
-    {
-        hotelName: 'Dusit Thani Laguna Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Lagoon View', 'Deluxe Sea View', 'Premier Ocean Front', 'Dusit Club Room', 'Landmark Suite Room', 'Two BR Laguna Pool Villa'],
-    },
-    {
-        hotelName: 'Bandara Pool Villas Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Ocean  Pool Villa', 'Panoramic Pool Villa', 'Panoramic Duplex Pool Villa'],
-    },
-    {
-        hotelName: 'Bandara Beach Resort Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Room', 'Deluxe Balcony Room'],
-    },
-    {
-        hotelName: 'Andara Resort Villas Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Terrace Suites One BR', 'Terrace Suites Two BR', 'Terrace Suites Three BR', 'Pool Suites One BR', 'Pool Suites Two BR', 'Pool Suites Three BR', 'Pool Suites Four BR', 'Penthouse Pool Suites One BR', 'Penthouse Pool Suites Two BR', 'Penthouse Pool Suites Three BR', 'Luxury Pool Villa Three BR', 'Luxury Pool Villa Four BR', 'Luxury Pool Villa Five BR', 'Luxury Pool Villa Six BR'],
-    },
-    {
-        hotelName: 'Sunsuri Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Superior Room', 'Superior Family Triple Room', 'Deluxe Room', 'Premium Deluxe Room', 'Grand Deluxe Room', 'Grand Deluxe Family Room', 'Ocean View Family Suite', 'Grand View Pool Villa', 'Ocean View One BR Pool Villa', 'Ocean View Two BR Pool Villa'],
-    },
-    {
-        hotelName: 'Marina Gallery Patong',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Room', 'Deluxe Pool View', 'Deluxe Sea View', 'Deluxe Pool Access', 'Family Suite'],
-    },
-    {
-        hotelName: 'Mida Grande Resort Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Room', 'Deluxe Ocean View', 'Deluxe Ocean View With Jacuzzi', 'Grande Deluxe Ocean View with Plunge Pool', 'Family Suite Two BR', 'Grande Two BR Suite', 'Family Suite Two BR Ocean View', 'Grande Two BR Suite Ocean View', 'Grande Two BR Suite Ocean View With Jacuzzi', 'Grande Two BR Suite Ocean View With Plunge Pool', 'Grande Three BR Suite Ocean View with Jacuzzi ', 'Grande Pool Villa Two BR', 'Grande Pool Villa Three BR'],
-    },
-
-    {
-        hotelName: 'Katathani Phuket Beach Resort',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Room', 'Grand Deluxe', 'Pool Access', 'Junior Suite', 'Junior Suite Oceanfront', 'Grand Suite'],
-    },
-    {
-        hotelName: 'The Shore Katathani Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Sea View Pool Villa', 'Sea View Pool Villa Romance', 'Sea View Pool Villa In Love', 'Two BR Pool Villa'],
-    },
-    {
-        hotelName: 'Marina Gallery KACHA Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Room', 'Deluxe Pool View', 'Deluxe Sea View', 'Deluxe Pool Access', 'Family Suite'],
-    },
-    {
-        hotelName: 'Sugar Marina Art Karon Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Room', 'Deluxe Inner', 'Artsy Deluxe', 'Deluxe Pool View', 'Deluxe Pool Access', 'Family Room', 'Quad Pool Access'],
-    },
-    {
-        hotelName: 'Sugar Marina Fashion Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Room', 'Chic Deluxe Room', 'Deluxe Pool View', 'Deluxe Pool Access'],
-    },
-    {
-        hotelName: 'Sugar Marina SURF Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Room', 'Deluxe Pool View', 'Deluxe Pool Access'],
-    },
-    {
-        hotelName: 'Sugar Marina POP Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Superior Room', 'Superior Pool View', 'Deluxe Pool View', 'Superior Pool Access', 'Deluxe Pool Access', 'Family Cozy', 'Family Roomy', 'Family Pool Access', 'Family Biggy', 'Signature QUAD Room', 'Family Two Bedroom Suite'],
-    },
-    {
-        hotelName: 'Sugar Marina Villas Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Superior Room', 'Deluxe Room', 'Superior Pool Access', 'Superior Plunge Pool with Jacuzzi', 'Standard Lagoon Villa 2+2', 'Family LAGOON Villa 4', 'One Bedroom LAGOON Suite Villa 2+2', 'Two Bedroom LAGOON Villa 8', 'Two Bedroom LAGOON Suite Villa 4', 'Sol Two Bedroom LAGOON Suite Villa 8'],
-    },
-    {
-        hotelName: 'Sugar Marina Hotel AVIATOR Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Room', 'Deluxe Pool View', 'Deluxe Pool Access'],
-    },
-    {
-        hotelName: 'Marina MUAYTHAI Ta-iad Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Standard Room', 'Standard Pool View', 'One BR Suite Pool Facing', 'One BR Suite Pool Access'],
-    },
-    {
-        hotelName: 'Amari Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Superior Balcony', 'Superior Ocean Front Balcony', 'Deluxe Ocean Front Balcony', 'One BR Suite Ocean Coral Lounge  ', 'One BR Suite Ocean View Coral Lounge']
-    },
-    {
-        hotelName: 'Anantara Mai Khao Phuket Villas',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Mai Khao Suite', 'Two BR Mai Khao Suite', 'Pool Villa', 'Lagoon Pool Villa', 'Pool Pavilion', 'Two Bedroom Pool Pavilion']
-    },
-    {
-        hotelName: 'Tantawan Villa Resort Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['One BR Pool Villa', 'One BR Pool Villa Sea View', 'Two BR Pool Villa', 'Three BR Pool Villa']
-    },
-    {
-        hotelName: 'Anantara Layan Phuket Resort',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Layan Suite', 'Deluxe Pool Villa', 'Sala Pool Villa', 'Two BR Sea View Residence', 'Three Bedroom Sea View Residence']
-    },
-    {
-        hotelName: 'Wyndham Phuket Kalim Bay',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Pool Suite', 'Villa', 'Suite', 'Pool Suite Ocean View', 'Deluxe Room'],
-    },
-    {
-        hotelName: 'Casabay Pool Villas',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Three BR PP Villa', 'Casablue Four BR PP Villa', 'Four BR PP Villa', 'Four BR PP Villa Partial Sea View', 'Six BR PP Villa Partial Sea View'],
-    },
-    {
-        hotelName: 'Phuket Emerald Beach Resort',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Pool View', 'Family Pool View', 'Family Pool Access', 'Grand Family Pool View (Two Bedrooms connecting)'],
-    },
-    {
-        hotelName: 'Radisson Red Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Standard Room', ' Superior Room', 'Deluxe Room', 'Family Room'],
-    },
-    {
-        hotelName: 'Tribe Phuket Patong',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Tribe Essential', 'Tribe Room', 'Tribe Essential Pool View', 'Tribe Essential High Floor', 'Tribe Extra', 'Tribe Max'],
-    },
-    {
-        hotelName: 'Ozo Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Superior Room', 'Deluxe Room'],
-    },
-    {
-        hotelName: 'Panwaburi Beachfront Resort Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Tree', 'Deluxe Facade', 'Deluxe Pool View', 'Deluxe Pool Access Partial Pool', 'Deluxe Pool Access Pool View'],
-    },
-    {
-        hotelName: 'Paresa Resort Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Ocean Pool Suite', 'Spa Pool Suite', 'Cliff Pool Villa', 'Two BR Ocean Pool Suite', 'Grand Residence Pool Villa'],
-    },
-    {
-        hotelName: 'The Charm Resort Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Room', 'Junior Suite', 'Deluxe Pool Access', 'Junior Suite Pool Access', 'Executive Suite', 'Family One BR Suite', 'Family Two BR Suite'],
-    },
-    {
-        hotelName: 'Barcelo Coconut Island',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Lux Suite', 'Outdoor Jacuzzi Suite', 'Lux Jacuzzi Suite', 'Lux One BR Garden View Pool Villa', 'Lux One BR Sea View Pool Villa', 'Lux Two BR Garden View Pool Villa', 'Lux Two BR Sea View Pool Villa', 'Lux Two BR Grand Sea View Pool Villa', 'Two BR Grand Beachfront Pool Villa', 'Lux Two BR Grand Beachfront Pool Villa', 'Lux Three BR Grand Sea View Pool Villa', 'Three BR Grand Beachfront Pool Villa', 'Lux Three BR Grand Beachfront Pool Villa', 'Four BR Grand Beachfront Pool Villa', 'Lux Four BR Grand Beachfront Pool Villa', 'Five BR Grand Beachfront Pool Villa', 'Lux Five BR Grand Beachfront Pool Villa'],
-    },
-    {
-        hotelName: 'Seabed Grand Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Superior Room', 'Deluxe Garden View', 'Deluxe Pool View Room', 'Deluxe Pool Access Room', 'Deluxe Triple Room', 'Family Room'],
-    },
-    {
-        hotelName: 'The Westin Siray Bay Resort',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Superior Room', 'Deluxe Sea View', 'Deluxe Sea View Pool Access', 'Deluxe Sea View Suite', 'Sala Pool Villa Sea View'],
-    },
-    {
-        hotelName: 'Baba Beach Club Natai',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Baba Suite', 'Baba Suite Ocean View', 'Baba Pool Suite', 'One BR Luxury Pool Villa', 'Gabana Villa', 'Two BR Luxury Pool Villa', 'Five BR Beatchfront Pool Villa'],
-    },
-    {
-        hotelName: 'My Beach Resort Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Pool View', 'Premier Pool Access', 'Premier Seaview', 'Family Seaview', 'Premier Seaview Studio', 'Premier Beachfront', 'Private Pool Beachfront'],
-    },
-    {
-        hotelName: 'Pamookkoo Resort',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Room', 'Deluxe Pool', 'Deluxe Premier', 'Deluxe Premier Pool', 'Family Room 4 Pax'],
-    },
-    {
-        hotelName: 'Phuket Orchid Resort',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Room', 'Deluxe Pool View', 'Family Triple', 'Pool Access', 'Family Bunkbed', 'Family Double King'],
-    },
-    {
-        hotelName: 'Hotel Clover Phuket',
-        hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Superior Balcony', 'Premier Balcony', 'Deluxe Studio', 'Deluxe Family', 'Deluxe Jacuzzi'],
-    },
-
-
-
-
-
-
-
-    /* Bangkok */
-    {
-        hotelName: 'lyf Sukhumvit 8 Bangkok',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['One of A Kind'],
-    },
-    {
-        hotelName: 'Oakwood Studios Sukhumvit',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Superior Room', 'Studio Deluxe', 'Studio Executive', 'Studio Premier'],
-    },
-    {
-        hotelName: 'Sindhorn Midtown Bangkok',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Standard Room', 'Premium Room', 'Sky Suite', 'One BR Suite', 'Two BR Suite', 'Two BR Corner Suite', 'Studio', 'One BR Urban Studio'],
-    },
-    {
-        hotelName: 'Ascott Thonglor Bangkok',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Deluxe Room', 'Studio Executive', 'One BR Premier ', 'One BR Executive', 'Two BR Executive', 'Three BR Executive'],
-    },
-    {
-        hotelName: 'Valia Hotel Bangkok',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Premier Room', 'Deluxe Suite', 'Two Deluxe Suites Connected', 'Family Suite', 'Junior Suite', 'Executive Suite', 'Valia Suite', 'Deluxe Suite Club'],
-    },
-    {
-        hotelName: 'Hilton Garden Inn Bangkok Silom',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Guest Room', 'Deluxe Room'],
-    },
-    {
-        hotelName: 'Hotel Indigo Bangkok Wireless Road',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Family Room', 'Standard Room', 'Standard Balcony Room', 'Premium City View Balcony'],
-    },
-    {
-        hotelName: 'Bandara Silom Suites Bangkok',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['One BR Suite', 'Two BR Suite'],
-    },
-    {
-        hotelName: 'Amari Bangkok',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Deluxe Room', 'Grand Deluxe', 'Premier Room', 'Club Premier', 'Club One BR Corner Suite', 'Club One BR Executive Suite', 'Club Two BR Corner Suite'],
-    },
-    {
-        hotelName: 'Ascott Embassy Bangkok',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Deluxe Room', 'Studio Executive', 'One BR Premier', 'Two BR Executive', 'Two BR Premier', 'Three BR Executive '],
-    },
-    {
-        hotelName: 'Nysa Hotel Bangkok',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Deluxe Room', 'Executive Room', 'Premier Pool View', 'One BR Suite Pool View', 'One BR Residence Pool Suite', 'Deluxe Connecting Deluxe', 'Premier Pool View Connecting Premier Pool View', 'One Bedroom Residence Pool Suite Connecting Premier Pool View'],
-    },
-    {
-        hotelName: 'Innside By Melia Bangkok',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['The Inside Room', 'The Inside Corner Room', 'The Townhouse', 'The Townhouse Two BR'],
-    },
-    {
-        hotelName: 'Tribe Living Bangkok',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['TRIBE Essential', 'TRIBE Extra', 'TRIBE Max', 'TRIBE Studio'],
-    },
-    {
-        hotelName: 'Siam Kempinski Bangkok',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Deluxe Room', 'Deluxe Balcony Room', 'Premier Room', 'Executive Room', 'Executive Balcony Room', 'Family Suite', 'Executive Suite', 'Duplex Cabana'],
-    },
-    {
-        hotelName: 'Lancaster Bangkok',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Deluxe King', 'Deluxe Twin', 'Family Two BR (2 Adult & 1 Child)', 'Family Two BR (2 Adult & 2 Child)', 'Executive Suite King', 'Executive Suite Twin', 'Executive Apartment King', 'Executive Apartment Twin', 'Premium Suite King', 'Premium Suite Twin', 'Premium Apartment King', 'Premium Apartment Twin', 'Sky Garden Suite King', 'Sky Garden Suite Twin', 'Siam Suite King', 'Siam Suite Twin'],
-    },
-    {
-        hotelName: 'Mercure Bangkok Siam',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Superior Room', 'Deluxe Room', 'Suite Deluxe Room'],
-    },
-    {
-        hotelName: 'Wyndham Bangkok Queen Centre',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Studio King', 'Studio Executive', 'Two BR Suite'],
-    },
-    {
-        hotelName: 'Wyndham Garden Bangkok 42',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['One BR Suite', 'One BR Duplex Suite', 'Two BR Suite'],
-    },
-    {
-        hotelName: 'Ramada Plaza Bangkok 48',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Premier Room', 'One BR Premier Suite Queen'],
-    },
-    {
-        hotelName: 'Ramada Wyndham Bangkok 87',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Studio Duplex Queen', 'Studio Executive Duplex'],
-    },
-    {
-        hotelName: 'Sofitel Bangkok Sukhumvit',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Luxury Room', 'Magnifique Room', 'Luxury Club Millesime', 'Junior Suite', 'Prestige Suite', '2x Luxury Room', '2 Bedroom Suite (127 sqm)', '2 Bedroom Suite (210 sqm)', '3 Bedroom Suite (139 sqm)'],
-    },
-    {
-        hotelName: 'Pipa Bangkok Sukhumvit 11',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Deluxe Room', 'Grand Deluxe', 'Executive with Jacuzzi', 'Premier Family', 'Family Connecting'],
-    },
-    {
-        hotelName: 'Siam At Siam Design Bangkok',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Deluxe Room', 'Deluxe Corner Room', 'Deluxe Connecting', 'Studio Room'],
-    },
-    {
-        hotelName: 'The Berkeley Pratunam',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Premier Room', 'Premier Triple Room', 'Premier Family Room', 'Premier Family Bunk Bed', 'Luxury Room', 'Luxury Quadruple Suite'],
-    },
-    {
-        hotelName: 'Thaya Hotel Bangkok',
-        hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Deluxe Room', 'Thaya Executive Suite'],
-    },
-
-
-
-
-
-
-
-    /* Krabi */
-    {
-        hotelName: 'Avani Ao Nang Krabi',
-        hotelLocation: 'Krabi',
-        hotelRoomTypes: ['Avani Room', 'Avani Superior Room', 'Avani Sea View Room', 'Avani Villa', 'Avani Superior Sea View Room', 'Avani Family Suite', 'Avani Pool Villa'],
-    },
-    {
-        hotelName: 'Adam Krabi',
-        hotelLocation: 'Krabi',
-        hotelRoomTypes: ['Deluxe Pool Suite Garden View', 'Deluxe Pool Suite Mountain View', 'Deluxe Pool Suite Sea View'],
-    },
-    {
-        hotelName: 'Panan Krabi Resort',
-        hotelLocation: 'Krabi',
-        hotelRoomTypes: ['Deluxe Cliff View', 'Deluxe Pool View', 'Deluxe Sea View'],
-    },
-    {
-        hotelName: 'Sea Seeker Krabi Resort',
-        hotelLocation: 'Krabi',
-        hotelRoomTypes: ['Deluxe Mountain View', 'Deluxe Limestone Cliff View', 'Deluxe Pool View', 'Deluxe Sea View'],
-    },
-    {
-        hotelName: 'Sugar Marina Hotel CLIFFHANGER Krabi',
-        hotelLocation: 'Krabi',
-        hotelRoomTypes: ['Superior Room', 'Deluxe Room', 'Deluxe Cliff View', 'Superior Pool Access', 'Deluxe Pool Access', 'Deluxe Triple', 'Deluxe Queens'],
-    },
-    {
-        hotelName: 'Marina Express Fisherman Aonang Krabi',
-        hotelLocation: 'Krabi',
-        hotelRoomTypes: ['Deluxe Room', 'Deluxe Cliff View'],
-    },
-    {
-        hotelName: 'Ban Sainai Resort Krabi',
-        hotelLocation: 'Krabi',
-        hotelRoomTypes: ['Sainai Cottages', 'Coconut Cottages','Pano Cliff View Cottage','Triplet Premier Cottages','Sainai Forest','Grand Pond View Cottages','Family Cottage','Tropical Family Cottages','Sainai Pool Villa'],
-    },
-
-
-
-
-
-    /* Pattaya */
-    {
-        hotelName: 'Mercure Pattaya Ocean Resort',
-        hotelLocation: 'Pattaya',
-        hotelRoomTypes: ['Superior Room'],
-    },
-    {
-        hotelName: 'Renaissance Pattaya',
-        hotelLocation: 'Pattaya',
-        hotelRoomTypes: ['Guest Room', ' Guest Room Balcony', 'Guest Room Balcony Sea View'],
-    },
-    {
-        hotelName: 'Avani Pattaya Resort',
-        hotelLocation: 'Pattaya',
-        hotelRoomTypes: ['Deluxe Garden View', ' Deluxe Garden Plus', 'Deluxe Sea View', 'Deluxe Sea View Plus'],
-    },
-
-
-
-
-
-
-
-    /* Chiang Mai */
-    {
-        hotelName: 'Melia Chiang Mai',
-        hotelLocation: 'Chiang Mai',
-        hotelRoomTypes: ['Melia Room', 'Premium Room', 'The Level Premium Room'],
-    },
-    {
-        hotelName: 'Arun Khiri Chiang Mai',
-        hotelLocation: 'Chiang Mai',
-        hotelRoomTypes: ['Superior Room', 'Deluxe with Pool View', 'Grand Deluxe'],
-    },
-
-
-
-
-
-
-
-
-    /* Koh Samui */
-    {
-        hotelName: 'Melia Koh Samui',
-        hotelLocation: 'Koh Samui',
-        hotelRoomTypes: ['Deluxe Room', 'Premium Room', 'Duplex Boat Suite', 'The Level Pool Access', 'The Level Grand Suite', 'The Level Boat Suite Sea View'],
-    },
+// All company names from company_names_dropdown with their company_by_value attributes
+const companyNames = [
+    { name: "حذف", company_by_value: null },
+    { name: "اجواء السماء", company_by_value: "awa" },
+    { name: "اركان", company_by_value: "awa" },
+    { name: "ارياف", company_by_value: null },
+    { name: "اسفار الضيافة", company_by_value: "ofs" },
+    { name: "اسفاري", company_by_value: "ofs" },
+    { name: "افكار السفر", company_by_value: "ofs" },
+    { name: "الاجنحة السبعة", company_by_value: "awa" },
+    { name: "الاسطورة", company_by_value: null },
+    { name: "البتار", company_by_value: "awa" },
+    { name: "الجمان", company_by_value: "ofs" },
+    { name: "الحياة السعيدة", company_by_value: "ofs" },
+    { name: "جولدن", company_by_value: "ofs" },
+    { name: "الرحلة الذكية", company_by_value: "ofs" },
+    { name: "الزاجل", company_by_value: "awa" },
+    { name: "السيف", company_by_value: null },
+    { name: "الشافعي", company_by_value: "awa" },
+    { name: "الصفوة", company_by_value: "ofs" },
+    { name: "الصقر الاول", company_by_value: null },
+    { name: "العز", company_by_value: "ofs" },
+    { name: "العطلة الجميلة", company_by_value: "awa" },
+    { name: "الفخامة", company_by_value: null },
+    { name: "الفرسان", company_by_value: "awa" },
+    { name: "القشعمي", company_by_value: null },
+    { name: "الكنان", company_by_value: "ofs" },
+    { name: "المعالم", company_by_value: null },
+    { name: "المكان العالي", company_by_value: "ofs" },
+    { name: "الهباش", company_by_value: null },
+    { name: "انجاز الاتحاد", company_by_value: "awa" },
+    { name: "اهدافي", company_by_value: "awa" },
+    { name: "اوتاد", company_by_value: "awa" },
+    { name: "باقة سفر", company_by_value: "ofs" },
+    { name: "بن غيث", company_by_value: null },
+    { name: "بوابة الخروج", company_by_value: "awa" },
+    { name: "بوردينق", company_by_value: "ofs" },
+    { name: "بوردينق تايم", company_by_value: "ofs" },
+    { name: "تذكرة السفر", company_by_value: null },
+    { name: "ترافل", company_by_value: null },
+    { name: "ترافل جت", company_by_value: "awa" },
+    { name: "تروبيكانا", company_by_value: null },
+    { name: "تروس", company_by_value: null },
+    { name: "جزيرة العطلات", company_by_value: "ofs" },
+    { name: "جسر العالم", company_by_value: "ofs" },
+    { name: "حجوزات", company_by_value: "ofs" },
+    { name: "حجوزات داود", company_by_value: "ofs" },
+    { name: "دريم", company_by_value: "ofs" },
+    { name: "رحلتك دوت كوم", company_by_value: null },
+    { name: "رحلتكم", company_by_value: null },
+    { name: "سافر", company_by_value: "awa" },
+    { name: "سام تيكت", company_by_value: "awa" },
+    { name: "سكاي جلوبال", company_by_value: "ofs" },
+    { name: "سكاي الدولية", company_by_value: null },
+    { name: "سيدرا", company_by_value: "awa" },
+    { name: "شوف الدنيا", company_by_value: null },
+    { name: "طيار", company_by_value: "awa" },
+    { name: "عطلات", company_by_value: "ofs" },
+    { name: "عطلة صيف", company_by_value: "ofs" },
+    { name: "عناية السفر", company_by_value: "awa" },
+    { name: "عين ماليزيا", company_by_value: "ofs" },
+    { name: "فاي ان", company_by_value: null },
+    { name: "فلاي ون", company_by_value: null },
+    { name: "فلاي ويك", company_by_value: "ofs" },
+    { name: "فيد", company_by_value: "ofs" },
+    { name: "بوليفارد للسفر", company_by_value: "awa" },
+    { name: "بين القارات", company_by_value: "mst" },
+    { name: "الاجواء الذهبية", company_by_value: null },
+    { name: "رباب ترافل", company_by_value: null },
+    { name: "اميال السعادة", company_by_value: null },
+    { name: "جايدست", company_by_value: null },
+    { name: "استكشاف العالم", company_by_value: null },
+    { name: "ازمان", company_by_value: null },
+    { name: "سناب ترافل", company_by_value: null },
+    { name: "يلا ماليزيا", company_by_value: "ofs" },
+    { name: "حجوزاتي ترافل", company_by_value: null },
+    { name: "تذكرة الاحلام", company_by_value: null },
+    { name: "اكبر عالم", company_by_value: null },
+    { name: "هاني مون للسفر", company_by_value: "mst" },
+    { name: "رحلات جولان", company_by_value: null },
+    { name: "كل الاوقات", company_by_value: "awa" },
+    { name: "تجوال للسياحة", company_by_value: null },
+    { name: "الجاسر", company_by_value: null },
+    { name: "كابيتال تورس", company_by_value: "ofs" },
+    { name: "اريج العاصمة", company_by_value: null },
+    { name: "مغادر", company_by_value: "ofs" },
+    { name: "مغادرة", company_by_value: null },
+    { name: "كلاسيك", company_by_value: "ofs" },
+    { name: "كنوز السفر", company_by_value: "ofs" },
+    { name: "كيان", company_by_value: null },
+    { name: "محطات السفر", company_by_value: "ofs" },
+    { name: "سانداون تورز", company_by_value: "ofs" },
+    { name: "مداراتي", company_by_value: null },
+    { name: "مسافر الصحراء", company_by_value: "awa" },
+    { name: "مواكب", company_by_value: "awa" },
+    { name: "نور الرضا", company_by_value: "ofs" },
+    { name: "هالو بونشاك", company_by_value: "ofs" },
+    { name: "وادي السفر", company_by_value: "awa" },
+    { name: "تاج الماسة", company_by_value: null },
+    { name: "الهدف", company_by_value: "awa" },
+    { name: "اندو فور عرب", company_by_value: null },
+    { name: "طريق السفر", company_by_value: "ofs" },
+    { name: "المثالية", company_by_value: null },
+    { name: "دانه", company_by_value: "ofs" },
+    { name: "القطيف", company_by_value: "ofs" },
+    { name: "برنس السحاب", company_by_value: null },
+    { name: "مباشر", company_by_value: null },
+    { name: "الرحال العربي", company_by_value: "awa" },
+    { name: "مدن السفر", company_by_value: null },
+    { name: "ترافيلا", company_by_value: null },
+    { name: "العروب الذهبية", company_by_value: "mst" },
+    { name: "سفرية", company_by_value: null },
+    { name: "رحلتك", company_by_value: null },
+    { name: "الريام", company_by_value: null },
+    { name: "بيسان", company_by_value: "awa" },
+    { name: "ابتكار", company_by_value: "awa" },
+    { name: "نجوم السفر", company_by_value: "ofs" },
+    { name: "اركاب", company_by_value: "awa" },
+    { name: "تارجت جلوبال", company_by_value: null },
+    { name: "رحلات العالم", company_by_value: null },
+    { name: "سكاي وايز", company_by_value: "awa" },
+    { name: "الطايف", company_by_value: "ofs" },
+    { name: "اقلاع", company_by_value: "awa" },
+    { name: "اطلالة", company_by_value: "ofs" },
+    { name: "انجاز", company_by_value: "ofs" },
+    { name: "وقت الاحلام", company_by_value: "ofs" },
+    { name: "الاجازة الذهبية", company_by_value: "awa" },
+    { name: "سما المسافر", company_by_value: null },
+    { name: "سيزن ترافل", company_by_value: null },
+    { name: "وجهات", company_by_value: null },
+    { name: "موسم الرحلات", company_by_value: "ofs" },
+    { name: "مسارات العالم", company_by_value: "ofs" },
+    { name: "سرايا", company_by_value: "awa" },
+    { name: "نسايم السفر", company_by_value: "mst" },
+    { name: "بقاع العالم", company_by_value: "awa" },
+    { name: "مرتحل", company_by_value: "ofs" },
+    { name: "بيرا", company_by_value: "awa" },
+    { name: "العالي", company_by_value: "awa" },
+    { name: "ايفنتس", company_by_value: null },
+    { name: "اجنحة نجد", company_by_value: null },
+    { name: "سفريات الخليج", company_by_value: null },
+    { name: "الاجنحة العالمية", company_by_value: null },
+    { name: "اسرار الطيار", company_by_value: "ofs" },
+    { name: "المويد", company_by_value: null },
+    { name: "رحلات الرضا", company_by_value: "ofs" },
+    { name: "مهاراتي", company_by_value: null },
+    { name: "بيوتي اند دريم", company_by_value: "ofs" },
+    { name: "الرفراف", company_by_value: "ofs" },
+    { name: "لقطة سفر", company_by_value: "ofs" },
+    { name: "كون", company_by_value: null },
+    { name: "العطلات الذكية", company_by_value: null },
+    { name: "اكسي الخليج", company_by_value: "ofs" },
+    { name: "بوابة العالم", company_by_value: null },
+    { name: "اسراب طيبة", company_by_value: "ofs" },
+    { name: "اصداء العالم", company_by_value: "ofs" },
+    { name: "اغصان العليوي", company_by_value: null },
+    { name: "رحلتك 2", company_by_value: null },
+    { name: "مستقبل وطن", company_by_value: null },
+    { name: "كفو", company_by_value: null },
+    { name: "حول البلاد", company_by_value: null },
+    { name: "عطلات ربيع الخليج", company_by_value: "ofs" },
+    { name: "رفاق السفر", company_by_value: null },
+    { name: "رواد السفر", company_by_value: null },
+    { name: "مدارات الكون", company_by_value: null },
+    { name: "ترافل بوك", company_by_value: null },
+    { name: "وقت الاجازة", company_by_value: "ofs" },
+    { name: "عطار", company_by_value: null },
+    { name: "لامير", company_by_value: null },
+    { name: "اقلع معنا", company_by_value: null },
+    { name: "العنان", company_by_value: null },
+    { name: "وجهة", company_by_value: null },
+    { name: "قمة", company_by_value: "ofs" },
+    { name: "تواقة", company_by_value: null },
+    { name: "وافن", company_by_value: null },
+    { name: "جدة ايرلاينس", company_by_value: null },
+    { name: "التنظيم", company_by_value: null },
+    { name: "الجناح الجوي", company_by_value: null },
+    { name: "مدارس دار الفكر", company_by_value: null },
+    { name: "sstr", company_by_value: "ofs" },
+    { name: "دليلك", company_by_value: null },
+    { name: "ممر السعادة", company_by_value: "awa" },
+    { name: "وسام النجاح", company_by_value: "awa" },
+    { name: "مون واي", company_by_value: "awa" },
+    { name: "بصمة", company_by_value: null },
+    { name: "منطاد", company_by_value: null },
+    { name: "سكة", company_by_value: "ofs" },
+    { name: "واحا", company_by_value: "awa" },
+    { name: "خبراء للسياحة", company_by_value: null },
+    { name: "سعوديون حول العالم", company_by_value: "awa" },
+    { name: "ترافيتيل", company_by_value: null },
+    { name: "ماي فلايت", company_by_value: null },
+    { name: "سيفنتي سفن", company_by_value: "awa" },
+    { name: "نفرتاري", company_by_value: null },
+    { name: "اجنحة المطار", company_by_value: null },
+    { name: "العقيلة", company_by_value: null },
+    { name: "ايزي جو", company_by_value: null },
+    { name: "ستار بوينت", company_by_value: null },
+    { name: "يلا سافر", company_by_value: "ofs" },
+    { name: "حجوزات 2", company_by_value: null },
+    { name: "امواج", company_by_value: "ofs" },
+    { name: "الاصالة", company_by_value: null },
+    { name: "اعتزاز", company_by_value: null },
+    { name: "رحلة سفر", company_by_value: null },
+    { name: "الجولة السعيدة", company_by_value: null },
+    { name: "البريق", company_by_value: null },
+    { name: "كنوز", company_by_value: "ofs" },
+    { name: "اوفق", company_by_value: null },
+    { name: "تيرمينال", company_by_value: null },
+    { name: "متعة المسافر", company_by_value: "ofs" },
+    { name: "رحلتنا", company_by_value: null },
+    { name: "عطلات المتميز", company_by_value: "awa" },
+    { name: "سفريات الجزيرة", company_by_value: null },
+    { name: "اجياد الدولية", company_by_value: null },
+    { name: "جوي", company_by_value: "ofs" },
+    { name: "السفر جوي", company_by_value: "mst" },
+    { name: "سحابه المسافر", company_by_value: null },
+    { name: "روتانا", company_by_value: null },
+    { name: "دريم تريب", company_by_value: null },
+    { name: "لوكس تشيك", company_by_value: null },
+    { name: "الرضا انترناشونال", company_by_value: "ofs" },
+    { name: "الحجز الفوري", company_by_value: null },
+    { name: "ستار الاينس", company_by_value: null },
+    { name: "المطار بلس", company_by_value: "mst" },
+    { name: "ورلد لينكس", company_by_value: null },
+    { name: "سما العالم", company_by_value: null },
+    { name: "الزائر", company_by_value: null },
+    { name: "نطاق السفر", company_by_value: null },
+    { name: "اوقات السفر", company_by_value: "mst" },
+    { name: "الوجهة الاجمل", company_by_value: null },
+    { name: "روح السياحة", company_by_value: null },
+    { name: "تورزنس", company_by_value: null },
+    { name: "طيب الرحلات", company_by_value: null },
+    { name: "السرعة المميزة", company_by_value: null },
+    { name: "عبر الافق", company_by_value: "awa" },
+    { name: "طيف الرحلات", company_by_value: "ofs" },
+    { name: "عطلات يزن", company_by_value: "mst" },
+    { name: "رويال تايم", company_by_value: "awa" },
+    { name: "مراسي السفر", company_by_value: "ofs" },
+    { name: "اريج للسفر", company_by_value: "mst" },
+    { name: "الماروز", company_by_value: "mst" },
+    { name: "فجر الرحلات", company_by_value: "mst" },
+    { name: "الراجحي للطيران", company_by_value: "mst" },
+    { name: "اثر للسياحة", company_by_value: "mst" },
+    { name: "المشولي", company_by_value: "mst" },
+    { name: "عطلات المسافر", company_by_value: "mst" },
+    { name: "روائع السفر", company_by_value: "mst" },
+    { name: "اسيل الذهبية", company_by_value: "ofs" },
+    { name: "الغزالي للسياحة", company_by_value: "ofs" },
+    { name: "موسم الطيران", company_by_value: null },
+    { name: "ناصر ابو سرهد", company_by_value: "mst" },
+    { name: "فلاي مي", company_by_value: "mst" },
+    { name: "افاق السفر", company_by_value: "mst" },
+    { name: "افيشنت تورزم", company_by_value: "mst" },
+    { name: "فورمولا", company_by_value: "mst" },
+    { name: "مدار للسفر", company_by_value: null },
+    { name: "فرسان اسيا", company_by_value: "mst" },
+    { name: "لوكسري هوليدايس", company_by_value: "awa" },
+    { name: "سفر تريب", company_by_value: "ofs" },
+    { name: "مساعد للعطلات", company_by_value: "mst" },
+    { name: "توب تريب", company_by_value: "ofs" },
+    { name: "فيجن للسفر", company_by_value: "ofs" },
+    { name: "وجهة المسافر", company_by_value: "mst" },
+    { name: "ibs", company_by_value: null }
 ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// All hotel names from all_hotel_names_dropdown
+const hotelNames = [
+    "lyf Sukhumvit 8 Bangkok",
+    "Oakwood Studios Sukhumvit",
+    "Sindhorn Midtown Bangkok",
+    "Ascott Thonglor Bangkok",
+    "Valia Hotel Bangkok",
+    "Hilton Garden Inn Bangkok Silom",
+    "Hotel Indigo Bangkok Wireless Road",
+    "Avista Grande Phuket Karon",
+    "Avista Hideaway Phuket Patong",
+    "Diamond Cliff Resort",
+    "Holiday Inn Express Phuket",
+    "Homm Bliss Southbeach Patong",
+    "Indigo Phuket Patong",
+    "Kalima Resort Phuket",
+    "Keemala Phuket",
+    "Movenpick Myth Phuket",
+    "Movenpick Bangtao Beach Phuket",
+    "Noku Phuket",
+    "Novotel Phuket Kata Avista",
+    "Oceanfront Beach Resort Phuket",
+    "Saii Laguna Phuket",
+    "Sinae Phuket Luxury Hotel",
+    "Sri Panwa Phuket",
+    "The Kee Resort",
+    "The Nai Harn Phuket",
+    "The Naka Island Luxury Phuket",
+    "The Naka Hotels Phuket",
+    "The Nature Phuket",
+    "The SIS Kata Resort",
+    "Glow Mira Karon Beach",
+    "Dinso Resort Phuket",
+    "Grand Mercure Phuket",
+    "Avani Ao Nang Krabi",
+    "Msocial Hotel Phuket",
+    "Ayara Kamala Resort",
+    "Centara Karon Resort Phuket",
+    "Crest Resort Phuket",
+    "The Royal Paradise Hotel",
+    "Wyndham Bangkok Queen Centre",
+    "Wyndham Garden Bangkok 42",
+    "Ramada Plaza Bangkok 48",
+    "Ramada Wyndham Bangkok 87",
+    "Rawayana Central Park Villas",
+    "Hyatt Regency Phuket",
+    "Namaka Resort Kamala",
+    "Phuket Emerald Beach Resort",
+    "Dusit Thani Laguna Phuket",
+    "Adam Krabi",
+    "Panan Krabi Resort",
+    "Sea Seeker Krabi Resort",
+    "Bandara Pool Villas Phuket",
+    "Bandara Beach Resort Phuket",
+    "Bandara Silom Suites Bangkok",
+    "Andara Resort Villas Phuket",
+    "Amari Bangkok",
+    "Ascott Embassy Bangkok",
+    "Sunsuri Phuket",
+    "Marina Gallery Resort Phuket",
+    "Katathani Phuket Beach Resort",
+    "The Shore Katathani Phuket",
+    "Marina Gallery KACHA Phuket",
+    "Sugar Marina Art Karon Phuket",
+    "Sugar Marina Fashion Phuket",
+    "Sugar Marina SURF Phuket",
+    "Sugar Marina POP Phuket",
+    "Sugar Marina Villas Phuket",
+    "Sugar Marina Hotel AVIATOR Phuket",
+    "Marina MUAYTHAI Ta-iad Phuket",
+    "Sugar Marina Hotel CLIFFHANGER Krabi",
+    "Marina Express Fisherman Aonang Krabi",
+    "Amari Phuket",
+    "Anantara Mai Khao Phuket Villas",
+    "Nysa Hotel Bangkok",
+    "Tantawan Villa Resort Phuket",
+    "Melia Chiang Mai",
+    "Melia Koh Samui",
+    "Anantara Layan Phuket Resort",
+    "Innside By Melia Bangkok",
+    "Wyndham Phuket Kalim Bay",
+    "Mida Grande Resort Phuket",
+    "Tribe Living Bangkok",
+    "Siam Kempinski Bangkok",
+    "Phuket Emerald Beach",
+    "Radisson Red Phuket",
+    "Tribe Phuket Patong",
+    "Lancaster Bangkok",
+    "Mercure Pattaya Ocean Resort",
+    "Renaissance Pattaya",
+    "Mercure Bangkok Siam",
+    "Sofitel Bangkok Sukhumvit",
+    "Ozo Phuket",
+    "Pipa Bangkok Sukhumvit 11",
+    "Panwaburi Beachfront Resort Phuket",
+    "Siam At Siam Design Bangkok",
+    "The Berkeley Pratunam",
+    "Paresa Resort Phuket",
+    "The Charm Resort Phuket",
+    "Barcelo Coconut Island",
+    "Seabed Grand Phuket",
+    "The Westin Siray Bay Resort",
+    "Baba Beach Club Natai",
+    "My Beach Resort Phuket",
+    "Pamookkoo Resort",
+    "Phuket Orchid Resort",
+    "Avani Pattaya Resort",
+    "Hotel Clover Phuket",
+    "Arun Khiri Chiang Mai",
+    "Ban Sainai Resort Krabi",
+    "Jasmine 59 Hotel",
+    "Jasmine Resort Bangkok",
+
+
+
+
+    "Thaya Hotel Bangkok"
+];
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Export the arrays (if using modules)
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        companyNames,
+        hotelNames
+    };
+}
