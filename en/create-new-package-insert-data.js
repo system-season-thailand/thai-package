@@ -1222,9 +1222,9 @@ createAllFlightDataFunction = function () {
                     <div>
                         <p id="flight_adult_person_amount_${insertedFlightDataDivUniqueId}">
                             ${totalPeople <= 1
-                            ? `${totalPeople} Adult`
-                            : `${totalPeople} Adults`
-                            }
+                        ? `${totalPeople} Adult`
+                        : `${totalPeople} Adults`
+                    }
                         </p>
                         ${infantAmount ? `<p id="flight_infant_person_amount_${insertedFlightDataDivUniqueId}">${infantAmount}</p>` : ''}
                     </div>
@@ -1777,9 +1777,9 @@ manuallyCreateNewFlightRow = function () {
         <div>
             <p id="flight_adult_person_amount_${insertedFlightDataDivUniqueId}">
                 ${totalPeople <= 1
-                ? `${totalPeople} Adult`
-                : `${totalPeople} Adults`
-                }
+            ? `${totalPeople} Adult`
+            : `${totalPeople} Adults`
+        }
             </p>
             ${infantAmount ? `<p id="flight_infant_person_amount_${insertedFlightDataDivUniqueId}">${infantAmount}</p>` : ''}
         </div>
@@ -2647,9 +2647,9 @@ createHotelsDataFunction = function () {
                     <div>
                         <p id="flight_adult_person_amount_${insertedFlightDataDivUniqueId}">
                             ${totalPeople <= 1
-                            ? `${totalPeople} Adult`
-                            : `${totalPeople} Adults`
-                            }
+                        ? `${totalPeople} Adult`
+                        : `${totalPeople} Adults`
+                    }
                         </p>
                             ${infantAmount ? `<p id="flight_infant_person_amount_${insertedFlightDataDivUniqueId}">${infantAmount}</p>` : ''}
                         </div>
@@ -3177,10 +3177,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
 
 
-    /* Make sure to get the close sell data by running the 'handleHotelNameInputClick */
-    fetchAllCloseSellDataFunction_Supabase();
-
-
 
 
     /* Make sure the correct section is the one that is visiable */
@@ -3412,6 +3408,8 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
 
 
+    /* Make sure to get the close sell data by running the 'handleHotelNameInputClick */
+    fetchAllCloseSellDataFunction_Supabase();
 
 
 
@@ -4162,7 +4160,7 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                             ${totalPeople <= 1
                             ? `${totalPeople} Adult`
                             : `${totalPeople} Adults`
-                            }
+                        }
                         </p>
                         ${infantAmount ? `<p id="flight_infant_person_amount_${insertedFlightDataDivUniqueId}">${infantAmount}</p>` : ''}
                     </div>
