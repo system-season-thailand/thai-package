@@ -510,6 +510,11 @@ let allHotelDataArray = [
         hotelLocation: 'Bangkok',
         hotelRoomTypes: ['Jasmine Deluxe', 'Premier Conner','Sky Bay Suite One BR','Spa Residential Suite One BR','Pool Residential Suite One BR'],
     },
+    {
+        hotelName: 'Oakwood Sukhumvit Thonglor',
+        hotelLocation: 'Bangkok',
+        hotelRoomTypes: ['Studio Deluxe', 'One BR Deluxe','Two BR Deluxe','Three BR Deluxe'],
+    },
 
 
 
