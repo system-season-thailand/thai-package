@@ -403,6 +403,7 @@ const hotelNames = [
     "Ban Sainai Resort Krabi",
     "Jasmine 59 Hotel",
     "Jasmine Resort Bangkok",
+    "Oakwood Sukhumvit Thonglor",
 
 
 
@@ -429,4 +430,3 @@ if (typeof module !== 'undefined' && module.exports) {
         hotelNames
     };
 }
-
