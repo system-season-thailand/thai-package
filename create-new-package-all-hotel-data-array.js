@@ -520,6 +520,11 @@ let allHotelDataArray = [
         hotelLocation: 'Bangkok',
         hotelRoomTypes: ['Studio Deluxe', 'One BR Deluxe', 'Two BR Deluxe', 'Three BR Deluxe'],
     },
+    {
+        hotelName: 'Grande Centre Point Ratchadamri',
+        hotelLocation: 'Bangkok',
+        hotelRoomTypes: ['Grand Deluxe', 'Grand Suite'],
+    },
 
 
 
