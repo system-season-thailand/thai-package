@@ -370,7 +370,17 @@ let allHotelDataArray = [
     {
         hotelName: 'Splash Beach Resort',
         hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Twin no Balcony', 'Deluxe Twin with Balcony', 'Deluxe King with Balcony', 'Executive King No Balcony', 'Executive King with Balcony', 'Deluxe Double no Balcony', 'Executive Double No Balcony', 'Deluxe Double with Balcony', 'Executive Double with Balcony', 'One BR Family Suite no Balcony', 'Executive One BR Family Suite No Balcony', 'One BR Family Suite with Balcony', 'Executive One BR Family Suite with Balcony', 'One BR Suite with Kitchen no Balcony', 'Executive One BR Suite No Balcony', 'One BR Suite with Kitchen with Balcony', 'Tow BR Suite with Kitchen with Balcony', 'One BR Residence no Balcony', 'One BR Residence with Balcony', 'One BR Residence with Kitchen and Balcony', 'Two BR Residence with Balcony', 'Two BR Residence with Kitchen and Balcony', 'Three BR Residence with Balcony', 'Two BR Penthouse Pool Suite', 'Three BR Penthouse Pool Suite','Three BR Penthouse Pool Suite with Kitchen','Four BR Penthouse Pool Suite with Kitchen','Two BR Villa with Pool'],
+        hotelRoomTypes: ['Deluxe Twin no Balcony', 'Deluxe Twin Balcony', 'Deluxe King Balcony', 'Executive King No Balcony', 'Executive King Balcony', 'Deluxe Double no Balcony', 'Executive Double No Balcony', 'Deluxe Double with Balcony', 'Executive Double with Balcony', 'One BR Family Suite no Balcony', 'Executive One BR Family Suite No Balcony', 'One BR Family Suite Balcony', 'Executive One BR Family Suite Balcony', 'One BR Suite with Kitchen no Balcony', 'Executive One BR Suite No Balcony', 'One BR Suite with Kitchen with Balcony', 'Tow BR Suite Kitchen with Balcony', 'One BR Residence no Balcony', 'One BR Residence Balcony', 'One BR Residence Kitchen and Balcony', 'Two BR Residence Balcony', 'Two BR Residence with Kitchen and Balcony', 'Three BR Residence Balcony', 'Two BR Penthouse Pool Suite', 'Three BR Penthouse Pool Suite', 'Three BR Penthouse Pool Suite Kitchen', 'Four BR Penthouse Pool Suite Kitchen', 'Two BR Villa Pool'],
+    },
+    {
+        hotelName: 'Andaman Beach Hotel Phuket',
+        hotelLocation: 'Phuket',
+        hotelRoomTypes: ['Classic Balcony Garden View', 'Superior Balcony Pool View', 'Deluxe Balcony Sea View', 'Junior Suite Balcony Pool View', 'Suite Balcony Sea View'],
+    },
+    {
+        hotelName: 'The Aim Patong',
+        hotelLocation: 'Phuket',
+        hotelRoomTypes: ['Superior Room', 'Deluxe Room'],
     },
 
 
