@@ -367,6 +367,11 @@ let allHotelDataArray = [
         hotelLocation: 'Phuket',
         hotelRoomTypes: ['Superior Balcony', 'Premier Balcony', 'Deluxe Studio', 'Deluxe Family', 'Deluxe Jacuzzi'],
     },
+    {
+        hotelName: 'Splash Beach Resort',
+        hotelLocation: 'Phuket',
+        hotelRoomTypes: ['Deluxe Twin no Balcony', 'Deluxe Twin with Balcony', 'Deluxe King with Balcony', 'Executive King No Balcony', 'Executive King with Balcony', 'Deluxe Double no Balcony', 'Executive Double No Balcony', 'Deluxe Double with Balcony', 'Executive Double with Balcony', 'One BR Family Suite no Balcony', 'Executive One BR Family Suite No Balcony', 'One BR Family Suite with Balcony', 'Executive One BR Family Suite with Balcony', 'One BR Suite with Kitchen no Balcony', 'Executive One BR Suite No Balcony', 'One BR Suite with Kitchen with Balcony', 'Tow BR Suite with Kitchen with Balcony', 'One BR Residence no Balcony', 'One BR Residence with Balcony', 'One BR Residence with Kitchen and Balcony', 'Two BR Residence with Balcony', 'Two BR Residence with Kitchen and Balcony', 'Three BR Residence with Balcony', 'Two BR Penthouse Pool Suite', 'Three BR Penthouse Pool Suite','Three BR Penthouse Pool Suite with Kitchen','Four BR Penthouse Pool Suite with Kitchen','Two BR Villa with Pool'],
+    },
 
 
 
@@ -503,17 +508,17 @@ let allHotelDataArray = [
     {
         hotelName: 'Jasmine 59 Hotel',
         hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Deluxe Room', 'Deluxe Premium','Junior Suite One BR','Triple Two BR Suite','Exclusive Two BR Suite'],
+        hotelRoomTypes: ['Deluxe Room', 'Deluxe Premium', 'Junior Suite One BR', 'Triple Two BR Suite', 'Exclusive Two BR Suite'],
     },
     {
         hotelName: 'Jasmine Resort Bangkok',
         hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Jasmine Deluxe', 'Premier Conner','Sky Bay Suite One BR','Spa Residential Suite One BR','Pool Residential Suite One BR'],
+        hotelRoomTypes: ['Jasmine Deluxe', 'Premier Conner', 'Sky Bay Suite One BR', 'Spa Residential Suite One BR', 'Pool Residential Suite One BR'],
     },
     {
         hotelName: 'Oakwood Sukhumvit Thonglor',
         hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Studio Deluxe', 'One BR Deluxe','Two BR Deluxe','Three BR Deluxe'],
+        hotelRoomTypes: ['Studio Deluxe', 'One BR Deluxe', 'Two BR Deluxe', 'Three BR Deluxe'],
     },
 
 
@@ -556,7 +561,7 @@ let allHotelDataArray = [
     {
         hotelName: 'Ban Sainai Resort Krabi',
         hotelLocation: 'Krabi',
-        hotelRoomTypes: ['Sainai Cottages', 'Coconut Cottages','Pano Cliff View Cottage','Triplet Premier Cottages','Sainai Forest','Grand Pond View Cottages','Family Cottage','Tropical Family Cottages','Sainai Pool Villa'],
+        hotelRoomTypes: ['Sainai Cottages', 'Coconut Cottages', 'Pano Cliff View Cottage', 'Triplet Premier Cottages', 'Sainai Forest', 'Grand Pond View Cottages', 'Family Cottage', 'Tropical Family Cottages', 'Sainai Pool Villa'],
     },
 
 
