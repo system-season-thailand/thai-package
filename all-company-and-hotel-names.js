@@ -407,6 +407,8 @@ const hotelNames = [
     "Jasmine 59 Hotel",
     "Jasmine Resort Bangkok",
     "Oakwood Sukhumvit Thonglor",
+    "Splash Beach Resort",
+    "Grande Centre Point Ratchadamri",
 
 
 
