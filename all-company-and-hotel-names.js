@@ -417,6 +417,9 @@ const hotelNames = [
     "Grande Centre Point Ratchadamri",
     "Andaman Beach Hotel Phuket",
     "The Aim Patong",
+    "Chanalai Garden Resort",
+    "Chanalai Flora Resort",
+    "Chanalai Romantica Resort",
 
 
 
