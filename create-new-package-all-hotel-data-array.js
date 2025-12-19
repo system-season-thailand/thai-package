@@ -382,6 +382,21 @@ let allHotelDataArray = [
         hotelLocation: 'Phuket',
         hotelRoomTypes: ['Superior Room', 'Deluxe Room'],
     },
+    {
+        hotelName: 'Chanalai Garden Resort',
+        hotelLocation: 'Phuket',
+        hotelRoomTypes: ['Superior Garden View', 'Deluxe Seaview'],
+    },
+    {
+        hotelName: 'Chanalai Flora Resort',
+        hotelLocation: 'Phuket',
+        hotelRoomTypes: ['Superior Room', 'Deluxe Pool View', 'Grand Deluxe Room'],
+    },
+    {
+        hotelName: 'Chanalai Romantica Resort',
+        hotelLocation: 'Phuket',
+        hotelRoomTypes: ['Superior Pool View', 'Deluxe Pool View'],
+    },
 
 
 
