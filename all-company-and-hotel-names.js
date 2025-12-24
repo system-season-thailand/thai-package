@@ -420,6 +420,7 @@ const hotelNames = [
     "Chanalai Garden Resort",
     "Chanalai Flora Resort",
     "Chanalai Romantica Resort",
+    "Jasmine Grande Residence",
 
 
 
