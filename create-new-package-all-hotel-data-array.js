@@ -550,6 +550,11 @@ let allHotelDataArray = [
         hotelLocation: 'Bangkok',
         hotelRoomTypes: ['Grand Deluxe', 'Grand Suite'],
     },
+    {
+        hotelName: 'Jasmine Grande Residence',
+        hotelLocation: 'Bangkok',
+        hotelRoomTypes: ['Deluxe Room', 'Junior Suite One BR', 'Triple Suite Two BR', 'Family Suite Two BR', 'Grande Suite Three BR'],
+    },
 
 
 
