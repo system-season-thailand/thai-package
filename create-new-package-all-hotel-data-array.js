@@ -138,7 +138,7 @@ let allHotelDataArray = [
     {
         hotelName: 'Msocial Hotel Phuket',
         hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Social Room', 'Social Cozy Room','Social Afterglow Wing with Balcony','Stylish Sunkissed Wing with Balcony']
+        hotelRoomTypes: ['Social Room', 'Social Cozy Room','Social Afterglow Wing with Balcony','Stylish Sunkissed Wing with Balcony'],
     },
     {
         hotelName: 'Ayara Kamala Resort',
