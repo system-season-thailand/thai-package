@@ -138,7 +138,7 @@ let allHotelDataArray = [
     {
         hotelName: 'Msocial Hotel Phuket',
         hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Social Room', 'Social Cozy Room','Social Afterglow Wing with Balcony','Stylish Sunkissed Wing with Balcony'],
+        hotelRoomTypes: ['Social Room', 'Social Cozy Room', 'Social Afterglow Wing with Balcony', 'Stylish Sunkissed Wing with Balcony'],
     },
     {
         hotelName: 'Ayara Kamala Resort',
@@ -636,6 +636,11 @@ let allHotelDataArray = [
         hotelName: 'Arun Khiri Chiang Mai',
         hotelLocation: 'Chiang Mai',
         hotelRoomTypes: ['Superior Room', 'Deluxe with Pool View', 'Grand Deluxe'],
+    },
+    {
+        hotelName: 'Novotel Chiang Mai',
+        hotelLocation: 'Chiang Mai',
+        hotelRoomTypes: ['Superior Balcony', 'Deluxe', 'Deluxe with Terrace', 'Executive', 'Junior Suite with Mountain View'],
     },
 
 
