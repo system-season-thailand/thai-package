@@ -411,6 +411,8 @@ const hotelNames = [
     "Avani Pattaya Resort",
     "Hotel Clover Phuket",
     "Arun Khiri Chiang Mai",
+    "ibis Chiang Mai",
+    "Novotel Chiang Mai",
     "Ban Sainai Resort Krabi",
     "Jasmine 59 Hotel",
     "Jasmine Resort Bangkok",
