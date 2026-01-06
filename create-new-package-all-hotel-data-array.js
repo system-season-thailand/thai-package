@@ -642,6 +642,11 @@ let allHotelDataArray = [
         hotelLocation: 'Chiang Mai',
         hotelRoomTypes: ['Superior Balcony', 'Deluxe', 'Deluxe with Terrace', 'Executive', 'Junior Suite with Mountain View'],
     },
+    {
+        hotelName: 'ibis Chiang Mai',
+        hotelLocation: 'Chiang Mai',
+        hotelRoomTypes: ['Standard Room'],
+    },
 
 
 
