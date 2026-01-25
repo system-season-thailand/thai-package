@@ -397,6 +397,11 @@ let allHotelDataArray = [
         hotelLocation: 'Phuket',
         hotelRoomTypes: ['Superior Pool View', 'Deluxe Pool View'],
     },
+    {
+        hotelName: 'Fisherman Way Beach Villa',
+        hotelLocation: 'Phuket',
+        hotelRoomTypes: ['One BR Seafront Penthouse Jacuzzi', 'Two BR Seafront Penthouse Jacuzzi','Three BR Seafront Pool Suite','Three BR Beachfront Infinity Pool Villa','Three BR Signature Beachfront Pool Villa','Four BR Villa Partial Seaview','Four BR Beachfront Pool Villa','Ten BR Pool Villa in the Garden','Nine BR Private Pool Villa by the Beach'],
+    },
 
 
 
@@ -597,6 +602,11 @@ let allHotelDataArray = [
         hotelName: 'Ban Sainai Resort Krabi',
         hotelLocation: 'Krabi',
         hotelRoomTypes: ['Sainai Cottages', 'Coconut Cottages', 'Pano Cliff View Cottage', 'Triplet Premier Cottages', 'Sainai Forest', 'Grand Pond View Cottages', 'Family Cottage', 'Tropical Family Cottages', 'Sainai Pool Villa'],
+    },
+    {
+        hotelName: 'Dusit Thani Krabi Resort',
+        hotelLocation: 'Krabi',
+        hotelRoomTypes: ['Deluxe Room', 'Deluxe Sea Facing', 'Deluxe Premium'],
     },
 
 
