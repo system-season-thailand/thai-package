@@ -279,6 +279,7 @@ const companyNames = [
     { name: "سيال للسياحة", company_by_value: "mst" },
     { name: "كريسمار للسفر", company_by_value: "awa" },
     { name: "تريب كابتن", company_by_value: "awa" },
+    { name: "مار المدينة", company_by_value: "mst" },
     { name: "الميادين للسفر", company_by_value: null },
     { name: "ibs", company_by_value: null }
 ];
@@ -430,6 +431,8 @@ const hotelNames = [
     "Chanalai Flora Resort",
     "Chanalai Romantica Resort",
     "Jasmine Grande Residence",
+    "Fisherman Way Beach Villa",
+    "Dusit Thani Krabi Resort",
 
 
 
