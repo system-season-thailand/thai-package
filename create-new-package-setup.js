@@ -1,8 +1,8 @@
 /* Function to prevent the page refresh by mistake */
-window.addEventListener('beforeunload', function (event) {
+/* window.addEventListener('beforeunload', function (event) {
     event.preventDefault(); // Prevent the default action
     event.returnValue = ''; // Set the return value to trigger the default browser confirmation dialog
-});
+}); */
 
 
 
@@ -2006,40 +2006,85 @@ let createRoomTypeDescripyionDropDown = function () {
 
 
 
-// Variable to track the last clicked input field for special room requests
+// Variable to track the last clicked input field
 let lastClickedSpecialRoomRequestInput = null;
 
-// Add event listeners to track the last clicked input
-document.getElementById('hotel_special_room_request_input_id').addEventListener('click', function () {
-    lastClickedSpecialRoomRequestInput = this;
-});
+// Track last clicked input
+document.getElementById('hotel_special_room_request_input_id')
+    .addEventListener('click', function () {
+        lastClickedSpecialRoomRequestInput = this;
+    });
 
-document.getElementById('hotel_special_room_request_input_id_2').addEventListener('click', function () {
-    lastClickedSpecialRoomRequestInput = this;
-});
+document.getElementById('hotel_special_room_request_input_id_2')
+    .addEventListener('click', function () {
+        lastClickedSpecialRoomRequestInput = this;
+    });
 
-/* Function to run the dropdown functionality for special room request */
-// Get the options within the dropdown
-let specialRoomRequestInputOptions = document.querySelectorAll('#special_room_request_dropdown h3');
+// Get dropdown options
+let specialRoomRequestInputOptions =
+    document.querySelectorAll('#special_room_request_dropdown h3');
 
+/* Clear selection state */
+function clearSpecialRoomRequestSelection() {
+    specialRoomRequestInputOptions.forEach(h =>
+        h.classList.remove('special_room_request_h3_selected')
+    );
+}
+
+/* Auto-select based on input value */
+function applySpecialRoomRequestSelectionFromInputValue() {
+    clearSpecialRoomRequestSelection();
+    if (!lastClickedSpecialRoomRequestInput) return;
+
+    const inputVal = (lastClickedSpecialRoomRequestInput.value || '').trim();
+    if (!inputVal) return;
+
+    const parts = inputVal
+        .split(/\s*\+\s*/)
+        .map(s => s.trim())
+        .filter(Boolean);
+
+    specialRoomRequestInputOptions.forEach(h => {
+        if (parts.includes(h.textContent.trim())) {
+            h.classList.add('special_room_request_h3_selected');
+        }
+    });
+}
+
+/* Toggle selection on click */
 specialRoomRequestInputOptions.forEach(option => {
     option.addEventListener('click', () => {
-
-        // Play a sound effect
         playSoundEffect('click');
-
-
-        if (option.textContent === 'حذف') {
-            lastClickedSpecialRoomRequestInput.value = '';
-
-        } else {
-            lastClickedSpecialRoomRequestInput.value = `+ ${option.textContent}`;
-
-        }
-
-        hideOverlay(); // Hide overlay after selection
+        option.classList.toggle('special_room_request_h3_selected');
     });
 });
+
+/* Confirm button */
+const specialRoomRequestConfirmBtn =
+    document.getElementById('special_room_request_confirm_btn_id');
+
+if (specialRoomRequestConfirmBtn) {
+    specialRoomRequestConfirmBtn.addEventListener('click', () => {
+        playSoundEffect('success');
+
+        const selected = document.querySelectorAll(
+            '#special_room_request_dropdown h3.special_room_request_h3_selected'
+        );
+
+        const texts = Array.from(selected).map(h =>
+            h.textContent.trim()
+        );
+
+
+        if (lastClickedSpecialRoomRequestInput) {
+            lastClickedSpecialRoomRequestInput.value = texts.join(' + ');
+        }
+
+        clearSpecialRoomRequestSelection();
+        hideOverlay();
+    });
+}
+
 
 
 
@@ -2890,13 +2935,24 @@ function formatDate(date) {
 
 
 // Function to show the overlay
-function showOverlay(clickedInputDropdownIdName) {
+// sourceInputElement: optional; when opening 'special_room_request_dropdown', pass the input that was clicked so the correct value is used for auto-selection
+function showOverlay(clickedInputDropdownIdName, sourceInputElement) {
 
     // Disable scrolling
     document.documentElement.style.overflow = 'hidden';
 
 
     let clickedInputDropdown = document.getElementById(clickedInputDropdownIdName);
+
+    // When opening special room request dropdown: use the clicked input (passed explicitly) so we always use the right one
+    if (clickedInputDropdownIdName === 'special_room_request_dropdown') {
+        if (sourceInputElement && (sourceInputElement.id === 'hotel_special_room_request_input_id' || sourceInputElement.id === 'hotel_special_room_request_input_id_2')) {
+            lastClickedSpecialRoomRequestInput = sourceInputElement;
+        }
+        if (typeof applySpecialRoomRequestSelectionFromInputValue === 'function') {
+            applySpecialRoomRequestSelectionFromInputValue();
+        }
+    }
 
     // Store the reference to the last clicked input field
     lastClickedClintMovementsCityInput = document.getElementById(event.target.id);
