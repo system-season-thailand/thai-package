@@ -1,8 +1,8 @@
 /* Function to prevent the page refresh by mistake */
-/* window.addEventListener('beforeunload', function (event) {
+window.addEventListener('beforeunload', function (event) {
     event.preventDefault(); // Prevent the default action
     event.returnValue = ''; // Set the return value to trigger the default browser confirmation dialog
-}); */
+});
 
 
 
@@ -2072,12 +2072,12 @@ if (specialRoomRequestConfirmBtn) {
         );
 
         const texts = Array.from(selected).map(h =>
-            h.textContent.trim()
+            `+ ${h.textContent.trim()}`
         );
 
 
         if (lastClickedSpecialRoomRequestInput) {
-            lastClickedSpecialRoomRequestInput.value = texts.join(' + ');
+            lastClickedSpecialRoomRequestInput.value = texts.join(' ');
         }
 
         clearSpecialRoomRequestSelection();
