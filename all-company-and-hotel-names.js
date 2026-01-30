@@ -281,6 +281,8 @@ const companyNames = [
     { name: "تريب كابتن", company_by_value: "awa" },
     { name: "مار المدينة", company_by_value: "mst" },
     { name: "الوجهة الاولى", company_by_value: "mst" },
+    { name: "ملاذ للسفر والسياحة", company_by_value: "mst" },
+    { name: "لوكسري ترافل", company_by_value: "mst" },
     { name: "الميادين للسفر", company_by_value: null },
     { name: "ibs", company_by_value: null }
 ];
