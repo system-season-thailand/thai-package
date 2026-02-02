@@ -289,6 +289,7 @@ const companyNames = [
     { name: "بلاتينيوم للسفر", company_by_value: "mst" },
     { name: "تذكرة دوت كوم", company_by_value: "mst" },
     { name: "ترافل يلا", company_by_value: "mst" },
+    { name: "ماي تيكت", company_by_value: "mst" },
     { name: "رحلة", company_by_value: null },
     { name: "اميال المتحدة", company_by_value: null },
     { name: "حفاوة المسافرون", company_by_value: null },
