@@ -19,7 +19,7 @@ const hotelMessageInfoArray = [
     },
     {
         hotelName: "Andara Resort Villas Phuket",
-        messageInfo_p1: "حجز 3 ليالي او أكثر = عشاء عائلي مشجاني في مطعم سيلك",
+        messageInfo_p1: "حجز 3 ليالي او أكثر = عشاء عائلي في مطعم سيلك",
         messageInfo_p2: "صالح للإستخدام الى 31 اكتوبر 2025",
     },
     {
@@ -57,5 +57,20 @@ const hotelMessageInfoArray = [
     {
         hotelName: "Namaka Resort Kamala",
         messageInfo_p1: "ناماكا الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
+    },
+    {
+        hotelName: "Tantawan Villa Resort Phuket",
+        messageInfo_p1: "حجز ليلتين او أكثر",
+        messageInfo_p2: "إفطار عائم لمرة واحدة لشخصين",
+        messageInfo_p3: "اذا حجزت 4 ليالي راح تدفع حق 3 ليالي فقط",
+        messageInfo_p4: "صالح للإستخدام الى 30 ابريل 2026",
+    },
+    {
+        hotelName: "The Nai Harn Phuket",
+        messageInfo_p1: "حجز ثلاث ليالي او أكثر",
+        messageInfo_p2: "فري ابجريد من من جراند اوشن الى اوشن فيو سويت",
+        messageInfo_p3: "تزيين ورد رومنسي على السرير",
+        messageInfo_p4: "ملاحظة: لازم يكون عندهم شهادة اثبات الزواج",
+        messageInfo_p5: "صالح للإستخدام الى 30 ابريل 2026",
     },
 ];
