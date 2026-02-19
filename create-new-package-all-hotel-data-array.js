@@ -608,6 +608,16 @@ let allHotelDataArray = [
         hotelLocation: 'Krabi',
         hotelRoomTypes: ['Deluxe Room', 'Deluxe Sea Facing', 'Deluxe Premium'],
     },
+    {
+        hotelName: 'Deevana Krabi Resort',
+        hotelLocation: 'Krabi',
+        hotelRoomTypes: ['Standard Room', 'Grand Deluxe Room'],
+    },
+    {
+        hotelName: 'Deevana Plaza Krabi Aonang',
+        hotelLocation: 'Krabi',
+        hotelRoomTypes: ['Deluxe Room', 'Premier Room'],
+    },
 
 
 
