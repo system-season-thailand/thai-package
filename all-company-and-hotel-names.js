@@ -470,6 +470,7 @@ const hotelNames = [
     "Jasmine Grande Residence",
     "Fisherman Way Beach Villa",
     "Dusit Thani Krabi Resort",
+    "La Green Hotel Residence",
 
 
 
