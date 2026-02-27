@@ -402,6 +402,11 @@ let allHotelDataArray = [
         hotelLocation: 'Phuket',
         hotelRoomTypes: ['One BR Seafront Penthouse Jacuzzi', 'Two BR Seafront Penthouse Jacuzzi','Three BR Seafront Pool Suite','Three BR Beachfront Infinity Pool Villa','Three BR Signature Beachfront Pool Villa','Four BR Villa Partial Seaview','Four BR Beachfront Pool Villa','Ten BR Pool Villa in the Garden','Nine BR Private Pool Villa by the Beach'],
     },
+    {
+        hotelName: 'La Green Hotel Residence',
+        hotelLocation: 'Phuket',
+        hotelRoomTypes: ['Deluxe Room', 'Studio Room','La Green Junior Suite','La Green Junior Suite Two BR'],
+    },
 
 
 
@@ -557,6 +562,11 @@ let allHotelDataArray = [
     },
     {
         hotelName: 'Jasmine Grande Residence',
+        hotelLocation: 'Bangkok',
+        hotelRoomTypes: ['Deluxe Room', 'Deluxe Exclusive', 'Junior Suite One BR', 'Triple Suite Two BR', 'Family Suite Two BR', 'Grande Suite Three BR'],
+    },
+    {
+        hotelName: 'Novotel Bangkok Siam',
         hotelLocation: 'Bangkok',
         hotelRoomTypes: ['Deluxe Room', 'Deluxe Exclusive', 'Junior Suite One BR', 'Triple Suite Two BR', 'Family Suite Two BR', 'Grande Suite Three BR'],
     },
