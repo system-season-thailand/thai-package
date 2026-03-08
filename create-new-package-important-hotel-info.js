@@ -47,10 +47,6 @@ const hotelMessageInfoArray = [
         messageInfo_p1: "دوسيت ثاني الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
     },
     {
-        hotelName: "Dusit Thani Laguna Phuket",
-        messageInfo_p1: "دوسيت ثاني الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
-    },
-    {
         hotelName: "Saii Laguna Phuket",
         messageInfo_p1: "ساي لاجونا الشخص الي عمره 12 سنة وفوق يعتبر بالغ",
     },
@@ -72,5 +68,12 @@ const hotelMessageInfoArray = [
         messageInfo_p3: "تزيين ورد رومنسي على السرير",
         messageInfo_p4: "ملاحظة: لازم يكون عندهم شهادة اثبات الزواج",
         messageInfo_p5: "صالح للإستخدام الى 30 ابريل 2026",
+    },
+    {
+        hotelName: "Sri Panwa Phuket",
+        messageInfo_p1: "حجز ليلتين او أكثر في يايا بول سويت اوشن",
+        messageInfo_p3: "تزيين ورد في الغرفة",
+        messageInfo_p4: "ملاحظة: يايا سويت اوشن مايقبل سرير اضافي",
+        messageInfo_p5: "صالح للإستخدام الى 31 أكتوبر 2027",
     },
 ];
