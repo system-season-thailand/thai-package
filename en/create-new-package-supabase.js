@@ -23,7 +23,8 @@ async function sendDataToSupabase() {
             // Last month parsing (English only)
             const rawDate = document.getElementById("whole_package_end_date_input_id")?.value.trim();
             const parts = rawDate.split(" ").filter(Boolean);
-            const month = parts[0] || "Invalid";
+            const validMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            const month = parts.find(part => validMonths.includes(part)) || "Invalid";
             const package_thai_last_month_date = month;
 
 
