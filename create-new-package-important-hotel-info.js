@@ -16,6 +16,7 @@ const hotelMessageInfoArray = [
         messageInfo_p3: "تزيين على السرير",
         messageInfo_p4: "افطار عائم لمره واحدة",
         messageInfo_p5: "سلة حلويات خفيفة عند الاستقبال",
+        messageInfo_p6: "صالح للإستخدام الى 30 يونيو 2026",
     },
     {
         hotelName: "Andara Resort Villas Phuket",
