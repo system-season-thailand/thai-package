@@ -314,6 +314,8 @@ const companyNames = [
     { name: "ركسون ترافل", company_by_value: "mst" },
     { name: "المعجزة للسفر والسياحة", company_by_value: "mst" },
     { name: "تيكت تايم", company_by_value: "mst" },
+    { name: "امواج المسافر", company_by_value: null },
+    { name: "المغامرة الحقيقية", company_by_value: null },
     { name: "سفريات الجزيرة 2", company_by_value: null },
     { name: "ايراد", company_by_value: null },
     { name: "ترافنوسا", company_by_value: null },
@@ -476,6 +478,7 @@ const hotelNames = [
     "Fisherman Way Beach Villa",
     "Dusit Thani Krabi Resort",
     "La Green Hotel Residence",
+    "Siam At Siam Hotel Pattaya",
 
 
 
