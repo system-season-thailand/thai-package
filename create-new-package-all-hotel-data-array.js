@@ -407,6 +407,16 @@ let allHotelDataArray = [
         hotelLocation: 'Phuket',
         hotelRoomTypes: ['Deluxe Room', 'Studio Room','La Green Junior Suite','La Green Junior Suite Two BR'],
     },
+    {
+        hotelName: 'Chanalai Hillside Resort',
+        hotelLocation: 'Phuket',
+        hotelRoomTypes: ['Superior Room', 'Deluxe Pool View'],
+    },
+    {
+        hotelName: 'Andakira Hotel',
+        hotelLocation: 'Phuket',
+        hotelRoomTypes: ['Superior Room', 'Deluxe Room','Grand Deluxe Room','Deluxe Pool Access','Deluxe Triple Room'],
+    },
 
 
 
@@ -568,7 +578,7 @@ let allHotelDataArray = [
     {
         hotelName: 'Novotel Bangkok Siam',
         hotelLocation: 'Bangkok',
-        hotelRoomTypes: ['Deluxe Room', 'Deluxe Exclusive', 'Junior Suite One BR', 'Triple Suite Two BR', 'Family Suite Two BR', 'Grande Suite Three BR'],
+        hotelRoomTypes: ['Superior Room', 'Deluxe Room', 'Executive Room', 'Premier Room', 'Junior Suite'],
     },
 
 
@@ -648,6 +658,11 @@ let allHotelDataArray = [
         hotelName: 'Avani Pattaya Resort',
         hotelLocation: 'Pattaya',
         hotelRoomTypes: ['Deluxe Garden View', ' Deluxe Garden Plus', 'Deluxe Sea View', 'Deluxe Sea View Plus'],
+    },
+    {
+        hotelName: 'Siam At Siam Hotel Pattaya',
+        hotelLocation: 'Pattaya',
+        hotelRoomTypes: ['Deluxe Room', ' Deluxe Ocean View', 'Studio Ocean View'],
     },
 
 
