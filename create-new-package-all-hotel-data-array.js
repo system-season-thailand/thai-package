@@ -355,7 +355,7 @@ let allHotelDataArray = [
     {
         hotelName: 'Pamookkoo Resort',
         hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Room', 'Deluxe Pool', 'Deluxe Premier', 'Deluxe Premier Pool', 'Family Room 4 Pax'],
+        hotelRoomTypes: ['Deluxe Room', 'Deluxe Pool', 'Deluxe Premier', 'Deluxe Premier Pool', 'Family Room with Bunk Bed'],
     },
     {
         hotelName: 'Phuket Orchid Resort',
