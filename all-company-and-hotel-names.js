@@ -485,6 +485,8 @@ const hotelNames = [
     "Chanalai Hillside Resort",
     "Andakira Hotel",
     "Novotel Bangkok Siam",
+    "Beyond Patong",
+    "NH Bangkok Boulevard",
 
 
 
