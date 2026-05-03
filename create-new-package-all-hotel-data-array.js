@@ -400,12 +400,12 @@ let allHotelDataArray = [
     {
         hotelName: 'Fisherman Way Beach Villa',
         hotelLocation: 'Phuket',
-        hotelRoomTypes: ['One BR Seafront Penthouse Jacuzzi', 'Two BR Seafront Penthouse Jacuzzi','Three BR Seafront Pool Suite','Three BR Beachfront Infinity Pool Villa','Three BR Signature Beachfront Pool Villa','Four BR Villa Partial Seaview','Four BR Beachfront Pool Villa','Ten BR Pool Villa in the Garden','Nine BR Private Pool Villa by the Beach'],
+        hotelRoomTypes: ['One BR Seafront Penthouse Jacuzzi', 'Two BR Seafront Penthouse Jacuzzi', 'Three BR Seafront Pool Suite', 'Three BR Beachfront Infinity Pool Villa', 'Three BR Signature Beachfront Pool Villa', 'Four BR Villa Partial Seaview', 'Four BR Beachfront Pool Villa', 'Ten BR Pool Villa in the Garden', 'Nine BR Private Pool Villa by the Beach'],
     },
     {
         hotelName: 'La Green Hotel Residence',
         hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Deluxe Room', 'Studio Room','La Green Junior Suite','La Green Junior Suite Two BR'],
+        hotelRoomTypes: ['Deluxe Room', 'Studio Room', 'La Green Junior Suite', 'La Green Junior Suite Two BR'],
     },
     {
         hotelName: 'Chanalai Hillside Resort',
@@ -415,7 +415,12 @@ let allHotelDataArray = [
     {
         hotelName: 'Andakira Hotel',
         hotelLocation: 'Phuket',
-        hotelRoomTypes: ['Superior Room', 'Deluxe Room','Grand Deluxe Room','Deluxe Pool Access','Deluxe Triple Room'],
+        hotelRoomTypes: ['Superior Room', 'Deluxe Room', 'Grand Deluxe Room', 'Deluxe Pool Access', 'Deluxe Triple Room'],
+    },
+    {
+        hotelName: 'Beyond Patong',
+        hotelLocation: 'Phuket',
+        hotelRoomTypes: ['Deluxe Room', 'Deluxe Premier'],
     },
 
 
@@ -579,6 +584,11 @@ let allHotelDataArray = [
         hotelName: 'Novotel Bangkok Siam',
         hotelLocation: 'Bangkok',
         hotelRoomTypes: ['Superior Room', 'Deluxe Room', 'Executive Room', 'Premier Room', 'Junior Suite'],
+    },
+    {
+        hotelName: 'NH Bangkok Boulevard',
+        hotelLocation: 'Bangkok',
+        hotelRoomTypes: ['Superior Room', 'Superior City View Room', 'Deluxe Room', 'Deluxe Skyline Room', 'Corner Room', 'City View Terrace'],
     },
 
 
