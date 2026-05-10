@@ -316,6 +316,7 @@ const companyNames = [
     { name: "عالم المسافرون", company_by_value: "ofs" },
     { name: "روز للسفر", company_by_value: "ofs" },
     { name: "سكة سفر", company_by_value: "ofs" },
+    { name: "فلاي جاويش", company_by_value: null },
     { name: "دوبامين ترافل", company_by_value: null },
     { name: "امواج المسافر", company_by_value: null },
     { name: "المغامرة الحقيقية", company_by_value: null },
