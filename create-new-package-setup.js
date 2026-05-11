@@ -443,15 +443,24 @@ adultPackagePersonAmountInputOptions.forEach(option => {
             adultPackagePersonAmountInput.value = '';
             document.getElementById('store_google_sheet_package_adult_amount_value').innerText = '';
             document.getElementById('sms_card_with_internet_amount_input_id').value = '';
-            document.getElementById('inner_flight_tickets_amount_input_id').value = '';
+            const kidsInputDel = document.getElementById('kids_package_person_amount_input_id');
+            const kidsCountDel = kidsInputDel ? extractNumberFromText(kidsInputDel.value || '') : 0;
+            const infantInputDel = document.getElementById('infant_package_person_amount_input_id');
+            const infantCountDel = infantInputDel ? extractNumberFromText(infantInputDel.value || '') : 0;
+            const totalAfterAdultDel = kidsCountDel + infantCountDel;
+            document.getElementById('inner_flight_tickets_amount_input_id').value = totalAfterAdultDel > 0
+                ? `تذاكر الطيران الداخلي ل${getArabicTextForPeopleCount(totalAfterAdultDel)}`
+                : '';
         } else {
             adultPackagePersonAmountInput.value = option.textContent;
 
             const adultCount = extractNumberFromText(adultPackagePersonAmountInput.value);
             const kidsInput = document.getElementById('kids_package_person_amount_input_id');
             const kidsCount = kidsInput ? extractNumberFromText(kidsInput.value) : 0;
+            const infantInput = document.getElementById('infant_package_person_amount_input_id');
+            const infantCount = infantInput ? extractNumberFromText(infantInput.value || '') : 0;
 
-            const totalPeople = adultCount + kidsCount;
+            const totalPeople = adultCount + kidsCount + infantCount;
             const wholePackagePersonAmountValue = getArabicTextForPeopleCount(totalPeople);
 
             // Update SMS card value with adult count only
@@ -494,13 +503,17 @@ kidsPackagePersonAmountInputOptions.forEach(option => {
         // Recalculate total people count
         const adultCount = extractNumberFromText(adultPackagePersonAmountInput.value || '');
         const kidsCount = extractNumberFromText(kidsPackagePersonAmountInput.value || '');
-        const totalPeople = adultCount + kidsCount;
+        const infantInputKids = document.getElementById('infant_package_person_amount_input_id');
+        const infantCountKids = infantInputKids ? extractNumberFromText(infantInputKids.value || '') : 0;
+
+        const totalPeople = adultCount + kidsCount + infantCountKids;
+        const wholePackagePersonAmountValue = getArabicTextForPeopleCount(totalPeople);
 
         // Update SMS card value with adult count only
         document.getElementById('sms_card_with_internet_amount_input_id').value = `شرائح إنترنت عادية ل${adultCount}`;
 
         // Update flight tickets with total people count
-        document.getElementById('inner_flight_tickets_amount_input_id').value = `تذاكر الطيران الداخلي ل${totalPeople}`;
+        document.getElementById('inner_flight_tickets_amount_input_id').value = `تذاكر الطيران الداخلي ل${wholePackagePersonAmountValue}`;
 
         hideOverlay();
     });
@@ -678,7 +691,7 @@ websiteUsersNameInputOptions.forEach(option => {
 
         let newValue;
 
-        if (option.textContent === 'سامي' || option.textContent === 'ابو سما') {
+        if (option.textContent === 'سامي') {
             newValue = `بكج مستر ${option.textContent}`; // Set input value to selected option
         } else {
             newValue = `بكج ${option.textContent}`; // Set input value to selected option
@@ -1500,6 +1513,87 @@ function calculateTotalNights() {
 /* Function to store the clicked hotel unit amount */
 
 /* Dropdown hotel names functionality */
+const HOTEL_BENEFITS_TABLE_NAME = "thai_hotel_benefits";
+let hotelBenefitsByNameMap = new Map();
+let hotelBenefitsLoadPromise = null;
+let supportsHotelIsHiddenColumn = true;
+
+async function loadHotelBenefitsFromSupabase() {
+    if (hotelBenefitsLoadPromise) return hotelBenefitsLoadPromise;
+
+    hotelBenefitsLoadPromise = (async () => {
+        try {
+            const sbClient = window.supabaseClient || window.supabase;
+            if (!sbClient || typeof sbClient.from !== "function") {
+                console.warn("Supabase client is not ready to fetch hotel benefits.");
+                return;
+            }
+
+            let data = null;
+            let error = null;
+            const withHiddenRes = await sbClient
+                .from(HOTEL_BENEFITS_TABLE_NAME)
+                .select("hotel_name, benefits, is_hidden");
+            data = withHiddenRes.data;
+            error = withHiddenRes.error;
+
+            if (error && /is_hidden|column/i.test(String(error.message || ""))) {
+                supportsHotelIsHiddenColumn = false;
+                const fallbackRes = await sbClient
+                    .from(HOTEL_BENEFITS_TABLE_NAME)
+                    .select("hotel_name, benefits");
+                data = fallbackRes.data;
+                error = fallbackRes.error;
+            } else {
+                supportsHotelIsHiddenColumn = true;
+            }
+
+            if (error) throw error;
+
+            hotelBenefitsByNameMap = new Map();
+            (data || []).forEach(row => {
+                const hotelName = String(row.hotel_name || "").trim();
+                if (!hotelName) return;
+                const isHidden = supportsHotelIsHiddenColumn ? Boolean(row.is_hidden) : false;
+                if (isHidden) return;
+                const benefits = Array.isArray(row.benefits)
+                    ? row.benefits.map(item => String(item || "").trim()).filter(Boolean)
+                    : [];
+                hotelBenefitsByNameMap.set(hotelName, benefits);
+            });
+        } catch (err) {
+            console.error("Failed loading hotel benefits from Supabase:", err);
+        }
+    })();
+
+    return hotelBenefitsLoadPromise;
+}
+
+async function showHotelImportantInfoFromSupabase(hotelName) {
+    const importantInfoBox = document.getElementById("hotel_important_info_box_div");
+    const detailsContainer = document.getElementById("hotelDetails");
+    const titleEl = document.getElementById("important_hotel_info_message_title_id");
+    if (!importantInfoBox || !detailsContainer || !titleEl) return;
+
+    detailsContainer.innerHTML = "";
+    titleEl.innerText = `[${hotelName}]`;
+
+    await loadHotelBenefitsFromSupabase();
+    const benefits = hotelBenefitsByNameMap.get(hotelName) || [];
+    if (!benefits.length) return;
+
+    benefits.forEach(text => {
+        const pElement = document.createElement("p");
+        pElement.textContent = text;
+        pElement.style.whiteSpace = "pre-line";
+        detailsContainer.appendChild(pElement);
+    });
+
+    importantInfoBox.style.visibility = "visible";
+    importantInfoBox.style.opacity = "1";
+}
+
+/* Dropdown hotel names functionality */
 function setupHotelNamesDropdown() {
     let hotelNameInput = document.getElementById('hotel_name_input_id');
 
@@ -1512,7 +1606,7 @@ function setupHotelNamesDropdown() {
         return;
     }
 
-    hotelNamesContainer.addEventListener('click', (e) => {
+    hotelNamesContainer.addEventListener('click', async (e) => {
         // Check if the clicked element is an h3
         if (e.target.tagName === 'H3') {
             const option = e.target;
@@ -1544,28 +1638,7 @@ function setupHotelNamesDropdown() {
 
 
             /* Function to check if there is a matching hotel name to show important message */
-            document.getElementById("hotelDetails").innerHTML = ""; // Clear previous messages
-
-            // Find the hotel object that matches the selected hotel name
-            const foundHotel = hotelMessageInfoArray.find(hotel => hotel.hotelName === option.textContent);
-
-            if (foundHotel) {
-                // Set the title message dynamically to only include the hotel name
-                document.getElementById("important_hotel_info_message_title_id").innerText = `[${option.textContent}]`;
-
-                // Loop through messageInfo_p properties and create <p> elements
-                Object.keys(foundHotel).forEach(key => {
-                    if (key.startsWith("messageInfo_p")) {
-                        const pElement = document.createElement("p");
-                        pElement.textContent = foundHotel[key];
-                        document.getElementById("hotelDetails").appendChild(pElement);
-                    }
-                });
-
-                // Show the modal smoothly
-                document.getElementById("hotel_important_info_box_div").style.visibility = 'visible';
-                document.getElementById("hotel_important_info_box_div").style.opacity = '1';
-            }
+            await showHotelImportantInfoFromSupabase(option.textContent);
 
 
 
@@ -1576,8 +1649,6 @@ function setupHotelNamesDropdown() {
             if (option.textContent !== currentHotelName) {
                 document.getElementById('hotel_room_type_description_input_id').value = '';
                 document.getElementById('hotel_room_type_description_input_id_2').value = '';
-                document.getElementById('hotel_arabic_room_type_description_input_id').value = '';
-                document.getElementById('hotel_arabic_room_type_description_input_id_2').value = '';
 
                 document.getElementById('hotel_room_contain_pool_input_id').value = '';
                 document.getElementById('hotel_room_contain_pool_input_id_2').value = '';
@@ -1597,7 +1668,7 @@ function setupHotelNamesDropdown() {
 
 // Set up hotel names dropdown listeners
 setupHotelNamesDropdown();
-
+loadHotelBenefitsFromSupabase();
 
 
 
@@ -2599,6 +2670,15 @@ infantPackagePersonAmountInputOptions.forEach(option => {
             document.getElementById('store_google_sheet_package_infant_amount_value').innerText = option.textContent;
 
         }
+
+        const adultCountInf = extractNumberFromText(adultPackagePersonAmountInput.value || '');
+        const kidsCountInf = extractNumberFromText(kidsPackagePersonAmountInput.value || '');
+        const infantCountInf = extractNumberFromText(infantPackagePersonAmountInput.value || '');
+        const totalPeopleInf = adultCountInf + kidsCountInf + infantCountInf;
+        document.getElementById('inner_flight_tickets_amount_input_id').value = totalPeopleInf > 0
+            ? `تذاكر الطيران الداخلي ل${getArabicTextForPeopleCount(totalPeopleInf)}`
+            : '';
+
         hideOverlay(); // Hide overlay after selection
     });
 });
