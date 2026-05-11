@@ -489,6 +489,7 @@ const hotelNames = [
     "Novotel Bangkok Siam",
     "Beyond Patong",
     "NH Bangkok Boulevard",
+    "Phuket Marriott Nai Yang Beach",
 
 
 
