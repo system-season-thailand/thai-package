@@ -422,6 +422,11 @@ let allHotelDataArray = [
         hotelLocation: 'Phuket',
         hotelRoomTypes: ['Deluxe Room', 'Deluxe Premier'],
     },
+    {
+        hotelName: 'Phuket Marriott Nai Yang Beach',
+        hotelLocation: 'Phuket',
+        hotelRoomTypes: ['Deluxe Room', 'Premium Pool View', 'Premium Pool Access', 'Garden Cabana Pool Access', 'Family Two BR', 'Beachfront Two BR Villa'],
+    },
 
 
 
