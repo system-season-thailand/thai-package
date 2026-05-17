@@ -1,8 +1,8 @@
-/* Function to prevent the page refresh by mistake */
-window.addEventListener('beforeunload', function (event) {
+﻿/* Function to prevent the page refresh by mistake */
+/* window.addEventListener('beforeunload', function (event) {
     event.preventDefault(); // Prevent the default action
     event.returnValue = ''; // Set the return value to trigger the default browser confirmation dialog
-});
+}); */
 
 
 
@@ -510,7 +510,7 @@ kidsPackagePersonAmountInputOptions.forEach(option => {
         const wholePackagePersonAmountValue = getArabicTextForPeopleCount(totalPeople);
 
         // Update SMS card value with adult count only
-        document.getElementById('sms_card_with_internet_amount_input_id').value = `شرائح إنترنت عادية ل${adultCount}`;
+        document.getElementById('sms_card_with_internet_amount_input_id').value = `شرائح إنترنت عادية ل${getArabicTextForPeopleCount(adultCount)}`;
 
         // Update flight tickets with total people count
         document.getElementById('inner_flight_tickets_amount_input_id').value = `تذاكر الطيران الداخلي ل${wholePackagePersonAmountValue}`;
@@ -1201,18 +1201,10 @@ changeInsertHotelDataSystem = function () {
 
         /* Reset the value of teh following inputs */
         document.getElementById('hotel_name_input_id').value = '';
-        document.getElementById('hotel_room_type_description_input_id').value = '';
-        document.getElementById('hotel_room_type_description_input_id_2').value = '';
+        document.getElementById('hotel_english_room_type_description_input_id').value = '';
+        document.getElementById('hotel_english_room_type_description_input_id_2').value = '';
         document.getElementById('hotel_arabic_room_type_description_input_id').value = '';
         document.getElementById('hotel_arabic_room_type_description_input_id_2').value = '';
-
-        document.getElementById('hotel_room_contain_pool_input_id').value = '';
-        document.getElementById('hotel_room_contain_pool_input_id_2').value = '';
-
-
-        document.getElementById('hotel_room_view_input_id').value = '';
-        document.getElementById('hotel_room_view_input_id_2').value = '';
-
 
         document.getElementById('hotel_special_room_request_input_id').value = '';
         document.getElementById('hotel_special_room_request_input_id_2').value = '';
@@ -1225,8 +1217,10 @@ changeInsertHotelDataSystem = function () {
 
         // Make the following inputs editable and remove the readonly attribute
         document.getElementById('hotel_name_input_id').readOnly = false;
-        document.getElementById('hotel_room_type_description_input_id').readOnly = false;
-        document.getElementById('hotel_room_type_description_input_id_2').readOnly = false;
+        document.getElementById('hotel_english_room_type_description_input_id').readOnly = false;
+        document.getElementById('hotel_english_room_type_description_input_id_2').readOnly = false;
+        document.getElementById('hotel_arabic_room_type_description_input_id').readOnly = false;
+        document.getElementById('hotel_arabic_room_type_description_input_id_2').readOnly = false;
 
 
 
@@ -1234,18 +1228,26 @@ changeInsertHotelDataSystem = function () {
         document.getElementById('hotel_name_input_id').style.cursor = 'text';
         document.getElementById('hotel_name_input_id').onclick = null;
 
-        document.getElementById('hotel_room_type_description_input_id').style.cursor = 'text';
-        document.getElementById('hotel_room_type_description_input_id').onclick = null;
+        document.getElementById('hotel_english_room_type_description_input_id').style.cursor = 'text';
+        document.getElementById('hotel_english_room_type_description_input_id').onclick = null;
 
-        document.getElementById('hotel_room_type_description_input_id_2').style.cursor = 'text';
-        document.getElementById('hotel_room_type_description_input_id_2').onclick = null;
+        document.getElementById('hotel_english_room_type_description_input_id_2').style.cursor = 'text';
+        document.getElementById('hotel_english_room_type_description_input_id_2').onclick = null;
+
+        document.getElementById('hotel_arabic_room_type_description_input_id').style.cursor = 'text';
+        document.getElementById('hotel_arabic_room_type_description_input_id').onclick = null;
+
+        document.getElementById('hotel_arabic_room_type_description_input_id_2').style.cursor = 'text';
+        document.getElementById('hotel_arabic_room_type_description_input_id_2').onclick = null;
 
 
 
         // Set autocomplete to on
         document.getElementById('hotel_name_input_id').setAttribute('autocomplete', 'on');
-        document.getElementById('hotel_room_type_description_input_id').setAttribute('autocomplete', 'on');
-        document.getElementById('hotel_room_type_description_input_id_2').setAttribute('autocomplete', 'on');
+        document.getElementById('hotel_english_room_type_description_input_id').setAttribute('autocomplete', 'on');
+        document.getElementById('hotel_english_room_type_description_input_id_2').setAttribute('autocomplete', 'on');
+        document.getElementById('hotel_arabic_room_type_description_input_id').setAttribute('autocomplete', 'on');
+        document.getElementById('hotel_arabic_room_type_description_input_id_2').setAttribute('autocomplete', 'on');
 
 
 
@@ -1268,18 +1270,10 @@ changeInsertHotelDataSystem = function () {
 
         /* Reset the value of teh following inputs */
         document.getElementById('hotel_name_input_id').value = '';
-        document.getElementById('hotel_room_type_description_input_id').value = '';
-        document.getElementById('hotel_room_type_description_input_id_2').value = '';
+        document.getElementById('hotel_english_room_type_description_input_id').value = '';
+        document.getElementById('hotel_english_room_type_description_input_id_2').value = '';
         document.getElementById('hotel_arabic_room_type_description_input_id').value = '';
         document.getElementById('hotel_arabic_room_type_description_input_id_2').value = '';
-
-        document.getElementById('hotel_room_contain_pool_input_id').value = '';
-        document.getElementById('hotel_room_contain_pool_input_id_2').value = '';
-
-
-        document.getElementById('hotel_room_view_input_id').value = '';
-        document.getElementById('hotel_room_view_input_id_2').value = '';
-
 
         document.getElementById('hotel_special_room_request_input_id').value = '';
         document.getElementById('hotel_special_room_request_input_id_2').value = '';
@@ -1292,15 +1286,19 @@ changeInsertHotelDataSystem = function () {
 
         // Make the following inputs readonly again
         document.getElementById('hotel_name_input_id').readOnly = true;
-        document.getElementById('hotel_room_type_description_input_id').readOnly = true;
-        document.getElementById('hotel_room_type_description_input_id_2').readOnly = true;
+        document.getElementById('hotel_english_room_type_description_input_id').readOnly = true;
+        document.getElementById('hotel_english_room_type_description_input_id_2').readOnly = true;
+        document.getElementById('hotel_arabic_room_type_description_input_id').readOnly = true;
+        document.getElementById('hotel_arabic_room_type_description_input_id_2').readOnly = true;
 
 
 
-        // Set autocomplete to on
+        // Set autocomplete to off
         document.getElementById('hotel_name_input_id').setAttribute('autocomplete', 'off');
-        document.getElementById('hotel_room_type_description_input_id').setAttribute('autocomplete', 'off');
-        document.getElementById('hotel_room_type_description_input_id_2').setAttribute('autocomplete', 'off');
+        document.getElementById('hotel_english_room_type_description_input_id').setAttribute('autocomplete', 'off');
+        document.getElementById('hotel_english_room_type_description_input_id_2').setAttribute('autocomplete', 'off');
+        document.getElementById('hotel_arabic_room_type_description_input_id').setAttribute('autocomplete', 'off');
+        document.getElementById('hotel_arabic_room_type_description_input_id_2').setAttribute('autocomplete', 'off');
 
 
 
@@ -1310,14 +1308,24 @@ changeInsertHotelDataSystem = function () {
             handleHotelNameInputClick();
         };
 
-        document.getElementById('hotel_room_type_description_input_id').style.cursor = 'pointer';
-        document.getElementById('hotel_room_type_description_input_id').onclick = function () {
+        document.getElementById('hotel_english_room_type_description_input_id').style.cursor = 'pointer';
+        document.getElementById('hotel_english_room_type_description_input_id').onclick = function () {
             createRoomTypeDescripyionDropDown(); showOverlay('hotel_room_type_description_dropdown');
         };
 
-        document.getElementById('hotel_room_type_description_input_id_2').style.cursor = 'pointer';
-        document.getElementById('hotel_room_type_description_input_id_2').onclick = function () {
+        document.getElementById('hotel_english_room_type_description_input_id_2').style.cursor = 'pointer';
+        document.getElementById('hotel_english_room_type_description_input_id_2').onclick = function () {
             createRoomTypeDescripyionDropDown(); showOverlay('hotel_room_type_description_dropdown');
+        };
+
+        document.getElementById('hotel_arabic_room_type_description_input_id').style.cursor = 'pointer';
+        document.getElementById('hotel_arabic_room_type_description_input_id').onclick = function () {
+            createArabicRoomTypeDescripyionDropDown(); showOverlay('hotel_arabic_room_type_description_dropdown');
+        };
+
+        document.getElementById('hotel_arabic_room_type_description_input_id_2').style.cursor = 'pointer';
+        document.getElementById('hotel_arabic_room_type_description_input_id_2').onclick = function () {
+            createArabicRoomTypeDescripyionDropDown(); showOverlay('hotel_arabic_room_type_description_dropdown');
         };
 
 
@@ -1397,14 +1405,10 @@ function createH3ElementsForAvailableDates() {
                     /* if the check out hotel date changed then reset all the following inputs values */
                     if (lastClickedHotelDateInput.id === 'hotel_check_out_input_id') {
                         document.getElementById('hotel_name_input_id').value = '';
-                        document.getElementById('hotel_room_type_description_input_id').value = '';
-                        document.getElementById('hotel_room_type_description_input_id_2').value = '';
+                        document.getElementById('hotel_english_room_type_description_input_id').value = '';
+                        document.getElementById('hotel_english_room_type_description_input_id_2').value = '';
                         document.getElementById('hotel_arabic_room_type_description_input_id').value = '';
                         document.getElementById('hotel_arabic_room_type_description_input_id_2').value = '';
-                        document.getElementById('hotel_room_contain_pool_input_id').value = '';
-                        document.getElementById('hotel_room_contain_pool_input_id_2').value = '';
-                        document.getElementById('hotel_room_view_input_id').value = '';
-                        document.getElementById('hotel_room_view_input_id_2').value = '';
                         document.getElementById('hotel_special_room_request_input_id').value = '';
                         document.getElementById('hotel_special_room_request_input_id_2').value = '';
                         document.getElementById('hotel_room_extra_info_textarea_id').value = '';
@@ -1586,6 +1590,7 @@ async function showHotelImportantInfoFromSupabase(hotelName) {
         const pElement = document.createElement("p");
         pElement.textContent = text;
         pElement.style.whiteSpace = "pre-line";
+        pElement.style.direction = "ltr";
         detailsContainer.appendChild(pElement);
     });
 
@@ -1647,14 +1652,10 @@ function setupHotelNamesDropdown() {
 
             /* If the hotel name got changed then reset all the following values */
             if (option.textContent !== currentHotelName) {
-                document.getElementById('hotel_room_type_description_input_id').value = '';
-                document.getElementById('hotel_room_type_description_input_id_2').value = '';
-
-                document.getElementById('hotel_room_contain_pool_input_id').value = '';
-                document.getElementById('hotel_room_contain_pool_input_id_2').value = '';
-
-                document.getElementById('hotel_room_view_input_id').value = '';
-                document.getElementById('hotel_room_view_input_id_2').value = '';
+                document.getElementById('hotel_arabic_room_type_description_input_id').value = '';
+                document.getElementById('hotel_arabic_room_type_description_input_id_2').value = '';
+                document.getElementById('hotel_english_room_type_description_input_id').value = '';
+                document.getElementById('hotel_english_room_type_description_input_id_2').value = '';
 
                 document.getElementById('hotel_special_room_request_input_id').value = '';
                 document.getElementById('hotel_special_room_request_input_id_2').value = '';
@@ -1787,81 +1788,6 @@ hotelStarsRateInputOptions.forEach(option => {
 
 
 
-/* Function to insert the hotel room view and including pool text */
-
-// Variable to track the last clicked input field
-let lastClickedPoolInput = null;
-
-// Add event listeners to track the last clicked input
-document.getElementById('hotel_room_contain_pool_input_id').addEventListener('click', function () {
-    lastClickedPoolInput = this;
-});
-
-document.getElementById('hotel_room_contain_pool_input_id_2').addEventListener('click', function () {
-    lastClickedPoolInput = this;
-});
-
-/* Dropdown airport line names functionality */
-// Get the options within the dropdown
-let hotelRoomContainPoolInputOptions = document.querySelectorAll('#hotel_room_contain_pool_dropdown h3');
-
-hotelRoomContainPoolInputOptions.forEach(option => {
-    option.addEventListener('click', () => {
-
-        // Play a sound effect
-        playSoundEffect('click');
-
-        if (lastClickedPoolInput) {
-            if (option.textContent === 'حذف') {
-                lastClickedPoolInput.value = ''; // Clear the input value if "حذف" is selected
-            } else {
-                lastClickedPoolInput.value = `with ${option.textContent}`; // Set the input value to the selected option
-            }
-        }
-
-        hideOverlay(); // Hide overlay after selection
-    });
-});
-
-
-
-
-
-
-// Variable to track the last clicked input field
-let lastClickedViewInput = null;
-
-// Add event listeners to track the last clicked input
-document.getElementById('hotel_room_view_input_id').addEventListener('click', function () {
-    lastClickedViewInput = this;
-});
-
-document.getElementById('hotel_room_view_input_id_2').addEventListener('click', function () {
-    lastClickedViewInput = this;
-});
-
-/* Dropdown airport line names functionality */
-// Get the options within the dropdown
-let hotelRoomViewInputOptions = document.querySelectorAll('#hotel_room_view_dropdown h3');
-
-hotelRoomViewInputOptions.forEach(option => {
-    option.addEventListener('click', () => {
-
-        // Play a sound effect
-        playSoundEffect('click');
-
-
-        if (lastClickedViewInput) {
-            if (option.textContent === 'حذف') {
-                lastClickedViewInput.value = ''; // Clear the input value if "حذف" is selected
-            } else {
-                lastClickedViewInput.value = `with ${option.textContent} View`; // Set the input value to the selected option
-            }
-        }
-
-        hideOverlay(); // Hide overlay after selection
-    });
-});
 
 
 
@@ -2023,11 +1949,11 @@ hotelUnitAmountInputOptions.forEach(option => {
 let lastClickedInput = null;
 
 // Add event listeners to the inputs to track which one was last clicked
-document.getElementById('hotel_room_type_description_input_id').addEventListener('click', function () {
+document.getElementById('hotel_english_room_type_description_input_id').addEventListener('click', function () {
     lastClickedInput = this;
 });
 
-document.getElementById('hotel_room_type_description_input_id_2').addEventListener('click', function () {
+document.getElementById('hotel_english_room_type_description_input_id_2').addEventListener('click', function () {
     lastClickedInput = this;
 });
 
@@ -2041,7 +1967,7 @@ let createRoomTypeDescripyionDropDown = function () {
         let hotel = allHotelDataArray.find(hotel => hotel.hotelName === hotelNameInput);
 
         if (hotel) {
-            hotel.hotelRoomTypes.forEach(roomType => {
+            hotel.hotelRoomTypes.forEach((roomType, index) => {
                 let h3 = document.createElement('h3');
                 h3.textContent = roomType;
                 hotelRoomTypeDescriptionH3ElementsDiv.appendChild(h3);
@@ -2051,10 +1977,18 @@ let createRoomTypeDescripyionDropDown = function () {
                     // Play a sound effect
                     playSoundEffect('click');
 
-                    // Check if an input field was clicked before the h3 was clicked
                     if (lastClickedInput) {
-                        // Set the value of the last clicked input field to the text content of the clicked h3 element
                         lastClickedInput.value = h3.textContent;
+
+                        // Auto-fill the paired Arabic input
+                        let pairedArabicId = lastClickedInput.id === 'hotel_english_room_type_description_input_id'
+                            ? 'hotel_arabic_room_type_description_input_id'
+                            : 'hotel_arabic_room_type_description_input_id_2';
+
+                        let pairedArabicInput = document.getElementById(pairedArabicId);
+                        if (hotel.hotelRoomTypesArabic && hotel.hotelRoomTypesArabic[index]) {
+                            pairedArabicInput.value = hotel.hotelRoomTypesArabic[index];
+                        }
                     }
 
                     hideOverlay();
@@ -2063,6 +1997,59 @@ let createRoomTypeDescripyionDropDown = function () {
         }
     } else {
         hotelRoomTypeDescriptionH3ElementsDiv.innerHTML = '';
+    }
+}
+
+
+// Variable to track the last clicked Arabic room type input field
+let lastClickedArabicInput = null;
+
+document.getElementById('hotel_arabic_room_type_description_input_id').addEventListener('click', function () {
+    lastClickedArabicInput = this;
+});
+
+document.getElementById('hotel_arabic_room_type_description_input_id_2').addEventListener('click', function () {
+    lastClickedArabicInput = this;
+});
+
+/* Function to create Arabic hotel room type description h3 dropdown elements */
+let createArabicRoomTypeDescripyionDropDown = function () {
+    let hotelNameInput = document.getElementById('hotel_name_input_id').value;
+    let arabicH3ElementsDiv = document.getElementById('hotel_arabic_room_type_description_h3_elements_div_id');
+
+    if (hotelNameInput !== '') {
+        arabicH3ElementsDiv.innerHTML = '';
+        let hotel = allHotelDataArray.find(hotel => hotel.hotelName === hotelNameInput);
+
+        if (hotel && hotel.hotelRoomTypesArabic) {
+            hotel.hotelRoomTypesArabic.forEach((roomType, index) => {
+                let h3 = document.createElement('h3');
+                h3.textContent = roomType;
+                arabicH3ElementsDiv.appendChild(h3);
+
+                h3.addEventListener('click', () => {
+                    playSoundEffect('click');
+
+                    if (lastClickedArabicInput) {
+                        lastClickedArabicInput.value = h3.textContent;
+
+                        // Auto-fill the paired English input
+                        let pairedEnglishId = lastClickedArabicInput.id === 'hotel_arabic_room_type_description_input_id'
+                            ? 'hotel_english_room_type_description_input_id'
+                            : 'hotel_english_room_type_description_input_id_2';
+
+                        let pairedEnglishInput = document.getElementById(pairedEnglishId);
+                        if (hotel.hotelRoomTypes[index]) {
+                            pairedEnglishInput.value = hotel.hotelRoomTypes[index];
+                        }
+                    }
+
+                    hideOverlay();
+                });
+            });
+        }
+    } else {
+        arabicH3ElementsDiv.innerHTML = '';
     }
 }
 
@@ -3179,9 +3166,6 @@ function getArabicMonthName(monthNumber) {
 let storePackageTotalNights;
 
 
-// Variables to track the visibility of the date pickers
-var isWholePackageStartDatePickerVisible = false;
-var isWholePackageEndDatePickerVisible = false;
 
 // Helper function to parse Arabic date strings (already provided)
 function parseArabicDate(dateStr, year = null) {
@@ -3253,119 +3237,6 @@ var today = new Date();
 
 
 
-// Inputs date for whole package start period
-var wholePackageStartDatePicker = new Pikaday({
-    field: document.getElementById('whole_package_start_date_input_id'),
-    format: 'DD-M',
-    minDate: today,
-    toString(date, format) {
-        let day = date.getDate();
-        let month = getArabicMonthName(date.getMonth());
-        return `${day} ${month}`;
-    },
-    i18n: {
-        previousMonth: '',
-        nextMonth: '',
-        months: innerDatePickerArabicMonths,
-        weekdays: arabicDays,
-        weekdaysShort: arabicDays
-    },
-    onSelect: function () {
-
-        // Play a sound effect
-        playSoundEffect('click');
-
-        // Clear the end date and total nights inputs
-        document.getElementById('whole_package_end_date_input_id').value = '';
-        document.getElementById('package_total_nights_input_id').value = '';
-
-        isWholePackageStartDatePickerVisible = false; // Reset visibility state on date selection
-        updateWholePackageTotalNights();
-        let selectedDate = this.getDate();
-        selectedStartYear = selectedDate.getFullYear(); // Store the selected year
-        selectedStartMonth = selectedDate.getMonth();   // Store the selected month
-        let minEndDate = new Date(selectedDate);
-        minEndDate.setDate(minEndDate.getDate() + 1); // Ensure end date is at least one day after the start date
-        wholePackageEndDatePicker.setMinDate(minEndDate); // Update min date for the second picker
-
-        // Automatically open the end date picker
-        wholePackageEndDatePicker.show();
-    }
-});
-
-// Inputs date for whole package end period
-var wholePackageEndDatePicker = new Pikaday({
-    field: document.getElementById('whole_package_end_date_input_id'),
-    format: 'DD-M',
-    minDate: today,
-    toString(date, format) {
-        let day = date.getDate();
-        let month = getArabicMonthName(date.getMonth());
-
-        // Check if the year needs to be included
-        let year = '';
-        if (selectedStartYear && date.getFullYear() !== selectedStartYear) {
-            year = ` ${date.getFullYear()}`;
-        }
-
-        return `${day} ${month}${year}`;
-    },
-    i18n: {
-        previousMonth: '',
-        nextMonth: '',
-        months: innerDatePickerArabicMonths,
-        weekdays: arabicDays,
-        weekdaysShort: arabicDays
-    },
-    disableDayFn: function (date) {
-        return disableSpecificDates(date, 'whole_package_start_date_input_id');
-    },
-    onOpen: function () {
-        let endDateInput = document.getElementById('whole_package_end_date_input_id').value;
-        let startDateInput = document.getElementById('whole_package_start_date_input_id').value;
-
-        let currentDate;
-        if (endDateInput) {
-            // If there's a date in the end date input, parse it and navigate to that date
-            currentDate = parseArabicDate(endDateInput);
-        } else if (startDateInput) {
-            // If there's a start date, parse it and navigate to that date
-            currentDate = parseArabicDate(startDateInput);
-        } else {
-            // Default to today or previously selected date
-            currentDate = this.getDate() || new Date();
-        }
-
-        if (selectedStartYear && selectedStartMonth !== undefined) {
-            currentDate.setFullYear(selectedStartYear);
-            currentDate.setMonth(selectedStartMonth);
-        }
-
-        this.gotoDate(currentDate);
-    },
-    onSelect: function () {
-        let selectedDate = this.getDate();
-
-        // Play a sound effect
-        playSoundEffect('click');
-
-        // Check if the selected date is in the same year as the start date
-        if (selectedStartYear && selectedDate.getFullYear() !== selectedStartYear) {
-            this._o.field.value = `${selectedDate.getDate()} ${getArabicMonthName(selectedDate.getMonth())} ${selectedDate.getFullYear()}`;
-        } else {
-            this._o.field.value = `${selectedDate.getDate()} ${getArabicMonthName(selectedDate.getMonth())}`;
-        }
-
-
-        /* Run the close sell function to update based on the picked dates */
-        fetchAllCloseSellDataFunction_Supabase();
-
-
-        isWholePackageEndDatePickerVisible = false; // Reset visibility state on date selection
-        updateWholePackageTotalNights(); // Call 'updateWholePackageTotalNights' when a date is selected
-    }
-});
-
 
 
 
@@ -3424,18 +3295,6 @@ function updateDatesOnInputChange() {
 document.getElementById('whole_package_start_date_input_id').addEventListener('change', updateDatesOnInputChange);
 document.getElementById('package_total_nights_input_id').addEventListener('input', updateDatesOnInputChange);
 
-// Example helper functions
-function parseArabicDate(dateStr, year = null) {
-    let parts = dateStr.split(' ');
-    let day = parseInt(parts[0]);
-    let monthShortNames = {
-        "يناير": 0, "فبراير": 1, "مارس": 2, "أبريل": 3, "مايو": 4, "يونيو": 5,
-        "يوليو": 6, "أغسطس": 7, "سبتمبر": 8, "أكتوبر": 9, "نوفمبر": 10, "ديسمبر": 11
-    };
-    let month = monthShortNames[parts[1]];
-    year = year || new Date().getFullYear(); // Use provided year or default to current year
-    return new Date(year, month, day);
-}
 
 function addDaysToDate(date, days) {
     let newDate = new Date(date);
@@ -3444,279 +3303,210 @@ function addDaysToDate(date, days) {
 }
 
 
+/* ========================================
+   Custom Arabic Date Picker
+   ======================================== */
 
+// State variables
+let customDatePickerMode = null;
+let customDatePickerViewYear = null;
+let customDatePickerViewMonth = null;
 
-// Function to toggle the visibility of the Whole Package Start Date Picker
-document.getElementById('whole_package_start_date_input_id').addEventListener('click', function () {
-    if (!isWholePackageStartDatePickerVisible) {
-        wholePackageStartDatePicker.show();
-        isWholePackageStartDatePickerVisible = true;
-    } else {
-        wholePackageStartDatePicker.hide();
-        isWholePackageStartDatePickerVisible = false;
-    }
-});
+// Open the custom date picker (mode = 'start' or 'end')
+function openCustomDatePicker(mode) {
+    customDatePickerMode = mode;
+    let now = new Date();
+    let year = selectedStartYear || now.getFullYear();
 
-// Function to toggle the visibility of the Whole Package End Date Picker
-document.getElementById('whole_package_end_date_input_id').addEventListener('click', function () {
-    if (!isWholePackageEndDatePickerVisible) {
-        wholePackageEndDatePicker.show();
-        isWholePackageEndDatePickerVisible = true;
-    } else {
-        wholePackageEndDatePicker.hide();
-        isWholePackageEndDatePickerVisible = false;
-    }
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Function to initialize Pikaday with Arabic support
-var startDatePicker = new Pikaday({
-    field: document.getElementById('flight_date_input_id'),
-    format: 'DD-M',
-    minDate: new Date(),
-    toString(date, format) {
-        let day = date.getDate();
-        let month = getArabicMonthName(date.getMonth());
-        return `${day} ${month}`;
-    },
-    onSelect: function () {
-
-        // Play a sound effect
-        playSoundEffect('click');
-
-
-        isDatePickerVisible = false; // Reset the visibility state when a date is selected
-    },
-    i18n: {
-        previousMonth: '',
-        nextMonth: '',
-        months: innerDatePickerArabicMonths,
-        weekdays: arabicDays,
-        weekdaysShort: arabicDays
-    }
-});
-
-var isDatePickerVisible = false;
-
-document.getElementById('flight_date_input_id').addEventListener('click', function (e) {
-    e.stopPropagation(); // Prevent the click event from propagating
-
-    if (isDatePickerVisible) {
-        startDatePicker.hide();
-    } else {
-        startDatePicker.show();
-    }
-
-    isDatePickerVisible = !isDatePickerVisible;
-});
-
-// Prevent the date picker from hiding when clicking inside it
-startDatePicker.el.addEventListener('click', function (e) {
-    e.stopPropagation();
-});
-
-// Hide the date picker when clicking outside
-document.addEventListener('click', function () {
-    if (isDatePickerVisible) {
-        startDatePicker.hide();
-        isDatePickerVisible = false;
-    }
-});
-
-
-
-
-/* Function for the time picking */
-$(document).ready(function () {
-    $('#flight_fly_away_time_input_id').pickatime({
-        format: 'HH:i',
-        interval: 5,
-        min: [0, 0],
-        max: [23, 59],
-        onSet: function () {
-            // Play a sound effect
-            playSoundEffect('click');
+    if (mode === 'start') {
+        let val = document.getElementById('whole_package_start_date_input_id').value;
+        if (val) {
+            let d = parseArabicDate(val, year);
+            customDatePickerViewYear = d.getFullYear();
+            customDatePickerViewMonth = d.getMonth();
+        } else {
+            customDatePickerViewYear = now.getFullYear();
+            customDatePickerViewMonth = now.getMonth();
         }
-    });
-
-    $('#flight_arrival_time_input_id').pickatime({
-        format: 'HH:i',
-        interval: 5,
-        min: [0, 0],
-        max: [23, 59],
-        onSet: function () {
-            // Play a sound effect
-            playSoundEffect('click');
+    } else if (mode === 'end') {
+        let endVal = document.getElementById('whole_package_end_date_input_id').value;
+        let startVal = document.getElementById('whole_package_start_date_input_id').value;
+        if (endVal) {
+            let d = parseArabicDate(endVal, year);
+            customDatePickerViewYear = d.getFullYear();
+            customDatePickerViewMonth = d.getMonth();
+        } else if (startVal) {
+            let d = parseArabicDate(startVal, year);
+            customDatePickerViewYear = d.getFullYear();
+            customDatePickerViewMonth = d.getMonth();
+        } else {
+            customDatePickerViewYear = now.getFullYear();
+            customDatePickerViewMonth = now.getMonth();
         }
-    });
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Function to open full screen textarea */
-function toggleFullscreen(textAreaId) {
-    let textarea = document.getElementById(textAreaId);
-    let body = document.body;
-
-    // Disable scrolling
-    body.style.overflow = 'hidden';
-
-    // Save the original styles to restore when exiting full-screen
-    let originalStyles = {
-        width: textarea.style.width,
-        height: textarea.style.height,
-        zIndex: textarea.style.zIndex,
-        position: textarea.style.position,
-        top: textarea.style.top,
-        left: textarea.style.left,
-        transform: textarea.style.transform // Save the transform style
-    };
-
-    // Set textarea to full-screen size and center it
-    textarea.style.width = '90vw';
-    textarea.style.height = '90vh';
-    textarea.style.zIndex = '1000';
-    textarea.style.position = 'fixed';
-    textarea.style.top = '50%'; // Center vertically
-    textarea.style.left = '50%'; // Center horizontally
-    textarea.style.transform = 'translate(-50%, -50%)'; // Adjust position to center
-
-    // Create an overlay layer for better visual effect
-    let overlayLayer = document.createElement('div');
-    overlayLayer.classList.add('black_overlay');
-    document.body.appendChild(overlayLayer);
-    setTimeout(() => {
-        overlayLayer.style.opacity = '1'; // Delayed opacity transition for smooth appearance
-    }, 50);
-
-    // Create an exit button
-    let exitTextAreaFullScreenButton = document.createElement('ion-icon');
-    exitTextAreaFullScreenButton.name = 'arrow-undo-circle-outline';
-    exitTextAreaFullScreenButton.classList.add('exit_full_screen_icon');
-    exitTextAreaFullScreenButton.onclick = function () {
-
-        // Play a sound effect
-        playSoundEffect('click');
-
-
-        // Restore original styles
-        textarea.style.width = originalStyles.width;
-        textarea.style.height = originalStyles.height;
-        textarea.style.zIndex = originalStyles.zIndex;
-        textarea.style.position = originalStyles.position;
-        textarea.style.top = originalStyles.top;
-        textarea.style.left = originalStyles.left;
-        textarea.style.transform = originalStyles.transform; // Restore the transform style
-
-        // Remove overlay from DOM
-        overlayLayer.parentNode.removeChild(overlayLayer);
-        overlayLayer = null; // Reset overlay variable
-
-        // Re-enable scrolling
-        body.style.overflow = 'auto';
-
-        // Remove exit button
-        exitTextAreaFullScreenButton.remove();
-    };
-
-    // Append exit button to body
-    document.body.appendChild(exitTextAreaFullScreenButton);
+    } else if (mode === 'flight') {
+        let val = document.getElementById('flight_date_input_id').value;
+        if (val) {
+            let d = parseArabicDate(val, now.getFullYear());
+            customDatePickerViewYear = d.getFullYear();
+            customDatePickerViewMonth = d.getMonth();
+        } else {
+            customDatePickerViewYear = now.getFullYear();
+            customDatePickerViewMonth = now.getMonth();
+        }
+    }
+
+    renderCustomDatePickerGrid();
+    document.getElementById('custom_date_picker_dropdown').classList.add('show');
+    document.getElementById('custom_date_picker_backdrop').classList.add('show');
+    document.documentElement.style.overflow = 'hidden';
 }
+
+// Close the custom date picker
+function closeCustomDatePicker() {
+    document.getElementById('custom_date_picker_dropdown').classList.remove('show');
+    document.getElementById('custom_date_picker_backdrop').classList.remove('show');
+    document.documentElement.style.overflow = 'auto';
+}
+
+// Navigate +1 (next month) or -1 (previous month)
+function navigateCustomDatePicker(direction) {
+    customDatePickerViewMonth += direction;
+    if (customDatePickerViewMonth > 11) {
+        customDatePickerViewMonth = 0;
+        customDatePickerViewYear++;
+    } else if (customDatePickerViewMonth < 0) {
+        customDatePickerViewMonth = 11;
+        customDatePickerViewYear--;
+    }
+    renderCustomDatePickerGrid();
+}
+
+// Render day cells for the current view year/month
+function renderCustomDatePickerGrid() {
+    document.getElementById('custom_date_picker_month_year_span').textContent =
+        innerDatePickerArabicMonths[customDatePickerViewMonth] + ' ' + customDatePickerViewYear;
+
+    let daysDiv = document.getElementById('custom_date_picker_days_div');
+    daysDiv.innerHTML = '';
+
+    // Determine minimum selectable date
+    let minDate = new Date();
+    minDate.setHours(0, 0, 0, 0);
+    if (customDatePickerMode === 'end') {
+        let startVal = document.getElementById('whole_package_start_date_input_id').value;
+        if (startVal) {
+            let sd = parseArabicDate(startVal, selectedStartYear);
+            sd.setHours(0, 0, 0, 0);
+            let minEnd = new Date(sd);
+            minEnd.setDate(minEnd.getDate() + 1);
+            minDate = minEnd;
+        }
+    }
+
+    // Offset: Sat=0, Sun=1, Mon=2, Tue=3, Wed=4, Thu=5, Fri=6
+    let firstDayOfWeek = new Date(customDatePickerViewYear, customDatePickerViewMonth, 1).getDay();
+    let startOffset = (firstDayOfWeek + 1) % 7;
+    let daysInMonth = new Date(customDatePickerViewYear, customDatePickerViewMonth + 1, 0).getDate();
+
+    let todayMidnight = new Date();
+    todayMidnight.setHours(0, 0, 0, 0);
+
+    // Resolve currently selected date for highlighting
+    let year = customDatePickerMode === 'flight' ? new Date().getFullYear() : (selectedStartYear || new Date().getFullYear());
+    let selectedMidnight = null;
+    let inputVal;
+    if (customDatePickerMode === 'start') {
+        inputVal = document.getElementById('whole_package_start_date_input_id').value;
+    } else if (customDatePickerMode === 'end') {
+        inputVal = document.getElementById('whole_package_end_date_input_id').value;
+    } else if (customDatePickerMode === 'flight') {
+        inputVal = document.getElementById('flight_date_input_id').value;
+    }
+    if (inputVal) {
+        selectedMidnight = parseArabicDate(inputVal, year);
+        selectedMidnight.setHours(0, 0, 0, 0);
+    }
+
+    // Start date reference highlight for end picker
+    let startRefMidnight = null;
+    if (customDatePickerMode === 'end') {
+        let startVal = document.getElementById('whole_package_start_date_input_id').value;
+        if (startVal) {
+            startRefMidnight = parseArabicDate(startVal, selectedStartYear || new Date().getFullYear());
+            startRefMidnight.setHours(0, 0, 0, 0);
+        }
+    }
+
+    // Empty offset cells
+    for (let i = 0; i < startOffset; i++) {
+        daysDiv.appendChild(document.createElement('div'));
+    }
+
+    // Day cells
+    for (let d = 1; d <= daysInMonth; d++) {
+        let date = new Date(customDatePickerViewYear, customDatePickerViewMonth, d);
+        date.setHours(0, 0, 0, 0);
+
+        let dayDiv = document.createElement('div');
+        dayDiv.textContent = d;
+
+        let isDisabled = date < minDate;
+        if (!isDisabled && customDatePickerMode === 'end') {
+            isDisabled = disableSpecificDates(date, 'whole_package_start_date_input_id');
+        }
+
+        if (isDisabled) {
+            dayDiv.className = 'custom_date_picker_disabled_day_class';
+        } else {
+            dayDiv.className = 'custom_date_picker_day_class';
+            if (selectedMidnight && date.getTime() === selectedMidnight.getTime()) {
+                dayDiv.classList.add('custom_date_picker_selected_day_class');
+            } else if (!selectedMidnight && date.getTime() === todayMidnight.getTime()) {
+                dayDiv.classList.add('custom_date_picker_today_class');
+            }
+            (function (capturedDate) {
+                dayDiv.addEventListener('click', function () {
+                    onCustomDatePickerSelect(capturedDate);
+                });
+            })(new Date(date));
+        }
+
+        // Highlight start date as reference in the end date picker
+        if (startRefMidnight && date.getTime() === startRefMidnight.getTime()) {
+            dayDiv.className = 'custom_date_picker_disabled_day_class custom_date_picker_start_ref_class';
+        }
+
+        daysDiv.appendChild(dayDiv);
+    }
+}
+
+// Handle date selection
+function onCustomDatePickerSelect(date) {
+    playSoundEffect('click');
+    let day = date.getDate();
+    let month = getArabicMonthName(date.getMonth());
+
+    if (customDatePickerMode === 'start') {
+        document.getElementById('whole_package_start_date_input_id').value = day + ' ' + month;
+        selectedStartYear = date.getFullYear();
+        selectedStartMonth = date.getMonth();
+        document.getElementById('whole_package_end_date_input_id').value = '';
+        document.getElementById('package_total_nights_input_id').value = '';
+        updateWholePackageTotalNights();
+        document.getElementById('whole_package_start_date_input_id').dispatchEvent(new Event('change'));
+        closeCustomDatePicker();
+        openCustomDatePicker('end');
+    } else if (customDatePickerMode === 'end') {
+        let yearSuffix = (selectedStartYear && date.getFullYear() !== selectedStartYear) ? ' ' + date.getFullYear() : '';
+        document.getElementById('whole_package_end_date_input_id').value = day + ' ' + month + yearSuffix;
+        fetchAllCloseSellDataFunction_Supabase();
+        updateWholePackageTotalNights();
+        document.getElementById('whole_package_end_date_input_id').dispatchEvent(new Event('change'));
+        closeCustomDatePicker();
+    } else if (customDatePickerMode === 'flight') {
+        document.getElementById('flight_date_input_id').value = day + ' ' + month;
+        document.getElementById('flight_date_input_id').dispatchEvent(new Event('change'));
+        closeCustomDatePicker();
+    }
+}
+
