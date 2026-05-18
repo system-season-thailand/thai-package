@@ -237,7 +237,7 @@ let allHotelDataArray = [
         hotelName: 'Hyatt Regency Phuket',
         hotelLocation: 'Phuket',
         hotelRoomTypes: ['Garden View Room', 'Ocean View Room', 'King Bed Plunge Pool', 'Two BR Family Room', 'Two BR Family Bunk Bed', 'Ocean View Club Access', 'King Bed Terrace Whirlpool', 'Two BR Regency Suite', 'King Bed Hilltop Ocean View Suite'],
-        hotelRoomTypesArabic: ['جاردين فيو ورم', 'اوشن فيو روم', 'كينج بيد مع مسبح خاص', 'فاميلي روم من غرفتين نوم', 'فاميلي روم من غرفتين نوم بانك بيد', 'اوشن فيو كلوب اكسس', 'كينج بيد تراس مع حوض استرخاء', 'سويت ريجنسي من غرفتين نوم', 'سويت كينج بيد هيلتوب بإطلالة على المحيط'],
+        hotelRoomTypesArabic: ['جاردين فيو ورم', 'اوشن فيو روم', 'كينج بيد مع حوض سباحة', 'فاميلي روم من غرفتين نوم', 'فاميلي روم من غرفتين نوم بانك بيد', 'اوشن فيو كلوب اكسس', 'كينج بيد تراس مع حوض استرخاء', 'سويت ريجنسي من غرفتين نوم', 'سويت كينج بيد هيلتوب بإطلالة على المحيط'],
     },
     {
         hotelName: 'Namaka Resort Kamala',
