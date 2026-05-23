@@ -319,6 +319,7 @@ const companyNames = [
     { name: "ذهاب وعوده", company_by_value: "awa" },
     { name: "المنافس للسفر والسياحة", company_by_value: "awa" },
     { name: "عالم الحجوزات", company_by_value: "ofs" },
+    { name: "ناس جروب", company_by_value: null },
     { name: "جراند اطلس", company_by_value: null },
     { name: "فلاي جاويش", company_by_value: null },
     { name: "دوبامين ترافل", company_by_value: null },
