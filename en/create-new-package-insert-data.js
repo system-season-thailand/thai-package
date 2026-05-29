@@ -1907,8 +1907,6 @@ createHotelsDataFunction = function () {
     let hotelCheckInReadyText = document.getElementById('hotel_check_in_input_id').value;
     let hotelCheckOutReadyText = document.getElementById('hotel_check_out_input_id').value;
     let hotelRoomTypeDescriptionInput = document.getElementById('hotel_room_type_description_input_id').value;
-    let hotelRoomContainPoolInput = document.getElementById('hotel_room_contain_pool_input_id').value;
-    let hotelRoomViewInput = document.getElementById('hotel_room_view_input_id').value;
     let hotelUnitAmountInput = document.getElementById('hotel_unit_amount_input_id').value;
     let hotelBreakfastPeopleAmountInput = document.getElementById('hotel_breakfast_people_amount_input_id').value;
     let hotelExtraBedInput = document.getElementById('hotel_extra_bed_input_id').value;
@@ -1917,8 +1915,6 @@ createHotelsDataFunction = function () {
 
     /* Second hotel room data input values */
     let hotelRoomTypeDescriptionInput_2 = document.getElementById('hotel_room_type_description_input_id_2').value;
-    let hotelRoomContainPoolInput_2 = document.getElementById('hotel_room_contain_pool_input_id_2').value;
-    let hotelRoomViewInput_2 = document.getElementById('hotel_room_view_input_id_2').value;
     let hotelUnitAmountInput_2 = document.getElementById('hotel_unit_amount_input_id_2').value;
     let hotelBreakfastPeopleAmountInput_2 = document.getElementById('hotel_breakfast_people_amount_input_id_2').value;
     let hotelExtraBedInput_2 = document.getElementById('hotel_extra_bed_input_id_2').value;
@@ -2071,18 +2067,6 @@ createHotelsDataFunction = function () {
         hotelRowTableDiv.innerHTML = hotelRowTableDivContent;
 
         // Append <span> elements for each input with text
-        if (hotelRoomContainPoolInput !== '') {
-            let poolSpan = document.createElement('span');
-            poolSpan.id = `hotel_pool_span_id_${insertedHotelDataDivUniqueId}`;
-            poolSpan.innerText = hotelRoomContainPoolInput;
-            hotelRowTableDiv.querySelector('.description_cell').appendChild(poolSpan);
-        }
-        if (hotelRoomViewInput !== '') {
-            let viewSpan = document.createElement('span');
-            viewSpan.id = `hotel_view_span_id_${insertedHotelDataDivUniqueId}`;
-            viewSpan.innerText = hotelRoomViewInput;
-            hotelRowTableDiv.querySelector('.description_cell').appendChild(viewSpan);
-        }
         if (hotelBreakfastPeopleAmountInput !== '') {
             let breakfastSpan = document.createElement('span');
             breakfastSpan.id = `hotel_breakfast_span_id_${insertedHotelDataDivUniqueId}`;
@@ -2149,24 +2133,6 @@ createHotelsDataFunction = function () {
                 plusSign.style.color = 'white';
                 hotelRowTableDiv.querySelector('.description_cell').appendChild(plusSign);
                 hotelRowTableDiv.querySelector('.description_cell').appendChild(roomTypeDescriptionSpan_2);
-            }
-            if (hotelRoomContainPoolInput_2 !== '') {
-                let poolSpan_2 = document.createElement('span');
-                poolSpan_2.id = `hotel_pool_span_id_2_${insertedHotelDataDivUniqueId}`;
-                poolSpan_2.innerText = hotelRoomContainPoolInput_2;
-                poolSpan_2.style.width = '100%';
-                poolSpan_2.style.background = 'rgb(5, 17, 21)';
-                poolSpan_2.style.color = 'white';
-                hotelRowTableDiv.querySelector('.description_cell').appendChild(poolSpan_2);
-            }
-            if (hotelRoomViewInput_2 !== '') {
-                let viewSpan_2 = document.createElement('span');
-                viewSpan_2.id = `hotel_view_span_id_2_${insertedHotelDataDivUniqueId}`;
-                viewSpan_2.style.width = '100%';
-                viewSpan_2.innerText = hotelRoomViewInput_2;
-                viewSpan_2.style.background = 'rgb(5, 17, 21)';
-                viewSpan_2.style.color = 'white';
-                hotelRowTableDiv.querySelector('.description_cell').appendChild(viewSpan_2);
             }
             if (hotelBreakfastPeopleAmountInput_2 !== '') {
                 let breakfastSpan_2 = document.createElement('span');
@@ -2322,18 +2288,6 @@ createHotelsDataFunction = function () {
         hotelRowTableDiv.innerHTML = hotelRowTableDivContent;
 
         // Append <span> elements for each input with text
-        if (hotelRoomContainPoolInput !== '') {
-            let poolSpan = document.createElement('span');
-            poolSpan.id = `hotel_pool_span_id_${insertedHotelDataDivUniqueId}`;
-            poolSpan.innerText = hotelRoomContainPoolInput;
-            hotelRowTableDiv.querySelector('.description_cell').appendChild(poolSpan);
-        }
-        if (hotelRoomViewInput !== '') {
-            let viewSpan = document.createElement('span');
-            viewSpan.id = `hotel_view_span_id_${insertedHotelDataDivUniqueId}`;
-            viewSpan.innerText = hotelRoomViewInput;
-            hotelRowTableDiv.querySelector('.description_cell').appendChild(viewSpan);
-        }
         if (hotelBreakfastPeopleAmountInput !== '') {
             let breakfastSpan = document.createElement('span');
             breakfastSpan.id = `hotel_breakfast_span_id_${insertedHotelDataDivUniqueId}`;
@@ -2397,24 +2351,6 @@ createHotelsDataFunction = function () {
                 plusSign.style.color = 'white';
                 hotelRowTableDiv.querySelector('.description_cell').appendChild(plusSign);
                 hotelRowTableDiv.querySelector('.description_cell').appendChild(roomTypeDescriptionSpan_2);
-            }
-            if (hotelRoomContainPoolInput_2 !== '') {
-                let poolSpan_2 = document.createElement('span');
-                poolSpan_2.id = `hotel_pool_span_id_2_${insertedHotelDataDivUniqueId}`;
-                poolSpan_2.innerText = hotelRoomContainPoolInput_2;
-                poolSpan_2.style.width = '100%';
-                poolSpan_2.style.background = 'rgb(5, 17, 21)';
-                poolSpan_2.style.color = 'white';
-                hotelRowTableDiv.querySelector('.description_cell').appendChild(poolSpan_2);
-            }
-            if (hotelRoomViewInput_2 !== '') {
-                let viewSpan_2 = document.createElement('span');
-                viewSpan_2.id = `hotel_view_span_id_2_${insertedHotelDataDivUniqueId}`;
-                viewSpan_2.style.width = '100%';
-                viewSpan_2.innerText = hotelRoomViewInput_2;
-                viewSpan_2.style.background = 'rgb(5, 17, 21)';
-                viewSpan_2.style.color = 'white';
-                hotelRowTableDiv.querySelector('.description_cell').appendChild(viewSpan_2);
             }
             if (hotelBreakfastPeopleAmountInput_2 !== '') {
                 let breakfastSpan_2 = document.createElement('span');
@@ -2525,15 +2461,11 @@ createHotelsDataFunction = function () {
     document.getElementById('hotel_check_out_input_id').value = '';
     document.getElementById('hotel_total_nights_input_id').value = '';
     document.getElementById('hotel_room_type_description_input_id').value = '';
-    document.getElementById('hotel_room_contain_pool_input_id').value = '';
-    document.getElementById('hotel_room_view_input_id').value = '';
     document.getElementById('hotel_special_room_request_input_id').value = '';
     document.getElementById('hotel_room_extra_info_textarea_id').value = '';
 
 
     document.getElementById('hotel_room_type_description_input_id_2').value = '';
-    document.getElementById('hotel_room_contain_pool_input_id_2').value = '';
-    document.getElementById('hotel_room_view_input_id_2').value = '';
     document.getElementById('hotel_special_room_request_input_id_2').value = '';
     document.getElementById('hotel_room_extra_info_textarea_id_2').value = '';
 
@@ -3245,8 +3177,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
 
     let hotelRoomTypeDescriptionText = clickedHotelDataDiv.querySelector(`span[id^='hotel_room_type_description_${insertedHotelDataDivUniqueId}']`)?.innerText || '';
-    let hotelRoomContainPoolText = clickedHotelDataDiv.querySelector(`span[id^='hotel_pool_span_id_${insertedHotelDataDivUniqueId}']`)?.innerText || '';
-    let hotelRoomViewText = clickedHotelDataDiv.querySelector(`span[id^='hotel_view_span_id_${insertedHotelDataDivUniqueId}']`)?.innerText || '';
 
 
     /* Store the extracted number form the hotel total unit just (as a number) */
@@ -3281,8 +3211,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
 
         let hotelRoomTypeDescriptionText_2 = clickedHotelDataDiv.querySelector(`span[id^='hotel_room_type_description_2_${insertedHotelDataDivUniqueId}']`)?.innerText || '';
-        let hotelRoomContainPoolText_2 = clickedHotelDataDiv.querySelector(`span[id^='hotel_pool_span_id_2_${insertedHotelDataDivUniqueId}']`)?.innerText || '';
-        let hotelRoomViewText_2 = clickedHotelDataDiv.querySelector(`span[id^='hotel_view_span_id_2_${insertedHotelDataDivUniqueId}']`)?.innerText || '';
 
         /* Store the extracted number form the hotel total unit just (as a number) */
         storeHotelTotalUnitNumber_2 = clickedHotelDataDiv.querySelector(`p[id^='hotel_total_unit_2_${insertedHotelDataDivUniqueId}']`)?.innerText || '';
@@ -3298,8 +3226,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
 
         document.getElementById('hotel_room_type_description_input_id_2').value = hotelRoomTypeDescriptionText_2;
-        document.getElementById('hotel_room_contain_pool_input_id_2').value = hotelRoomContainPoolText_2;
-        document.getElementById('hotel_room_view_input_id_2').value = hotelRoomViewText_2;
         document.getElementById('hotel_unit_amount_input_id_2').value = `عدد الوحدات ${storeHotelTotalUnitNumber_2}`;
         document.getElementById('hotel_breakfast_people_amount_input_id_2').value = hotelBreakfastPeopleAmountText_2;
         document.getElementById('hotel_extra_bed_input_id_2').value = hotelExtraBedText_2;
@@ -3371,8 +3297,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
     document.getElementById('hotel_check_out_input_id').value = hotelCheckOutText;
     document.getElementById('hotel_total_nights_input_id').value = `${storeHotelTotalNights} ليالي`;
     document.getElementById('hotel_room_type_description_input_id').value = hotelRoomTypeDescriptionText;
-    document.getElementById('hotel_room_contain_pool_input_id').value = hotelRoomContainPoolText;
-    document.getElementById('hotel_room_view_input_id').value = hotelRoomViewText;
     document.getElementById('hotel_unit_amount_input_id').value = `عدد الوحدات ${storeHotelTotalUnitNumber}`;
     document.getElementById('hotel_breakfast_people_amount_input_id').value = hotelBreakfastPeopleAmountText;
     document.getElementById('hotel_extra_bed_input_id').value = hotelExtraBedText;
@@ -3453,15 +3377,11 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
         document.getElementById('hotel_check_out_input_id').value = '';
         document.getElementById('hotel_total_nights_input_id').value = '';
         document.getElementById('hotel_room_type_description_input_id').value = '';
-        document.getElementById('hotel_room_contain_pool_input_id').value = '';
-        document.getElementById('hotel_room_view_input_id').value = '';
         document.getElementById('hotel_special_room_request_input_id').value = '';
         document.getElementById('hotel_room_extra_info_textarea_id').value = '';
 
 
         document.getElementById('hotel_room_type_description_input_id_2').value = '';
-        document.getElementById('hotel_room_contain_pool_input_id_2').value = '';
-        document.getElementById('hotel_room_view_input_id_2').value = '';
         document.getElementById('hotel_special_room_request_input_id_2').value = '';
         document.getElementById('hotel_room_extra_info_textarea_id_2').value = '';
 
@@ -3557,8 +3477,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
         let hotelCheckInReadyText = document.getElementById('hotel_check_in_input_id').value;
         let hotelCheckOutReadyText = document.getElementById('hotel_check_out_input_id').value;
         let hotelRoomTypeDescriptionInput = document.getElementById('hotel_room_type_description_input_id').value;
-        let hotelRoomContainPoolInput = document.getElementById('hotel_room_contain_pool_input_id').value;
-        let hotelRoomViewInput = document.getElementById('hotel_room_view_input_id').value;
         let hotelBreakfastPeopleAmountInput = document.getElementById('hotel_breakfast_people_amount_input_id').value;
         let hotelExtraBedInput = document.getElementById('hotel_extra_bed_input_id').value;
         let hotelSpecialRoomRequestInput = document.getElementById('hotel_special_room_request_input_id').value;
@@ -3567,8 +3485,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
         /* Second hotel room data input values */
         let hotelRoomTypeDescriptionInput_2 = document.getElementById('hotel_room_type_description_input_id_2').value;
-        let hotelRoomContainPoolInput_2 = document.getElementById('hotel_room_contain_pool_input_id_2').value;
-        let hotelRoomViewInput_2 = document.getElementById('hotel_room_view_input_id_2').value;
         let hotelUnitAmountInput_2 = document.getElementById('hotel_unit_amount_input_id_2').value;
         let hotelBreakfastPeopleAmountInput_2 = document.getElementById('hotel_breakfast_people_amount_input_id_2').value;
         let hotelExtraBedInput_2 = document.getElementById('hotel_extra_bed_input_id_2').value;
@@ -3692,18 +3608,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
 
             // Append <span> elements for each input with text
-            if (hotelRoomContainPoolInput !== '') {
-                let poolSpan = document.createElement('span');
-                poolSpan.id = `hotel_pool_span_id_${insertedHotelDataDivUniqueId}`;
-                poolSpan.innerText = hotelRoomContainPoolInput;
-                clickedHotelDataDiv.querySelector('.description_cell').appendChild(poolSpan);
-            }
-            if (hotelRoomViewInput !== '') {
-                let viewSpan = document.createElement('span');
-                viewSpan.id = `hotel_view_span_id_${insertedHotelDataDivUniqueId}`;
-                viewSpan.innerText = hotelRoomViewInput;
-                clickedHotelDataDiv.querySelector('.description_cell').appendChild(viewSpan);
-            }
             if (hotelBreakfastPeopleAmountInput !== '') {
                 let breakfastSpan = document.createElement('span');
                 breakfastSpan.id = `hotel_breakfast_span_id_${insertedHotelDataDivUniqueId}`;
@@ -3767,24 +3671,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                     plusSign.style.color = 'white';
                     clickedHotelDataDiv.querySelector('.description_cell').appendChild(plusSign);
                     clickedHotelDataDiv.querySelector('.description_cell').appendChild(roomTypeDescriptionSpan_2);
-                }
-                if (hotelRoomContainPoolInput_2 !== '') {
-                    let poolSpan_2 = document.createElement('span');
-                    poolSpan_2.id = `hotel_pool_span_id_2_${insertedHotelDataDivUniqueId}`;
-                    poolSpan_2.innerText = hotelRoomContainPoolInput_2;
-                    poolSpan_2.style.width = '100%';
-                    poolSpan_2.style.background = 'rgb(5, 17, 21)';
-                    poolSpan_2.style.color = 'white';
-                    clickedHotelDataDiv.querySelector('.description_cell').appendChild(poolSpan_2);
-                }
-                if (hotelRoomViewInput_2 !== '') {
-                    let viewSpan_2 = document.createElement('span');
-                    viewSpan_2.id = `hotel_view_span_id_2_${insertedHotelDataDivUniqueId}`;
-                    viewSpan_2.style.width = '100%';
-                    viewSpan_2.innerText = hotelRoomViewInput_2;
-                    viewSpan_2.style.background = 'rgb(5, 17, 21)';
-                    viewSpan_2.style.color = 'white';
-                    clickedHotelDataDiv.querySelector('.description_cell').appendChild(viewSpan_2);
                 }
                 if (hotelBreakfastPeopleAmountInput_2 !== '') {
                     let breakfastSpan_2 = document.createElement('span');
@@ -3896,18 +3782,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
 
 
             // Append <span> elements for each input with text
-            if (hotelRoomContainPoolInput !== '') {
-                let poolSpan = document.createElement('span');
-                poolSpan.id = `hotel_pool_span_id_${insertedHotelDataDivUniqueId}`;
-                poolSpan.innerText = hotelRoomContainPoolInput;
-                clickedHotelDataDiv.querySelector('.description_cell').appendChild(poolSpan);
-            }
-            if (hotelRoomViewInput !== '') {
-                let viewSpan = document.createElement('span');
-                viewSpan.id = `hotel_view_span_id_${insertedHotelDataDivUniqueId}`;
-                viewSpan.innerText = hotelRoomViewInput;
-                clickedHotelDataDiv.querySelector('.description_cell').appendChild(viewSpan);
-            }
             if (hotelBreakfastPeopleAmountInput !== '') {
                 let breakfastSpan = document.createElement('span');
                 breakfastSpan.id = `hotel_breakfast_span_id_${insertedHotelDataDivUniqueId}`;
@@ -3971,24 +3845,6 @@ editClickedHotelDataFunction = function (clickedHotelRowIdName) {
                     plusSign.style.color = 'white';
                     clickedHotelDataDiv.querySelector('.description_cell').appendChild(plusSign);
                     clickedHotelDataDiv.querySelector('.description_cell').appendChild(roomTypeDescriptionSpan_2);
-                }
-                if (hotelRoomContainPoolInput_2 !== '') {
-                    let poolSpan_2 = document.createElement('span');
-                    poolSpan_2.id = `hotel_pool_span_id_2_${insertedHotelDataDivUniqueId}`;
-                    poolSpan_2.innerText = hotelRoomContainPoolInput_2;
-                    poolSpan_2.style.width = '100%';
-                    poolSpan_2.style.background = 'rgb(5, 17, 21)';
-                    poolSpan_2.style.color = 'white';
-                    clickedHotelDataDiv.querySelector('.description_cell').appendChild(poolSpan_2);
-                }
-                if (hotelRoomViewInput_2 !== '') {
-                    let viewSpan_2 = document.createElement('span');
-                    viewSpan_2.id = `hotel_view_span_id_2_${insertedHotelDataDivUniqueId}`;
-                    viewSpan_2.style.width = '100%';
-                    viewSpan_2.innerText = hotelRoomViewInput_2;
-                    viewSpan_2.style.background = 'rgb(5, 17, 21)';
-                    viewSpan_2.style.color = 'white';
-                    clickedHotelDataDiv.querySelector('.description_cell').appendChild(viewSpan_2);
                 }
                 if (hotelBreakfastPeopleAmountInput_2 !== '') {
                     let breakfastSpan_2 = document.createElement('span');
