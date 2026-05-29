@@ -5,7 +5,6 @@
  *   id          BIGSERIAL PRIMARY KEY,
  *   hotel_name  TEXT NOT NULL,
  *   hotel_location TEXT DEFAULT '',
- *   hotel_area  TEXT DEFAULT '',
  *   room_types  JSONB DEFAULT '[]'::jsonb,
  *   created_at  TIMESTAMPTZ DEFAULT NOW(),
  *   updated_at  TIMESTAMPTZ DEFAULT NOW()
@@ -51,7 +50,6 @@ async function loadHotels() {
     .from(TABLE)
     .select('*')
     .order('hotel_location', { ascending: true })
-    .order('hotel_area',     { ascending: true })
     .order('hotel_name',     { ascending: true });
 
   showLoading(false);
@@ -77,8 +75,7 @@ function renderHotels() {
   const filtered = q
     ? hotels.filter(h =>
         h.hotel_name.toLowerCase().includes(q) ||
-        (h.hotel_location || '').toLowerCase().includes(q) ||
-        (h.hotel_area     || '').toLowerCase().includes(q))
+        (h.hotel_location || '').toLowerCase().includes(q))
     : hotels;
 
   const countEl = document.getElementById('hotels-count');
@@ -101,7 +98,7 @@ function renderHotels() {
 }
 
 function renderHotelCard(hotel) {
-  const loc      = [hotel.hotel_location, hotel.hotel_area].filter(Boolean).join(' · ');
+  const loc      = hotel.hotel_location || '';
   const addClick = isAdmin ? ` onclick="showAddRow(${hotel.id})"` : '';
 
   return `
@@ -510,7 +507,6 @@ function showError(error) {
   id BIGSERIAL PRIMARY KEY,
   hotel_name TEXT NOT NULL,
   hotel_location TEXT DEFAULT '',
-  hotel_area TEXT DEFAULT '',
   room_types JSONB DEFAULT '[]'::jsonb,
   created_at TIMESTAMPTZ DEFAULT NOW()
 );</code>

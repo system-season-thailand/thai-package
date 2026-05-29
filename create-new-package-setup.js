@@ -1,4 +1,4 @@
-/* Function to prevent the page refresh by mistake */
+﻿/* Function to prevent the page refresh by mistake */
 window.addEventListener('beforeunload', function (event) {
     event.preventDefault(); // Prevent the default action
     event.returnValue = ''; // Set the return value to trigger the default browser confirmation dialog
@@ -1957,6 +1957,45 @@ document.getElementById('hotel_english_room_type_description_input_id_2').addEve
     lastClickedInput = this;
 });
 
+// ── Room-type DB cache ────────────────────────────────────────────────────────
+// Loaded from Supabase "thai_hotel_room_types" table on page init.
+let _roomTypesDBCache = null; // null = not loaded yet
+
+function _findHotelRoomData(hotelName) {
+    if (!_roomTypesDBCache) return null;
+    const row = _roomTypesDBCache.find(h => h.hotel_name === hotelName);
+    if (!row) return null;
+    return {
+        hotelRoomTypes:   (row.room_types || []).map(rt => rt.en).filter(Boolean),
+        hotelRoomTypesAr: (row.room_types || []).map(rt => rt.ar).filter(Boolean),
+        roomPairs:        (row.room_types || []).filter(rt => rt.ar || rt.en),
+        hotelLocation:    row.hotel_location || '',
+    };
+}
+
+(function loadRoomTypesFromDB() {
+    function tryLoad() {
+        const client = window.supabase;
+        if (!client || typeof client.from !== 'function') { setTimeout(tryLoad, 200); return; }
+        client.from('thai_hotel_room_types').select('hotel_name, room_types, hotel_location').then(({ data, error }) => {
+            if (!error && data) {
+                _roomTypesDBCache = data;
+                const sortedNames = data
+                    .slice()
+                    .sort((a, b) => {
+                        const loc = (a.hotel_location || '').localeCompare(b.hotel_location || '');
+                        if (loc !== 0) return loc;
+                        return (a.hotel_name || '').localeCompare(b.hotel_name || '');
+                    })
+                    .map(h => h.hotel_name);
+                populateHotelNamesDropdown(sortedNames);
+            }
+        });
+    }
+    setTimeout(tryLoad, 300);
+})();
+// ─────────────────────────────────────────────────────────────────────────────
+
 /* Function to create hotel room type description h3 dropdown elements */
 let createRoomTypeDescripyionDropDown = function () {
     let hotelNameInput = document.getElementById('hotel_name_input_id').value;
@@ -1964,31 +2003,27 @@ let createRoomTypeDescripyionDropDown = function () {
 
     if (hotelNameInput !== '') {
         hotelRoomTypeDescriptionH3ElementsDiv.innerHTML = '';
-        let hotel = allHotelDataArray.find(hotel => hotel.hotelName === hotelNameInput);
+        let hotelData = _findHotelRoomData(hotelNameInput);
 
-        if (hotel) {
-            hotel.hotelRoomTypes.forEach((roomType, index) => {
+        if (hotelData) {
+            hotelData.roomPairs.forEach(pair => {
+                if (!pair.en) return;
                 let h3 = document.createElement('h3');
-                h3.textContent = roomType;
+                h3.textContent = pair.en;
                 hotelRoomTypeDescriptionH3ElementsDiv.appendChild(h3);
 
                 h3.addEventListener('click', () => {
-
-                    // Play a sound effect
                     playSoundEffect('click');
 
                     if (lastClickedInput) {
-                        lastClickedInput.value = h3.textContent;
+                        lastClickedInput.value = pair.en;
 
-                        // Auto-fill the paired Arabic input
                         let pairedArabicId = lastClickedInput.id === 'hotel_english_room_type_description_input_id'
                             ? 'hotel_arabic_room_type_description_input_id'
                             : 'hotel_arabic_room_type_description_input_id_2';
 
                         let pairedArabicInput = document.getElementById(pairedArabicId);
-                        if (hotel.hotelRoomTypesArabic && hotel.hotelRoomTypesArabic[index]) {
-                            pairedArabicInput.value = hotel.hotelRoomTypesArabic[index];
-                        }
+                        if (pairedArabicInput) pairedArabicInput.value = pair.ar || '';
                     }
 
                     hideOverlay();
@@ -2019,29 +2054,27 @@ let createArabicRoomTypeDescripyionDropDown = function () {
 
     if (hotelNameInput !== '') {
         arabicH3ElementsDiv.innerHTML = '';
-        let hotel = allHotelDataArray.find(hotel => hotel.hotelName === hotelNameInput);
+        let hotelData = _findHotelRoomData(hotelNameInput);
 
-        if (hotel && hotel.hotelRoomTypesArabic) {
-            hotel.hotelRoomTypesArabic.forEach((roomType, index) => {
+        if (hotelData) {
+            hotelData.roomPairs.forEach(pair => {
+                if (!pair.ar) return;
                 let h3 = document.createElement('h3');
-                h3.textContent = roomType;
+                h3.textContent = pair.ar;
                 arabicH3ElementsDiv.appendChild(h3);
 
                 h3.addEventListener('click', () => {
                     playSoundEffect('click');
 
                     if (lastClickedArabicInput) {
-                        lastClickedArabicInput.value = h3.textContent;
+                        lastClickedArabicInput.value = pair.ar;
 
-                        // Auto-fill the paired English input
                         let pairedEnglishId = lastClickedArabicInput.id === 'hotel_arabic_room_type_description_input_id'
                             ? 'hotel_english_room_type_description_input_id'
                             : 'hotel_english_room_type_description_input_id_2';
 
                         let pairedEnglishInput = document.getElementById(pairedEnglishId);
-                        if (hotel.hotelRoomTypes[index]) {
-                            pairedEnglishInput.value = hotel.hotelRoomTypes[index];
-                        }
+                        if (pairedEnglishInput) pairedEnglishInput.value = pair.en || '';
                     }
 
                     hideOverlay();

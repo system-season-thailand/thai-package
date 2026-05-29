@@ -1713,12 +1713,30 @@ input {
 
 
 
-    #custom_date_picker_month_year_span { font-size: 2.5vw; }
-    .custom_date_picker_nav_btn_class { width: 5vw; height: 5vw; font-size: 5vw; }
-    #custom_date_picker_weekdays_div div { font-size: 1.8vw; }
+    #custom_date_picker_month_year_span {
+        font-size: 2.5vw;
+    }
+
+    .custom_date_picker_nav_btn_class {
+        width: 5vw;
+        height: 5vw;
+        font-size: 5vw;
+    }
+
+    #custom_date_picker_weekdays_div div {
+        font-size: 1.8vw;
+    }
+
     .custom_date_picker_day_class,
-    .custom_date_picker_disabled_day_class { font-size: 2vw; padding: 1.2vw 0; }
-    #custom_date_picker_cancel_btn { font-size: 2vw; padding: 1.5vw; }
+    .custom_date_picker_disabled_day_class {
+        font-size: 2vw;
+        padding: 1.2vw 0;
+    }
+
+    #custom_date_picker_cancel_btn {
+        font-size: 2vw;
+        padding: 1.5vw;
+    }
 }
 
 /* 850px */
@@ -2020,12 +2038,30 @@ input {
 
 
 
-    #custom_date_picker_month_year_span { font-size: 3.5vw; }
-    .custom_date_picker_nav_btn_class { width: 8vw; height: 8vw; font-size: 6vw; }
-    #custom_date_picker_weekdays_div div { font-size: 2.5vw; }
+    #custom_date_picker_month_year_span {
+        font-size: 3.5vw;
+    }
+
+    .custom_date_picker_nav_btn_class {
+        width: 8vw;
+        height: 8vw;
+        font-size: 6vw;
+    }
+
+    #custom_date_picker_weekdays_div div {
+        font-size: 2.5vw;
+    }
+
     .custom_date_picker_day_class,
-    .custom_date_picker_disabled_day_class { font-size: 3vw; padding: 2vw 0; }
-    #custom_date_picker_cancel_btn { font-size: 3vw; padding: 2.5vw; }
+    .custom_date_picker_disabled_day_class {
+        font-size: 3vw;
+        padding: 2vw 0;
+    }
+
+    #custom_date_picker_cancel_btn {
+        font-size: 3vw;
+        padding: 2.5vw;
+    }
 }
 
 
@@ -2276,13 +2312,34 @@ input {
 
 
 
-    #custom_date_picker_month_year_span { font-size: 5vw; }
-    .custom_date_picker_nav_btn_class { width: 12vw; height: 12vw; font-size: 7.5vw; }
-    #custom_date_picker_weekdays_div div { font-size: 3.5vw; padding: 1.5vw 0; }
+    #custom_date_picker_month_year_span {
+        font-size: 5vw;
+    }
+
+    .custom_date_picker_nav_btn_class {
+        width: 12vw;
+        height: 12vw;
+        font-size: 7.5vw;
+    }
+
+    #custom_date_picker_weekdays_div div {
+        font-size: 3.5vw;
+        padding: 1.5vw 0;
+    }
+
     .custom_date_picker_day_class,
-    .custom_date_picker_disabled_day_class { font-size: 4.5vw; padding: 3vw 0; }
-    #custom_date_picker_cancel_btn { font-size: 4.5vw;}
-    #custom_date_picker_days_div { gap: 1vw; }
+    .custom_date_picker_disabled_day_class {
+        font-size: 4.5vw;
+        padding: 3vw 0;
+    }
+
+    #custom_date_picker_cancel_btn {
+        font-size: 4.5vw;
+    }
+
+    #custom_date_picker_days_div {
+        gap: 1vw;
+    }
 }
 
 /* 320px */

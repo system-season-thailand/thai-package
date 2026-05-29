@@ -1465,8 +1465,6 @@ reActiveDragAndDropFunctionality = function (visiableDivIdName) {
         // Call the function to set up drag-and-drop functionality
         createHotelDragAndDropMood();
 
-
-
         // Call a function to save the current dates of all hotels for later Re-arranging use (when drag and drop)
         saveOriginalHotelDates();
 
