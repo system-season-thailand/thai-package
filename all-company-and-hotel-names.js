@@ -333,6 +333,7 @@ const companyNames = [
     { name: "رحلة", company_by_value: null },
     { name: "اميال المتحدة", company_by_value: null },
     { name: "حفاوة المسافرون", company_by_value: null },
+    { name: "جلوبالي يورز", company_by_value: null },
     { name: "الميادين للسفر", company_by_value: "awa" },
     { name: "ibs", company_by_value: null }
 ];
