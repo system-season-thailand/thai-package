@@ -371,7 +371,6 @@ const companyNames = [
 
 
 
-
 // Export the arrays (if using modules)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
