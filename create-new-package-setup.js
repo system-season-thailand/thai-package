@@ -1,4 +1,4 @@
-﻿/* Function to prevent the page refresh by mistake */
+/* Function to prevent the page refresh by mistake */
 window.addEventListener('beforeunload', function (event) {
     event.preventDefault(); // Prevent the default action
     event.returnValue = ''; // Set the return value to trigger the default browser confirmation dialog
@@ -1966,10 +1966,10 @@ function _findHotelRoomData(hotelName) {
     const row = _roomTypesDBCache.find(h => h.hotel_name === hotelName);
     if (!row) return null;
     return {
-        hotelRoomTypes:   (row.room_types || []).map(rt => rt.en).filter(Boolean),
+        hotelRoomTypes: (row.room_types || []).map(rt => rt.en).filter(Boolean),
         hotelRoomTypesAr: (row.room_types || []).map(rt => rt.ar).filter(Boolean),
-        roomPairs:        (row.room_types || []).filter(rt => rt.ar || rt.en),
-        hotelLocation:    row.hotel_location || '',
+        roomPairs: (row.room_types || []).filter(rt => rt.ar || rt.en),
+        hotelLocation: row.hotel_location || '',
     };
 }
 
@@ -2963,6 +2963,7 @@ hideAndShowFlightSectionFunction = function () {
 
     } else {
         document.getElementById('downloaded_pdf_flight_data_page').style.display = 'none';
+        document.getElementById('manually_add_flight_row_icon').style.display = 'block';
     }
 
 }
