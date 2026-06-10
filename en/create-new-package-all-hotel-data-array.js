@@ -4,6 +4,13 @@
 
 let allHotelDataArray = [];
 
+const thaiLocationArabicToEnglish = {
+    'بوكيت': 'Phuket',
+    'بانكوك': 'Bangkok',
+    'كرابي': 'Krabi',
+    'باتايا': 'Pattaya',
+};
+
 async function fetchAndStoreHotelData() {
     // Wait for the Supabase client to be ready
     while (!window.supabase || typeof window.supabase.from !== 'function') {
@@ -22,7 +29,7 @@ async function fetchAndStoreHotelData() {
 
     allHotelDataArray = data.map(row => ({
         hotelName: row.hotel_name,
-        hotelLocation: row.hotel_location,
+        hotelLocation: thaiLocationArabicToEnglish[row.hotel_location] || row.hotel_location,
         hotelRoomTypes: Array.isArray(row.room_types)
             ? row.room_types.map(rt => (rt && typeof rt === 'object' ? rt.en : rt) || '')
             : []
