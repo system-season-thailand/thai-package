@@ -1,8 +1,8 @@
-/* Function to prevent the page refresh by mistake */
-window.addEventListener('beforeunload', function (event) {
+﻿/* Function to prevent the page refresh by mistake */
+/* window.addEventListener('beforeunload', function (event) {
     event.preventDefault(); // Prevent the default action
     event.returnValue = ''; // Set the return value to trigger the default browser confirmation dialog
-});
+}); */
 
 
 
@@ -1258,6 +1258,9 @@ changeInsertHotelDataSystem = function () {
         document.getElementById('change_insert_hotel_data_system_icon_2').style.background = 'rgb(0, 255, 0)';
         document.getElementById('change_insert_hotel_data_system_icon_2').style.color = 'black';
 
+        document.getElementById('hotel_booking_url_input_id').style.display = 'block';
+        document.getElementById('hotel_booking_url_input_id').value = '';
+
 
     } else {
         // Hide the hotel location input
@@ -1336,6 +1339,9 @@ changeInsertHotelDataSystem = function () {
 
         document.getElementById('change_insert_hotel_data_system_icon_2').style.background = 'rgb(0, 87, 116)';
         document.getElementById('change_insert_hotel_data_system_icon_2').style.color = 'white';
+
+        document.getElementById('hotel_booking_url_input_id').style.display = 'none';
+        document.getElementById('hotel_booking_url_input_id').value = '';
     }
 }
 
@@ -1970,6 +1976,7 @@ function _findHotelRoomData(hotelName) {
         hotelRoomTypesAr: (row.room_types || []).map(rt => rt.ar).filter(Boolean),
         roomPairs: (row.room_types || []).filter(rt => rt.ar || rt.en),
         hotelLocation: row.hotel_location || '',
+        bookingUrl: row.booking_url || '',
     };
 }
 
@@ -1977,7 +1984,7 @@ function _findHotelRoomData(hotelName) {
     function tryLoad() {
         const client = window.supabase;
         if (!client || typeof client.from !== 'function') { setTimeout(tryLoad, 200); return; }
-        client.from('thai_hotel_room_types').select('hotel_name, room_types, hotel_location').then(({ data, error }) => {
+        client.from('thai_hotel_room_types').select('hotel_name, room_types, hotel_location, booking_url').then(({ data, error }) => {
             if (!error && data) {
                 _roomTypesDBCache = data;
                 const sortedNames = data
@@ -2556,17 +2563,17 @@ specificCarTypeInputOptions.forEach(option => {
 
         } else if (option.textContent === 'سيدان') {
             /* Set the input value with the clicked rooms number h3 innerText */
-            specificCarTypeInput.value = 'سيارة سيدان خاصة مع سائق خاص طوال مدة الرحلة';
+            specificCarTypeInput.value = 'سيارة سيدان خاصة مناسبة لكم مع سائق خاص لضمان راحتكم';
 
 
         } else if (option.textContent === 'سيارة متوسطة') {
             /* Set the input value with the clicked rooms number h3 innerText */
-            specificCarTypeInput.value = 'سيارة سيارة متوسطة خاصة مع سائق خاص طوال مدة الرحلة';
+            specificCarTypeInput.value = 'سيارة متوسطة خاصة مناسبة لكم مع سائق خاص لضمان راحتكم';
 
 
         } else if (option.textContent === 'باص هايس') {
             /* Set the input value with the clicked rooms number h3 innerText */
-            specificCarTypeInput.value = 'باص هايس خاص مع سائق خاص طوال مدة الرحلة';
+            specificCarTypeInput.value = 'باص هايس خاص مناسب لكم مع سائق خاص لضمان راحتكم';
 
         }
 
