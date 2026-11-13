@@ -19,7 +19,7 @@ async function fetchAndStoreHotelData() {
 
     const { data, error } = await window.supabase
         .from('thai_hotel_room_types')
-        .select('hotel_name, hotel_location, room_types')
+        .select('hotel_name, hotel_location, room_types, booking_url')
         .order('id', { ascending: true });
 
     if (error) {
@@ -32,7 +32,10 @@ async function fetchAndStoreHotelData() {
         hotelLocation: thaiLocationArabicToEnglish[row.hotel_location] || row.hotel_location,
         hotelRoomTypes: Array.isArray(row.room_types)
             ? row.room_types.map(rt => (rt && typeof rt === 'object' ? rt.en : rt) || '')
-            : []
+            : [],
+        // Read by _resolveHotelRowUrl for the hotel row's PDF link
+        roomTypes: Array.isArray(row.room_types) ? row.room_types : [],
+        bookingUrl: row.booking_url || ''
     }));
 }
 
